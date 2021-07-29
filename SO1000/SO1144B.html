@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .SO1144BHeader {
+            color: blue;
+            font-weight: bold;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div data-id="gbxAll">
+        <!--<div data-id="gbxMove" style="margin-top:1px;margin-bottom:1px;width:96%;height:5%;opacity:0.7;position:relative;">
+            <input type="text" data-id="lEditMode" style="float:right;text-align:center;" class="csslEditMode" />
+            <button data-id="btnCalculate">試算</button>
+            <button data-id="btnMedia">介紹媒介</button>
+            <button data-id="btnResvTime">預約時間</button>
+            <button data-id="btnCutDate">改繳款日</button>
+            <button data-id="btnChangePeriod">改繳別</button>
+            <button data-id="btnNoProm">無促案</button>
+            <button data-id="btnPresent" style="display:none;">贈品/加值購</button>
+            <button data-id="btnSaleProd">銷售產品</button>
+            <button data-id="btnProdProm">產品推薦</button>
+            <button data-id="btnProposer">申請人</button>
+        </div>-->
+        <div data-id="gbxMove" style="float:left;width:10%;">
+            <button data-id="btnProposer">申請人</button>
+            <button data-id="btnNoProm">無促案</button>
+            <button data-id="btnProdProm">產品推薦</button>
+            <button data-id="btnSaleProd">銷售產品</button>
+            <button data-id="btnPresent">贈品/加值購</button>
+            <button data-id="btnChangeNextPeriod">改下期繳別</button>
+            <button data-id="btnPayDate">改繳款日</button>
+            <button data-id="btnResvTime">預約時間</button>
+            <button data-id="btnMedia">介紹媒介</button>
+            <button data-id="btnOrderList">訂購明細</button>
+            <button data-id="btnCalculate">試算</button>
+            <div data-id="gbxStatus" style="top:90%;width:100%;">
+                <button data-id="btnSave" style="text-align:center;width:99%;">存檔</button>
+                <input type="text" data-id="lEditMode" style="text-align:center;width:99%;margin-top:3px;" class="csslEditMode" />
+            </div>
+        </div>
+        <div data-id="gbxBottom" style="float:left;overflow:auto;width:90%;">
+            <div data-id="gbxProposer">
+                <div class="SO1144BHeader">
+                    申請人
+                </div>
+                <div>
+                    <div data-id="dvProposer" style="width:99%;height:60px;"></div>
+                </div>
+            </div>
+            <div data-id="gbxNoProm" style="margin-top:1px;">
+                <div class="SO1144BHeader">
+                    無促案
+                </div>
+                <div>
+                    <div data-id="dvNoProm" style="width:100%;height:66px;"></div>
+                </div>
+            </div>
+            <div data-id="gbxProdProm" style="margin-top:1px;">
+                <div class="SO1144BHeader">
+                    產品推薦
+                </div>
+                <div>
+                    <div data-id="dvProdProm" style="width:99%;height:530px;"></div>
+                </div>
+            </div>
+            <div data-id="gbxSaleProd" style="margin-top:1px;">
+                <div class="SO1144BHeader">
+                    銷售產品
+                </div>
+                <div>
+                    <div data-id="dvSaleProd" style="width:100%;height:530px;"></div>
+                </div>
+            </div>
+            <div data-id="gbxPresent" style="display:none;margin-top:1px;">
+                <div class="SO1144BHeader">
+                    贈品/加值購
+                </div>
+                <div>
+                    <div data-id="dvPresent" style="width:100%;height:530px;"></div>
+                </div>
+            </div>
+            <div style="float:left;width:100%;">
+                <div data-id="gbxChangeNextPeriod" style="float:left;width:50%;margin-top:1px;">
+                    <div class="SO1144BHeader">
+                        改下期繳別
+                    </div>
+                    <div>
+                        <div data-id="dvChangeNextPeriod" style="width:100%;height:30px;"></div>
+                    </div>
+                </div>
+                <div data-id="gbxPayDate" style="float:left;width:49%;margin-top:1px;margin-left:1px;">
+                    <div class="SO1144BHeader">
+                        改繳款日
+                    </div>
+                    <div>
+                        <div data-id="dvPayDate" style="width:100%;height:30px;"></div>
+                    </div>
+                </div>
+            </div>
+            <div style="float:left;width:100%;">
+                <div data-id="gbxResvTime" style="float:left;width:50%;margin-top:1px;">
+                    <div class="SO1144BHeader">
+                        預約時間
+                    </div>
+                    <div>
+                        <div data-id="dvResvTime" style="width:100%;height:100px;"></div>
+                    </div>
+                </div>
+                <div data-id="gbxMedia" style="float:left;width:49%;margin-top:1px;margin-left:1px;">
+                    <div class="SO1144BHeader">
+                        介紹媒介
+                    </div>
+                    <div>
+                        <div data-id="dvMedia" style="width:100%;height:100px;"></div>
+                    </div>
+                </div>
+            </div>
+            <div data-id="gbxOrderList" style="float:left;width:100%;margin-top:1px;">
+                <div class="SO1144BHeader">
+                    訂購明細
+                </div>
+                <div>
+                    <div data-id="dvOrderList" style="width:100%;height:530px;"></div>
+                </div>
+            </div>
+            <div data-id="gbxCalculate" style="float:left;width:100%;margin-top:1px;">
+                <div class="SO1144BHeader">
+                    試算
+                </div>
+                <div>
+                    <div data-id="dvCalculate" style="width:100%;height:530px;"></div>
+                </div>
+            </div>
+        </div>
+        <div data-id="gbxBuyBody" style="margin-top:1px;margin-bottom:1px;left:82%;width:150px;height:5%;opacity:0.7;position:relative;top:80%;">
+            <div data-id="gbxBuy" style="float:right;">
+                <div class="SO1144BHeader">
+                    訂購清單
+                </div>
+                <div>
+                    <div style="height:60px;margin:0px;">
+                        <div data-id="btnBuy" style="text-align:center;margin:4px;color:red;">
+                            <div data-id="gbxPromList"></div>
+                            <div data-id="gbxPresentList" style="margin-top:2px;"></div>
+                            <div data-id="gbxNoPromList" style="margin-top:6px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

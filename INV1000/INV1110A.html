@@ -1,0 +1,456 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    
+    <!--<link href="../jqwidgets/styles/jqx.base.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.black.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.classic.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.dark.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.office.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.energyblue.css" rel="stylesheet" />
+    <script src="../scripts/json2.js"></script>
+
+    <script src="../scripts/jquery-3.3.1.min.js"></script>
+    <script src="../scripts/jquery.mask.min.js"></script>
+    <script src="../jqwidgets/jqx-all.js"></script>
+    <script type="text/javascript" src="../jqwidgets/globalization/globalize.js"></script>
+    <script type="text/javascript" src="../jqwidgets/jqxtooltip.js"></script>
+    <script src="../component/csDateTime.js"></script>
+    <script src="../component/csList.js"></script>
+    <script src="../component/csTabs.js"></script>
+    
+    <script src="../language/zh-TW/language61.js"></script>
+    <script src="../language/zh-TW/language01.js"></script>
+    <script src="../language/zh-TW/language52.js"></script>
+    <script src="../language/zh-TW/language21.js"></script>
+    <script src="../Utility/utility.js"></script>
+    <script src="../component/csList.js"></script>
+    <script src="../component/csMulti.js"></script>-->
+    <style type="text/css">
+        /*
+          html {
+              width: 100%;
+              height: 100%;
+          }
+
+          body {
+              height: 99.9%;
+              margin: 0px;
+              padding: 0px;
+              font-size:12px
+          }
+
+          * {
+              -webkit-box-sizing: border-box;
+              -moz-box-sizing: border-box;
+              box-sizing: border-box;
+          }*/
+        .INV1110controlsHeight {
+            height:25px;
+        }
+        .INV1110table {
+            width: 100%;
+            height: 100%;
+            table-layout: fixed;
+            /*border : 1px solid red;*/
+            margin: 0;
+            padding: 0;
+            text-align: left;
+        }
+
+        .INV1110ttr {
+            /*border : 1px solid red;*/
+            margin: 0;
+            padding: 0;
+            text-align: left;
+        }
+
+        .INV1110td {
+            /*border : 1px solid red;*/
+            margin: 0;
+            padding: 0;
+            vertical-align: central;
+              text-align: left;
+        }
+
+        .INV1110Mode {
+            text-align: center;
+            background-color: cyan;
+        }
+        /*
+        .lbl {
+            width: 95%;
+            text-align: left;
+        }
+
+        .txt {
+            width: 95%;
+        }*/
+    </style>
+   
+    
+    
+</head>
+<body>
+    <table class="INV1110table" >
+        <tr class="INV1110ttr" style="height:30px">
+            <td class="INV1110td">
+                <table class="INV1110table">
+                    <tr class="INV1110ttr">
+                        <td class="INV1110td" style="width:50px" >公司別</td>
+                        <td class="INV1110td"><div data-id="csCompCode"></div></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="INV1110ttr" >
+            <td class="INV1110td">
+                <div data-id="invtab" id="invtab" style="width:100%;height:100%">
+                    <ul style='margin-left: 0px;'>
+                        <li data-id="TabItem1"></li>
+                        <li data-id="TabItem2"></li>
+                        <li data-id="TabItem3"></li>
+                    </ul>
+                    <!--頁面1-->
+                    <div data-id="Create1">
+                        <table class="INV1110table">
+                            <tr style="height:250px">
+                                <td>
+                                    <table class="INV1110table">
+                                        <tr>
+                                            <td colspan="4" style="text-align:center;font-size:18px;color:blue" data-id="lblCreateTitle"></td>
+
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:right" data-id="lblCreateKind"></td>
+                                            <td colspan="3">
+                                                <div data-id="csCreateKind" id="csCreateKind"></div>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td data-id="lblChargeDate" style="text-align:right"></td>
+                                            <td style="width:200px"><input type="tel" data-id="txtStartInvDate" id="txtStartInvDate" /></td>
+                                            <td style="width:200px"><input type="tel" data-id="txtEndInvDate" id="txtEndInvDate" /></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:right" data-id="lblHowtoCreate"></td>
+                                            <td colspan="3">
+                                                <div data-id="csHowtoCreate" id="csHowtoCreate"></div>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:right" data-id="lblInvDate"></td>
+                                            <td colspan="3">
+                                                <input type="tel" data-id="txtInvDate" id="txtInvDate" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td colspan="3">
+                                                <div data-id="chkSameInvDate" id="chkSameInvDate"></div>
+                                            </td>
+
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr style="height:180px">
+                                <td>
+                                    <table class="INV1110table">
+                                        <tr>
+                                            <td style="width:55%">
+                                                <label data-id="lblusefulInv" style="color:red">可用字軌</label>
+                                                <div data-id="grdUsefulInv" id="grdUsefulInv"></div>
+                                            </td>
+                                            <td>
+                                                <label data-id="lblChoiceInv" style="color:red">選用字軌</label>
+                                                <div data-id="grdChoiceInv" id="grdChoiceInv"></div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr style="height:30px">
+                                <td>
+                                    <table class="INV1110table">
+                                        <tr>
+                                            <td align="right">
+                                                <button data-id="btnQuery" id="btnQuery">查詢</button>
+                                            </td>
+                                            <td align="center">
+                                                <button data-id="btnReset" id="btnReset">重設</button>
+                                            </td>
+                                            <td>
+                                                <button data-id="btnExit" id="btnExit">結束</button>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <!--頁面2-->
+                    <div data-id="Create2">
+                        <table class="INV1110table">
+                            <tr>
+                                <td colspan="4" style="text-align:center;font-size:18px;color:blue" data-id="lblCreateDetailTitle"></td>
+
+                            </tr>
+                            <tr>
+                                <td data-id="lblExecuteEn" style="width:100px"></td>
+                                <td></td>
+                                <td data-id="txtExecuteEn">AAA</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td data-id="lblQuery" style="width:100px"></td>
+                                <td colspan="2" data-id="txtQuery">
+                                    <table class="INV1110table">
+                                        <tr>
+                                            <td align="center" data-id="txtQuery1">111111</td>
+                                        </tr>
+                                        <tr>
+                                            <td align="center" data-id="txtQuery2">222222</td>
+                                        </tr>
+                                        <tr>
+                                            <td align="center" data-id="txtQuery3">33333333</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td colspan="4">
+                                    <table class="INV1110table">
+                                        <tr>
+                                            <td style="width:50%" align="center">
+                                                <label data-id="lblExcept"></label>
+                                                <button data-id="btnExcept" id="btnExcept"></button>
+                                            </td>
+                                            <td align="center">
+                                                <label data-id="lblNoExcept"></label>
+                                                <button data-id="btnNoExcept" id="btnNoExcept"></button>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+
+                            </tr>
+                            <tr style="height:200px">
+                                <td colspan="4">
+                                    <table class="INV1110table">
+                                        <tr>
+                                            <td style="width:50%" align="center">
+                                                <table class="INV1110table">
+                                                    <tr>
+                                                        <td data-id="lblInvCount" align="right"></td>
+                                                        <td data-id="txtInvCount"></td>
+                                                    </tr>
+                                                </table>
+                                                <!--<label data-id="lblInvCount" style="width:60px"></label>
+                                    <label data-id="txtInvCount">0</label>-->
+
+
+                                            </td>
+                                            <td align="center">
+                                                <table class="INV1110table">
+                                                    <tr>
+                                                        <td data-id="lblNoInvCount" align="right"></td>
+                                                        <td data-id="txtNoInvCount"></td>
+                                                    </tr>
+                                                </table>
+                                                <!--<label data-id="lblNoInvCount"></label>
+                                    <label data-id="txtNoInvCount">0</label>-->
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width:50%" align="center">
+                                                <table class="INV1110table">
+                                                    <tr>
+                                                        <td data-id="lblSaleAmount" align="right"></td>
+                                                        <td data-id="txtSaleAmount"></td>
+                                                    </tr>
+                                                </table>
+                                                <!--<label data-id="lblSaleAmount"></label>
+                                    <label data-id="txtSaleAmount">0</label>-->
+                                            </td>
+                                            <td align="center">
+                                                <table class="INV1110table">
+                                                    <tr>
+                                                        <td data-id="lblNoSaleAmount" align="right"></td>
+                                                        <td data-id="txtNoSaleAmount"></td>
+                                                    </tr>
+                                                </table>
+                                                <!--<label data-id="lblNoSaleAmount"></label>
+                                    <label data-id="txtNoSaleAmount">0</label>-->
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width:50%" align="center">
+                                                <table class="INV1110table">
+                                                    <tr>
+                                                        <td data-id="lblTaxAmount" align="right"></td>
+                                                        <td data-id="txtTaxAmount"></td>
+                                                    </tr>
+                                                </table>
+                                                <!--<label data-id="lblTaxAmount"></label>
+                                    <label data-id="txtTaxAmount">0</label>-->
+                                            </td>
+                                            <td align="center">
+                                                <table class="INV1110table">
+                                                    <tr>
+                                                        <td data-id="lblNoTaxAmount" align="right"></td>
+                                                        <td data-id="txtNoTaxAmount"></td>
+                                                    </tr>
+                                                </table>
+                                                <!--<label data-id="lblNoTaxAmount"></label>
+                                    <label data-id="txtNoTaxAmount">0</label>-->
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width:50%" align="center">
+                                                <table class="INV1110table">
+                                                    <tr>
+                                                        <td data-id="lblInvAmount" align="right"></td>
+                                                        <td data-id="txtInvAmount"></td>
+                                                    </tr>
+                                                </table>
+                                                <!--<label data-id="lblInvAmount">總   金   額</label>
+                                    <label data-id="txtInvAmount">0</label>-->
+                                            </td>
+                                            <td align="center">
+                                                <table class="INV1110table">
+                                                    <tr>
+                                                        <td data-id="lblNoInvAmount" align="right"></td>
+                                                        <td data-id="txtNoInvAmount"></td>
+                                                    </tr>
+                                                </table>
+                                                <!--<label data-id="lblNoInvAmount"></label>
+                                    <label data-id="txtNoInvAmount">0</label>-->
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width:50%" align="center">
+                                                <table class="INV1110table">
+                                                    <tr>
+                                                        <td data-id="lblValidCounts" align="right"></td>
+                                                        <td data-id="txtValidCounts"></td>
+                                                    </tr>
+                                                </table>
+                                                <!--<label data-id="lblValidCounts" style="width:60px"></label>
+                                    <label data-id="txtValidCounts">11111</label>-->
+
+                                            </td>
+                                            <td align="center"></td>
+                                        </tr>
+                                    </table>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td style="text-align:right;" data-id="lblorder"></td>
+                                <td colspan="3">
+                                    <div data-id="csOrder" id="csOrder"></div>
+                                </td>
+                            </tr>
+                            <tr style="height:60px">
+                                <td colspan="2" align="right">
+                                    <button data-id="btnCreate" id="btnCreate"></button>
+                                </td>
+                                <td colspan="2">
+                                    <button data-id="btnReQuery" id="btnReQuery"></button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <!--頁面3-->
+                    <div data-id="Create3">
+                        <table class="INV1110table">
+                            <tr style="height:50px">
+                                <td colspan="4" style="text-align:center;font-size:18px;color:blue" data-id="lblCreateResult"></td>
+                            </tr>
+                            <tr style="height:30px">
+                                <td colspan="2" data-id="lblSaleAmount3" style="width:100px" align="right"></td>
+
+                                <td colspan="2" data-id="txtSaleAmount3">0</td>
+                            </tr>
+                            <tr style="height:30px">
+                                <td colspan="2" data-id="lblTaxAmount3" style="width:100px" align="right"></td>
+
+                                <td colspan="2" data-id="txtTaxAmount3">0</td>
+                            </tr>
+                            <tr style="height:30px">
+                                <td colspan="2" data-id="lblInvAmount3" style="width:100px" align="right"></td>
+
+                                <td colspan="2" data-id="txtInvAmount3">0</td>
+
+                            </tr>
+                            <tr style="height:30px">
+
+                                <td colspan="2" data-id="lblAssignInvCount" style="width:100px" align="right"></td>
+
+                                <td colspan="2" data-id="txtAssignInvCount">0</td>
+
+                            </tr>
+                            <tr style="height:30px">
+                                <td colspan="2" data-id="lblStartInvID" style="width:100px" align="right"></td>
+
+                                <td colspan="2" data-id="txtStartInvID">0</td>
+                            </tr>
+                            <tr style="height:30px">
+                                <td colspan="2" data-id="lblStopInvID" style="width:100px" align="right"></td>
+
+                                <td colspan="2" data-id="txtStopInvID">0</td>
+                            </tr>
+                            <tr style="height:40px">
+                                <td colspan="2" data-id="lblInvoiceKind1" style="width:100px;font-size:18px;color:blue" align="center"></td>
+
+                                <td colspan="2" data-id="lblInvoiceKind2" style="width:100px;font-size:18px;color:blue" align="center"></td>
+                            </tr>
+                            <tr style="height:30px">
+                                <td data-id="lblKindSaleAmount" style="width:100px;" align="left"></td>
+                                <td data-id="txtKind1SaleAmount" style="width:100px;" align="left">0</td>
+
+                                <td colspan="2" data-id="txtKind2SaleAmount" style="width:100px" align="center">0</td>
+                            </tr>
+                            <tr style="height:30px">
+                                <td data-id="lblKindTaxAmount" style="width:100px;" align="left"></td>
+                                <td data-id="txtKind1TaxAmount" style="width:100px;" align="left">0</td>
+
+                                <td colspan="2" data-id="txtKind2TaxAmount" style="width:100px" align="center">0</td>
+                            </tr>
+                            <tr style="height:30px">
+                                <td data-id="lblKindInvAmount" style="width:100px;" align="left"></td>
+                                <td data-id="txtKind1InvAmount" style="width:100px;" align="left">0</td>
+
+                                <td colspan="2" data-id="txtKind2InvAmount" style="width:100px" align="center">0</td>
+                            </tr>
+                            <tr style="height:30px">
+                                <td data-id="lblKindCreateCount" style="width:100px;" align="left"></td>
+                                <td data-id="txtKind1CreateCount" style="width:100px;" align="left">0</td>
+
+                                <td colspan="2" data-id="txtKind2CreateCount" style="width:100px" align="center">0</td>
+                            </tr>
+                            <tr style="height:60px">
+                                <td colspan="4" align="center">
+                                    <button data-id="btnOver" id="btnOver"></button>
+                                </td>
+
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+    
+        
+    
+</body>
+</html>

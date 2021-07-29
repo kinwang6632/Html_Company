@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <title></title>
+    <style type="text/css">
+        .SO1100BA_table {
+            width: 100%;
+            height: 100%;
+            table-layout: fixed;
+            margin: 0;
+            padding: 0;
+            text-align: left;
+        }
+
+        .SO1100BA_tr {
+            margin: 0;
+            padding: 0;
+            text-align: left;
+        }
+
+        .SO1100BA_td1 {
+            margin: 0;
+            padding: 0;
+            text-align: right;
+            /*border: 1px solid black;*/
+        }
+
+        .SO1100BA_td2 {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            /*border: 1px solid black;*/
+        }
+
+        .SO1100BA_div1 {
+            text-align: right;
+            padding:6px 4px 0px 0px
+        }
+    </style>
+</head>
+<body>
+    <div data-id="mainDiv" style="width:100%;height:100%">
+        <form data-id="mainForm" action="./" style="width:100%;height:100%">
+            <table style="width:100%;height:100%">
+                <tr style="height:90%">
+                    <td>
+                        <div data-id="PartA" style="height:100%">
+                            <div style="height:12%;margin-top:5px">
+                                <div style="float:left;width:9%;" class="SO1100BA_div1" data-id="lblCustId">客戶編號</div>
+                                <div style="float:left;width:10%"><input data-id="txtCustId" /></div>
+                                <div style="float:left;width:8%;" class="SO1100BA_div1" data-id="lblCustName">客戶名稱</div>
+                                <div style="float:left;width:25%"><input data-id="txtCustName" /></div>
+                                <div style="float:left;width:8%;" class="SO1100BA_div1" data-id="lblHomeID">家戶編號</div>
+                                <div style="float:left;width:15%"><input data-id="txtHomeID" /></div>
+                            </div>
+                            <div style="height:12%">
+                                <div style="float:left;width:9%" class="SO1100BA_div1" data-id="lblClassCode1">客戶類別一</div>
+                                <div style="float:left;width:23%"><div data-id="clClassCode1" /></div>
+                                <div style="float:left;width:9%" class="SO1100BA_div1" data-id="lblClassCode2">客戶類別二</div>
+                                <div style="float:left;width:23%"><div data-id="clClassCode2" /></div>
+                                <div style="float:left;width:9%" class="SO1100BA_div1" data-id="lblClassCode3">客戶類別三</div>
+                                <div style="float:left;width:23%"><div data-id="clClassCode3" /></div>
+                            </div>
+                            <div style="height:12%;width:90%">
+                                <div data-id="gilAddress" style="margin-left:5px"/>
+                            </div>
+                            <div style="height:12%">
+                                <div style="float:left;width:9%;" class="SO1100BA_div1" data-id="lblMduId">大樓名稱</div>
+                                <div style="float:left;width:25%"><input data-id="txtMduId" /></div>
+                                <div style="float:left;width:8%;" class="SO1100BA_div1" data-id="lblChargeType">收費屬性</div>
+                                <div style="float:left;width:15%"><div data-id="txtChargeType" /></div>
+                            </div>
+                            <div style="height:38%">
+                                <div style="float:left;width:9%;" class="SO1100BA_div1" data-id="lblChargeNote">收費備註</div>
+                                <div style="float:left;width:39%;height:100%"><textarea data-id="txtChargeNote" /></div>
+                                <div style="float:left;width:9%;" class="SO1100BA_div1" data-id="lblCustNote">備註</div>
+                                <div style="float:left;width:39%;height:100%"><textarea data-id="txtCustNote" /></div>
+                            </div>
+                            <div style="height:12%;margin-top:5px">
+                                <div style="float:left;width:9%;" class="SO1100BA_div1" data-id="lblInitTime">建檔時間</div>
+                                <div style="float:left;width:20%"><input data-id="txtInitTime" /></div>
+                                <div style="float:left;width:9%;" class="SO1100BA_div1" data-id="lblInitUser">建檔人員</div>
+                                <div style="float:left;width:10%"><input data-id="txtInitUser" /></div>
+                                <div style="float:left;width:9%;" class="SO1100BA_div1" data-id="lblUpdTime">異動時間</div>
+                                <div style="float:left;width:20%"><input data-id="txtUpdTime" /></div>
+                                <div style="float:left;width:9%;" class="SO1100BA_div1" data-id="lblUpdEn">異動人員</div>
+                                <div style="float:left;width:10%"><input data-id="txtUpdEn" /></div>
+                            </div>
+                        </div>  
+                    </td>
+                </tr>
+                <tr style="height:10%">
+                    <td>
+                        <table class="SO1100BA_table">
+                            <tr class="SO1100BA_tr">
+                                <td class="SO1100BA_td1"><button data-id="btnSave" style="float:right;margin:0px 20px;">存檔</button></td>
+                                <td class="SO1100BA_td1"><button data-id="btnQuite" style="float:right;margin:0px 20px;">取消</button></td>
+                                <td class="SO1100BA_td1"></td>
+                                <td class="SO1100BA_td1"></td>
+                                <td class="SO1100BA_td1"></td>
+                                <td class="SO1100BA_td1"></td>
+                                <!--<td class="SO1100BA_td1"><input type="text" data-id="txtStatus" style="float:right;margin:0px 25px;text-align:center" /></td>-->
+                                <td class="SO1100BA_td1"><label class="csslEditMode" data-id="txtStatus"></label></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>

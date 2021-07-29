@@ -1,0 +1,1059 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link href="jqwidgets/styles/jqx.base.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.black.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.classic.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.energyblue.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.orange.css" rel="stylesheet" />
+    <script type="text/javascript" src="scripts/json2.js"></script>
+    <!--<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>-->
+    <script type="text/javascript" src="scripts/jquery-3.3.1.min.js"></script>
+    <!--<script type="text/javascript" src="jqwidgets/jqx-all.js"></script>-->    
+    <script type="text/javascript" src="component/jqx-all2.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxcore.js"></script>
+    <!--<script type="text/javascript" src="jqwidgets/jqxcore.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxdatetimeinput.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxcalendar.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxtooltip.js"></script>-->
+    <script type="text/javascript" src="jqwidgets/globalization/globalize.js"></script>
+    <script type="text/javascript" src="scripts/jquery.mask.min.js"></script>    
+    <script src="Scripts/CryptoJS v3.1.2/rollups/aes.js"></script>
+    <script type="text/javascript" src="language/zh-TW/SO1131CLanguage.js"></script>    
+    <script src="component/csList.js"></script>
+    <script src="component/csMulti.js"></script>
+    <script src="component/csDateTime.js"></script>
+    <script src="component/csTabs.js"></script>
+    <script type="text/javascript" src="SO1000/SO1112A.js"></script>
+    <script type="text/javascript" src="SO1000/SO111XD.js"></script>
+    <script  type="text/javascript"  src="SO1000/SO1115A.js"></script>
+    <script type="text/javascript" src="SO1000/SO111xCEA.js"></script>
+    <script type="text/javascript" src="SO1000/SO1114A.js"></script>
+    <script type="text/javascript" src="SO1000/SO1132A.js"></script>
+    <script type="text/javascript" src="SO1000/SO1132A1.js"></script>
+    <script type="text/javascript" src="SO1000/SO1120A.js"></script>
+    <script type="text/javascript" src="SO1000/WipUtility.js"></script>
+
+    <script src="language/zh-TW/language61.js"></script>
+    <script src="language/zh-TW/language01.js"></script>        
+    <script src="language/zh-TW/language52.js"></script>
+    <script src="language/zh-TW/language51.js"></script>
+    <script src="language/zh-TW/language31.js"></script>
+    <script src="language/zh-TW/language21.js"></script>
+    <script src="language/zh-TW/language11.js"></script>
+    <script src="language/zh-TW/language71.js"></script>
+    <script src="component/csWindow.js"></script>
+    <script type="text/javascript" src="Utility/utility.js"></script>
+    <script type="text/javascript" src="Utility/ChargeUtility.js"></script>
+    <style type="text/css">
+        .csslEditMode {
+            background-color: #FFFF99;
+            border-color: white;
+            width: 60px;
+            height: 25px;
+            text-align: center;
+            padding: 6px;
+            
+        }
+    </style>
+    <script type="text/javascript">
+        
+        $(document).ready(function () {
+            $("body").hide();            
+            try {
+
+
+                /*
+                var loginInfo = {
+                    loginInfo: {
+                        type: 'logininfo',
+                        columns: [{ name: 'compcode', type: 'integer' },
+                            { name: 'entryid', type: 'string' },
+                            { name: 'entryname', type: 'string' },
+                            { name: 'groupid', type: 'string' }
+                        ],
+                        rows: [{
+                            compcode: 3,
+                            entryid: 'test',
+                            entryname: 'test',
+                            groupid: '50'
+                        }]
+                    }
+                };*/
+                var loginInfo = {
+                    "loginInfo": {
+                        "columns": [
+                            {
+                                "name": "compcode",
+                                "type": "integer"
+                            },
+                            {
+                                "name": "entryid",
+                                "type": "string"
+                            },
+                            {
+                                "name": "entryname",
+                                "type": "string"
+                            },
+                            {
+                                "name": "groupid",
+                                "type": "string"
+                            },
+                            {
+                                "name": "compstr",
+                                "type": "string"
+                            },
+                            {
+                                "name": "ReportServicePath",
+                                "type": "string"
+                            }
+                        ],
+                        "rows": [
+                            {
+                                "compcode": 1,
+                                "entryid": "TEST",
+                                "entryname": "TEST50",
+                                "groupid": "50",
+                                "compstr": "1,3",
+                                "ReportServicePath": "http://192.168.10.80:3210/CSReportService.svc"
+                            }
+                        ]
+                    }
+                };
+                var editmode = {
+                    type: 'integer',
+                    value: editMode.edit
+                };
+                //$.jqx.theme = "energyblue";
+                $.jqx.theme = "ui-redmond2";
+                var params = getParameters('getKey', 'getKey', 'getKey', loginInfo);
+                getServerData(params, { success: initOk });
+                //return initOk();
+                function initOk(data) {
+                    $("body").show();
+                    try {
+                        $("#SO1131C").on('click', function () {
+
+                            var dsData = {
+                                type: 'string',
+                                table1: {
+                                    columns: [{ name: 'custid', type: 'int' },
+                                        { name: 'faciseqno', type: 'str' }
+                                    ],
+                                    rows: [{
+                                        custid: 671239,
+                                        entryid: '201001260064558'
+                                    }]
+                                }
+                            };
+                            $('<div id="' + divName + '"><div>測試Form</div><div id="' + div2Name + '"></div></div>').appendTo('body');
+                            $(div).csWindow($.extend({}, {
+                                width: 800, height: 600
+                            }));
+                            var div2 = $('#' + div2Name);
+                            var div = $('#' + divName);
+                            $(div2)['SO1131C']($.extend({}, {
+                                loginInfo: loginInfo,
+                                container: div,
+                                parameters: dsData,
+                                closed: function (ret) {
+                                    //alert(JSON.stringify(ret));
+                                },
+                                loaded: function () {
+                                    $(div).on('close', function (event) {
+                                        $(div2).SO1131C('destroy');
+                                        $(div).csWindow('destroy');
+                                        //$(div2)['SO6460A']('destroy');
+                                        //$(div).csWindow('destroy');
+                                    });
+                                    //關閉 form2 並取回參數
+                                    $('[data-id=Button2]').on('click', function () {
+                                        $(div2).SO1131C('close');
+
+                                    });
+                                }
+                            }));
+
+                        });
+                        $('#SO1112A').on('click', function () {
+                            try {
+
+                                var dsData = {
+                                    "Customer": {
+                                        "columns": [
+                                            {
+                                                "name": "HOMEID",
+                                                "type": "double"
+                                            },
+                                            {
+                                                "name": "MEMBERID",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "ID",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "CUSTSTATUSCODE",
+                                                "type": "int32"
+                                            },
+                                            {
+                                                "name": "CUSTNAME",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "COMPCODE",
+                                                "type": "int32"
+                                            },
+                                            {
+                                                "name": "CUSTID",
+                                                "type": "int32"
+                                            },
+                                            {
+                                                "name": "RELATION",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "MDUID",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "NODENO",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "CIRCUITNO",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "STRTCODE",
+                                                "type": "int32"
+                                            },
+                                            {
+                                                "name": "CLASSNAME",
+                                                "type": "int32"
+                                            },
+                                            {
+                                                "name": "CVKEY",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "TEL",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "INSTADDRNO",
+                                                "type": "int32"
+                                            },
+                                            {
+                                                "name": "INSTADDRESS",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "TEL1",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "TEL2",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "PRODUCT_CNT",
+                                                "type": "decimal"
+                                            },
+                                            {
+                                                "name": "BALANCE",
+                                                "type": "decimal"
+                                            },
+                                            {
+                                                "name": "ISBALANCE",
+                                                "type": "decimal"
+                                            },
+                                            {
+                                                "name": "ERROR",
+                                                "type": "decimal"
+                                            },
+                                            {
+                                                "name": "MAINTAIN",
+                                                "type": "decimal"
+                                            },
+                                            {
+                                                "name": "CONTACT",
+                                                "type": "decimal"
+                                            },
+                                            {
+                                                "name": "DECLARANTNAME",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "CLCTNAME",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "COMBINE",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "REINSTOWNER",
+                                                "type": "string"
+                                            }
+                                        ],
+                                        "rows": [
+                                            {
+                                                "HOMEID": 59492,
+                                                "MEMBERID": "73255",
+                                                "ID": "缺ID0664791",
+                                                "CUSTSTATUSCODE": 3,
+                                                "CUSTNAME": "陳阿春",
+                                                "COMPCODE": 3,
+                                                "CUSTID": 600028,
+                                                "RELATION": null,
+                                                "MDUID": null,
+                                                "NODENO": "SW01",
+                                                "CIRCUITNO": null,
+                                                "STRTCODE": 43004,
+                                                "CLASSNAME": 1000,
+                                                "CVKEY": "201707210073321",
+                                                "TEL": null,
+                                                "INSTADDRNO": 1068632,
+                                                "INSTADDRESS": "三灣鄉民族街4號",
+                                                "TEL1": "151008",
+                                                "TEL2": "823369",
+                                                "PRODUCT_CNT": 0,
+                                                "BALANCE": 1800,
+                                                "ISBALANCE": -1800,
+                                                "ERROR": 1,
+                                                "MAINTAIN": 0,
+                                                "CONTACT": 5,
+                                                "DECLARANTNAME": "陳阿春",
+                                                "CLCTNAME": "胡瑞月(三灣譽隆)",
+                                                "COMBINE": "C拆機,D促銷,I促銷,P促銷",
+                                                "REINSTOWNER": "TBCSH.",
+                                                "uid": 0,
+                                                "boundindex": 0,
+                                                "uniqueid": "2729-31-20-23-192426",
+                                                "visibleindex": 0
+                                            }
+                                        ]
+                                    },
+                                    "Contact": {
+                                        "columns": [
+                                            {
+                                                "name": "SEQNO",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "AUTOSERIALNO",
+                                                "type": "double"
+                                            },
+                                            {
+                                                "name": "CUSTID",
+                                                "type": "int32"
+                                            },
+                                            {
+                                                "name": "NODENO",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "CONTRACT_SERIAL_NUM",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "MEDIACODE",
+                                                "type": "int32"
+                                            },
+                                            {
+                                                "name": "MEDIANAME",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "BULLETINCODE",
+                                                "type": "int32"
+                                            },
+                                            {
+                                                "name": "BULLETINNAME",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "PROMCODE",
+                                                "type": "double"
+                                            },
+                                            {
+                                                "name": "PROMNAME",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "ORDERNO",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "RESVTIME",
+                                                "type": "date"
+                                            },
+                                            {
+                                                "name": "SNO",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "RCDSTARTTIME",
+                                                "type": "date"
+                                            },
+                                            {
+                                                "name": "MEDIABILLNO",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "GUINOSTR",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "SERVICETYPE",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "SERVICECODE",
+                                                "type": "int32"
+                                            },
+                                            {
+                                                "name": "SERVICENAME",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "SERVDESCCODE",
+                                                "type": "int32"
+                                            },
+                                            {
+                                                "name": "SERVDESCNAME",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "CONTENTCODE",
+                                                "type": "int32"
+                                            },
+                                            {
+                                                "name": "CONTENTNAME",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "NOTE",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "PROCRESULTNO",
+                                                "type": "int32"
+                                            },
+                                            {
+                                                "name": "PROCRESULTNAME",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "RESULTCODE",
+                                                "type": "int32"
+                                            },
+                                            {
+                                                "name": "RESULTNAME",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "REASONCODE",
+                                                "type": "int32"
+                                            },
+                                            {
+                                                "name": "REASONNAME",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "HANDLEEN",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "HANDLENAME",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "HANDLETIME",
+                                                "type": "date"
+                                            },
+                                            {
+                                                "name": "HANDLENOTE",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "UPDEN",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "UPDTIME",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "PREAUTOSERIALNO",
+                                                "type": "double"
+                                            },
+                                            {
+                                                "name": "SERVICEID",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "FACISEQNO",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "WORKCLASSCODE",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "WORKCLASSNAME",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "SERVDESCCODE2",
+                                                "type": "int32"
+                                            },
+                                            {
+                                                "name": "SERVDESCNAME2",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "SERVDESCCODE3",
+                                                "type": "int32"
+                                            },
+                                            {
+                                                "name": "SERVDESCNAME3",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "ACCEPTTIME",
+                                                "type": "date"
+                                            },
+                                            {
+                                                "name": "NEWUPDTIME",
+                                                "type": "date"
+                                            },
+                                            {
+                                                "name": "FACISNO",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "PRESEQNO",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "TEL1",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "ACCEPTEN",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "ACCEPTNAME",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "COMPCODE",
+                                                "type": "int32"
+                                            },
+                                            {
+                                                "name": "INOUTFLAG",
+                                                "type": "int32"
+                                            },
+                                            {
+                                                "name": "CVKEY",
+                                                "type": "string"
+                                            }
+                                        ],
+                                        "rows": [
+                                            {
+                                                "CUSTID": 12,
+                                                "SERVICECODE": "1801",
+                                                "SERVICENAME": "客服(外)-報修",
+                                                "SERVDESCCODE": 1001,
+                                                "SERVDESCNAME": "維修",
+                                                "CONTENTCODE": null,
+                                                "CONTENTNAME": null,
+                                                "SERVDESCCODE2": null,
+                                                "SERVDESCNAME2": null,
+                                                "SERVDESCCODE3": null,
+                                                "SERVDESCNAME3": null,
+                                                "MEDIACODE": null,
+                                                "MEDIANAME": null,
+                                                "PROMCODE": null,
+                                                "PROMNAME": null,
+                                                "BULLETINCODE": null,
+                                                "BULLETINNAME": null,
+                                                "WORKCLASSCODE": null,
+                                                "WORKCLASSNAME": null,
+                                                "PROCRESULTNO": null,
+                                                "PROCRESULTNAME": null,
+                                                "RESULTCODE": null,
+                                                "RESULTNAME": null,
+                                                "REASONCODE": null,
+                                                "REASONNAME": null,
+                                                "HANDLEEN": null,
+                                                "HANDLENAME": null,
+                                                "PREAUTOSERIALNO": null,
+                                                "FACISEQNO": null,
+                                                "RESVTIME": null,
+                                                "HANDLETIME": null,
+                                                "NOTE": null,
+                                                "HANDLENOTE": null,
+                                                "SERVICETYPE": null,
+                                                "PRESEQNO": null,
+                                                "TEL1": "151008",
+                                                "ACCEPTEN": "TEST",
+                                                "ACCEPTNAME": "TEST50",
+                                                "COMPCODE": 3,
+                                                "INOUTFLAG": 1,
+                                                "CVKEY": "201707210073321",
+                                                "SEQNO": "201707210094420",
+                                                "AUTOSERIALNO": 209325,
+                                                "ACCEPTTIME": "2017-07-21T10:28:30.6132578+08:00",
+                                                "NODENO": "SW01",
+                                                "UPDTIME": "106/07/21 10:28:30",
+                                                "NEWUPDTIME": "2017-07-21T10:28:30.5842561+08:00"
+                                            }
+                                        ]
+                                    },
+                                    "Maintain": {
+                                        "columns": [
+                                            {
+                                                "name": "SEQNO",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "AUTOSERIALNO",
+                                                "type": "double"
+                                            },
+                                            {
+                                                "name": "CUSTID",
+                                                "type": "int32"
+                                            },
+                                            {
+                                                "name": "NODENO",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "CONTRACT_SERIAL_NUM",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "MEDIACODE",
+                                                "type": "int32"
+                                            },
+                                            {
+                                                "name": "MEDIANAME",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "BULLETINCODE",
+                                                "type": "int32"
+                                            },
+                                            {
+                                                "name": "BULLETINNAME",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "PROMCODE",
+                                                "type": "double"
+                                            },
+                                            {
+                                                "name": "PROMNAME",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "ORDERNO",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "RESVTIME",
+                                                "type": "date"
+                                            },
+                                            {
+                                                "name": "SNO",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "RCDSTARTTIME",
+                                                "type": "date"
+                                            },
+                                            {
+                                                "name": "MEDIABILLNO",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "GUINOSTR",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "SERVICETYPE",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "SERVICECODE",
+                                                "type": "int32"
+                                            },
+                                            {
+                                                "name": "SERVICENAME",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "SERVDESCCODE",
+                                                "type": "int32"
+                                            },
+                                            {
+                                                "name": "SERVDESCNAME",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "CONTENTCODE",
+                                                "type": "int32"
+                                            },
+                                            {
+                                                "name": "CONTENTNAME",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "NOTE",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "PROCRESULTNO",
+                                                "type": "int32"
+                                            },
+                                            {
+                                                "name": "PROCRESULTNAME",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "RESULTCODE",
+                                                "type": "int32"
+                                            },
+                                            {
+                                                "name": "RESULTNAME",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "REASONCODE",
+                                                "type": "int32"
+                                            },
+                                            {
+                                                "name": "REASONNAME",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "HANDLEEN",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "HANDLENAME",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "HANDLETIME",
+                                                "type": "date"
+                                            },
+                                            {
+                                                "name": "HANDLENOTE",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "UPDEN",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "UPDTIME",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "PREAUTOSERIALNO",
+                                                "type": "double"
+                                            },
+                                            {
+                                                "name": "SERVICEID",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "FACISEQNO",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "WORKCLASSCODE",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "WORKCLASSNAME",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "SERVDESCCODE2",
+                                                "type": "int32"
+                                            },
+                                            {
+                                                "name": "SERVDESCNAME2",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "SERVDESCCODE3",
+                                                "type": "int32"
+                                            },
+                                            {
+                                                "name": "SERVDESCNAME3",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "ACCEPTTIME",
+                                                "type": "date"
+                                            },
+                                            {
+                                                "name": "NEWUPDTIME",
+                                                "type": "date"
+                                            },
+                                            {
+                                                "name": "FACISNO",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "PRESEQNO",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "TEL1",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "ACCEPTEN",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "ACCEPTNAME",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "COMPCODE",
+                                                "type": "int32"
+                                            },
+                                            {
+                                                "name": "INOUTFLAG",
+                                                "type": "int32"
+                                            },
+                                            {
+                                                "name": "CVKEY",
+                                                "type": "string"
+                                            }
+                                        ],
+                                        "rows": [
+                                            {
+                                                "CUSTID": 536,
+                                                "SNO": "201904MD0110325",
+                                                "SERVICECODE": "1801",
+                                                "SERVICENAME": "客服(外)-報修",
+                                                "SERVDESCCODE": 1001,
+                                                "SERVDESCNAME": "維修",
+                                                "CONTENTCODE": null,
+                                                "CONTENTNAME": null,
+                                                "SERVDESCCODE2": null,
+                                                "SERVDESCNAME2": null,
+                                                "SERVDESCCODE3": null,
+                                                "SERVDESCNAME3": null,
+                                                "MEDIACODE": null,
+                                                "MEDIANAME": null,
+                                                "PROMCODE": null,
+                                                "PROMNAME": null,
+                                                "BULLETINCODE": null,
+                                                "BULLETINNAME": null,
+                                                "WORKCLASSCODE": null,
+                                                "WORKCLASSNAME": null,
+                                                "PROCRESULTNO": null,
+                                                "PROCRESULTNAME": null,
+                                                "RESULTCODE": null,
+                                                "RESULTNAME": null,
+                                                "REASONCODE": null,
+                                                "REASONNAME": null,
+                                                "HANDLEEN": null,
+                                                "HANDLENAME": null,
+                                                "PREAUTOSERIALNO": null,
+                                                "FACISEQNO": null,
+                                                "RESVTIME": null,
+                                                "HANDLETIME": null,
+                                                "NOTE": null,
+                                                "HANDLENOTE": null,
+                                                "SERVICETYPE": null,
+                                                "PRESEQNO": null,
+                                                "TEL1": "151008",
+                                                "ACCEPTEN": "TEST",
+                                                "ACCEPTNAME": "TEST50",
+                                                "COMPCODE": 3,
+                                                "INOUTFLAG": 1,
+                                                "CVKEY": "201707210073321",
+                                                "SEQNO": "201707210094420",
+                                                "AUTOSERIALNO": 209325,
+                                                "ACCEPTTIME": "2017-07-21T10:28:30.6132578+08:00",
+                                                "NODENO": "SW01",
+                                                "UPDTIME": "106/07/21 10:28:30",
+                                                "NEWUPDTIME": "2017-07-21T10:28:30.5842561+08:00"
+                                            }
+                                        ]
+                                    }
+                                };
+
+
+                                //dsData = {                                    
+                                //   Maintain: {
+                                //       columns: [{ name: 'SNO', type: 'string' },
+                                //           { name: 'CustId', type: 'integer' }
+                                //       ],
+                                //       rows: [{                                        
+                                //           //SNO: '201707MC3205667',
+                                //           //CUSTID : 600028
+                                //           SNO: "201902MD0110302",
+                                //           //CUSTID: 521297
+                                //           //CUSTID:649610
+                                //           CUSTID: 600226,
+                                //           SNO: '201707MC3205667',
+                                //           CUSTID : 600028
+
+                                //       }]
+                                //   },
+
+                                //};  
+                                /*
+                                $.fn['SO1112A']('canAppend', $.extend(
+                                    loginInfo,
+                                    dsData), function (r) {
+                                        alert(r[0]);
+                                }) */
+                                var divName = 'div' + getUniqueId();
+                                var div2Name = 'div2' + getUniqueId();
+
+                                $('<div id="' + divName + '"><div>測試Form</div><div id="' + div2Name + '"></div></div>').appendTo('body');
+                                var div = $('#' + divName);
+                                $(div).csWindow($.extend({}, {
+                                    width: 920, height: 600,
+                                    maxWidth: 1028,
+                                    maxHeight: 900,
+                                    keyboardCloseKey: 'none',
+                                    haveClosing: true
+                                }));
+                                var div2 = $('#' + div2Name);
+
+                                $(div2)['SO1112A']($.extend({}, {
+                                    loginInfo: cloneJSON(loginInfo),
+                                    container: div,
+                                    parameters: cloneJSON(dsData),
+                                    IsAutoClosed: true,
+                                    //finMode :false,
+                                    editMode: editmode.value
+                                }));
+                                $(div).on('close', function (event) {
+                                    //alert($(div2).SO6460A.methods['options']);
+
+                                    //var options = $.data($(div2), formName).options;
+                                    // var options = $(div2).SO6460A.methods['options'];
+
+
+                                    var options = $(div2).SO1112A('options');
+
+                                    $(div2).SO1112A('destroy');
+                                    $(div).csWindow('destroy');
+                                });
+                                $(div2).on('loaded', function () {
+                                    //alert(JSON.stringify($(this).SO6460A('options').language));
+                                    $(this).each(function () {
+                                        //alert($(this).SO6460A('options'));
+                                    });
+                                });
+                            }
+                            catch (err) {
+                                alert(err.stack)
+                            }
+                        });
+
+                        $('#SO111XD').on('click', function () {
+                            try {
+
+                                jQuery.get('Wip.txt', function (data) {
+                                    var wipData = JSON.parse(data);
+                                    var divSO111XDName = 'div' + getUniqueId();
+                                    var div2SO111XDName = 'div2' + getUniqueId();
+                                    $('<div id="' + divSO111XDName + '"><div>測試SO111XDForm</div><div id="' + div2SO111XDName + '"></div></div>').appendTo('body');
+                                    var divSO111XD = $('#' + divSO111XDName);
+
+                                    $(divSO111XD).csWindow($.extend({}, {
+                                        width: 900, height: 400,
+                                        maxWidth: 1028,
+                                        maxHeight: 900,
+                                        keyboardCloseKey: 'none',
+
+                                        haveClosing: false
+                                    }));
+                                    var div2SO1111XD = $('#' + div2SO111XDName);
+
+                                    $(div2SO1111XD)['SO111XD']($.extend({}, {
+                                        loginInfo: cloneJSON(loginInfo),
+                                        container: divSO111XD,
+                                        isWip: true,
+                                        wipData: cloneJSON(wipData),
+                                        wipType: 2,
+                                        serviceType: wipData.Wip.rows[0].SERVICETYPE,
+                                        custid: wipData.Wip.rows[0].CUSTID,
+                                        sno: wipData.Wip.rows[0].SNO,
+                                        autoFaciSeqNo: '200502240023607',
+                                        isAutoAddMatain: true,
+                                        canDo: true,
+                                        canCancel: true,
+                                        editMode: editMode.edit
+                                    }));
+
+                                    $(divSO111XD).on('close', function (event) {
+                                        var options = $(div2SO1111XD).SO111XD('options');
+                                        $(div2SO1111XD).SO111XD('destroy');
+                                        $(divSO111XD).csWindow('destroy');
+                                    });
+                                    $(div2SO1111XD).on('loaded', function () {
+                                        $(this).each(function () {
+                                            //alert('SO111XD Completed');                                        
+                                        });
+                                    });
+                                    $(div2SO1111XD).on('changed', function (o) {
+                                        //$(this).SO111XD('options')
+                                        // alert('changed');
+                                    });
+                                });
+
+                            }
+                            catch (err) {
+                                alert(err.stack)
+                            }
+                        });
+                    }
+                    catch (err) {
+                        alert(err.stack)
+                    }
+
+                };
+
+            }
+            catch (err) {
+
+            }
+            
+        });
+    </script>
+    <script type="text/javascript">
+        
+        
+    </script>
+</head>
+<body>
+    <div>           
+        <button id="SO1131C">SO1131C</button>
+        <button id="SO1112A">SO1112A</button>
+        <button id="SO111XD">SO111XD</button>        
+        <label class="csslEditMode">修改</label>
+               
+    </div>
+</body>
+</html>

@@ -1,0 +1,284 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <link href="jqwidgets/styles/jqx.base.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.orange.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.office.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.energyblue.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.energyblue2.css" rel="stylesheet" />
+    <!--<script type="text/javascript" src="../scripts/jquery-1.11.1.min.js"></script>-->
+    <script type="text/javascript" src="scripts/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="../scripts/json2.js"></script>
+
+    <!--<script src="component/jqx-all.js"></script>
+    <script src="jqwidgets/jqxwindow.js"></script>-->
+    <script type="text/javascript" src="component/jqx-all2.js"></script>
+    <script src="component/csTabs.js"></script>
+    <script src="component/csList.js"></script>
+    <script src="component/csMulti.js"></script>
+    <script src="component/csDateTime.js"></script>
+    <script src="component/csUploadFile.js"></script>
+    <script src="component/csAddress1.js"></script>
+    <script src="component/csAddress2.js"></script>
+
+    <script src="dynamicComponent/dynLinkProgram.js"></script>
+    <script src="dynamicComponent/dynamicCondition.js"></script>
+    <script src="dynamicComponent/dynamicUpdate.js"></script>
+    <script src="dynamicComponent/dynamicGrid.js"></script>
+    <script src="dynamicComponent/dynUpdateGrid2.js"></script>
+    <script src="dynamicComponent/dynCopyToOther.js"></script>
+    <script src="dynamicComponent/dynamicConditionSave.js"></script>
+    <script src="component/csWindow.js"></script>
+    <script src="jqwidgets/globalization/globalize.js"></script>
+    <script src="language/zh-TW/language01.js"></script>
+    <script src="language/zh-TW/language21.js"></script>
+    <script src="language/zh-TW/language31.js"></script>    
+    <script src="language/zh-TW/language61.js"></script>
+    <script src="language/zh-TW/language71.js"></script>
+    <script src="Scripts/CryptoJS v3.1.2/rollups/aes.js"></script>
+    <script type="text/javascript" src="../Utility/utility.js"></script>
+    <script type="text/javascript" src="../Utility/ChargeUtility.js"></script>
+    <style type="text/css">
+        .csslEditMode {
+            background-color: #FFFF99;
+            border-color: white;
+            width: 60px;
+            height: 25px;
+            text-align: center;
+            padding: 6px;
+        }
+    </style>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("body").hide();
+            var loginInfo = {
+                loginInfo: {
+                    type: 'logininfo',
+                    columns: [{ name: 'compcode', type: 'integer' },
+                        { name: 'entryid', type: 'string' },
+                        { name: 'entryname', type: 'string' },
+                        { name: 'groupid', type: 'string' }
+                    ],
+                    rows: [{
+                        compcode: 3,
+                        entryid: 'test',
+                        entryname: 'test',
+                        groupid: '50',
+                    }]
+                }
+            };
+            var editmode = {
+                type: 'integer',
+                value: editMode.view
+            };
+            $.jqx.theme = "energyblue";
+            var params = getParameters('getKey', 'getKey', 'getKey', loginInfo);
+
+
+            getServerData(params, { success: initOk });
+            function initOk(data) {
+                $("body").show();
+                var localization = Globalize('zh-TW');
+                try {
+                    var copyLoginInfo = $.extend({}, { loginInfo: { type: 'logininfo', value: loginInfo.loginInfo } });
+                    copyLoginInfo.loginInfo.value.rows[0].ConnectionString = 'Data Source=RDKNET;User ID=TBCSH;Password=TBCSH;Persist Security Info=True;Unicode=True;Min Pool Size=0;Max Pool Size=25;Connection Lifetime=60';
+                    
+                    $('#btnDynUpdateGrd').on('click', function () {
+                        try {
+                            //var dsData = {};
+
+
+                            var dsData = {
+                                Building1: {
+                                    columns: [
+                                      {
+                                          name: "MAINCUSTID",
+                                          type: "integer"
+                                      },
+                                      {
+                                          name: "MAINCUSTNAME",
+                                          type: "string"
+                                      },
+                                      {
+                                          name: "FLAG",
+                                          type: "string"
+                                      },
+                                      {
+                                          name: "CLASSCODE",
+                                          type: "integer"
+                                      },
+                                      {
+                                          name: "CUSTID",
+                                          type: "integer"
+                                      },
+                                      {
+                                          name: "SERVICETYPE",
+                                          type: "string"
+                                      },
+                                      {
+                                          name: "MDUID",
+                                          type: "string"
+                                      },
+                                      {
+                                          name: 'COMPCODE',
+                                          type:'integer'
+                                      },
+                                    ],
+                                    rows: [
+                                      {
+                                        ACCEPTCNT:24,
+                                        ACCEPTCNT1:19,
+                                        ACCEPTCNT2:19,
+                                        ACCEPTCNT3:21,
+                                        BCAMOUNT:0,
+                                        BCPERIOD:0,
+                                        CLCTMETHOD:2,
+                                        COMPCODE:3,
+                                        COMPUTECNT:0,
+                                        CONTADDRESS:"竹南鎮復興路584巷526號",
+                                        CONTADDRNO:1080564,
+                                        CONTNAME1:"李文國",
+                                        CONTPHONE11:"0932351506",
+                                        CONTRACTSTATUS:1,
+                                        ENGAMT:0,
+                                        FLAG:"正常",
+                                        INSTCNT:0,
+                                        INSTCNT1:0,
+                                        INSTCNT2:0,
+                                        INSTCNT3:0,
+                                        MAINADDRESS:"竹南鎮復興路584巷526號",
+                                        MAINADDRNO:1080564,
+                                        MDUID:"444",
+                                        NAME:"歡喜臨門",
+                                        PERINSTCNT:19,
+                                        PERINSTCNT1:8,
+                                        PERINSTCNT2:5,
+                                        PERINSTCNT3:0,
+                                        TOTALCNT:22,
+                                        UNINSTCNT:5,
+                                        UNINSTCNT1:11,
+                                        UNINSTCNT2:16,
+                                        UNINSTCNT3:21,
+                                        UPDEN:"顏彤恩",
+                                        UPDTIME:"93/06/11 11:47:10",
+                                      }
+                                    ]
+                                }
+                            };
+                            var divName = 'div' + getUniqueId();
+                            var div2Name = 'div2' + getUniqueId();
+                            $('<div id="' + divName + '"><div>測試Form</div><div id="' + div2Name + '"></div></div>').appendTo('body');
+                            var div = $('#' + divName);
+                            $(div).csWindow($.extend({}, {
+                                width: 905, height: 500,
+                                maxWidth: 1028,
+                                maxHeight: 900,
+                                keyboardCloseKey: 'none',
+                                haveClosing: true,
+                            }));
+                            var div2 = $('#' + div2Name);
+
+                            $(div2).dynUpdateGrid2($.extend({}, {
+                                loginInfo:cloneJSON(loginInfo),
+                                container: div,
+                                parameters:cloneJSON(dsData),
+                                
+                                //sysProgramId: 'SO7210A',
+                                //sysProgramId: 'CD002',
+                                sysProgramId: 'SO6341A',
+                                sysProgramId: 'SO6310A',
+                                sysProgramId: 'SO64D0A',
+                                sysProgramId: 'SO6730A',
+                                sysProgramId: 'SO1500C',
+                                sysProgramId: 'SO6310A',
+                                sysProgramId: 'SO6410A',
+                                sysProgramId: 'SO1300I',
+                                sysProgramId: 'SO6430A',
+                                sysProgramId: 'SO1300I',
+                               // sysProgramId: 'SO6110A',
+                               // sysProgramId: 'SET1130A',
+                               // sysProgramId: 'SO6730A',
+                                //sysProgramId: 'SO63H0A',
+                               // sysProgramId: 'SO6210A',
+                               sysProgramId: 'SO6320A',
+                               editMode: editmode.value,
+                               //parentEditMode: editMode.append,
+                                parentEditMode : 2,
+                                localization: cloneJSON(localization),
+                                //defaultCodeNo :cloneJSON( {CodeNo:11,Description:'1.915'})
+                            }));
+                            $('#getrows').on('click', function () {
+                                var o = $(div2).dynUpdateGrid2('getRows', true);
+                                $(div2).dynUpdateGrid2('resize');
+                                //alert('yes');
+                            })
+                            $(div).on('close', function (event) {
+                                //alert($(div2).SO6460A.methods['options']);
+
+                                //var options = $.data($(div2), formName).options;
+                                // var options = $(div2).SO6460A.methods['options'];
+
+
+                                var options = $(div2).dynUpdateGrid2('options');
+                                $(div2).dynUpdateGrid2('destroy');
+                                $(div).csWindow('destroy');
+                            });
+                            $(div2).on('loaded', function (event) {
+                                //alert('loaded');
+                                //$(this).dynUpdateGrid2('disabled', true);
+                                //$(this).dynUpdateGrid2('resize');
+                                //container = div2;
+                                //$(this).each(function () {
+                                //});
+                            });
+                        }
+                        catch (err) {
+                            alert(err.stack)
+                        }
+                    });
+                    
+
+
+                } catch (err) {
+                    errorHandle(formName, 'QueryEnvironment', err);
+
+                } finally {
+
+                };
+
+
+            };
+        })
+    </script>
+</head>
+<body>
+    
+    <button style="float:left;margin-left:2px;margin-top:2px;" data-id="btnAdd" id="getrows">getrows</button>
+    <div data-id="dadd" style="height:30px;width:50px;text-align:center;align-content:center ;float:left">
+        <table style="height:100%;width:100%" >
+            <tr style="height:30px">
+                <td data-id="editMode">
+                    111
+                </td>
+
+            </tr>
+        </table>
+    </div>
+    
+    <div data-id="divRow0" >
+        <div data-id="divCol0" style="float:left;width:100px" ><input type="button" id="btnDynUpdateGrd" value="DynUpdateGrd2" /></div>
+        <div data-id="divCol1" ><input type="button" value="TEST2" /></div>                
+    </div>
+     <div data-id="divRow2" style="height:30px">
+        <div style="float:left;width:42px" data-id="btnAdd" ></div>
+         <div style="float:left;width:42px" data-id="btnEdit"></div>
+         <div style="float:left;width:42px" data-id="btnDelete"></div>
+         <div style="float:left;width:42px" data-id="btnSave"></div>
+     </div>
+    <div data-id="divRow1"></div>
+</body>
+</html>

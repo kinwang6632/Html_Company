@@ -1,0 +1,369 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <!--
+    <link href="../jqwidgets/styles/jqx.base.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.orange.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.office.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.energyblue.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.energyblue2.css" rel="stylesheet" />
+    <script type="text/javascript" src="../scripts/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../scripts/json2.js"></script>
+    <script src="../jqwidgets/jqx-all.js"></script>
+    <script src="../component/csTabs.js"></script>
+    <script src="../component/csList.js"></script>
+    <script src="../component/csMulti.js"></script>
+    <script src="../component/csDateTime.js"></script>
+    <script src="../component/csUploadFile.js"></script>
+    <script src="../component/csAddress1.js"></script>
+    <script src="../component/csAddress2.js"></script>
+    <script src="../component/csWindow.js"></script>
+    
+    <script src="../jqwidgets/globalization/globalize.js"></script>
+    <script src="../language/zh-TW/language01.js"></script>
+    <script src="../language/zh-TW/language21.js"></script>
+    <script src="../language/zh-TW/language31.js"></script>
+    <script src="../language/zh-TW/language51.js"></script>
+    <script src="../language/zh-TW/language52.js"></script>
+    <script src="../language/zh-TW/language61.js"></script>
+    <script src="../language/zh-TW/language71.js"></script>
+    <script type="text/javascript" src="../Utility/utility.js"></script>
+    <script type="text/javascript" src="../Utility/ChargeUtility.js"></script>  -->
+
+    <style type="text/css">        
+        /*
+          html {
+              width: 100%;
+              height: 100%;
+          }
+
+          body {
+              height: 99.9%;
+              margin: 0px;
+              padding: 0px;
+              font-size:12px
+          }
+
+          * {
+              -webkit-box-sizing: border-box;
+              -moz-box-sizing: border-box;
+              box-sizing: border-box;
+          } */
+
+        .ChangeClctEnTable {
+            width: 100%;
+            height: 100%;
+            table-layout: fixed;
+            /*border : 1px solid red;*/
+            margin: 0;
+            padding: 0;
+            text-align: left;
+        }
+
+        .ChangeClctEnTr {
+            /*border : 1px solid red;*/
+            margin: 0;
+            padding: 0;
+            text-align: left;
+        }
+
+        .ChangeClctEnTd {
+            /*border : 1px solid red;*/
+            margin: 0;
+            padding: 0;
+            vertical-align: central;
+            /*  text-align: left;*/
+        }
+
+        .ChangeClctEnMode {
+            text-align: center;
+            background-color: cyan;
+        }
+    </style>
+    <!--
+    <script type="text/javascript">
+        $(document).ready(function () {
+          
+            
+            $("#gilCompCode").csList({
+                source: null,
+                codeNoWidth: 60,
+                width: '250px',
+                height: '22px',
+                showColumnHeaders: false,
+                readOnly: false,
+                codeNoReadOnly: false,
+                popupWidth: null,
+                popupHeight: null,
+                autoFitAllCols: false,
+                descriptionReadOnly: false,
+                columns: [
+                       { text: 'CODENO', datafield: 'CODENO' },
+                       { text: 'DESCRIPTION', datafield: 'DESCRIPTION' }
+                ]
+            });
+            
+              $('#cbGroupKind').jqxDropDownList({
+                  width: '250px',
+                  height: 22,
+                  placeHolder: ""
+              });
+              $("#txtClctDate1").csDateTime({
+                  formatString: 'yyyy/MM',
+                  value: null,
+                  showCalendarButton: false,
+                  width: '95%'
+              });
+              $("#txtClctDate2").csDateTime({
+                  formatString: 'yyyy/MM',
+                  value: null,
+                  showCalendarButton: false,
+                  width: '95%'
+              });
+              $("#txtCreateTime1").csDateTime({
+                  formatString: 'yyyy/MM/dd HH:mm',
+                  value: null,
+                  showCalendarButton: false,
+                  width: '97%'
+              });
+              $("#txtCreateTime2").csDateTime({
+                  formatString: 'yyyy/MM/dd HH:mm',
+                  value: null,
+                  showCalendarButton: false,
+                  width: '97%'
+              });
+              $("#txtBillNo1").jqxInput({
+                  height: 22,
+                  width: '100%',
+              });
+              $("#txtBillNo2").jqxInput({
+                  height: 22,
+                  width: '100%',
+              });
+              $('#btnFind').jqxButton({
+                  width: 100,
+                  height: 25,
+              });
+              $('#btnOK').jqxButton({
+                  width: 100,
+                  height: 25,
+              });
+              $("#txtCustid").jqxInput({
+                  height: 22,
+                  width: '100%',
+              });
+              $('#csmStrtCode').csMulti({
+                  
+                  buttonText: '街道範圍',
+                  width: 400,
+                  buttonWidth: 80,
+                  //widthDesc: 150, 
+                  winWidth: 800,
+                  winHeight: 500,
+                  isReadOnly: false,
+                  columns: [
+                      { text: '代碼', datafield: 'CODENO', width: 70 },
+                      { text: '名稱', datafield: 'DESCRIPTION', width: 120 }
+                      
+                  ]
+              });
+              $('#csmClctEn').csMulti({
+
+                  buttonText: '原收費人員',
+                  width: 400,
+                  buttonWidth: 80,
+                  //widthDesc: 150, 
+                  winWidth: 800,
+                  winHeight: 500,
+                  isReadOnly: false,
+                  columns: [
+                      { text: '代碼', datafield: 'CODENO', width: 70 },
+                      { text: '名稱', datafield: 'DESCRIPTION', width: 120 }
+
+                  ]
+              });
+              $('#csmServiceType').csMulti({
+
+                  buttonText: '服務別',
+                  width: 400,
+                  buttonWidth: 80,
+                  //widthDesc: 150, 
+                  //winWidth: 800,
+                  //winHeight: 500,
+                  isReadOnly: false,
+                  columns: [
+                      { text: '代碼', datafield: 'CODENO', width: 70 },
+                      { text: '名稱', datafield: 'DESCRIPTION', width: 120 }
+
+                  ]
+              });
+              $('#csmMduId').csMulti({
+
+                  buttonText: '大樓編號',
+                  width: 400,
+                  buttonWidth: 80,
+                  //widthDesc: 150, 
+                  //winWidth: 800,
+                  //winHeight: 500,
+                  isReadOnly: false,
+                  columns: [
+                      { text: '代碼', datafield: 'CODENO', width: 70 },
+                      { text: '名稱', datafield: 'DESCRIPTION', width: 120 }
+
+                  ]
+              });
+              $("#csGrid").jqxGrid({
+                  width: '99.7%',
+                  height: '98%',
+                  //source: dataAdapter1,
+                  sortable: true,
+                  altrows: true,
+                  columnsresize: true,
+                  columns: [
+                      {
+                          text: '#', sortable: false, filterable: false, editable: false,
+                          groupable: false, draggable: false, resizable: false,
+                          datafield: '', columntype: 'number', width: 30,
+                          cellsrenderer: function (row, column, value) {
+                              return "<div style='margin:4px;'>" + (value + 1) + "</div>";
+                          }
+                      },
+                      { text: '收費人員代號', datafield: 'CLCTEN', width: 110, editable: false, groupable: false },
+                      { text: '員工姓名', datafield: 'CLCTNAME', width: 110, editable: false, groupable: false },
+                      { text: '群組代碼', datafield: 'GROUPCODE', width: 130, editable: false, groupable: false },
+                      { text: '群組名稱', datafield: 'GROUPNAME', width: 250, editable: false, groupable: false },
+                      { text: '張數', datafield: 'COUNT', width: 50, editable: false, groupable: false, cellsalign: 'center', align: 'center' },
+                      { text: '新收費人員代號', datafield: 'NEWCLCTEN', width: 110, editable: true, groupable: false },
+                      { text: '新收費人員名稱', datafield: 'NEWCLCTNAME', width: 130, editable: true, groupable: false },
+                  ],
+                  //localization: options.localization
+              });
+              $("#chkOldClctEn").jqxCheckBox({
+                  width: '100%',
+                  height: 25,
+                  checked: true,                  
+              });
+              $("#chkClctEn").jqxCheckBox({
+                  width: '100%',
+                  height: 25,
+                  checked: true,
+              });
+          
+        });
+
+    </script>   -->
+
+</head>
+<body>
+    <table class="ChangeClctEnTable" data-id="ChangeClctEnTable">
+        <tr class="ChangeClctEnTr" style="height:25px">
+            <td class="ChangeClctEnTd" style="width:70px;color:red" data-id="lblCompCode"></td>
+            <td class="ChangeClctEnTd" width="260px" ><div data-id="gilCompCode" ></div></td>
+            <td class="ChangeClctEnTd"></td>
+        </tr>
+        <tr class="ChangeClctEnTr" style="height:25px">
+            <td class="ChangeClctEnTd" data-id="lblGroupType"></td>
+            <td class="ChangeClctEnTd"><div data-id="cbGroupKind" ></div></td>
+            <td class="ChangeClctEnTd" >
+                <button style="float:right" data-id="btnFind" ></button>                                
+            </td>
+        </tr>
+        <tr class="ChangeClctEnTr" style="height:25px">
+            <td class="ChangeClctEnTd" data-id="lblClctYear"></td>
+            <td class="ChangeClctEnTd">
+                <table class="ChangeClctEnTable">
+                    <tr class="ChangeClctEnTr">
+                        <td class="ChangeClctEnTd"><input data-id="txtClctDate1" /></td>
+                        <td class="ChangeClctEnTd" style="width:10px">~</td>
+                        <td class="ChangeClctEnTd"><input data-id="txtClctDate2"  /></td>
+                    </tr>
+                </table>
+            </td>
+            <td class="ChangeClctEnTd">
+                <table class="ChangeClctEnTable">
+                    <tr class="ChangeClctEnTr">
+                        <td class="ChangeClctEnTd" style="width:70px" data-id="lblCreateTime"></td>
+                        <td class="ChangeClctEnTd" ><div data-id="txtCreateTime1"></div></td>
+                        <td class="ChangeClctEnTd" style="width:10px">~</td>
+                        <td class="ChangeClctEnTd" ><div data-id="txtCreateTime2"></div></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="ChangeClctEnTr" style="height:25px">
+            <td class="ChangeClctEnTd" data-id="lblBillNo"></td>
+            <td class="ChangeClctEnTd">
+                <table class="ChangeClctEnTable">
+                    <tr class="ChangeClctEnTr">
+                        <td class="ChangeClctEnTd"><input data-id="txtBillNo1"  /></td>
+                        <td class="ChangeClctEnTd" style="width:10px">~</td>
+                        <td class="ChangeClctEnTd"><input data-id="txtBillNo2"  /></td>
+                    </tr>
+                </table>
+            </td>
+            <td class="ChangeClctEnTd">
+                <table class="ChangeClctEnTable">
+                    <tr class="ChangeClctEnTr">
+                        <td class="ChangeClctEnTr" style="width:70px" data-id="lblCust"></td>
+                        <td class="ChangeClctEnTr"><input data-id="txtCustid"  /></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="ChangeClctEnTr" style="height:25px">
+            <td class="ChangeClctEnTd"  colspan="3">
+                <table class="ChangeClctEnTable">
+                    <tr class="ChangeClctEnTr">
+                        <td class="ChangeClctEnTd"><div data-id="csmStrtCode" ></div></td>
+                        <td class="ChangeClctEnTd"><div data-id="csmClctEn" ></div></td>
+                    </tr>
+                </table>
+            </td>
+            
+        </tr>
+        <tr class="ChangeClctEnTr" style="height:25px">
+            <td class="ChangeClctEnTd" colspan="3">
+                <table class="ChangeClctEnTable">
+                    <tr class="ChangeClctEnTr">
+                        <td class="ChangeClctEnTd"><div data-id="csmServiceType" ></div></td>
+                        <td class="ChangeClctEnTd"><div data-id="csmMduId" ></div></td>
+                    </tr>
+                </table>
+            </td>
+            
+        </tr>
+        <tr class="ChangeClctEnTr" data-id="dontFocus" >
+            <td class="ChangeClctEnTd" colspan="3">
+                <table class="ChangeClctEnTable">
+                    <tr class="ChangeClctEnTr" data-id="dontFocus">
+                        <td class="ChangeClctEnTd" >
+                            <div data-id="csGrid"></div>
+                        </td>                        
+                    </tr>
+                    <tr class="ChangeClctEnTr" style="height:30px">
+                        <td class="ChangeClctEnTd">
+                            <table class="ChangeClctEnTable">
+                                <tr class="ChangeClctEnTr">
+                                    <td class="ChangeClctEnTd" style="width:110px">
+                                        <button data-id="btnOK" ></button>
+                                    </td>
+                                    <td class="ChangeClctEnTd" style="width:70px" data-id="lblField"></td>
+                                    <td class="ChangeClctEnTd" style="width:110px"><div data-id="chkOldClctEn" ></div></td>
+                                    <td class="ChangeClctEnTd" style="width:110px"><div data-id="chkClctEn" ></div></td>
+                                    <td class="ChangeClctEnTd"></td>
+                                    
+                                </tr>
+                            </table>
+                        </td>
+                       
+                    </tr>
+                </table>
+            </td>
+            
+        </tr>
+    </table>
+</body>
+</html>

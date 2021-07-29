@@ -1,0 +1,491 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+        .SO1132A_DIV {
+            padding-top: 1px;
+            padding-left: 1px;
+            height: 6.25%;
+            width: 100%;
+            float: left;
+        }
+        .SO1132A0_DIV {
+            padding-top: 1px;
+            padding-left: 1px;
+            height: 10%;
+            width: 100%;
+            float: left;
+        }
+        .SO1132A1_DIV {
+            padding-top: 1px;
+            padding-left: 1px;
+            height: 7.69%;
+            width: 100%;
+            float: left;
+        }
+        .SO1132A2_DIV {
+            padding-top: 1px;
+            padding-left: 1px;
+            height: 10%;
+            width: 100%;
+            float: left;
+        }
+        .SO1132A3_DIV {
+            padding-top: 1px;
+            padding-left: 1px;
+            height: 50%;
+            width: 100%;
+            float: left;
+        }
+        .SO1132A4_DIV {
+            padding-top: 1px;
+            padding-left: 1px;
+            height: 50%;
+            width: 100%;
+            float: left;
+        }
+        .SO1132A5_DIV {
+            padding-top: 1px;
+            padding-left: 1px;
+            height: 65%;
+            width: 100%;
+            float: left;
+        }
+        .SO1132A6_DIV {
+            padding-top: 1px;
+            padding-left: 1px;
+            height: 35%;
+            width: 100%;
+            float: left;
+        }
+        .SO1132A7_DIV {
+            padding-top: 1px;
+            padding-left: 1px;
+            height: 13%;
+            width: 100%;
+            float: left;
+        }
+
+        .SO1132A_lbl1 {
+            float: left;
+            margin-top: 6px;
+        }
+
+        .SO1132A_labelWidth {
+            /*width: 50px;*/
+            width: 15%;
+            text-align: left;
+            margin-right: 1px;
+        }
+
+        .SO1132A_labelWidth2 {
+            /*width: 40px;*/
+            width: 10%;
+            text-align: left;
+            margin-right: 1px;
+        }
+
+        .SO1132A_labelWidth3 {
+            /*width: 76px;*/
+            width: 20%;
+            text-align: left;
+            margin-right: 1px;
+        }
+
+        .SO1132A_labelWidth4 {
+            /*width: 90px;*/
+            width: 30%;
+            text-align: left;
+            margin-right: 1px;
+        }
+
+        .SO1132A_cs {
+            float: left;
+            margin:1px;
+            /*margin-left: 1px;*/
+        }
+
+        .SO1132A_textArea {
+            float: left;
+            /*height: 80px;*/
+            width: 98%;
+            margin:1px;
+
+            /*margin-left: 1px;*/
+        }
+
+    </style>
+
+    <!--<title></title>-->
+</head>
+<body>
+    <!--最外層 padding-left: 2px; --> 
+    <div data-id="gbxAll" style="float: left;width: 100%;">
+        <!--上面資料-->
+        <div data-id="gbxData" style="clear:both;width:100%;height:92%;">
+            <!--左邊-->
+            <!--<div style="float:left;margin-left:1px;" data-id="gbxML">-->
+            <div class="SO1132A_DIV" data-id="gbxML" style="width:50%;height:99.8%;">
+                <div class="SO1132A_DIV">
+                    <label data-id="lBillNo" class="SO1132A_lbl1 SO1132A_labelWidth" style="width:15%;">單據編號</label>
+                    <input data-id="tBillNo" class="SO1132A_cs" style="width:30%;" />
+                    <label data-id="lItem" class="SO1132A_lbl1 SO1132A_labelWidth2" style="width:10%;">項次</label>
+                    <input data-id="tItem" class="SO1132A_cs" style="text-align: right;width:10%;" />
+                    <label data-id="lServiceType" class="SO1132A_lbl1 SO1132A_labelWidth2" style="width:10%;">服務別</label>
+                    <div data-id="cboServiceType" class="SO1132A_cs" style="width:20%;"></div>
+                </div>
+                <div class="SO1132A_DIV">
+                    <label data-id="lCitemCode" class="SO1132A_lbl1 SO1132A_labelWidth" style="width:15%;">收費項目</label>
+                    <div data-id="csCitemCode" class="SO1132A_cs" style="width:84%;"></div>
+                </div>
+                <!--<div class="SO1132A_DIV">
+                    <label data-id="lProductCode" class="SO1132A_lbl1 SO1132A_labelWidth">產品編號</label>
+                    <input data-id="tProServiceID" class="SO1132A_cs"/>
+                    <button data-id="btnProductCode" class="SO1132A_cs"></button>
+                    <label data-id="lPeriodType" class="SO1132A_lbl1 SO1132A_labelWidth">週期種類</label>
+                    <div data-id="cboPeriodType" class="SO1132A_cs"></div>
+                </div>-->
+                <div class="SO1132A_DIV">
+                    <div style="float:left;width:50%;">
+                        <label data-id="lFaciSno" class="SO1132A_lbl1 SO1132A_labelWidth" style="width:30%;">設備序號</label>
+                        <input data-id="tFaciSno" class="SO1132A_cs" style="width:65%;" />
+                    </div>
+                    <div style="float:left;width:50%;">
+                        <button data-id="btnFaciSno" class="SO1132A_cs" style="width:50%;"></button>
+                    </div>
+                </div>
+                <div class="SO1132A_DIV">
+                    <div style="float:left;width:50%;">
+                        <label data-id="lShouldDate" class="SO1132A_lbl1 SO1132A_labelWidth" style="width:30%;">應收日期</label>
+                        <input data-id="dtShouldDate" class="SO1132A_cs" style="width:70%;" />
+                    </div>
+                    <div style="float:left;width:50%;">
+                        <label data-id="lRealPeriod" class="SO1132A_lbl1 SO1132A_labelWidth" style="width:30%;">期數</label>
+                        <input data-id="tRealPeriod" class="SO1132A_cs" style="text-align: right;width:65%;" />
+                    </div>
+                </div>
+                <div class="SO1132A_DIV">
+                    <div style="float:left;width:50%;">
+                        <label data-id="lRealStartDate" class="SO1132A_lbl1 SO1132A_labelWidth" style="width:30%;">有效期限</label>
+                        <input data-id="dtRealStartDate" class="SO1132A_cs" style="width:70%;" />
+                    </div>
+                    <div style="float:left;width:50%;">
+                        <label data-id="lRealStopDate" class="SO1132A_lbl1 SO1132A_labelWidth" style="width:30%;">至</label>
+                        <input data-id="dtRealStopDate" class="SO1132A_cs" style="width:70%;" />
+                    </div>
+                </div>
+                <div class="SO1132A_DIV">
+                    <div style="float:left;width:50%;">
+                        <label data-id="lShouldAmt" class="SO1132A_lbl1 SO1132A_labelWidth" style="width:30%;">出單金額</label>
+                        <input data-id="tShouldAmt" class="SO1132A_cs" style="text-align: right;width:65%;" />
+                    </div>
+                    <div style="float:left;width:50%;"></div>
+                </div>
+                <div class="SO1132A_DIV">
+                    <div style="float:left;width:50%;">
+                        <label data-id="lCMCode" class="SO1132A_lbl1 SO1132A_labelWidth" style="width:30%;">收費方式</label>
+                        <div data-id="csCMCode" class="SO1132A_cs" style="width:65%;"></div>
+                    </div>
+                    <div style="float:left;width:50%;">
+                        <label data-id="lPTCode" class="SO1132A_lbl1 SO1132A_labelWidth" style="width:30%;">付款種類</label>
+                        <div data-id="csPTCode" class="SO1132A_cs" style="width:65%;"></div>
+                    </div>
+                </div>
+                <div class="SO1132A_DIV">
+                    <label data-id="lUCCode" class="SO1132A_lbl1 SO1132A_labelWidth" style="width:15%;">未收原因</label>
+                    <div data-id="csUCCode" class="SO1132A_cs" style="width:84%;"></div>
+                </div>
+                <div class="SO1132A_DIV">
+                    <div style="float:left;width:50%;">
+                        <label data-id="lRealDate" class="SO1132A_lbl1 SO1132A_labelWidth" style="width:30%;">收費日期</label>
+                        <input data-id="dtRealDate" class="SO1132A_cs" style="width:70%;" />
+                    </div>
+                    <div style="float:left;width:50%;">
+                        <label data-id="lRealAmt" class="SO1132A_lbl1 SO1132A_labelWidth" style="width:30%;">實收金額</label>
+                        <input data-id="tRealAmt" class="SO1132A_cs" style="text-align: right;width:65%;" />
+                    </div>
+                </div>
+                <div class="SO1132A_DIV">
+                    <div style="float:left;width:50%;">
+                        <label data-id="lSTType" class="SO1132A_lbl1 SO1132A_labelWidth" style="width:30%;">短收類別</label>
+                        <div data-id="cboSTType" class="SO1132A_cs" style="width:65%;"></div>
+                    </div>
+                    <div style="float:left;width:50%;">
+                        <label data-id="lSTCode" class="SO1132A_lbl1 SO1132A_labelWidth" style="width:30%;">短收原因</label>
+                        <div data-id="csSTCode" class="SO1132A_cs" style="width:65%;"></div>
+                    </div>
+                </div>
+                <div class="SO1132A_DIV">
+                    <label data-id="lClctEn" class="SO1132A_lbl1 SO1132A_labelWidth" style="width:15%;">收費人員</label>
+                    <div data-id="csClctEn" class="SO1132A_cs" style="width:84%;"></div>
+                </div>
+                <div class="SO1132A_DIV">
+                    <div style="float:left;width:50%;">
+                        <label data-id="lManualNo" class="SO1132A_lbl1 SO1132A_labelWidth" style="width:30%;">手開單號</label>
+                        <input data-id="tManualNo" class="SO1132A_cs" style="width:65%;" />
+                    </div>
+                    <div style="float:left;width:50%;"></div>
+                </div>
+                <div class="SO1132A_DIV">
+                    <label data-id="lCancelCode" class="SO1132A_lbl1 SO1132A_labelWidth" style="width:15%;">作廢原因</label>
+                    <div data-id="csCancelCode" class="SO1132A_cs" style="width:84%;"></div>
+                </div>
+                <div class="SO1132A_DIV">
+                    <label data-id="lClassCode" class="SO1132A_lbl1 SO1132A_labelWidth3" style="width:18%;">產單客戶類別</label>
+                    <div data-id="csClassCode" class="SO1132A_cs" style="width:81%;"></div>
+                </div>
+                <div class="SO1132A_DIV">
+                    <div style="float:left;width:50%;">
+                        <label data-id="lCheckNo" class="SO1132A_lbl1 SO1132A_labelWidth" style="width:30%;">票據號碼</label>
+                        <input data-id="tCheckNo" class="SO1132A_cs" style="width:65%;" />
+                    </div>
+                    <div style="float:left;width:50%;">
+                        <label data-id="lCheckDueDate" class="SO1132A_lbl1 SO1132A_labelWidth" style="width:30%;">到期日</label>
+                        <input data-id="dtCheckDueDate" class="SO1132A_cs" style="width:70%;" />
+                    </div>
+                </div>
+                <div class="SO1132A_DIV">
+                    <div style="float:left;width:50%;">
+                        <label data-id="lNextPeriod" class="SO1132A_lbl1 SO1132A_labelWidth" style="width:30%;">下期期數</label>
+                        <input data-id="tNextPeriod" class="SO1132A_cs" style="text-align: right;width:65%;" />
+                    </div>
+                    <div style="float:left;width:50%;">
+                        <label data-id="lNextAmt" class="SO1132A_lbl1 SO1132A_labelWidth" style="width:30%;">下期金額</label>
+                        <input data-id="tNextAmt" class="SO1132A_cs" style="text-align: right;width:65%;" />
+                    </div>
+                </div>
+            </div>
+            <!--右邊-->
+            <!--<div style="float:left;margin-left:1px;height:400px;" data-id="gbxMR">-->
+            <div class="SO1132A_DIV4" data-id="gbxMR" style="width:50%;height:99.8%;float:left">
+                <div data-id="dgContainer" style="float:left;width:99%;height:100%;">
+                    <ul>
+                        <li data-id="ltBPCODE">優惠組合</li>
+                        <li data-id="ltINVOICE">發票資訊</li>
+                        <li data-id="ltACCOUNT">帳號資訊</li>
+                        <li data-id="ltRATE">費率表</li>
+                        <li data-id="ltCLOSENOTE">結清備註</li>
+                    </ul>
+                    <div class="SO1132A_DIV0" data-id="gbxBPCode" style="margin:2px;width:100%;">
+                        <div class="SO1132A0_DIV">
+                            <label data-id="lBPCode" class="SO1132A_lbl1 SO1132A_labelWidth3" style="width:22%;">優惠組合</label>
+                            <div data-id="csBPCode" class="SO1132A_cs" style="width:72%;"></div>
+                        </div>
+                        <div class="SO1132A0_DIV">
+                            <label data-id="lOrderNo" class="SO1132A_lbl1 SO1132A_labelWidth3" style="width:22%;">訂單編號</label>
+                            <input data-id="tOrderNo" class="SO1132A_cs" style="width:72%;" />
+                        </div>
+                        <div class="SO1132A0_DIV">
+                            <label data-id="lPromCode" class="SO1132A_lbl1 SO1132A_labelWidth3" style="width:22%;">促銷方案</label>
+                            <div data-id="csPromCode" class="SO1132A_cs" style="width:72%;"></div>
+                        </div>
+                        <div class="SO1132A0_DIV">
+                            <div style="float:left;width:22%;">
+                                <label data-id="lDiscountDate" class="SO1132A_lbl1 SO1132A_labelWidth3" style="width:98%;">優惠期間</label>
+                            </div>
+                            <div style="float:left;width:37%;">
+                                <input data-id="dtDiscountDate1" class="SO1132A_cs"  />
+                            </div>
+                            <div style="float:left;width:4%;">
+                                <label data-id="lDiscountDate2" class="SO1132A_lbl1 SO1132A_labelWidth2" >至</label>
+                            </div>
+                            <div style="float:left;width:37%;">
+                                <input data-id="dtDiscountDate2" class="SO1132A_cs"  />
+                            </div>
+                        </div>
+                        <div class="SO1132A0_DIV">
+                            <label data-id="lDiscountAmt" class="SO1132A_lbl1 SO1132A_labelWidth3" style="width:22%;">優待金額</label>
+                            <input data-id="tDiscountAmt" class="SO1132A_cs" style="text-align: right;width:72%;" />
+                        </div>
+                        <div class="SO1132A0_DIV">
+                            <label data-id="lContNo" class="SO1132A_lbl1 SO1132A_labelWidth3" style="width:22%;">合約編號</label>
+                            <input data-id="tContNo" class="SO1132A_cs" style="width:72%;" />
+                        </div>
+                        <div class="SO1132A0_DIV">
+                            <div style="float:left;width:22%;">
+                                <label data-id="lContDate" class="SO1132A_lbl1 SO1132A_labelWidth3" style="width:98%;" >合約期間</label>
+                            </div>
+                            <div style="float:left;width:37%;">
+                                <input data-id="dtContStartDate" class="SO1132A_cs"  />
+                            </div>
+                            <div style="float:left;width:4%;">
+                                <label data-id="lContDate2" class="SO1132A_lbl1 SO1132A_labelWidth2" >至</label>
+                            </div>
+                            <div style="float:left;width:37%;">
+                                <input data-id="dtContStopDate" class="SO1132A_cs"  />
+                            </div>
+                        </div>
+                        <div class="SO1132A0_DIV">
+                            <label data-id="lSalePointCode" class="SO1132A_lbl1 SO1132A_labelWidth3" style="width:22%;">點數行銷辦法</label>
+                            <div data-id="csSalePointCode" class="SO1132A_cs" style="width:72%;"></div>
+                        </div>
+                        <div class="SO1132A0_DIV">
+                            <label data-id="lSTBSeqNo" class="SO1132A_lbl1 SO1132A_labelWidth3" style="width:22%;">贈送設備</label>
+                            <input data-id="tSTBSeqNo" class="SO1132A_cs" style="width:72%;" />
+                        </div>
+                        <div class="SO1132A0_DIV">
+                            <div data-id="chkPunish" class="SO1132A_lbl1 SO1132A_cs" style="margin-top: 6px;width:99%;">違約處份</div>
+                        </div>
+                    </div>
+                    <div class="SO1132A_DIV1" data-id="gbxInvoice" style="margin:2px;width:100%;">
+                        <div class="SO1132A1_DIV">
+                            <label data-id="lGUINo" class="SO1132A_lbl1 SO1132A_labelWidth4" style="width:22%;">發票號碼</label>
+                            <input data-id="tGUINo" class="SO1132A_cs" style="width:72%;" />
+                        </div>
+                        <div class="SO1132A1_DIV">
+                            <label data-id="lInvSeqNo" class="SO1132A_lbl1 SO1132A_labelWidth4" style="width:22%;">發票流水號</label>
+                            <input data-id="tInvSeqNo" class="SO1132A_cs" style="width:72%;" />
+                        </div>
+                        <div class="SO1132A1_DIV">
+                            <label data-id="lChargeTitle" class="SO1132A_lbl1 SO1132A_labelWidth4" style="width:22%;">收件人</label>
+                            <input data-id="tChargeTitle" class="SO1132A_cs" style="width:72%;" />
+                        </div>
+                        <div class="SO1132A1_DIV">
+                            <label data-id="lInvoiceType" class="SO1132A_lbl1 SO1132A_labelWidth4" style="width:22%;">發票種類</label>
+                            <div data-id="cboInvoiceType" class="SO1132A_cs" style="width:72%;"></div>
+                        </div>
+                        <div class="SO1132A1_DIV">
+                            <label data-id="lInvNo" class="SO1132A_lbl1 SO1132A_labelWidth4" style="width:22%;">統一編號</label>
+                            <input data-id="tInvNo" class="SO1132A_cs" style="width:72%;" />
+                        </div>
+                        <div class="SO1132A1_DIV">
+                            <label data-id="lInvTitle" class="SO1132A_lbl1 SO1132A_labelWidth4" style="width:22%;">發票抬頭</label>
+                            <input data-id="tInvTitle" class="SO1132A_cs" style="width:72%;" />
+                        </div>
+                        <div class="SO1132A1_DIV">
+                            <label data-id="lInvAddress" class="SO1132A_lbl1 SO1132A_labelWidth4" style="width:22%;">發票地址</label>
+                            <input data-id="tInvAddress" class="SO1132A_cs" style="width:72%;" />
+                        </div>
+                        <div class="SO1132A1_DIV">
+                            <label data-id="lChargeAddress" class="SO1132A_lbl1 SO1132A_labelWidth4" style="width:22%;">收費地址</label>
+                            <input data-id="tChargeAddress" class="SO1132A_cs" style="width:72%;" />
+                        </div>
+                        <div class="SO1132A1_DIV">
+                            <label data-id="lMailAddress" class="SO1132A_lbl1 SO1132A_labelWidth4" style="width:22%;">郵寄地址</label>
+                            <input data-id="tMailAddress" class="SO1132A_cs" style="width:72%;" />
+                        </div>
+                        <div class="SO1132A1_DIV">
+                            <label data-id="lInvoiceKind" class="SO1132A_lbl1 SO1132A_labelWidth4" style="width:22%;">發票開立種類</label>
+                            <div data-id="cboInvoiceKind" class="SO1132A_cs" style="width:72%;"></div>
+                        </div>
+                        <div class="SO1132A1_DIV">
+                            <label data-id="lPreInvoice" class="SO1132A_lbl1 SO1132A_labelWidth4" style="width:22%;">開立別</label>
+                            <div data-id="cboPreInvoice" class="SO1132A_cs" style="width:72%;"></div>
+                        </div>
+                        <div class="SO1132A1_DIV">
+                            <label data-id="lInvPurposeCode" class="SO1132A_lbl1 SO1132A_labelWidth4" style="width:22%;">發票用途</label>
+                            <div data-id="csInvPurposeCode" class="SO1132A_cs" style="width:72%;"></div>
+                        </div>
+                        <div class="SO1132A1_DIV" data-id="gbxReverse">
+                            <label data-id="lPMarkType" class="SO1132A_lbl1 SO1132A_labelWidth4" style="width:22%;">沖帳種類</label>
+                            <div data-id="optNotDiscount" class="SO1132A_cs" style="width:14%;">一般</div>
+                            <div data-id="optDiscount" class="SO1132A_cs" style="width:14%;">折讓</div>
+                            <div style="width:44%;"></div>
+                        </div>
+                    </div>
+                    <div class="SO1132A_DIV2" data-id="gbxAccount" style="margin:2px;width:100%;">
+                        <div class="SO1132A2_DIV">
+                            <label data-id="lBankCode" class="SO1132A_lbl1 SO1132A_labelWidth3" style="width:20%;">銀行名稱</label>
+                            <div data-id="csBankCode" class="SO1132A_cs" style="width:80%;"></div>
+                        </div>
+                        <div class="SO1132A2_DIV">
+                            <label data-id="lAccountNo" class="SO1132A_lbl1 SO1132A_labelWidth3" style="width:20%;">扣帳帳號</label>
+                            <div data-id="cboAccountNo" class="SO1132A_cs" style="width:80%;"></div>
+                        </div>
+                        <div class="SO1132A2_DIV">
+                            <label data-id="lAuthorizeNo" class="SO1132A_lbl1 SO1132A_labelWidth3" style="width:20%;">信用卡授權碼</label>
+                            <input data-id="tAuthorizeNo" class="SO1132A_cs" style="width:80%;" />
+                        </div>
+                    </div>
+                    <div class="SO1132A_DIV3" style="margin:2px;width:100%;">
+                        <div data-id="gbxCustRate" class="SO1132A3_DIV">
+                            <div data-id="lblCust">
+                                客戶類別費率表
+                            </div>
+                            <div>
+                                <div data-id="gCustRate" />
+                            </div>
+                        </div>
+                        <div data-id="gbxMduRate" class="SO1132A3_DIV">
+                            <div data-id="lblMdu">
+                                大樓費率表
+                            </div>
+                            <div>
+                                <div data-id="gMduRate" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="SO1132A_DIV4" style="margin:2px;width:100%;">
+                        <div data-id="gbxNoteClose" class="SO1132A5_DIV" style="margin:1px;width:100%;">
+                            <div data-id="lblNoteClose">
+                                結清
+                            </div>
+                            <div>
+                                <div class="SO1132A7_DIV">
+                                    <div style="float:left;width:35%;">
+                                        <!--<div data-id="chkCheven" class="SO1132A_lbl1 SO1132A_cs" style="margin-top: 6px;width:99%;"></div>-->
+                                        <div data-id="chkCheven" class="SO1132A_cs" />
+                                    </div>
+                                    <div style="float:left;width:15%;">
+                                        <label data-id="lEvenDate" class="SO1132A_lbl1 SO1132A_labelWidth2" style="width:99%;">結清日</label>
+                                    </div>
+                                    <div style="float:left;width:50%;">
+                                        <input data-id="dtEvenDate" class="SO1132A_cs" />
+                                    </div>
+                                </div>
+                                <div class="SO1132A7_DIV">
+                                    <label data-id="lSBillNo" class="SO1132A_lbl1 SO1132A_labelWidth" style="width:20%;">結清單號</label>
+                                    <input data-id="tSBillNo" class="SO1132A_cs" style="width:30%;" />
+                                    <label data-id="lSItem" class="SO1132A_lbl1 SO1132A_labelWidth2" style="width:20%;">項次</label>
+                                    <input data-id="tSItem" class="SO1132A_cs" style="text-align: right;width:30%;" />
+                                </div>
+                                <div class="SO1132A7_DIV">
+                                    <label data-id="lCloseSNo" class="SO1132A_lbl1 SO1132A_labelWidth" style="width:20%;">結清工單</label>
+                                    <input data-id="tCloseSNo" class="SO1132A_cs" style="width:80%;" />
+                                </div>
+                                <div class="SO1132A7_DIV">
+                                    <label data-id="lChevenCode" class="SO1132A_lbl1 SO1132A_labelWidth" style="width:20%;">結清原因</label>
+                                    <div data-id="csChevenCode" class="SO1132A_cs" style="width:80%;"></div>
+                                </div>
+                                <div class="SO1132A6_DIV">
+                                    <label data-id="lCloseNote" class="SO1132A_lbl1 SO1132A_labelWidth" style="width:100%;">結清備註</label>
+                                    <textarea data-id="taCloseNote" class="SO1132A_textArea" style="width:100%;height:100%;"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div data-id="gbxNotePopu" class="SO1132A6_DIV" style="margin:1px;width:100%;">
+                            <div data-id="lblNotePopu">
+                                一般備註
+                            </div>
+                            <div>
+                                <div>
+                                    <textarea data-id="taNotePopu" class="SO1132A_textArea" style="width:100%;height:100%;"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="width:100%;">
+                    <label data-id="lUptTime0" style="float: left;margin-top: 6px;width:12%;">異動時間</label>
+                    <input data-id="tUptTime" class="SO1132A_cs" style="width:34%;" />
+                    <label data-id="lUpdEn0" style="float: left;margin-top: 6px;width:12%;">異動人員</label>
+                    <input data-id="tUpdEn" class="SO1132A_cs" style="width:34%;" />
+                </div>
+            </div>
+        </div>
+        <!--下面Buttons-->
+        <div data-id="gbxSpBottom" style="width:100%;height:8%;">
+            <div style="clear:both;width:100%;">
+                <button data-id="btnSave" class="SO1132A_cs" >存檔</button>
+                <button data-id="btnEdit" class="SO1132A_cs" >修改</button>
+                <div style="float:right;">
+                    <button data-id="btnExit" style="float:left;margin:1px;">離開</button>
+                    <!--<input type="text" data-id="lEditMode" value="顯示" style="float:right;text-align:center;width:20%;" />-->
+                    <label data-id="lEditMode" style="float:left;margin:1px;" class="csslEditMode"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

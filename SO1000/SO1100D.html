@@ -1,0 +1,652 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>	
+    <!--
+    <link href="../jqwidgets/styles/jqx.base.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.black.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.classic.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.dark.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.office.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.energyblue.css" rel="stylesheet" />
+    <script src="../scripts/json2.js"></script>
+    <script src="../scripts/jquery-1.11.1.min.js"></script>
+    <script src="../scripts/jquery.mask.min.js"></script>
+    <script src="../jqwidgets/jqx-all.js"></script>
+    <script type="text/javascript" src="../jqwidgets/globalization/globalize.js"></script>
+    <script type="text/javascript" src="../jqwidgets/jqxtooltip.js"></script>
+    <script src="../component/csDateTime.js"></script>
+    <script src="../language/zh-TW/language61.js"></script>
+    <script src="../language/zh-TW/language01.js"></script>
+    <script src="../Utility/utility.js"></script>
+    <script src="../component/csList.js"></script>
+    <script src="../component/csMulti.js"></script> -->
+    <style type="text/css">
+        /*
+          html {
+              width: 100%;
+              height: 100%;
+          }
+
+          body {
+              height: 99.9%;
+              margin: 0px;
+              padding: 0px;
+              font-size:12px              
+          }
+
+          * {
+              -webkit-box-sizing: border-box;
+              -moz-box-sizing: border-box; 
+              box-sizing: border-box; 
+          }*/
+
+          .Accounttable {
+              width: 100%;
+              height: 100%;
+              table-layout: fixed;
+              /*border : 1px solid red;*/
+              margin: 0;
+              padding: 0;
+              text-align: left;
+          }
+
+          .Accounttr {
+              /*border : 1px solid red;*/
+              margin: 0;
+              padding: 0;
+              text-align: left;
+             
+          }
+
+          .Accounttd {
+              /*border : 1px solid red;*/
+              margin: 0;
+              padding: 0;
+              vertical-align:central;
+            /*  text-align: left;*/
+          }
+          .AccountMode {
+              text-align:center;
+              background-color:cyan;
+          }
+          /*
+        .lbl {
+            width: 95%;
+            text-align: left;
+        }
+
+        .txt {
+            width: 95%;
+        }*/
+    </style>    
+    <!--<script type="text/javascript">
+        $(document).ready(function () {
+            $('#cboProposer').jqxDropDownList({
+                width: '95%',
+                height: '20px',
+                placeHolder: ""
+            });
+            $("#txtID").jqxMaskedInput({
+                width: '90px',
+                height: '20px',
+                mask: '[A-Z][1-2]########'                
+            });
+            $("#txtAccOwnerID").jqxMaskedInput({
+                width: '120px',
+                height: '20px',
+                mask: '[A-Z][1-2]########'
+            });
+            $("#txtAccountNo").jqxMaskedInput({
+                width: '98%',
+                height: '20px',
+                mask: '####################'
+            });
+            $("#txtCVC2").jqxMaskedInput({
+                width: '30px',
+                height: '20px',
+                mask: '###'
+            });
+            $("#txtACHcustID").jqxMaskedInput({
+                width: '155px',
+                height: '20px',
+                mask: '###########'
+            });
+            $("#chkFore").jqxCheckBox({
+                width: '98%',
+                height: 22,
+                checked: false,                
+            });
+            $("#chkFore2").jqxCheckBox({
+                width: '98%',
+                height: 22,
+                checked: false,
+            });
+            $("#chkStopFlag").jqxCheckBox({
+                width: '98%',
+                height: 22,
+                checked: false,
+            });
+            $("#chkDeAut").jqxCheckBox({
+                width: '98%',
+                height: 22,
+                checked: false,
+            });
+            $("#gilCMCode").csList({
+                source: null,
+                codeNoWidth: 50,
+                width: '170px',
+                height: '22px',
+                showColumnHeaders: false,               
+                readOnly: false,
+                codeNoReadOnly: false,
+                popupWidth: null,
+                popupHeight: null,
+                autoFitAllCols: false,
+                descriptionReadOnly: false,
+                columns: [
+                       { text: 'CODENO', datafield: 'CODENO' },
+                       { text: 'DESCRIPTION', datafield: 'DESCRIPTION' }
+                ]
+            });
+            $("#gilPTCode").csList({
+                source: null,
+                codeNoWidth: 40,
+                width: '165px',
+                height: '22px',
+                showColumnHeaders: false,
+                readOnly: false,
+                codeNoReadOnly: false,
+                popupWidth: null,
+                popupHeight: null,
+                autoFitAllCols: false,
+                descriptionReadOnly: false,
+                columns: [
+                       { text: 'CODENO', datafield: 'CODENO' },
+                       { text: 'DESCRIPTION', datafield: 'DESCRIPTION' }
+                ]
+            });
+            $("#gilCardName").csList({
+                source: null,
+                codeNoWidth: 40,
+                width: '165px',
+                height: '22px',
+                showColumnHeaders: false,
+                readOnly: false,
+                codeNoReadOnly: false,
+                popupWidth: null,
+                popupHeight: null,
+                autoFitAllCols: false,
+                descriptionReadOnly: false,
+                columns: [
+                       { text: 'CODENO', datafield: 'CODENO' },
+                       { text: 'DESCRIPTION', datafield: 'DESCRIPTION' }
+                ]
+            });
+            $("#gilBankCode").csList({
+                source: null,
+                codeNoWidth: 50,
+                width: '190px',
+                height: '22px',
+                showColumnHeaders: false,
+                readOnly: false,
+                codeNoReadOnly: false,
+                popupWidth: null,
+                popupHeight: null,
+                autoFitAllCols: false,
+                descriptionReadOnly: false,
+                columns: [
+                       { text: 'CODENO', datafield: 'CODENO' },
+                       { text: 'DESCRIPTION', datafield: 'DESCRIPTION' }
+                ]
+            });
+            $("#gilMediaCode").csList({
+                source: null,
+                codeNoWidth: 40,
+                width: '165px',
+                height: '22px',
+                showColumnHeaders: false,
+                readOnly: false,
+                codeNoReadOnly: false,
+                popupWidth: null,
+                popupHeight: null,
+                autoFitAllCols: false,
+                descriptionReadOnly: false,
+                columns: [
+                       { text: 'CODENO', datafield: 'CODENO' },
+                       { text: 'DESCRIPTION', datafield: 'DESCRIPTION' }
+                ]
+            });
+            $("#gilAcceptName").csList({
+                source: null,
+                codeNoWidth: 60,
+                width: '270px',
+                height: '22px',
+                showColumnHeaders: false,
+                readOnly: false,
+                codeNoReadOnly: false,
+                popupWidth: null,
+                popupHeight: null,
+                autoFitAllCols: false,
+                descriptionReadOnly: false,
+                columns: [
+                       { text: 'CODENO', datafield: 'CODENO' },
+                       { text: 'DESCRIPTION', datafield: 'DESCRIPTION' }
+                ]
+            });
+            $("#txtHide").jqxDateTimeInput({
+                formatString: 'MM/yyyy',
+                showCalendarButton:false,
+                value: null,
+                height:22,
+                width: 80
+            });
+            $("#txtAccountOwner").jqxInput({
+                height: 22,
+                width: 155,
+            });
+            $("#txtIntroId").jqxInput({
+                width: 60,
+                height:20,                
+            });
+            $("#lblIntroName").jqxInput({
+                width: '95%',
+                height: 20,
+                disabled:false
+            });
+            $("#txtAchSN").jqxInput({
+                width: 160,
+                height: 20,                
+            });
+            $("#txtStatusMode").jqxInput({
+                width: 50,
+                height: 23,
+                disabled: true,
+            });
+            $('#btnFind').jqxButton({
+                width: 40,
+                height: 25,                
+            });
+            $('#btnSave').jqxButton({
+                width: 65,
+                height: 25,
+                imgSrc: imageScr.save.imgSrc
+            });
+            $('#btnEdit').jqxButton({
+                width: 65,
+                height: 25,
+                imgSrc: imageScr.edit.imgSrc
+            });
+            $('#btnCancel').jqxButton({
+                width: 65,
+                height: 25,
+                imgSrc: imageScr.cancel.imgSrc
+            });
+            $('#btnACHDetail').jqxButton({
+                width: 255,
+                height: 25,
+               
+            });
+            $('#dtSendDate').csDateTime({
+                formatString: 'yyyy/MM/dd',
+                value: null,
+                width: 75,
+                height:22
+            });
+            $('#dtContiDate').csDateTime({
+                formatString: 'yyyy/MM/dd',
+                value: null,
+                width: 115,
+                height: 22
+            });
+            $('#dtSnactionDate').csDateTime({
+                formatString: 'yyyy/MM/dd',
+                value: null,
+                width: 103,
+                height: 22
+            });
+            $('#edtAcceptTime').csDateTime({
+                formatString: 'yyyy/MM/dd HH:mm:ss',
+                value: null,
+                width: 160,
+                height: 22
+            });
+            $('#dtStopDate').csDateTime({
+                formatString: 'yyyy/MM/dd',
+                value: null,
+                width: 80,
+                height: 22
+            });
+            $('#dtAuthStopDate').csDateTime({
+                formatString: 'yyyy/MM/dd',
+                value: null,
+                width: 150,
+                height: 22
+            });
+            $('#csmProduct').csMulti({
+           //     source: data2,
+                buttonText: '',
+                width: 290,
+                buttonWidth: 80,
+                //widthDesc: 150,                                
+                isReadOnly: false,                
+            });
+            $('#csmCharge').csMulti({
+                //     source: data2,
+                buttonText: '待收資料',
+                width: 297,
+                buttonWidth: 80,
+                //widthDesc: 150,                                
+                isReadOnly: false,
+            });
+            $('#csmACH').csMulti({
+                //     source: data2,
+                buttonText: 'ACH授權交易別',
+                width: 255,
+                buttonWidth: 120,
+                //widthDesc: 150,                                
+                isReadOnly: false,
+            });
+            $('#txtMemo').jqxTextArea({
+                width: '99%',
+                height:40
+                //disabled: !aCanUse
+            });
+            $("#pnl").jqxPanel({
+                //height: '95%',
+                //width: '65%',
+                height: 180,
+                width:260,
+                autoUpdate: true
+            });
+            /*
+            $('#txtName').jqxInput({
+                height: '97%',
+                width:'97%'
+            });
+            $('#txtNo').jqxInput({
+                height: '97%',
+                width: '97%'
+            });
+            $('#btnFind').jqxButton({
+                width: '95%',
+                height:40,
+                imgSrc: imageScr.query.imgSrc
+            });
+            $('#btnOK').jqxButton({
+                width: 70,
+                height: 30,
+                imgSrc: imageScr.ok.imgSrc
+            });
+            $('#btnCancel').jqxButton({
+                width: 70,
+                height: 30,
+                imgSrc: imageScr.cancel.imgSrc
+            });
+            $("#grdIntro").jqxGrid({
+                width: '99.7%',
+                height: '99%',                
+                sortable: true,
+                altrows: true,
+                columnsresize: true,
+                columns: [
+                    {
+                        text: '#', sortable: false, filterable: false, editable: false,
+                        groupable: false, draggable: false, resizable: false,
+                        datafield: '', columntype: 'number', width: 30,
+                        cellsrenderer: function (row, column, value) {
+                            return "<div style='margin:4px;'>" + (value + 1) + "</div>";
+                        }
+                    },
+                    { text: 'CODENO', datafield: 'CODENO', width: 130, cellsalign: 'center', align: 'center' },
+                    { text: 'DESCRIPTION', datafield: 'DESCRIPTION', width: 250, cellsalign: 'left', align: 'left' }
+                ]
+            });         */
+        });
+
+    </script>  -->
+
+</head>
+<body>
+    <table class="Accounttable" >
+        <tr class="Accounttr">
+            <td class="Accounttd" width="65px" data-id="lblProposer" style="color:red"></td>
+            <!--<td class="Accounttd" colspan="2" width="170px"><div data-id="cboProposer" ></div></td>-->  
+            <td class="Accounttd" colspan="2" width="170px"><input type="text" data-id="cboProposer" /></td>
+            <td class="Accounttd" width="80px" data-id="lblId"></td>
+            <td class="Accounttd" width="280px" colspan="2">
+                <table class="Accounttable" >
+                    <tr class="Accounttr">
+                        <td class="Accounttd" width="45%"><input data-id="txtID"  /></td>
+                        <td class="Accounttd"><div hidden="hidden" data-id="chkFore"  style="margin-left:10px"></div> </td>
+                        <td class="Accounttd" width="65px" data-id="lblCMCode" style="color:red"></td>
+                    </tr>
+                </table>                
+            </td>      
+            <td class="Accounttd" colspan="3"><div data-id="gilCMCode" ></div></td>
+            <td class="Accounttd"></td>                  
+            <!--<td class="Accounttd" width="70px" colspan="3"><div data-id="gilCMCode" id="gilCMCode"></div></td>-->
+            
+        </tr>
+        <tr class="Accounttr">
+            <td class="Accounttd" data-id="lblPTCode" style="color:red"></td>
+            <td class="Accounttd" colspan="2"><div data-id="gilPTCode" ></div></td>            
+            <td class="Accounttd" data-id="lblBankCode" style="color:red"></td>
+            <td class="Accounttd" colspan="2">
+                <table class="Accounttable">
+                    <tr class="Accounttr">
+                        <td class="Accounttd"><div data-id="gilBankCode"></div></td>                        
+                        <td class="Accounttd" width="65px" data-id="lblAccountId" style="color:red"></td>
+                    </tr>
+                </table>      
+                
+            </td>
+            <td class="Accounttd" colspan="4">
+                <table class="Accounttable">
+                    <tr class="Accounttr">
+                        <td class="Accounttd" width="180px"><input data-id="txtAccountNo"  /></td>
+                        <td class="Accounttd" width="50px" data-id="lblCVC2"></td>
+                        <td class="Accounttd"><input data-id="txtCVC2" /></td>
+                    </tr>
+                </table>
+            </td>
+            
+        </tr>
+        <tr class="Accounttr">
+            <td class="Accounttd" data-id="lblCardName"></td>
+            <td class="Accounttd" colspan="2"><div data-id="gilCardName"></div></td>
+            
+            <td class="Accounttd" colspan="3">
+                <table class="Accounttable">
+                    <tr class="Accounttr">
+                        <td class="Accounttd" data-id="lblHide" width="200px"> </td>
+                        <td class="Accounttd"><div data-id="txtHide" ></div></td>
+                        <!--<td class="Accounttd"><input type="text" data-id="txtHide" /></td>-->
+                    </tr>
+                </table>
+            </td>            
+            
+            <td class="Accounttd" colspan="4" rowspan="5">
+                <table class="Accounttable" >
+                    <tr class="Accounttr">
+                        <td class="Accounttd">
+                            <div data-id="pnl" style="padding:2px;margin:0">
+                                <table class="Accounttable">
+                                    <tr class="Accounttr">
+                                        <td class="Accounttd" width="85px" data-id="lblACHNo"></td>
+                                        <td class="Accounttd"><input type="text" data-id="txtACHcustID"  /> </td>
+                                    </tr>
+                                    <tr class="Accounttr">
+                                        <td class="Accounttd" colspan="2">
+                                            <div id="csmACH" data-id="csmACH"></div>
+                                        </td>
+
+                                    </tr>
+                                    <tr class="Accounttr">
+                                        <td class="Accounttd" colspan="2">
+                                            <button data-id="btnACHDetail"></button>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        
+                        </td>
+                    </tr>
+                </table>
+                
+            </td>
+           
+        </tr>
+        <tr  class="Accounttr">
+            <td class="Accounttd" data-id="lblAccountOwner" style="color:red"></td>
+            <td class="Accounttd" colspan="2" ><input type="text" data-id="txtAccountOwner" /></td>                        
+            <td class="Accounttd" colspan="3">
+                <table class="Accounttable">
+                    <tr class="Accounttr">
+                        <td class="Accounttd" data-id="lblAccOwnerID" width="130px"></td>
+                        <td class="Accounttd"><input data-id="txtAccOwnerID" style="text-transform:uppercase" /></td>
+                        <td class="Accounttd" width="10px"><div hidden="hidden" data-id="chkFore2"></div></td>
+                    </tr>
+                </table>
+            </td>
+            
+        </tr>
+        <tr class="Accounttr">
+            <td class="Accounttd" data-id="lblMediaCode"></td>
+            <td class="Accounttd" colspan="2"><div data-id="gilMediaCode"></div></td>            
+            <td class="Accounttd" data-id="lblIntroId"></td>
+            <td class="Accounttd" colspan="2">
+                <table class="Accounttable">
+                    <tr class="Accounttr">
+                        <td class="Accounttd" width="90px"><input type="text" data-id="txtIntroId" /></td>
+                        <td class="Accounttd"><input type="text" data-id="lblIntroName" /></td>
+                        <td class="Accounttd" width="40px"><button data-id="btnFind"></button></td>
+                    </tr>
+                </table>
+            </td>                                  
+        </tr>
+        <tr class="Accounttr">
+            <td class="Accounttd" data-id="lblSendDate"></td>
+            <td class="Accounttd" colspan="3">
+                <table class="Accounttable">
+                    <tr class="Accounttr">
+                        <td class="Accounttd" ><input type="text"  data-id="dtSendDate"/></td>
+                        <td class="Accounttd" width="80px" data-id="lblContiDate" align="right" style="color:red"></td>
+                    </tr>
+                </table>
+            </td>            
+            <td class="Accounttd" colspan="2">
+                <table class="Accounttable">
+                    <tr class="Accounttr">
+                        <td class="Accounttd"  width="115px"><input type="text" data-id="dtContiDate" /></td>
+                        <td class="Accounttd" width="55px" data-id="lblSnactionDate">核准日期</td>
+                        <td class="Accounttd"><input type="text" data-id="dtSnactionDate" /></td>
+                    </tr>
+                </table>
+            </td>
+            
+            
+           
+        </tr>
+        <tr class="Accounttr">
+            <td class="Accounttd" data-id="lblAcceptTime" style="color:red"></td>
+            <td class="Accounttd" colspan="2"><input type="text" data-id="edtAcceptTime"  /></td>            
+            <td class="Accounttd"  data-id="lblAcceptName">受理人員</td>
+            <td class="Accounttd" colspan="2"><div data-id="gilAcceptName"></div></td>
+            
+        </tr>
+        <tr class="Accounttr">
+            <td class="Accounttd"><div data-id="chkStopFlag" ></div></td>
+            <td class="Accounttd"  colspan="2">
+                <table class="Accounttable">
+                    <tr class="Accounttr">
+                        <td class="Accounttd" width="70px" data-id="lblStopDate"></td>
+                        <td class="Accounttd"><input type="text" data-id="dtStopDate" /></td>
+                    </tr>
+                </table>
+            </td>
+            
+            <td class="Accounttd"> <div style="margin-left:10px" data-id="chkDeAut"></div></td>
+            <td class="Accounttd" colspan="2">
+                <table class="Accounttable">
+                    <tr class="Accounttr">
+                        <td class="Accounttd" align="center" width="100px" data-id="lblAuthStopDate"></td>
+                        <td class="Accounttd"><input type="text" data-id="dtAuthStopDate" /></td>
+                    </tr>
+                </table>
+            </td>
+            
+            <td class="Accounttd"  colspan="4"  rowspan="4">
+                <table class="Accounttable">
+                    <tr class="Accounttr">
+                        <td class="Accounttd"  data-id="lblAchSN" width="85px"></td>
+                        <td class="Accounttd"><input type="text" data-id="txtAchSN" /></td>
+                    </tr>
+                    <tr class="Accounttr">
+                        <td class="Accounttd" data-id="lblUpdTime" ></td>
+                        <td class="Accounttd" data-id="txtUpdTime" ></td>
+                    </tr>
+                    <tr class="Accounttr">
+                        <td class="Accounttd" data-id="lblUpdEn"></td>
+                        <td class="Accounttd" data-id="txtUpdEn"></td>
+                    </tr>
+                </table>
+            </td>
+           
+        </tr>
+        <tr class="Accounttr">
+            <td class="Accounttd" colspan="6">
+                <table class="Accounttable">
+                    <tr class="Accounttr">
+                        <!--<td class="Accounttd"><div  data-id="csmProduct"></div></td>-->
+                        <td class="Accounttd">
+                            <table class="Accounttable">
+                                <tr class="Accounttr">
+                                    <td class="Accounttd" style="width:70px"><button data-id="btnProduct"></button></td>
+                                    <td class="Accounttd" style="width:30px"><button data-id="btnDelProduct"></button> </td>
+                                    <td class="Accounttd"><input data-id="txtProduct" type="text" /> </td>
+                                </tr>
+                            </table>
+                            
+                        </td>
+                        <td class="Accounttd" style="width:1px"><div  hidden="hidden" data-id="csmCharge"></div></td>
+                    </tr>
+                </table>
+            </td>            
+            
+            
+            
+        </tr>
+        <tr class="Accounttr">
+            <td class="Accounttd" rowspan="2" data-id="lblNote"></td>
+            <td class="Accounttd" colspan="5" rowspan="2">
+                <textarea data-id="txtMemo"></textarea>
+            </td>            
+        </tr>
+        <tr class="Accounttr">
+            
+        </tr>
+        <tr class="Accounttr">
+            <td class="Accounttd" colspan="2">
+                <table class="Accounttable">
+                    <tr class="Accounttr">
+                        <td class="Accounttd"><button data-id="btnSave"></button></td>
+                        <td class="Accounttd"><button data-id="btnEdit"></button></td>
+                    </tr>
+                </table>
+            </td>
+            
+            <td class="Accounttd"></td>
+            <td class="Accounttd"></td>
+            <td class="Accounttd"></td>
+            <td class="Accounttd"></td>
+            <td class="Accounttd"></td>
+            <td class="Accounttd"></td>
+            <td class="Accounttd" ><button data-id="btnCancel"></button></td>
+            <!--<td class="Accounttd"><input class="csslEditMode" type="text" data-id="txtStatusMode" /></td>-->
+            <td class="Accounttd"><label class="csslEditMode" data-id="txtStatusMode" /></td>
+        </tr>
+    </table>
+</body>
+</html>

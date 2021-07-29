@@ -1,0 +1,796 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link href="../jqwidgets/styles/jqx.base.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.black.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.classic.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.dark.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.office.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.energyblue.css" rel="stylesheet" />    
+    <script src="../scripts/json2.js"></script>
+    <script src="../scripts/jquery-1.11.1.min.js"></script>
+    <script src="../jqwidgets/jqx-all.js"></script>
+    <script type="text/javascript" src="../jqwidgets/globalization/globalize.js"></script>    
+    <script type="text/javascript" src="../jqwidgets/jqxtooltip.js"></script>
+    <script src="../language/zh_TW/SO1112ALanguage.js"></script>
+    <script src="../Utility/utility.js"></script>
+    <script src="../component/csList.js"></script>
+    <script src="../component/csMulti.js"></script>
+    <style type="text/css">
+        html {
+            width:100%;
+            height:100%;
+            
+            
+        }
+        body {          
+            height:98%;            
+            margin:2px;
+            padding:2px;
+            /*border: 1px solid red;*/
+            
+        }
+        table {
+           width:100%;       
+           height:100%;      
+           table-layout:fixed;
+           
+          /* border : 1px solid black; */
+           margin:0;
+           padding:0;                      
+           text-align:left; 
+        }
+        tr{            
+           border : 1px solid black;
+           margin:0;
+           padding:0;                      
+           text-align:left;                
+        }
+        td {                                            
+           border : 1px solid black; 
+            margin:0;
+            padding:0;                      
+            text-align:left;            
+        }
+        .lbl {
+            width:95%;
+            text-align:left;
+        }
+       .txt {
+           width:95%;    
+                 
+       }
+     
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            
+            $("#mainSplitter").jqxSplitter({                
+                width: '100%',
+                height: '100%',                
+                orientation: 'horizontal',
+                splitBarSize: 3,
+                
+                panels: [{ size: '60%' }, { size: '40%' }]
+            });
+            $("#partA-Head").jqxPanel({
+                height: '15%',
+                width: '100%',               
+                autoUpdate: true               
+            });
+            $("#partBUI").jqxPanel({
+                height: '98%',
+                width: '100%',
+                autoUpdate: true
+            });
+            $("#partA-Detail").jqxPanel({
+                height:'85%',
+                width: '100%',
+                autoUpdate: true
+            });
+            $("#txtSNo").jqxInput({
+                width: '90%',
+                height: '80%',                
+                disabled: true                
+            });
+            $("#txtServName").jqxInput({
+                width: '90%',
+                height: '80%',
+                disabled: true
+            });
+            $("#txtStatus").jqxInput({
+                width: '95%',
+                height: '100%',
+                disabled: true
+            });
+            $("#txtClassName").jqxInput({
+                width: '90%',
+                height: '80%',
+                disabled: true
+            });
+            $("#txtCustId").jqxInput({
+                width: '90%',
+                height: '80%',
+                disabled: true               
+            });
+            $("#txtCustName").jqxInput({
+                width: '90%',
+                height: '80%',
+                disabled: true
+
+            });
+            $("#txtTel1").jqxInput({
+                width: '90%',
+                height: '80%',
+                disabled: true
+
+            });
+            $("#txtInstAddress").jqxInput({
+                width: '96%',
+                height: '80%',
+                disabled: true
+            });
+            $('#txtMemo').jqxTextArea({
+                placeHolder: '備註', 
+                height: '100%',
+                width: '98%',
+                minLength: 1
+            });
+            
+            /*
+            $("#txtMemo").jqxInput({
+                width: '98%',
+                height: '90%',
+                theme:'energyblue'
+            });*/
+
+            $("#txtWorkUnit").jqxInput({
+                width: '60%',
+                height: '90%',
+                theme: 'energyblue'
+            });
+            $("#txtFinUnit").jqxInput({
+                width: '60%',
+                height: '100%',
+                theme: 'energyblue'
+            });
+            $('#jqxTabs').jqxTabs({
+                width: '98%',
+                height: '98%'                
+            });
+            $("#dtFinTime").jqxDateTimeInput({
+                formatString: 'yyyy/MM/dd HH:mm',
+                width:'80%'
+            });
+            $("#edtSignDate").jqxDateTimeInput({
+                formatString: 'yyyy/MM/dd',
+                width:150
+            });
+            $("#edtResvTime").jqxDateTimeInput({
+                formatString: 'yyyy/MM/dd',
+                width: '100%'
+            });
+            $("#edtCallOkTime").jqxDateTimeInput({
+                formatString: 'yyyy/MM/dd hh:mm:ss',
+                showCalendarButton: false,
+                width: '99%'
+            });
+            $("#edtResvFlagTime").jqxDateTimeInput(
+                {
+                    width: '95%',                    
+                    formatString: 'HH:mm',
+                    showTimeButton: false,
+                    showCalendarButton: false
+                });
+            $("#gilMFCode1").csList({
+                source: null,
+                codeNoWidth: 88,
+                width: '250px',
+                height:'20px',
+                showColumnHeaders: false,
+                //theme: 'energyblue',
+                //selectedIndex: -1,
+                readOnly: false,
+                codeNoReadOnly: false,
+                popupWidth: null,
+                popupHeight: null,
+                autoFitAllCols: false,
+                descriptionReadOnly: false                
+            });
+            $("#gilMFCode2").csList({
+                source: null,
+                codeNoWidth: 88,
+                width: '250px',
+                height: '20px',
+                showColumnHeaders: false,
+                //theme: 'energyblue',
+                //selectedIndex: -1,
+                readOnly: false,
+                codeNoReadOnly: false,
+                popupWidth: null,
+                popupHeight: null,
+                autoFitAllCols: false,
+                descriptionReadOnly: false
+            });
+            $("#gilReturnCode").csList({
+                source: null,
+                codeNoWidth: 88,
+                width: '250px',
+                height: '20px',
+                showColumnHeaders: false,
+                //theme: 'energyblue',
+                //selectedIndex: -1,
+                readOnly: false,
+                codeNoReadOnly: false,
+                popupWidth: null,
+                popupHeight: null,
+                autoFitAllCols: false,
+                descriptionReadOnly: false
+            });
+            $("#gilReturnDescCode").csList({
+                source: null,
+                codeNoWidth: 88,
+                width: '250px',
+                height: '20px',
+                showColumnHeaders: false,
+                //theme: 'energyblue',
+                //selectedIndex: -1,
+                readOnly: false,
+                codeNoReadOnly: false,
+                popupWidth: null,
+                popupHeight: null,
+                autoFitAllCols: false,
+                descriptionReadOnly: false
+            });
+            $("#gilSatiCode").csList({
+                source: null,
+                codeNoWidth: 88,
+                width: '250px',
+                height: '20px',
+                showColumnHeaders: false,
+                //theme: 'energyblue',
+                //selectedIndex: -1,
+                readOnly: false,
+                codeNoReadOnly: false,
+                popupWidth: null,
+                popupHeight: null,
+                autoFitAllCols: false,
+                descriptionReadOnly: false
+            });
+            $("#gilSignEn").csList({
+                source: null,
+                codeNoWidth: 88,
+                width: '250px',
+                height: '20px',
+                showColumnHeaders: false,
+                //theme: 'energyblue',
+                //selectedIndex: -1,
+                readOnly: false,
+                codeNoReadOnly: false,
+                popupWidth: null,
+                popupHeight: null,
+                autoFitAllCols: false,
+                descriptionReadOnly: false
+            });
+            $("#gilServiceType").csList({
+                source: null,
+                codeNoWidth: 60,
+                //width:'250px',
+                width: '99%',
+                height: 22,
+                showColumnHeaders: false,
+                //theme: 'energyblue',
+                //selectedIndex: -1,
+                readOnly: false,
+                codeNoReadOnly: false,
+                popupWidth: null,
+                popupHeight: null,
+                autoFitAllCols: false,
+                descriptionReadOnly: false
+            });
+            $("#gilServiceCode").csList({
+                source: null,
+                codeNoWidth: 60,
+                width: '99%',
+                showColumnHeaders: false,
+                //theme: 'energyblue',
+                //selectedIndex: -1,
+                readOnly: false,
+                codeNoReadOnly: false,
+                popupWidth: null,
+                popupHeight: null,
+                autoFitAllCols: false,
+                descriptionReadOnly: false
+            });
+            $("#gilGroupCode").csList({
+                source: null,
+                codeNoWidth: 60,
+                width: '99%',
+                showColumnHeaders: false,
+                //theme: 'energyblue',
+                //selectedIndex: -1,
+                readOnly: false,
+                codeNoReadOnly: false,
+                popupWidth: null,
+                popupHeight: null,
+                autoFitAllCols: false,
+                descriptionReadOnly: false
+            });
+            $("#gilWorkerEn1").csList({
+                source: null,
+                codeNoWidth: 60,
+                width: '99%',
+                showColumnHeaders: false,
+                //theme: 'energyblue',
+                //selectedIndex: -1,
+                readOnly: false,
+                codeNoReadOnly: false,
+                popupWidth: null,
+                popupHeight: null,
+                autoFitAllCols: false,
+                descriptionReadOnly: false
+            });
+            $("#gilWorkerEn2").csList({
+                source: null,
+                codeNoWidth: 60,
+                width: '99%',
+                showColumnHeaders: false,
+                //theme: 'energyblue',
+                //selectedIndex: -1,
+                readOnly: false,
+                codeNoReadOnly: false,
+                popupWidth: null,
+                popupHeight: null,
+                autoFitAllCols: false,
+                descriptionReadOnly: false
+            });
+            $('#btnResv').jqxButton({
+                width: '50%',
+                height:25,
+                theme: 'energyblue'
+            });
+            $('#btnSave').jqxButton({
+                width: 70,
+                imgSrc: imageScr.save.imgSrc,
+                imgPosition: "left",
+                textImageRelation: "imageBeforeText",
+                height:33,
+                theme: 'energyblue'
+            });
+            $('#btnCancel').jqxButton({
+                width: 50,
+                height: 25,
+                theme: 'energyblue'
+            });
+            $('#btnReserve2').jqxButton({
+                width: 90,
+                height: 25,
+                theme: 'energyblue'
+            });
+            $('#btnViewPR').jqxButton({
+                width: 90,
+                height: 25,
+                theme: 'energyblue'
+            });
+            $('#btnSubAdd1').jqxButton({
+                width: 50,
+                height: 22,
+                theme: 'energyblue'
+            });
+            $('#btnSubEdit1').jqxButton({
+                width: 50,
+                height: 22,
+                theme: 'energyblue'
+            });
+            $('#btnSubDelete1').jqxButton({
+                width: 50,
+                height: 22,
+                theme: 'energyblue'
+            });
+            $('#btnSubAdd2').jqxButton({
+                width: 50,
+                height: 22,
+                theme: 'energyblue'
+            });
+            $('#btnSubEdit2').jqxButton({
+                width: 50,
+                height: 22,
+                theme: 'energyblue'
+            });
+            $('#btnSubDelete2').jqxButton({
+                width: 50,
+                height: 22,
+                theme: 'energyblue'
+            });
+            $("#chkFlag").jqxCheckBox({ width: 80 });
+            $("#chkPrintBillFlag").jqxCheckBox({ width: '100%' });
+            $('#btnBillNo').jqxButton({
+                width: '80%',
+                height:'100%',
+                theme: 'energyblue'
+            });
+            $("#grdData1").jqxGrid({                
+                width: '100%',
+                height: '100%',
+                theme: 'energyblue',
+                columns: [
+                    {
+                        text: '#', sortable: false, filterable: false, editable: false,
+                        groupable: false, draggable: false, resizable: false,
+                        datafield: '', columntype: 'number', width: '10%',
+                        cellsrenderer: function (row, column, value) {
+                            return "<div style='margin:4px;'>" + (value + 1) + "</div>";
+                        }
+                    },                   
+                    { text: 'AAA', datafield: 'FACINAME', width: '45%' },
+                    { text: 'BBB', datafield: 'FACISNO', width: '45%' }
+                ]
+            })
+            $("#grdData2").jqxGrid({
+                width: '100%',
+                height: '100%',
+                theme: 'energyblue',
+                columns: [
+                    {
+                        text: '#', sortable: false, filterable: false, editable: false,
+                        groupable: false, draggable: false, resizable: false,
+                        datafield: '', columntype: 'number', width: '10%',
+                        cellsrenderer: function (row, column, value) {
+                            return "<div style='margin:4px;'>" + (value + 1) + "</div>";
+                        }
+                    },
+                    { text: 'AAA', datafield: 'FACINAME', width: '45%' },
+                    { text: 'BBB', datafield: 'FACISNO', width: '45%' }
+                ]
+            })
+        });
+    </script>
+</head>
+<body>    
+    <div data-id="mainDiv" style="width:100%;height:100%">
+        <div data-id="mainSplitter" id="mainSplitter">
+            <div data-id="PartA">
+                
+                <div data-id="partA-Head" id="partA-Head" style="padding:2px;margin:0">
+                        <table>
+                            <tr style="height:50%">
+                                <td style="width:8%">
+                                    派工單號:
+                                </td>
+                                <td style="width:17%">                                    
+                                        <input type="text" data-id="txtSNo" id="txtSNo" />                                    
+                                </td>
+                                <td style="width:8%">
+                                    服務區:
+                                </td>
+                                <td style="width:17%">
+                                    
+                                        <input type="text" data-id="txtServName" id="txtServName" />
+                                    
+                                </td>
+                                <td style="width:8%">
+                                    客戶類別:
+                                </td>
+                                <td style="width:17%">
+                                    
+                                     <input type="text" data-id="txtClassName" id="txtClassName" />
+                                    
+                                </td>
+                                <td style="width:8%">
+                                    客戶編號:
+                                </td>
+                                <td>                                    
+                                     <input type="text" data-id="txtCustId" id="txtCustId" />                                    
+                                </td>
+                            </tr>
+                            <tr style="height:50%">
+                                <td>
+                                    客戶名稱:
+                                </td>
+                                <td>                                    
+                                      <input type="text" data-id="txtCustName" id="txtCustName" />                                    
+                                </td>
+                                <td>
+                                    電話(1):
+                                </td>
+                                <td>                                    
+                                      <input type="text" data-id="txtTel1" id="txtTel1" />                                    
+                                </td>
+                                <td>
+                                    裝機地址:
+                                </td>
+                                <td colspan="3">                                    
+                                     <input type="text" data-id="txtInstAddress" id="txtInstAddress" />                                    
+                                </td>
+
+                            </tr>
+                        </table>
+                    </div>
+                
+                <div id="partA-Detail" style="padding:2px;margin:0">
+                    <table style="height:98%">
+                        <tr>
+                            <td>
+                                <table >
+                                    <tr>
+                                        <td style="width:90px"><div style="display:table-cell;color:red">服務別</div></td>
+                                        <td colspan="2"><div id="gilServiceType"></div></td>
+                                        <td style="width:15%"><div style="display:table-cell">受理人員:</div></td>
+                                        <td style="width:30%"><div style="display:table-cell">TEST</div></td>
+
+                                    </tr>
+                                    <tr>
+                                        <td><div style="display:table-cell;color:red">服務申告</div></td>
+                                        <td colspan="2"><div  id="gilServiceCode"></div></td>
+                                        <td>列印人員:</td>
+                                        <td>TEST</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td><div style="display:table-cell;color:red">預約時間</div></td>
+                                        <td><div data-id="edtResvTime" id="edtResvTime"></div></td>
+                                        <td><button id="btnResv" style="margin-left:5px" ></button></td>
+                                        <td><div style="display:table-cell">受理時間:</div></td>
+                                        <td><div style="display:table-cell">2016/07/07 12:00:00</div></td>
+                                    </tr>
+                                    <tr>
+                                        <td><div style="display:table-cell">線上回報時間</div></td>
+                                        <td colspan="2"><div data-id="edtCallOkTime" id="edtCallOkTime" style="width:100%"></div></td>
+                                        <td><div style="display:table-cell">工單列印次數:</div></td>
+                                        <td>0</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td><div style="display:table-cell">客戶指定時間</div></td>
+                                        <td colspan="2">
+                                            <table>
+                                                <tr>
+                                                    <td style="width:30%"><div data-id="edtResvFlagTime" id="edtResvFlagTime"></div></td>
+                                                    <td style="width:30%"><div data-id="chkFlag" id="chkFlag">優先維修</div></td>
+                                                    <td style="width:10%">
+                                                        <div data-id="chkPrintBillFlag" id="chkPrintBillFlag"></div>
+                                                    </td>
+                                                    <td><button data-id="btnBillNo" id="btnBillNo">順收月費</button></td>
+                                                </tr>
+                                               
+                                            </table>
+                                        </td>
+                                        
+                                        <td>
+                                            日結時間:
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>工程組別</td>
+                                        <td colspan="2"><div data-id="gilGroupCode" id="gilGroupCode"></div></td>                                        
+                                        <td>列印時間:</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><div style="display:table-cell">工作人員一</div></td>
+                                        <td colspan="2"><div data-id="gilWorkerEn1" id="gilWorkerEn1"></div></td>                                          
+                                        <td>派工點數</td>
+                                        <td><input type="text" data-id="txtWorkUnit" id="txtWorkUnit" /></td>
+                                    </tr>
+                                    <tr >
+                                        <td><div style="display:table-cell">工作人員二</div></td>
+                                        <td colspan="2"><div data-id="gilWorkEn2" id="gilWorkerEn2"></div></td>  
+                                        <td>完工點數</td>
+                                        <td><input type="text" data-id="txtFinUnit" id="txtFinUnit" /></td>
+                                    </tr>                                   
+                                    <tr  style="height:15%" >
+                                        <td >備註</td>
+                                        <td colspan="4" >
+                                            <!--<input type="text"  data-id="txtMemo" id="txtMemo"  />-->
+                                            <textarea data-id="txtMemo" id="txtMemo"></textarea>
+                                        </td>                                        
+                                    </tr>
+                                </table>
+                            </td>
+                            <td style="width:35%">
+                                <div id='jqxTabs' style="margin-left:2px">
+                                    <ul style='margin-left: 20px;'>
+                                        <li>結案</li>
+                                    </ul>
+                                    <div style="height:100%;padding:0">
+                                        <table style="width:100%;height:100%">
+                                            <tr>
+                                                <td style="width:35%"><div style="display:table-cell">完工時間</div></td>
+                                                <td><div data-id="dtFinDate" id="dtFinTime" style="width:100%"></div></td>
+                                            </tr>
+                                            <tr>
+                                                <td>故障代號一</td>
+                                                <td><div  id="gilMFCode1"></div></td>
+                                            </tr>
+                                            <tr>
+                                                <td><div style="display:table-cell">故障代號二</div></td>
+                                                <td><div style="width:100%" id="gilMFCode2"></div></td>
+                                            </tr>
+                                            <tr>
+                                                <td><div style="display:table-cell">退單原因</div></td>
+                                                <td><div style="width:100%" id="gilReturnCode"></div></td>
+                                            </tr>
+                                            <tr>
+                                                <td><div style="display:table-cell">退單原因分類</div></td>
+                                                <td><div style="width:100%" id="gilReturnDescCode"></div></td>
+                                            </tr>
+                                            <tr>
+                                                <td><div style="display:table-cell">服務滿意度</div></td>
+                                                <td><div style="width:100%" id="gilSatiCode"></div></td>
+                                            </tr>
+                                            <tr>
+                                                <td><div style="display:table-cell">簽收人員</div></td>
+                                                <td><div data-id="gilSignEn" id="gilSignEn"></div></td>
+                                            </tr>
+                                            <tr>
+                                                <td><div style="display:table-cell">簽收日期</div></td>
+                                                <td><div data-id="edtSignDate" id="edtSignDate"></div></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+            <div data-id="PartB">
+                <div data-id="partBUI" id="partBUI" style="padding:2px;margin:0">
+                    <table >
+                        <tr style="height:15%">
+                            <td width="40%">
+                                <table>
+                                    <tr>
+                                        <td  style="width:70px;height:100%">設備項目</td>
+                                        <td style="width:50px;height:100%">
+                                            <button data-id="btnSubAdd1" id="btnSubAdd1"></button>
+                                        </td>
+                                        <td  style="width:50px">
+                                            <button data-id="btnFaciEdit" id="btnSubEdit1"></button>
+                                        </td>
+                                        <td style="width:50px">
+                                            <button data-id="btnFaciDel" id="btnSubDelete1"></button>
+                                        </td>
+                                        <td>
+
+                                        </td>
+                                    </tr>
+                                    
+                                </table>
+                                
+                            </td>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td style="width:70px">收費項目</td>
+                                        <td style="width:50px">
+                                            <button data-id="btnBillAdd" id="btnSubAdd2"></button>
+                                        </td>
+                                        <td style="width:50px">
+                                            <button data-id="btnBillEdit" id="btnSubEdit2"></button>
+                                        </td>
+                                        <td style="width:50px">
+                                            <button data-id="btnBillDel" id="btnSubDelete2"></button>
+                                        </td>
+                                        <td>
+                                            <table>
+                                                <tr>
+                                                    <td style=" text-align:right">應收小計:</td>
+                                                    <td  style="width:60px; text-align:right">0</td>
+                                                </tr>                                                
+                                            </table>
+                                        </td>
+                                    </tr>
+
+                                </table>
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td style="width:40%">
+                               <div style="height:100%;width:100%" data-id="grdFaci" id="grdData1"></div>
+                            </td>
+                            <td>
+                                <div style="height:100%;width:100%" data-id="grdData2" id="grdData2"></div>
+                            </td>
+                            
+                        </tr>
+                        <tr style="height:15%">                            
+                            <td>
+                                <table >
+                                    <tr style="height:100%" >
+                                        <td style="width:75px"><button data-id="btnSave" id="btnSave">存檔</button></td>
+                                        <td style="width:95px"><button data-id="btnResvDetail" id="btnReserve2">預約明細查詢</button></td>
+                                        <td style="width:95px"><button data-id="btnChgFaci" id="btnViewPR">指定變更設備</button></td>
+                                        <td></td>                                        
+                                    </tr>
+                                </table>
+                            </td>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td  style="width:80%"></td>
+                                        <td><button data-id="btnCancel" id="btnCancel">離開</button></td>
+                                        <td><input type="text" data-id="txtStatus" id="txtStatus" /></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!--
+        <div data-id="mainSplitter" id="mainSplitter" >
+            <div data-id="partA">
+                <div data-id="partA-Head" id="partA-Head" style="margin:2px">
+                    <div style="width:99%;margin:5px">
+                        <div style="float:left;width:70px">派工單號:</div>
+                        <div style="float:left">
+                            <input type="text" style="text-align:left" data-id="txtMaintainNo" id="txtMaintainNo" />
+                        </div>
+                        <div style="float:left; width:70px;margin-left:5px">服務區:</div>
+                        <div style="float:left">
+                            <input type="text" data-id="txtServe" id="txtServe" />
+                        </div>
+                        <div style="float:left; width:70px;margin-left:5px">客戶類別:</div>
+                        <div style="float:left">
+                            <input type="text" data-id="txtCustClass" id="txtCustClass" />
+                        </div>
+                        <div style="float:left; width:70px;margin-left:5px">客戶編號:</div>
+                        <div>
+                            <input type="text" data-id="txtCustId" id="txtCustId" />
+                        </div>
+                    </div>
+                    <div style="width:99%;margin:5px">
+                        <div style="float:left;width:70px">客戶名稱:</div>
+                        <div style="float:left">
+                            <input type="text" style="text-align:left" data-id="txtCustName" id="txtCustName" />
+                        </div>
+                        <div style="float:left; width:70px;margin-left:5px">電話(1):</div>
+                        <div style="float:left">
+                            <input type="text" data-id="txtTel1" id="txtTel1" />
+                        </div>
+                        <div style="float:left; width:70px;margin-left:5px">裝機地址:</div>
+                        <div>
+                            <input type="text" data-id="txtInstAddr" id="txtInstAddr" />
+                        </div>
+
+                    </div>
+                </div>
+                <div style="width:100%;height:90%;margin-top:2px">
+                    <div style="float:left;width:60%">
+                        <input  type="text" style="height:100px;width:100%" />
+                    </div>
+                    <div style="width:40%;height:100%; float:right">
+                        <div id='jqxTabs' style="margin-left:10px;margin-bottom:10px">
+                            <ul style='margin-left: 20px;'>
+                                <li>結案</li>
+                            </ul>
+                             <div>
+                                 <div style="width:70px;margin:10px;float:left">完工時間</div>
+                                 <div data-id="dtFinDate" id="dtFinDate" style="margin:5px" ></div>
+                                 <div style="width:70px;margin:10px;float:left">故障代號一</div>
+                                 <div  id="csList1"></div>
+                             </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div data-id="partB">
+                <div>111111</div>
+            </div>
+
+        </div> -->
+    </div>
+      
+   
+</body>
+</html>

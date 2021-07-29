@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <!--
+    <link href="../jqwidgets/styles/jqx.base.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.orange.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.office.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.energyblue.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.energyblue2.css" rel="stylesheet" />
+    <script type="text/javascript" src="../scripts/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../scripts/json2.js"></script>
+    <script src="../jqwidgets/jqx-all.js"></script>
+    <script src="../component/csTabs.js"></script>
+    <script src="../component/csList.js"></script>
+    <script src="../component/csMulti.js"></script>
+    <script src="../component/csDateTime.js"></script>
+    <script src="../component/csUploadFile.js"></script>
+    <script src="../component/csAddress1.js"></script>
+    <script src="../component/csAddress2.js"></script>
+    <script src="../component/csWindow.js"></script>
+    <script src="dynamicComponent/dynamicCondition.js"></script>
+    <script src="dynamicComponent/dynamicUpdate.js"></script>
+    <script src="../jqwidgets/globalization/globalize.js"></script>
+    <script src="../language/zh-TW/language01.js"></script>
+    <script src="../language/zh-TW/language21.js"></script>
+    <script src="../language/zh-TW/language31.js"></script>
+    <script src="../language/zh-TW/language51.js"></script>
+    <script src="../language/zh-TW/language52.js"></script>
+    <script src="../language/zh-TW/language61.js"></script>
+    <script src="../language/zh-TW/language71.js"></script>
+    <script type="text/javascript" src="../Utility/utility.js"></script>
+    <script type="text/javascript" src="../Utility/ChargeUtility.js"></script> -->
+    <style type="text/css">
+        /*
+        html {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            height: 99.9%;
+            margin: 0px;
+            padding: 0px;
+            font-size:12px
+        }
+
+        * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }   */
+
+        .SO1131ETable {
+            width: 100%;
+            height: 100%;
+            table-layout: fixed;
+            /*border : 1px solid red;*/
+            margin: 0;
+            padding: 0;
+            text-align: left;
+        }
+
+        .SO1131ETr {
+            /*border : 1px solid red;*/
+            margin: 0;
+            padding: 0;
+            text-align: left;
+        }
+
+        .SO1131ETd {
+            /*border : 1px solid red;*/
+            margin: 0;
+            padding: 0;
+            vertical-align: central;
+            /*  text-align: left;*/
+        }
+
+        .SO1131EMode {
+            text-align: center;
+            background-color: cyan;
+        }
+    </style>
+    <!--
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#btnOK').jqxButton({
+                width: 70,
+                height: 25,
+            });
+            $('#btnCancel').jqxButton({
+                width: 70,
+                height: 25,
+            });
+            $("#grdData").jqxGrid({
+                width: '99.7%',
+                height: '99%',
+                sortable: true,
+                altrows: true,
+                columnsresize: true,
+                columns: [
+                    {
+                        text: '#', sortable: false, filterable: false, editable: false,
+                        groupable: false, draggable: false, resizable: false,
+                        datafield: '', columntype: 'number', width: 30,
+                        cellsrenderer: function (row, column, value) {
+                            return "<div style='margin:4px;'>" + (value + 1) + "</div>";
+                        }
+                    },
+                     {
+                         text: '選擇',
+                         datafield: 'CHOOSE',
+                         width: 50,
+                         editable: false,
+                         threestatecheckbox: false,
+                         columntype: 'checkbox',
+                         cellsalign: 'center',
+                         align: 'center',
+                         hidden:false
+                     },                    
+                    { text: '狀態', datafield: 'FACISTATUS', hidden: false, width: 70, cellsalign: 'center', align: 'center' },
+                    { text: '物品序號', datafield: 'FACISNO', hidden: false,width:130 },
+                    { text: '申請人姓名', datafield: 'DECLARANTNAME', width: 100, cellsalign: 'left', align: 'left', hidden: false },
+                    { text: '項目名稱', datafield: 'FACINAME', width: 150, cellsalign: 'left', align: 'left' },
+                    { text: 'CM速率', datafield: 'CMBAUDRATE', width: 70, cellsalign: 'center', align: 'center', hidden: false },
+                    { text: '固定IP', datafield: 'FIXIPCOUNT', width: 70, cellsalign: 'center', align: 'center', hidden: false },
+                    { text: '動態IP', datafield: 'DYNIPCOUNT', width: 70, cellsalign: 'center', align: 'center', hidden: false },
+                    { text: '裝機日期', datafield: 'INSTDATE', width: 100, cellsalign: 'center', align: 'center', cellsformat: 'yyyy/MM/dd' },
+                    { text: '拆機日期', datafield: 'PRDATE', width: 100, cellsalign: 'center', align: 'center', cellsformat: 'yyyy/MM/dd' },
+                    { text: '裝置點', datafield: 'INITPLACENAME', width: 70, cellsalign: 'left', align: 'left' },
+                    { text: '型號名稱', datafield: 'MODELNAME', width: 100, cellsalign: 'left', align: 'left' },
+                    { text: '買賣方式', datafield: 'BUYNAME', width: 60, cellsalign: 'left', align: 'left' },
+                    { text: '智慧卡序號', datafield: 'SMARTCARDNO', width: 130, cellsalign: 'left', align: 'left' },
+                    { text: '租借到期日', datafield: 'DUEDATE', width: 100, cellsalign: 'center', align: 'center', cellsformat: 'yyyy/MM/dd' },
+                    { text: '綁約戶', datafield: 'CONTRACTCUST', width: 50, cellsalign: 'center', align: 'center' },
+                    { text: '綁約到期日', datafield: 'CONTRACTDATE', width: 100, cellsalign: 'center', align: 'center', cellsformat: 'yyyy/MM/dd' },
+                     { text: '設備流水號', datafield: 'SEQNO', width: 130, cellsalign: 'left', align: 'left' },
+                ]
+            });
+        });
+    </script> -->
+</head>
+<body>
+    <table class="SO1131ETable">
+        <tr class="SO1131ETr">
+            <td class="SO1131ETd" colspan="2">
+                <div data-id="grdData"></div>
+            </td>
+        </tr>
+        <tr class="SO1131ETr" style="height:30px">
+            <td class="SO1131ETd" ><input type="button" data-id="btnOK"  /></td>
+            <td class="SO1131ETd" >
+                <input type="button" data-id="btnCancel" style="float:right" />
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

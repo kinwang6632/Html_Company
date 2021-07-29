@@ -1,0 +1,525 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    
+    <link href="jqwidgets/styles/jqx.base.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.black.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.classic.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.energyblue.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.orange.css" rel="stylesheet" />
+    <script type="text/javascript" src="scripts/json2.js"></script>
+    <script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqx-all.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxcore.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxdatetimeinput.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxcalendar.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxtooltip.js"></script>
+    <script type="text/javascript" src="jqwidgets/globalization/globalize.js"></script>
+    <script type="text/javascript" src="scripts/jquery.mask.min.js"></script>
+    <script src="Scripts/CryptoJS v3.1.2/rollups/aes.js"></script>
+    <script src="component/csList.js"></script>
+    <script src="component/csMulti.js"></script>
+    <script src="component/csDateTime.js"></script>
+    <script src="component/csTabs.js"></script>
+    <script type="text/javascript" src="SO1000/SO1300E.js"></script>
+    <script type="text/javascript" src="SO1000/SO1300N.js"></script>
+    <script type="text/javascript" src="SO1000/SO1300C.js"></script>
+    <script type="text/javascript" src="SO1000/SO1300K.js"></script>
+    <script type="text/javascript" src="SO1000/SO1300J.js"></script>
+    <script type="text/javascript" src="SO1000/SO1300H.js"></script>
+    <script type="text/javascript" src="component/csUploadFile.js"></script>
+    <script src="dynamicComponent/dynamicGrid.js"></script>
+    <script src="language/zh-TW/language61.js"></script>
+    <script src="language/zh-TW/language01.js"></script>
+    <script src="language/zh-TW/language52.js"></script>
+    <script src="language/zh-TW/language21.js"></script>
+    <script src="component/csWindow.js"></script>
+    <script type="text/javascript" src="Utility/utility.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("body").hide();
+            var loginInfo = {
+                loginInfo: {
+                    type: 'logininfo',
+                    columns: [{ name: 'compcode', type: 'integer' },
+                        { name: 'entryid', type: 'string' },
+                        { name: 'entryname', type: 'string' },
+                        { name: 'groupid', type: 'string' }
+                    ],
+                    rows: [{
+                        compcode: 3,
+                        entryid: 'A',
+                        entryname: 'A',
+                        groupid: '0'
+                    }]
+                }
+            };
+            var editmode = {
+                type: 'integer',
+                value: editMode.view
+            };
+            $.jqx.theme = "energyblue";
+            var params = getParameters('getKey', 'getKey', 'getKey', loginInfo);
+            getServerData(params, { success: initOk });
+            function initOk(data) {
+                $("body").show();
+                try {
+                    $('#btnSO1300E').on('click', function () {
+                        try {
+                            
+                            var ds = {
+                                type: 'string',
+                                building: {
+                                    columns: [{ name: 'MASTERID', type: 'integer' },
+                                        { name: 'SEQNO', type: 'integer' }
+                                    ],
+                                    rows: [{
+                                      
+                                        MASTERID: 57004,
+                                        SEQNO: 1589
+                                    }]
+                                }
+                            };
+                            var divName = 'div' + getUniqueId();
+                            var div2Name = 'div2' + getUniqueId();
+                            $('<div id="' + divName + '"><div>測試Form</div><div id="' + div2Name + '"></div></div>').appendTo('body');
+                            var div = $('#' + divName);
+                            $(div).csWindow($.extend({}, {
+                                width: 600, height: 300,
+                                maxWidth: 1028,
+                                maxHeight: 900,
+                                keyboardCloseKey: 'none',
+                                haveClosing: true
+                            }));
+                            var div2 = $('#' + div2Name);
+
+                            $(div2).SO1300E($.extend({}, {
+                                loginInfo: loginInfo,
+                                container: div,
+                                parameters:ds,
+                                editMode: editmode.value
+                            }));
+                            $(div).on('close', function (event) {
+                                //alert($(div2).SO6460A.methods['options']);
+
+                                //var options = $.data($(div2), formName).options;
+                                // var options = $(div2).SO6460A.methods['options'];
+
+
+                                var options = $(div2).SO1300E('options');
+                                $(div2).SO1300E('destroy');
+                                $(div).csWindow('destroy');
+                            });
+                            $(div2).on('loaded', function () {
+                                $(this).each(function () {
+                                });
+                            });
+                        }
+                        catch (err) {
+                            alert(err.stack)
+                        }
+                    });
+                    $('#btnSO1300N').on('click', function () {
+                        try {
+
+                            var ds = {
+                                type: 'string',
+                                building: {
+                                    columns: [{ name: 'MASTERID', type: 'integer' },
+                                        { name: 'SEQNO', type: 'integer' }
+                                    ],
+                                    rows: [{
+
+                                        MASTERID: 57004,
+                                        SEQNO: 1589
+                                    }]
+                                }
+                            };
+                            var divName = 'div' + getUniqueId();
+                            var div2Name = 'div2' + getUniqueId();
+                            $('<div id="' + divName + '"><div>測試Form</div><div id="' + div2Name + '"></div></div>').appendTo('body');
+                            var div = $('#' + divName);
+                            $(div).csWindow($.extend({}, {
+                                width: 600, height: 300,
+                                maxWidth: 1028,
+                                maxHeight: 900,
+                                keyboardCloseKey: 'none',
+                                haveClosing: true
+                            }));
+                            var div2 = $('#' + div2Name);
+
+                            $(div2).SO1300N($.extend({}, {
+                                loginInfo: loginInfo,
+                                container: div,
+                                parameters: ds,
+                                editMode: editmode.value
+                            }));
+                            $(div).on('close', function (event) {
+                                //alert($(div2).SO6460A.methods['options']);
+
+                                //var options = $.data($(div2), formName).options;
+                                // var options = $(div2).SO6460A.methods['options'];
+
+
+                                var options = $(div2).SO1300N('options');
+                                $(div2).SO1300N('destroy');
+                                $(div).csWindow('destroy');
+                            });
+                            $(div2).on('loaded', function () {
+                                $(this).each(function () {
+                                });
+                            });
+                        }
+                        catch (err) {
+                            alert(err.stack)
+                        }
+                    });
+                    $('#btnSO1300C').on('click', function () {
+                        try {
+
+                            var ds = {
+                                type: 'string',
+                                building: {
+                                    columns: [{ name: 'SERVICETYPE', type: 'string' },
+                                        { name: 'MDUID', type: 'string' }
+                                    ],
+                                    rows: [{
+
+                                        SERVICETYPE: 'C',
+                                        MDUID: 'A0001'
+                                    }]
+                                }
+                            };
+                            var divName = 'div' + getUniqueId();
+                            var div2Name = 'div2' + getUniqueId();
+                            $('<div id="' + divName + '"><div>測試Form</div><div id="' + div2Name + '"></div></div>').appendTo('body');
+                            var div = $('#' + divName);
+                            $(div).csWindow($.extend({}, {
+                                width: 800, height: 450,
+                                maxWidth: 1028,
+                                maxHeight: 900,
+                                keyboardCloseKey: 'none',
+                                haveClosing: true
+                            }));
+                            var div2 = $('#' + div2Name);
+
+                            $(div2).SO1300C($.extend({}, {
+                                loginInfo: loginInfo,
+                                container: div,
+                                parameters: ds,
+                                editMode: editmode.value
+                            }));
+                            $(div).on('close', function (event) {
+                                //alert($(div2).SO6460A.methods['options']);
+
+                                //var options = $.data($(div2), formName).options;
+                                // var options = $(div2).SO6460A.methods['options'];
+
+
+                                var options = $(div2).SO1300C('options');
+                                $(div2).SO1300C('destroy');
+                                $(div).csWindow('destroy');
+                            });
+                            $(div2).on('loaded', function () {
+                                $(this).each(function () {
+                                });
+                            });
+                        }
+                        catch (err) {
+                            alert(err.stack)
+                        }
+                    });
+                    $('#btnSO1300K').on('click', function () {
+                        try {
+
+                            var ds = {
+                                type: 'string',
+                                SO017: {
+                                    columns: [{ name: 'MAINCUSTID', type: 'integer' },
+                                        { name: 'MAINCUSTNAME', type: 'string' },
+                                        { name: 'FLAG', type: 'string' },
+                                        { name: 'CLASSCODE', type: 'integer' },
+                                        {name:'MDUID',type:'string'},
+                                    ],
+                                    rows: [{
+
+                                        MAINCUSTID: 600770,                                        
+                                        MAINCUSTNAME: '吳永豐',
+                                        FLAG: '正常',
+                                        CLASSCODE: 56,
+                                        MDUID:'A0001'
+                                    }]
+                                },
+                                Query_CD004: {
+                                    columns: [{ name: 'CODENO', type: 'integer' },
+                                        { name: 'DESCRIPTION', type: 'string' }                                      
+                                    ],
+                                    rows: [{
+                                        CODENO: 82,
+                                        DESCRIPTION: '快樂家庭戶',
+                                    }, {
+                                        CODENO: 1027,
+                                        DESCRIPTION: '監視器',
+                                    },
+                                    {
+                                        CODENO: 1028,
+                                        DESCRIPTION: '監視器代表戶',
+                                    }]
+                                },
+                                building: {
+                                    columns: [{ name: 'SERVICETYPE', type: 'string' },
+                                         { name: 'MDUID', type: 'string' },
+                                         { name:'CUSTID',type:'integer'}
+                                    ],
+                                    rows: [{
+
+                                        SERVICETYPE: 'C',
+                                        MDUID: 'A0001',
+                                        CUSTID: 600770
+                                    }]
+                                }
+                            };
+                            var divName = 'div' + getUniqueId();
+                            var div2Name = 'div2' + getUniqueId();
+                            $('<div id="' + divName + '"><div>測試Form</div><div id="' + div2Name + '"></div></div>').appendTo('body');
+                            var div = $('#' + divName);
+                            $(div).csWindow($.extend({}, {
+                                width: 800, height: 600,
+                                maxWidth: 1028,
+                                maxHeight: 900,
+                                keyboardCloseKey: 'none',
+                                haveClosing: true
+                            }));
+                            var div2 = $('#' + div2Name);
+
+                            $(div2).SO1300K($.extend({}, {
+                                loginInfo: loginInfo,
+                                container: div,
+                                parameters: ds,
+                                editMode: editmode.value
+                            }));
+                            $(div).on('close', function (event) {
+                                //alert($(div2).SO6460A.methods['options']);
+
+                                //var options = $.data($(div2), formName).options;
+                                // var options = $(div2).SO6460A.methods['options'];
+
+
+                                var options = $(div2).SO1300K('options');
+                                $(div2).SO1300K('destroy');
+                                $(div).csWindow('destroy');
+                            });
+                            $(div2).on('loaded', function () {
+                                $(this).each(function () {
+                                });
+                            });
+                        }
+                        catch (err) {
+                            alert(err.stack)
+                        }
+                    });
+                    $('#btnSO1300J').on('click', function () {
+                        try {
+
+                            var ds = {
+                                type: 'string',
+                                SO017: {
+                                    columns: [{ name: 'MAINCUSTID', type: 'integer' },
+                                        { name: 'MAINCUSTNAME', type: 'string' },
+                                        { name: 'FLAG', type: 'string' },
+                                        { name: 'CLASSCODE', type: 'integer' },
+                                        { name: 'MDUID', type: 'string' },
+                                        { name: 'BCPERIOD', type: 'integer' },
+                                        { name: 'BCAMOUNT', type: 'integer' },
+                                    ],
+                                    rows: [{
+
+                                        MAINCUSTID: 600770,
+                                        MAINCUSTNAME: '吳永豐',
+                                        FLAG: '正常',
+                                        CLASSCODE: 82,
+                                        MDUID: 'A0001',
+                                        BCPERIOD: 1,
+                                        BCAMOUNT:110
+                                    }]
+                                },
+                                Query_CD004: {
+                                    columns: [{ name: 'CODENO', type: 'integer' },
+                                        { name: 'DESCRIPTION', type: 'string' }
+                                    ],
+                                    rows: [{
+                                        CODENO: 82,
+                                        DESCRIPTION: '快樂家庭戶',
+                                    }, {
+                                        CODENO: 1027,
+                                        DESCRIPTION: '監視器',
+                                    },
+                                    {
+                                        CODENO: 1028,
+                                        DESCRIPTION: '監視器代表戶',
+                                    }]
+                                },
+                                building: {
+                                    columns: [{ name: 'SERVICETYPE', type: 'string' },
+                                         { name: 'MDUID', type: 'string' },
+                                         { name: 'CUSTID', type: 'integer' }
+                                    ],
+                                    rows: [{
+
+                                        SERVICETYPE: 'C',
+                                        MDUID: 'A0001',
+                                        CUSTID: 600770
+                                    }]
+                                }
+                            };
+                            var divName = 'div' + getUniqueId();
+                            var div2Name = 'div2' + getUniqueId();
+                            $('<div id="' + divName + '"><div>測試Form</div><div id="' + div2Name + '"></div></div>').appendTo('body');
+                            var div = $('#' + divName);
+                            $(div).csWindow($.extend({}, {
+                                width: 800, height: 600,
+                                maxWidth: 1028,
+                                maxHeight: 900,
+                                keyboardCloseKey: 'none',
+                                haveClosing: true
+                            }));
+                            var div2 = $('#' + div2Name);
+
+                            $(div2).SO1300J($.extend({}, {
+                                loginInfo: loginInfo,
+                                container: div,
+                                parameters: ds,
+                                editMode: editmode.value
+                            }));
+                            $(div).on('close', function (event) {
+                                //alert($(div2).SO6460A.methods['options']);
+
+                                //var options = $.data($(div2), formName).options;
+                                // var options = $(div2).SO6460A.methods['options'];
+
+
+                                var options = $(div2).SO1300J('options');
+                                $(div2).SO1300J('destroy');
+                                $(div).csWindow('destroy');
+                            });
+                            $(div2).on('loaded', function () {
+                                $(this).each(function () {
+                                });
+                            });
+                        }
+                        catch (err) {
+                            alert(err.stack)
+                        }
+                    });
+                    $('#btnSO1300H').on('click', function () {
+                        try {
+
+                            var ds = {
+                                type: 'string',
+                                SO017: {
+                                    columns: [{ name: 'MAINCUSTID', type: 'integer' },
+                                        { name: 'MAINCUSTNAME', type: 'string' },
+                                        { name: 'FLAG', type: 'string' },
+                                        { name: 'CLASSCODE', type: 'integer' },
+                                        { name: 'MDUID', type: 'string' },
+                                        { name: 'BCPERIOD', type: 'integer' },
+                                        { name: 'BCAMOUNT', type: 'integer' },
+                                    ],
+                                    rows: [{
+
+                                        MAINCUSTID: 600770,
+                                        MAINCUSTNAME: '吳永豐',
+                                        FLAG: '正常',
+                                        CLASSCODE: 82,
+                                        MDUID: 'A0001',
+                                        BCPERIOD: 1,
+                                        BCAMOUNT: 110
+                                    }]
+                                },
+                                Query_CD004: {
+                                    columns: [{ name: 'CODENO', type: 'integer' },
+                                        { name: 'DESCRIPTION', type: 'string' }
+                                    ],
+                                    rows: [{
+                                        CODENO: 82,
+                                        DESCRIPTION: '快樂家庭戶',
+                                    }, {
+                                        CODENO: 1027,
+                                        DESCRIPTION: '監視器',
+                                    },
+                                    {
+                                        CODENO: 1028,
+                                        DESCRIPTION: '監視器代表戶',
+                                    }]
+                                },
+                                building: {
+                                    columns: [{ name: 'SERVICETYPE', type: 'string' },
+                                         { name: 'MDUID', type: 'string' },
+                                         { name: 'CUSTID', type: 'integer' }
+                                    ],
+                                    rows: [{
+
+                                        SERVICETYPE: 'C',
+                                        MDUID: 'A0001',
+                                        CUSTID: 600770
+                                    }]
+                                }
+                            };
+                            var divName = 'div' + getUniqueId();
+                            var div2Name = 'div2' + getUniqueId();
+                            $('<div id="' + divName + '"><div>測試Form</div><div id="' + div2Name + '"></div></div>').appendTo('body');
+                            var div = $('#' + divName);
+                            $(div).csWindow($.extend({}, {
+                                width: 500, height: 400,
+                                maxWidth: 1028,
+                                maxHeight: 900,
+                                keyboardCloseKey: 'none',
+                                haveClosing: true
+                            }));
+                            var div2 = $('#' + div2Name);
+
+                            $(div2).SO1300H($.extend({}, {
+                                loginInfo: loginInfo,
+                                container: div,
+                                parameters: ds,
+                                editMode: editmode.value
+                            }));
+                            $(div).on('close', function (event) {
+                                //alert($(div2).SO6460A.methods['options']);
+
+                                //var options = $.data($(div2), formName).options;
+                                // var options = $(div2).SO6460A.methods['options'];
+
+
+                                var options = $(div2).SO1300H('options');
+                                $(div2).SO1300H('destroy');
+                                $(div).csWindow('destroy');
+                            });
+                            $(div2).on('loaded', function () {
+                                $(this).each(function () {
+                                });
+                            });
+                        }
+                        catch (err) {
+                            alert(err.stack)
+                        }
+                    });
+                } catch (err) {
+                    alert(err.stack)
+                }
+            };
+        });
+    </script>
+</head>
+<body>
+    <input type="button" id="btnSO1300E" value="SO1300E" />
+    <input type="button" id="btnSO1300N" value="SO1300N" />
+    <input type="button" id="btnSO1300C" value="SO1300C" />
+    <input type="button" id="btnSO1300K" value="SO1300K" />
+    <input type="button" id="btnSO1300J" value="SO1300J" />
+    <input type="button" id="btnSO1300H" value="SO1300H" />
+</body>
+</html>

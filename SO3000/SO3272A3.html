@@ -1,0 +1,792 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <!--
+    <link href="../jqwidgets/styles/jqx.base.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.orange.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.office.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.energyblue.css" rel="stylesheet" />
+    
+    <script type="text/javascript" src="../scripts/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../scripts/json2.js"></script>
+    <script src="../jqwidgets/jqx-all.js"></script>
+    <script src="../component/csTabs.js"></script>
+    <script src="../component/csList.js"></script>
+    <script src="../component/csMulti.js"></script>
+    <script src="../component/csDateTime.js"></script>
+    <script src="../component/csUploadFile.js"></script>
+    <script src="../component/csAddress1.js"></script>
+    <script src="../component/csAddress2.js"></script>
+    <script src="../component/csWindow.js"></script>
+
+    <script src="../jqwidgets/globalization/globalize.js"></script>
+    <script src="../language/zh-TW/language01.js"></script>
+    <script src="../language/zh-TW/language21.js"></script>
+    <script src="../language/zh-TW/language31.js"></script>
+    <script src="../language/zh-TW/language51.js"></script>
+    <script src="../language/zh-TW/language52.js"></script>
+    <script src="../language/zh-TW/language61.js"></script>
+    <script src="../language/zh-TW/language71.js"></script>
+    <script type="text/javascript" src="../Utility/utility.js"></script>
+    <script type="text/javascript" src="../Utility/ChargeUtility.js"></script>  -->
+    <style type="text/css">
+        /*
+         html {
+             width: 100%;
+             height: 100%;
+         }
+
+         body {
+             height: 99.9%;
+             margin: 0px;
+             padding: 0px;
+             font-size:12px
+         }
+
+         * {
+             -webkit-box-sizing: border-box;
+             -moz-box-sizing: border-box;
+             box-sizing: border-box;
+         } */
+
+        .SO3272A3Table {
+            width: 100%;
+            height: 100%;
+            table-layout: fixed;
+            /*border : 1px solid red;*/
+            margin: 0;
+            padding: 0;
+            text-align: left;
+        }
+
+        .SO3272A3Tr {
+            /*border : 1px solid red;*/
+            margin: 0;
+            padding: 0;
+            text-align: left;
+        }
+
+        .SO3272A3Td {
+            /*border : 1px solid red;*/
+            margin: 0;
+            padding: 0;
+            vertical-align: central;
+              text-align: left;
+        }
+
+        .SO3272A3Mode {
+            text-align: center;
+            background-color: cyan;
+        }
+    </style>
+    <!--
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+
+            $("#gilCompCode").csList({
+                source: null,
+                codeNoWidth: 60,
+                width: '210px',
+                height: '25px',
+                showColumnHeaders: false,
+                readOnly: false,
+                codeNoReadOnly: false,
+                popupWidth: null,
+                popupHeight: null,
+                autoFitAllCols: false,
+                descriptionReadOnly: false,
+                columns: [
+                       { text: 'CODENO', datafield: 'CODENO' },
+                       { text: 'DESCRIPTION', datafield: 'DESCRIPTION' }
+                ]
+            });
+            $("#gilBillHeadFmt").csList({
+                source: null,
+                codeNoWidth: 40,
+                width: '255px',
+                height: '25px',
+                showColumnHeaders: false,
+                readOnly: false,
+                codeNoReadOnly: false,
+                popupWidth: null,
+                popupHeight: null,
+                autoFitAllCols: false,
+                descriptionReadOnly: false,
+                columns: [
+                       { text: 'CODENO', datafield: 'CODENO' },
+                       { text: 'DESCRIPTION', datafield: 'DESCRIPTION' }
+                ]
+            });
+            $("#dtShouldDate1").csDateTime({
+                formatString: 'yyyy/MM/dd',
+                value: null,
+                showCalendarButton: true,
+                width: 130,
+                height:25
+            });
+            $("#dtShouldDate2").csDateTime({
+                formatString: 'yyyy/MM/dd',
+                value: null,
+                showCalendarButton: true,
+                width: 130,
+                height: 25
+            });
+            $("#dtCreateTime1").csDateTime({
+                formatString: 'yyyy/MM/dd HH:mm:ss',
+                value: null,
+                showCalendarButton: true,
+                width: 180,
+                height: 25
+            });
+            $("#dtCreateTime2").csDateTime({
+                formatString: 'yyyy/MM/dd HH:mm:ss',
+                value: null,
+                showCalendarButton: true,
+                width: 180,
+                height: 25
+            });
+            $("#dtSendDate").csDateTime({
+                formatString: 'yyyy/MM/dd',
+                value: null,
+                showCalendarButton: true,
+                width: 130,
+                height: 25
+            });
+            
+            $("#cbFormat").jqxDropDownList({
+                width: '350px',
+                height: '25px',
+                selectedIndex: 0,
+            });
+            $('#jqxTabs').jqxTabs({
+                width: '99.8%',
+                height: '99.5%',                
+                collapsible: true
+            });
+            $("#chkNormal").jqxCheckBox({
+                width: '150px',
+                height: 25,
+                checked: false,                
+            });
+            $("#chkZero").jqxCheckBox({
+                width: '250px',
+                height: 25,
+                checked: false,
+            });
+            $("#chkExcI").jqxCheckBox({
+                width: '250px',
+                height: 25,
+                checked: false,
+            });
+            $("#txtCustId").jqxInput({
+                height: 25,
+                width: '98%',
+            });
+           
+            $("#txtStoreNum").jqxInput({
+                height: 25,
+                width: '98%',
+            });
+            $("#txtBillMemo").jqxInput({
+                height: 25,
+                width: '98%',
+            });
+            
+            $("#txtAuthBatch").jqxMaskedInput({
+                height: 25,
+                mask: '9999',
+                promptChar:'',
+                width: '95%',
+            });
+            $("#txtClientId").jqxMaskedInput({
+                height: 25,
+                mask: '9999',
+                promptChar: '',
+                width: '95%',
+            });
+            
+            
+            $('#csmBankCode').csMulti({
+                buttonText: '銀行名稱',
+                width: '100%',
+                buttonWidth: 80,
+                //widthDesc: 150,
+                winWidth: 800,
+                winHeight: 500,
+                isReadOnly: false,
+                columns: [
+                    { text: '代碼', datafield: 'CODENO', width: 70 },
+                    { text: '名稱', datafield: 'DESCRIPTION', width: 120 }
+
+                ]
+            });
+            $('#csmCMCode').csMulti({
+                buttonText: '收費方式',
+                width: '100%',
+                height: 25,
+                buttonWidth: 80,
+                //widthDesc: 150,
+                winWidth: 800,
+                winHeight: 500,
+                isReadOnly: false,
+                columns: [
+                    { text: '代碼', datafield: 'CODENO', width: 70 },
+                    { text: '名稱', datafield: 'DESCRIPTION', width: 120 }
+
+                ]
+            });
+            $('#csmAreaCode').csMulti({
+                buttonText: '行政區',
+                width: '100%',
+                height: 25,
+                buttonWidth: 80,
+                //widthDesc: 150,
+                winWidth: 800,
+                winHeight: 500,
+                isReadOnly: false,
+                columns: [
+                    { text: '代碼', datafield: 'CODENO', width: 70 },
+                    { text: '名稱', datafield: 'DESCRIPTION', width: 120 }
+
+                ]
+            });
+            $('#csmServCode').csMulti({
+                buttonText: '服務區',
+                width: '100%',
+                height: 25,
+                buttonWidth: 80,
+                //widthDesc: 150,
+                winWidth: 800,
+                winHeight: 500,
+                isReadOnly: false,
+                columns: [
+                    { text: '代碼', datafield: 'CODENO', width: 70 },
+                    { text: '名稱', datafield: 'DESCRIPTION', width: 120 }
+
+                ]
+            });
+            $('#csmCustStatus').csMulti({
+                buttonText: '客戶狀態',
+                width: '100%',
+                height: 25,
+                buttonWidth: 80,
+                //widthDesc: 150,
+                winWidth: 800,
+                winHeight: 500,
+                isReadOnly: false,
+                columns: [
+                    { text: '代碼', datafield: 'CODENO', width: 70 },
+                    { text: '名稱', datafield: 'DESCRIPTION', width: 120 }
+
+                ]
+            });
+            $('#csmCustClass').csMulti({
+                buttonText: '客戶類別',
+                width: '100%',
+                height: 25,
+                buttonWidth: 80,
+                //widthDesc: 150,
+                winWidth: 800,
+                winHeight: 500,
+                isReadOnly: false,
+                columns: [
+                    { text: '代碼', datafield: 'CODENO', width: 70 },
+                    { text: '名稱', datafield: 'DESCRIPTION', width: 120 }
+
+                ]
+            });
+            $('#csmClctEn').csMulti({
+                buttonText: '收費員',
+                width: '100%',
+                buttonWidth: 80,
+                height: 25,
+                //widthDesc: 150,
+                winWidth: 800,
+                winHeight: 500,
+                isReadOnly: false,
+                columns: [
+                    { text: '代碼', datafield: 'CODENO', width: 70 },
+                    { text: '名稱', datafield: 'DESCRIPTION', width: 120 }
+
+                ]
+            });
+            $('#csmOldClctEn').csMulti({
+                buttonText: '原收費員',
+                width: '100%',
+                height: 25,
+                buttonWidth: 80,
+                //widthDesc: 150,
+                winWidth: 800,
+                winHeight: 500,
+                isReadOnly: false,
+                columns: [
+                    { text: '代碼', datafield: 'CODENO', width: 70 },
+                    { text: '名稱', datafield: 'DESCRIPTION', width: 120 }
+
+                ]
+            });
+            $('#csmCreateEn').csMulti({
+                buttonText: '產生人員',
+                width: '100%',
+                height: 25,
+                buttonWidth: 80,
+                //widthDesc: 150,
+                winWidth: 800,
+                winHeight: 500,
+                isReadOnly: false,
+                columns: [
+                    { text: '代碼', datafield: 'CODENO', width: 70 },
+                    { text: '名稱', datafield: 'DESCRIPTION', width: 120 }
+
+                ]
+            });
+            $('#csmUCCode').csMulti({
+                buttonText: '未收原因',
+                width: '100%',
+                height: 25,
+                buttonWidth: 80,
+                //widthDesc: 150,
+                winWidth: 800,
+                winHeight: 500,
+                isReadOnly: false,
+                columns: [
+                    { text: '代碼', datafield: 'CODENO', width: 70 },
+                    { text: '名稱', datafield: 'DESCRIPTION', width: 120 }
+
+                ]
+            });
+            $('#csmCitemCode').csMulti({
+                buttonText: '收費項目',
+                width: '100%',
+                height: 25,
+                buttonWidth: 80,
+                //widthDesc: 150,
+                winWidth: 800,
+                winHeight: 500,
+                isReadOnly: false,
+                columns: [
+                    { text: '代碼', datafield: 'CODENO', width: 70 },
+                    { text: '名稱', datafield: 'DESCRIPTION', width: 120 }
+
+                ]
+            });
+            $('#csmBillType').csMulti({
+                buttonText: '單據類別',
+                width: '100%',
+                height: 25,
+                buttonWidth: 80,
+                //widthDesc: 150,
+                winWidth: 800,
+                winHeight: 500,
+                isReadOnly: false,
+                columns: [
+                    { text: '代碼', datafield: 'CODENO', width: 70 },
+                    { text: '名稱', datafield: 'DESCRIPTION', width: 120 }
+
+                ]
+            });
+            $('#csmPayType').csMulti({
+                buttonText: '繳付類別',
+                width: '100%',
+                height: 25,
+                buttonWidth: 80,
+                //widthDesc: 150,
+                winWidth: 800,
+                winHeight: 500,
+                isReadOnly: false,
+                columns: [
+                    { text: '代碼', datafield: 'CODENO', width: 70 },
+                    { text: '名稱', datafield: 'DESCRIPTION', width: 120 }
+
+                ]
+            });
+            $('#csmAMduId').csMulti({
+                buttonText: '套房編號',
+                width: '100%',
+                height: 25,
+                buttonWidth: 80,
+                //widthDesc: 150,
+                winWidth: 800,
+                winHeight: 500,
+                isReadOnly: false,
+                columns: [
+                    { text: '代碼', datafield: 'CODENO', width: 70 },
+                    { text: '名稱', datafield: 'DESCRIPTION', width: 120 }
+
+                ]
+            });
+            $('#csmEMduid').csMulti({
+                buttonText: '此部份大樓要產生',
+                width: '100%',
+                height: 25,
+                buttonWidth: 120,
+                //widthDesc: 150,
+                winWidth: 800,
+                winHeight: 500,
+                isReadOnly: false,
+                columns: [
+                    { text: '代碼', datafield: 'CODENO', width: 70 },
+                    { text: '名稱', datafield: 'DESCRIPTION', width: 120 }
+
+                ]
+            });
+            $('#csmNMduid').csMulti({
+                buttonText: '此部份大樓不產生',
+                width: '100%',
+                height: 25,
+                buttonWidth:120,
+                //widthDesc: 150,
+                winWidth: 800,
+                winHeight: 500,
+                isReadOnly: false,
+                columns: [
+                    { text: '代碼', datafield: 'CODENO', width: 70 },
+                    { text: '名稱', datafield: 'DESCRIPTION', width: 120 }
+
+                ]
+            });
+            $('#btnExit').jqxButton({
+                width: 140,
+                height: 25,
+            });
+            $('#btnOK').jqxButton({
+                width: 140,
+                height: 25,
+            });
+            /*  chkExcI
+              $('#cbGroupKind').jqxDropDownList({
+                  width: '250px',
+                  height: 22,
+                  placeHolder: ""
+              });
+              $("#txtClctDate1").csDateTime({
+                  formatString: 'yyyy/MM',
+                  value: null,
+                  showCalendarButton: false,
+                  width: '95%'
+              });
+              $("#txtClctDate2").csDateTime({
+                  formatString: 'yyyy/MM',
+                  value: null,
+                  showCalendarButton: false,
+                  width: '95%'
+              });
+              $("#txtCreateTime1").csDateTime({
+                  formatString: 'yyyy/MM/dd HH:mm',
+                  value: null,
+                  showCalendarButton: false,
+                  width: '97%'
+              });
+              $("#txtCreateTime2").csDateTime({
+                  formatString: 'yyyy/MM/dd HH:mm',
+                  value: null,
+                  showCalendarButton: false,
+                  width: '97%'
+              });
+              $("#txtBillNo1").jqxInput({
+                  height: 22,
+                  width: '100%',
+              });
+              $("#txtBillNo2").jqxInput({
+                  height: 22,
+                  width: '100%',
+              });
+              $('#btnFind').jqxButton({
+                  width: 100,
+                  height: 25,
+              });
+              $('#btnOK').jqxButton({
+                  width: 100,
+                  height: 25,
+              });
+              $("#txtCustid").jqxInput({
+                  height: 22,
+                  width: '100%',
+              });
+              $('#csmStrtCode').csMulti({
+
+                  buttonText: '街道範圍',
+                  width: 400,
+                  buttonWidth: 80,
+                  //widthDesc: 150,
+                  winWidth: 800,
+                  winHeight: 500,
+                  isReadOnly: false,
+                  columns: [
+                      { text: '代碼', datafield: 'CODENO', width: 70 },
+                      { text: '名稱', datafield: 'DESCRIPTION', width: 120 }
+
+                  ]
+              });
+              $('#csmClctEn').csMulti({
+
+                  buttonText: '原收費人員',
+                  width: 400,
+                  buttonWidth: 80,
+                  //widthDesc: 150,
+                  winWidth: 800,
+                  winHeight: 500,
+                  isReadOnly: false,
+                  columns: [
+                      { text: '代碼', datafield: 'CODENO', width: 70 },
+                      { text: '名稱', datafield: 'DESCRIPTION', width: 120 }
+
+                  ]
+              });
+              $('#csmServiceType').csMulti({
+
+                  buttonText: '服務別',
+                  width: 400,
+                  buttonWidth: 80,
+                  //widthDesc: 150,
+                  //winWidth: 800,
+                  //winHeight: 500,
+                  isReadOnly: false,
+                  columns: [
+                      { text: '代碼', datafield: 'CODENO', width: 70 },
+                      { text: '名稱', datafield: 'DESCRIPTION', width: 120 }
+
+                  ]
+              });
+              $('#csmMduId').csMulti({
+
+                  buttonText: '大樓編號',
+                  width: 400,
+                  buttonWidth: 80,
+                  //widthDesc: 150,
+                  //winWidth: 800,
+                  //winHeight: 500,
+                  isReadOnly: false,
+                  columns: [
+                      { text: '代碼', datafield: 'CODENO', width: 70 },
+                      { text: '名稱', datafield: 'DESCRIPTION', width: 120 }
+
+                  ]
+              });
+              $("#csGrid").jqxGrid({
+                  width: '99.7%',
+                  height: '98%',
+                  //source: dataAdapter1,
+                  sortable: true,
+                  altrows: true,
+                  columnsresize: true,
+                  columns: [
+                      {
+                          text: '#', sortable: false, filterable: false, editable: false,
+                          groupable: false, draggable: false, resizable: false,
+                          datafield: '', columntype: 'number', width: 30,
+                          cellsrenderer: function (row, column, value) {
+                              return "<div style='margin:4px;'>" + (value + 1) + "</div>";
+                          }
+                      },
+                      { text: '收費人員代號', datafield: 'CLCTEN', width: 110, editable: false, groupable: false },
+                      { text: '員工姓名', datafield: 'CLCTNAME', width: 110, editable: false, groupable: false },
+                      { text: '群組代碼', datafield: 'GROUPCODE', width: 130, editable: false, groupable: false },
+                      { text: '群組名稱', datafield: 'GROUPNAME', width: 250, editable: false, groupable: false },
+                      { text: '張數', datafield: 'COUNT', width: 50, editable: false, groupable: false, cellsalign: 'center', align: 'center' },
+                      { text: '新收費人員代號', datafield: 'NEWCLCTEN', width: 110, editable: true, groupable: false },
+                      { text: '新收費人員名稱', datafield: 'NEWCLCTNAME', width: 130, editable: true, groupable: false },
+                  ],
+                  //localization: options.localization
+              });
+              $("#chkOldClctEn").jqxCheckBox({
+                  width: '100%',
+                  height: 25,
+                  checked: true,
+              });
+              $("#chkClctEn").jqxCheckBox({
+                  width: '100%',
+                  height: 25,
+                  checked: true,
+              }); */
+
+        });
+
+    </script>   -->
+
+
+</head>
+<body>
+    <table class="SO3272A3Table">
+        <tr class="SO3272A3Tr" style="height:35px">
+            <td class="SO3272A3Td">
+                <table class="SO3272A3Table">
+                    <tr class="SO3272A3Tr">
+                        <td class="SO3272A3Td" data-id="lblCompCode" style="width:50px"></td>
+                        <td class="SO3272A3Td" style="width:220px">
+                            <div data-id="gilCompCode" id="gilCompCode"></div>
+                        </td>
+                        <td class="SO3272A3Td" data-id="lblFormat" style="width:60px"></td>
+                        <td class="SO3272A3Td">
+                            <div data-id="cbFormat" id="cbFormat"></div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="SO3272A3Tr" style="height:100px">
+            <td class="SO3272A3Td">
+                <table class="SO3272A3Table">
+                    <tr class="SO3272A3Tr">
+                       <td>
+                           <table class="SO3272A3Table">
+                               <tr class="SO3272A3Tr">
+                                   <td class="SO3272A3Td" style="color:red;width:70px" data-id="lblBillHeadFmt" ></td>
+                                   <td class="SO3272A3Td" style="width:260px" >
+                                        <div data-id="gilBillHeadFmt" id="gilBillHeadFmt"></div>                                        
+                                   </td>
+                                   <td class="SO3272A3Td" data-id="lblShouldDate" style="color:red;width:60px"></td>
+                                   <td class="SO3272A3Td" style="width:135px"><input type="text" data-id="dtShouldDate1" id="dtShouldDate1" /></td>
+                                   <td class="SO3272A3Td" data-id="lblShouldDateTo" style="width:20px">至</td>
+                                   <td class="SO3272A3Td"><input type="text" data-id="dtShouldDate2" id="dtShouldDate2" /></td>
+                               </tr>
+                           </table>
+                       </td>             
+                    </tr>
+                    <tr class="SO3272A3Tr">
+                        <td class="SO3272A3Td">
+                            <table class="SO3272A3Table">
+                                <tr class="SO3272A3Tr">
+                                    <td class="SO3272A3Td" data-id="lblCreateTime" style="width:60px"></td>
+                                    <td class="SO3272A3Td" style="width:190px"><input data-id="dtCreateTime1" id="dtCreateTime1" /> </td>
+                                    <td class="SO3272A3Td" style="width:20px" data-id="lblCreateTimeTo" ></td>
+                                    <td class="SO3272A3Td" style="width:190px"><input data-id="dtCreateTime2" id="dtCreateTime2" /> </td>
+                                    <td class="SO3272A3Td" style="width:100px"><div data-id="chkNormal"  ></div></td>
+                                    <td class="SO3272A3Td"><div data-id="chkFubonIntegrate" ></div></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr class="SO3272A3Tr">
+                        <td class="SO3272A3Td">
+                            <div data-id="chkZero" id="chkZero" style="float:left;width:250px"></div>
+                            <div data-id="chkExcI" id="chkExcI"></div>                            
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="SO3272A3Tr" data-id="tbs">
+            <td class="SO3272A3Td">
+                <div id='jqxTabs' data-id="jqxTabs">
+                    <ul style='margin-left: 20px;'>
+                        <li data-id="lblCondition">條件</li>
+                        <li data-id="lblDataSetting">資料設定</li>                        
+                    </ul>
+                    <div data-id="tb1">
+                        <table class="SO3272A3Table">
+                            <tr class="SO3272A3Tr">
+                                <td class="SO3272A3Td">
+                                    <div data-id="csmBankCode" id="csmBankCode" style="color:red"></div>
+                                </td>
+                                <td class="SO3272A3Td"><div data-id="csmCMCode" id="csmCMCode"></div></td>
+                            </tr>
+                            <tr class="SO3272A3Tr">
+                                <td class="SO3272A3Td"><div data-id="csmAreaCode" id="csmAreaCode"></div></td>
+                                <td class="SO3272A3Td"><div data-id="csmServCode" id="csmServCode"></div></td>
+                            </tr>
+                            <tr class="SO3272A3Tr">
+                                <td class="SO3272A3Td"><div data-id="csmCustStatus" id="csmCustStatus"></div></td>
+                                <td class="SO3272A3Td"><div data-id="csmCustClass" id="csmCustClass"></div></td>
+                            </tr>
+                            <tr class="SO3272A3Tr">
+                                <td class="SO3272A3Td"><div data-id="csmClctEn" id="csmClctEn"></div></td>
+                                <td class="SO3272A3Td"><div data-id="csmOldClctEn" id="csmOldClctEn"></div></td>
+                            </tr>
+                            <tr class="SO3272A3Tr">
+                                <td class="SO3272A3Td"><div data-id="csmCreateEn" id="csmCreateEn"></div></td>
+                                <td class="SO3272A3Td"><div data-id="csmUCCode" id="csmUCCode"></div></td>
+                            </tr>
+                            <tr class="SO3272A3Tr">
+                                <td class="SO3272A3Td"><div data-id="csmPayType" id="csmPayType"></div></td>                                
+                                <td class="SO3272A3Td"><div data-id="csmBillType" id="csmBillType"></div></td>
+                            </tr>
+                            <tr class="SO3272A3Tr">
+                                <td class="SO3272A3Td"><div data-id="csmEMduid" id="csmEMduid"></div></td>
+                                <td class="SO3272A3Td"><div data-id="csmNMduid" id="csmNMduid"></div></td>
+                                
+                                <!--<td class="SO3272A3Td"><div data-id="csmAMduId" id="csmAMduId"></div></td>-->
+                            </tr>
+                            <tr class="SO3272A3Tr">
+                                <td class="SO3272A3Td"  colspan="2"><div data-id="csmCitemCode" id="csmCitemCode"></div></td>
+                            </tr>
+                            <tr class="SO3272A3Tr">
+                                <td class="SO3272A3Td" colspan="2">
+                                    <table class="SO3272A3Table">
+                                        <tr class="SO3272A3Tr">
+                                            <td class="SO3272A3Td" data-id="lblCustId" style="width:50px" ></td>
+                                            <td class="SO3272A3Td"><input type="text" data-id="txtCustId" id="txtCustId" /></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                
+                            </tr>
+                          
+
+                        </table>
+                    </div>
+                    <div>
+                        <table class="SO3272A3Table">
+                            <tr class="SO3272A3Tr" style="height:35px">
+                                <td class="SO3272A3Td" data-id="lblStoreNum" style="width:50px;color:red"></td>
+                                <td class="SO3272A3Td" style="width:150px"><input data-id="txtStoreNum" id="txtStoreNum" /> </td>
+                                <td class="SO3272A3Td" data-id="lblSendDate" style="width:50px;color:red"></td>
+                                <td class="SO3272A3Td" style="width:135px" ><input data-id="dtSendDate" id="dtSendDate" /> </td>
+                                
+                            </tr>
+                            <tr class="SO3272A3Tr" style="height:35px">
+                                <td class="SO3272A3Td" data-id="lblAuthBatch" style="width:60px;color:red"></td>
+                                <td class="SO3272A3Td" style="width:90px"><input data-id="txtAuthBatch" id="txtAuthBatch" /></td>
+                                <td class="SO3272A3Td" data-id="lblClientId" style="width:70px;color:red"></td>
+                                <td class="SO3272A3Td"><input data-id="txtClientId" id="txtClientId" /> </td>
+                            </tr>
+                            <tr class="SO3272A3Tr" style="height:35px">
+                                <td class="SO3272A3Td" colspan="4">
+                                    <table class="SO3272A3Table">
+                                        <tr class="SO3272A3Tr">
+                                            <td class="SO3272A3Td" data-id="lblBillMemo" style="width:90px"></td>
+                                            <td class="SO3272A3Td"><input data-id="txtBillMemo" id="txtBillMemo" /></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                              
+                            </tr>
+                            <tr class="SO3272A3Tr" style="height:35px">
+                                <td class="SO3272A3Td"><div data-id="chkIgnorCredit" style="color:red"></div></td>
+                                <td class="SO3272A3Td"></td>
+                                <td class="SO3272A3Td"></td>
+                                <td class="SO3272A3Td"></td>
+
+                            </tr>
+                            <tr class="SO3272A3Tr"></tr>
+                        </table>
+                    </div>
+                    
+                </div>
+
+            </td>
+        </tr>
+        <tr class="SO3272A3Tr" style="height:30px">
+            <td class="SO3272A3Td">
+                <table class="SO3272A3Table">
+                    <tr class="SO3272A3Tr">
+                        <td class="SO3272A3Td" style="width:150px">
+                            <div data-id="btnOK" id="btnOK"></div>
+                        </td>
+                        <td class="SO3272A3Td"  style="width:150px">
+                            <input type="button" data-id="btnDownload" hidden="hidden"  />
+                            <a data-id="downloadLink"  hidden="hidden"></a>
+                        </td>
+                        <td class="SO3272A3Td"></td>
+                        <td class="SO3272A3Td" style="width:150px"><div  data-id="btnExit" id="btnExit" ></div></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

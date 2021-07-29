@@ -1,0 +1,372 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <!--
+    <link href="../jqwidgets/styles/jqx.base.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.black.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.classic.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.dark.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.office.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.energyblue.css" rel="stylesheet" />
+    <script src="../scripts/json2.js"></script>
+    <script src="../scripts/jquery-1.11.1.min.js"></script>
+    <script src="../scripts/jquery.mask.min.js"></script>
+    <script src="../jqwidgets/jqx-all.js"></script>    
+    <script type="text/javascript" src="../jqwidgets/globalization/globalize.js"></script>
+    <script type="text/javascript" src="../jqwidgets/jqxtooltip.js"></script>
+    <script src="../component/csDateTime.js"></script>
+    <script src="../language/zh-TW/language61.js"></script>
+    <script src="../language/zh-TW/language01.js"></script>
+    <script src="../Utility/utility.js"></script>
+    <script src="../component/csWindow.js"></script>
+    <script src="../component/csList.js"></script>
+    <script src="../component/csMulti.js"></script>-->
+    
+    <style type="text/css">
+    /*
+          html {
+              width: 100%;
+              height: 100%;
+          }
+
+          body {
+              height: 99.9%;
+              margin: 0px;
+              padding: 0px;
+              font-size:12px
+          }
+
+          * {
+              -webkit-box-sizing: border-box;
+              -moz-box-sizing: border-box;
+              box-sizing: border-box;
+          }*/    
+
+        .SO1100Utable {
+            width: 100%;
+            height: 100%;
+            table-layout: fixed;
+            /*border : 1px solid red;*/
+            margin: 0;
+            padding: 0;
+            text-align: left;
+        }
+
+        .SO1100Utr {
+            /*border : 1px solid red;*/
+            margin: 0;
+            padding: 0;
+            text-align: left;
+        }
+
+        .SO1100Utd {
+            /*border : 1px solid red;*/
+            margin: 0;
+            padding: 0;
+            vertical-align: central;
+            /*  text-align: left;*/
+        }
+
+        .SO1100UMode {
+            text-align: center;
+            background-color: cyan;
+        }
+       
+    </style>
+    
+    <!--
+     <script type="text/javascript">
+         $(document).ready(function () {
+             $('#MainExpander').jqxExpander({
+                 width: '100%',
+                 height: '100%',
+                 toggleMode: 'none',
+                 showArrow: false
+             });
+           
+             $("#txtCustId").jqxMaskedInput({
+                 height: 25,
+                 width: '95%',
+                 mask:'[1-9]9999999',
+                 promptChar:''
+             });
+             $("#txtStb").jqxInput({
+                 height: 25,
+                 width: '95%',                                  
+             });
+             $("#txtMVodId").jqxInput({
+                 height: 25,
+                 width: '95%',
+             });
+             $('#btnStb').jqxButton({
+                 width: 85,
+                 height: 25,
+             });
+             $('#btnMvodId').jqxButton({
+                 width: 85,
+                 height: 25,
+             });
+             $('#btnOK').jqxButton({
+                 width: 85,
+                 height: 25,
+             });
+             $('#btnCancel').jqxButton({
+                 width: 85,
+                 height: 25,
+             });
+             $('#btnPrevRpt').jqxButton({
+                 width:130,
+                 height: 25,
+             });
+             $("#txtCloseDate").csDateTime({
+                 formatString: 'yyyy/MM/dd',
+                 value: null,
+                 height: 25,
+                 showCalendarButton: false,
+                 width: '95%'
+             });
+             $("#txtShouldDate").csDateTime({
+                 formatString: 'yyyy/MM/dd',
+                 value: null,
+                 height:25,
+                 showCalendarButton: false,
+                 width: '95%'
+             });
+             $("#chkTran1").jqxCheckBox({
+                 width: '170px',
+                 height: 25,
+                 checked: true,                 
+             });
+             $("#chkTran2").jqxCheckBox({
+                 width: '170px',
+                 height: 25,
+                 checked: false,
+             });
+             $("#chkRun").jqxCheckBox({
+                 width: '170px',
+                 height: 25,
+                 checked: false,
+             });
+             $("#chkForceAmount").jqxCheckBox({
+                 width: '170px',
+                 height: 25,
+                 checked: false,
+             });
+             $("#csCompcode").csList({
+                 source: null,
+                 codeNoWidth: 60,
+                 width: '100px',
+                 height: '22px',
+                 showColumnHeaders: false,
+                 readOnly: false,
+                 codeNoReadOnly: false,
+                 popupWidth: null,
+                 popupHeight: null,
+                 autoFitAllCols: false,
+                 descriptionReadOnly: false,
+                 columns: [
+                        { text: 'CODENO', datafield: 'CODENO' },
+                        { text: 'DESCRIPTION', datafield: 'DESCRIPTION' }
+                 ]
+             });
+             $("#csServiceType").csList({
+                 source: null,
+                 codeNoWidth: 60,
+                 width: '100px',
+                 height: '22px',
+                 showColumnHeaders: false,
+                 readOnly: false,
+                 codeNoReadOnly: false,
+                 popupWidth: null,
+                 popupHeight: null,
+                 autoFitAllCols: false,
+                 descriptionReadOnly: false,
+                 columns: [
+                        { text: 'CODENO', datafield: 'CODENO' },
+                        { text: 'DESCRIPTION', datafield: 'DESCRIPTION' }
+                 ]
+             });
+           
+         });
+     </script> -->
+</head>
+<body>
+    <table class="SO1100Utable">
+        <tr class="SO1100Utr">
+            <td class="SO1100Utd" height="100px">
+                <div data-id="headExpander" >
+                    <div id="header" data-id="lblHeader"></div>
+                    <div>
+                        <table class="SO1100Utable">
+                            <tr class="SO1100Utr">
+                                <td class="SO1100Utd" style="text-align:right" data-id="lable1"></td>
+                                <td class="SO1100Utd" data-id="lblTranDate"></td>
+                            </tr>
+                            <tr class="SO1100Utr">
+                                <td class="SO1100Utd" style="text-align:right" data-id="lable2"></td>
+                                <td class="SO1100Utd" data-id="lblUpdTime" ></td>
+                            </tr>
+                            <tr class="SO1100Utr">
+                                <td class="SO1100Utd" style="text-align:right" data-id="lable3"></td>
+                                <td class="SO1100Utd" data-id="lblUpdEn"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </td>            
+        </tr>
+        <tr class="SO1100Utr" >
+            <td class="SO1100Utd">
+                <table class="SO1100Utable">
+                    <tr class="SO1100Utr">
+                        <td class="SO1100Utd" style="text-align:right;width:150px" data-id="lable4"></td>
+                        <td class="SO1100Utd" ><div data-id="csCompcode" id="csCompcode"></div></td>
+                        
+                    </tr>
+                    <tr class="SO1100Utr">
+                        <td class="SO1100Utd" style="text-align:right" data-id="lable5"></td>
+                        <td class="SO1100Utd"><div data-id="csServiceType" id="csServiceType"></div></td>
+                        
+                    </tr>
+                    <tr class="SO1100Utr">
+                        <td class="SO1100Utd" style="text-align:right" data-id="lable6"></td>
+                        <td class="SO1100Utd" data-id="lblPara35" >0</td>
+                        
+                    </tr>
+                    <tr class="SO1100Utr">
+                        <td class="SO1100Utd" style="text-align:right" data-id="lable7"></td>
+                        <td class="SO1100Utd" data-id="lblPara36" >0</td>
+                        
+                    </tr>
+                    <tr class="SO1100Utr">
+                        <td class="SO1100Utd" style="text-align:right" data-id="lable8"></td>
+                        <td class="SO1100Utd">
+                            <table class="SO1100Utable">
+                                <tr class="SO1100Utr">
+                                    <td class="SO1100Utd">
+                                        <input type="text" data-id="txtCustId" id="txtCustId" />
+                                    </td>
+                                    <td class="SO1100Utd" style="width:90px"></td>
+                                </tr>
+                            </table>
+                            
+                        </td>                        
+                    </tr>
+                    <tr class="SO1100Utr">
+                        <td class="SO1100Utd" style="text-align:right" data-id="lable9"></td>
+                        <td class="SO1100Utd">
+                            <table class="SO1100Utable">
+                                <tr class="SO1100Utr">
+                                    <td class="SO1100Utd">
+                                        <input type="text" data-id="txtStb" id="txtStb" />
+                                    </td>
+                                    <td class="SO1100Utd" style="width:90px">
+                                        <button data-id="btnStb" id="btnStb"></button>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                        </td>                        
+                    </tr>
+                    <tr class="SO1100Utr">
+                        <td class="SO1100Utd"  style="text-align:right" data-id="lable10"></td>
+                        <td class="SO1100Utd">
+                            <table class="SO1100Utable">
+                                <tr class="SO1100Utr">
+                                    <td class="SO1100Utd">
+                                        <input type="text" data-id="txtMVodId" id="txtMVodId" />
+                                    </td>
+                                    <td class="SO1100Utd" style="width:90px">
+                                        <button data-id="btnMvodId" id="btnMvodId"></button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        
+                    </tr>
+                    <tr class="SO1100Utr">
+                        <td class="SO1100Utd" style="text-align:right;color:red" data-id="lable11"></td>
+                        <td class="SO1100Utd">
+                            <table class="SO1100Utable">
+                                <tr class="SO1100Utr">
+                                    <td class="SO1100Utd">
+                                        <input type="text" data-id="txtCloseDate" id="txtCloseDate" />
+                                    </td>
+                                    <td class="SO1100Utd" data-id="lable12" style="width:90px;color:red">
+                                       
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        
+                    </tr>
+                    <tr class="SO1100Utr">
+                        <td class="SO1100Utd" style="text-align:right" data-id="lable13"></td>
+                        <td class="SO1100Utd">
+                            <table class="SO1100Utable">
+                                <tr class="SO1100Utr">
+                                    <td class="SO1100Utd">
+                                        <input type="text" data-id="txtShouldDate" id="txtShouldDate" />
+                                    </td>
+                                    <td class="SO1100Utd" style="width:90px" >
+                                        
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="SO1100Utr"  style="height:60px">
+            <td class="SO1100Utd" >
+                <table class="SO1100Utable">
+                    <tr class="SO1100Utr">
+                        <td class="SO1100Utd" align="center">
+                            <div data-id="chkTran1" id="chkTran1"></div>
+                        </td>
+                        <td class="SO1100Utd" align="center">
+                            <div data-id="chkTran2" id="chkTran2"></div>
+                        </td>
+                    </tr>
+                    <tr class="SO1100Utr">
+                        <td class="SO1100Utd" align="center">
+                            <div data-id="chkRun" id="chkRun"></div>
+                            
+                        </td>
+                        <td class="SO1100Utd" align="center">
+                            <div data-id="chkForceAmount" id="chkForceAmount"></div>                            
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="SO1100Utr" style="height:40px" data-id="ImportExcel" >
+            <td class="SO1100Utd" >
+                <table class="SO1100Utable">
+                    <tr class="SO1100Utr">
+                        <td class="SO1100Utd" style="width:80px;text-align:right" data-id="lblSource"></td>
+                        <td class="SO1100Utd"  data-id="uploadContainer"><div data-id="txtUploadField"></div></td>
+                    </tr>
+                </table>
+            </td>
+
+        </tr>
+        <tr class="SO1100Utr" style="height:30px">
+            <td class="SO1100Utd" >
+                <table class="SO1100Utable">
+                    <tr class="SO1100Utr">
+                        <td class="SO1100Utd" ></td>
+                        <td class="SO1100Utd" style="width:90px" align="right"><button data-id="btnOK" id="btnOK"></button> </td>
+                        <td class="SO1100Utd" style="width:90px" align="right"><button data-id="btnCancel" id="btnCancel"></button></td>
+                        <td class="SO1100Utd" align="right" style="width:135px"><button data-id="btnPrevRpt" id="btnPrevRpt"></button></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

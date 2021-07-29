@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="jqwidgets/styles/jqx.base.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.orange.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.office.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.energyblue.css" rel="stylesheet" />
+
+    <script src="Scripts/jquery-1.11.1.min.js"></script>
+    <script src="jqwidgets/jqx-all.js"></script>
+    <script src="Utility/utility.js"></script>
+    <script src="Scripts/json2.js"></script>
+    <script src="component/csList2.js"></script>
+  
+    <script src="component/csUploadFile.js"></script>
+    <script src="language/zh-TW/language01.js"></script>
+    <script src="language/zh-TW/language61.js"></script>
+    <script>
+        $(document).ready(function () {
+            try {
+                var loginInfo = {
+                    loginInfo: {
+                        type: 'logininfo',
+                        columns: [{ name: 'compcode', type: 'integer' },
+                            { name: 'entryid', type: 'string' },
+                            { name: 'entryname', type: 'string' },
+                            { name: 'groupid', type: 'string' }
+                        ],
+                        rows: [{
+                            compcode: 3,
+                            entryid: 'test',
+                            entryname: 'test',
+                            groupid: '0'
+                        }]
+                    }
+                };
+                var editmode = {
+                    type: 'integer',
+                    value: 0
+                };
+
+
+                $('#test').csUploadFile($.extend({}, {
+                    loginInfo: loginInfo,
+                    container: $('#test'),
+                    editMode: editmode.value
+                }));
+                $('#test').on('load', function (event,o) {
+                    alert(o);
+                })
+
+                
+                $('#testupd').on('click', function () {
+                    $('#test').csUploadFile('uploadFiles');
+                });
+                
+
+                
+                $('#test').on('load', function () {
+                    alert('load');
+                });
+                $('#realFile').on('click', function () {
+                    //alert('click');
+                });
+
+                $('#realFile').on('change', function () {
+                    var form = new FormData();
+                    form.append("name", "Nicholas");
+                    form.append("files", $('#realFile')[0].files[0]);
+
+                    // send via XHR - look ma, no headers being set!
+                    var xhr = new XMLHttpRequest();
+                    xhr.onload = function () {
+                        alert(JSON.stringify(this.responseText));
+                        //alert("Upload complete.");
+                    };
+                    xhr.open("post", "/uploadFiles.ashx", true);
+                    xhr.send(form);
+                    xhr.response()
+                });
+
+                return;
+                $.jqx.theme = "office";
+                $('#realFile').jqxFileUpload({ browseTemplate: 'success', multipleFilesUpload: false, uploadTemplate: 'primary', cancelTemplate: 'danger', width: 300, uploadUrl: 'uploadFiles.ashx', fileInputName: 'fileToUpload' });
+                $('#realFile').on('uploadEnd', function (event) {
+                    var args = event.args;
+                    var fileName = args.file;
+                    var serverResponce = args.response;
+                    messageBox(fileName + ',' + serverResponce);
+                    // Your code here.
+                });
+               
+                //$('#realFile').jqxInput({});
+                //$('#realFile').jqxFileUpload({ uploadUrl: 'uploadFiles.ashx' });
+                $("#fileName").jqxInput({ height: 23, width: '89.5%' });
+
+                $('#chooseFile').jqxButton({ height: 25, width: '9%' });
+                $("#fileName").css('float', 'left');
+                $("#fileName").css('margin-right', 2);
+
+                $("#chooseFile").css('float', 'left');
+                $('#chooseFile').on('click', function () {
+                    $("#fileName").jqxInput('val', null);
+                    $('#realFile').jqxFileUpload('cancelAll');
+                    $('#realFile').jqxFileUpload('browse');
+                });
+                $('#realFile').on('select', function (event) {
+                    var args = event.args;
+                    var fileName = args.file;
+                    $("#fileName").jqxInput('val', fileName);
+                });
+
+                $('#sendFile').jqxButton({});
+                $('#sendFile').on('click', function () {
+                    $('#realFile').jqxFileUpload('uploadAll');
+                });
+
+                $('#getFileName').jqxButton({});
+                $('#getFileName').on('click', function () {
+                    var filename = $('#realFile')[0].files[0].name;
+                    alert(filename);
+                });
+               
+            }
+            catch (err) {
+                alert(err);
+            }
+        });
+
+        //$('#cslist2').csList2('description', 2);
+        //var x = $('#cslist2').csList2('checkDataOk');
+        //$('#cslist2').csList2('clear');
+    </script>
+</head>
+<body>
+
+    <!--<div id="realFile" ></div>-->
+    <form enctype="multipart/form-data" method="post" action="uploadFiles.ashx">
+        <input id="realFile" type="file" multiple name="realFile" />
+        <input id="upload" type="submit" value="upload" />
+    </form>
+    <div>
+        <input type="text" id="fileName" />
+        <input type="button" value="選檔案111" id="chooseFile" />
+    </div>
+    <div style="clear:both"></div>
+    <div>
+        <input type="button" value="取檔案名稱" id="getFileName" />
+        <input type="button" value="上傳檔案" id="sendFile" />
+        <label id="percent"></label>
+    </div>
+    <div id="test"></div>
+    <button id="testupd">testupd</button>
+    <a id="download" href="file:///D:/Gird/NewSO/Kin/CableSoft.WCF.DataGateway/xls/20170222160817206.xls">here</a>
+    file:///D:/Gird/NewSO/Kin/CableSoft.WCF.DataGateway//txt//2017022314171044-SO3311G.Txt
+</body>
+</html>

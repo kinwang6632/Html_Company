@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <!--
+    <link href="../jqwidgets/styles/jqx.base.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.orange.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.office.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.energyblue.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.energyblue2.css" rel="stylesheet" />
+    <script type="text/javascript" src="../scripts/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../scripts/json2.js"></script>
+    <script src="../jqwidgets/jqx-all.js"></script>
+    <script src="../component/csTabs.js"></script>
+    <script src="../component/csList.js"></script>
+    <script src="../component/csMulti.js"></script>
+    <script src="../component/csDateTime.js"></script>
+    <script src="../component/csUploadFile.js"></script>
+    <script src="../component/csAddress1.js"></script>
+    <script src="../component/csAddress2.js"></script>
+    <script src="../component/csWindow.js"></script>
+    <script src="dynamicComponent/dynamicCondition.js"></script>
+    <script src="dynamicComponent/dynamicUpdate.js"></script>
+    <script src="../jqwidgets/globalization/globalize.js"></script>
+    <script src="../language/zh-TW/language01.js"></script>
+    <script src="../language/zh-TW/language21.js"></script>
+    <script src="../language/zh-TW/language31.js"></script>
+    <script src="../language/zh-TW/language51.js"></script>
+    <script src="../language/zh-TW/language52.js"></script>
+    <script src="../language/zh-TW/language61.js"></script>
+    <script src="../language/zh-TW/language71.js"></script>
+    <script type="text/javascript" src="../Utility/utility.js"></script>
+    <script type="text/javascript" src="../Utility/ChargeUtility.js"></script> -->
+    <style type="text/css">
+        /*
+        html {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            height: 99.9%;
+            margin: 0px;
+            padding: 0px;
+            font-size:12px
+        }
+
+        * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        } */
+        .SO3311CTable {
+            width: 100%;
+            height: 100%;
+            table-layout: fixed;
+            /*border : 1px solid red;*/
+            margin: 0;
+            padding: 0;
+            text-align: left;
+        }
+
+        .SO3311CTr {
+            /*border : 1px solid red;*/
+            margin: 0;
+            padding: 0;
+            text-align: left;
+        }
+
+        .SO3311CTd {
+            /*border : 1px solid red;*/
+            margin: 0;
+            padding: 0;
+            vertical-align: central;
+            /*  text-align: left;*/
+        }
+
+        .SO3311CMode {
+            text-align: center;
+            background-color: cyan;
+        }
+    </style>
+    <!--
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#tedBillNo').jqxInput({
+                width: '93%',
+                height: 23,
+            });
+            $('#btnDelete').jqxButton({
+                width: 110,
+                height: 23,
+            });
+            $('#btnExit').jqxButton({
+                width: 80,
+                height: 23,
+            });
+            $("#grdCharge").jqxGrid({
+                width: '99.7%',
+                height: '99%',
+                sortable: true,
+                altrows: true,
+                columnsresize: true,
+                columns: [
+                    {
+                        text: '#', sortable: false, filterable: false, editable: false,
+                        groupable: false, draggable: false, resizable: false,
+                        datafield: '', columntype: 'number', width: 30,
+                        cellsrenderer: function (row, column, value) {
+                            return "<div style='margin:4px;'>" + (value + 1) + "</div>";
+                        }
+                    },
+                    { text: '序號', datafield: 'ENTRYNO', width: 70, hidden: false },
+                    { text: '單據編號', datafield: 'BILLNO', width: 130, hidden: false },
+                    { text: '項次', datafield: 'ITEM', width: 40, hidden: true, cellsalign: 'center', align: 'center' },
+                    { text: '客戶編號', datafield: 'CUSTID', width: 70, cellsalign: 'center', align: 'center', hidden: false },
+                    { text: '客戶狀態', datafield: 'CUSTSTATUSNAME', width: 80, cellsalign: 'center', align: 'center', hidden: false },
+                    { text: '客戶姓名', datafield: 'CUSTNAME', width: 120, cellsalign: 'left', align: 'left', hidden: false },
+                    { text: '期數', datafield: 'REALPERIOD', width: 50, cellsalign: 'right', align: 'right', hidden: false },
+                    { text: '實收金額', datafield: 'REALAMT', width: 80, cellsalign: 'right', align: 'right' },
+                    { text: '起始日', datafield: 'REALSTARTDATE', width: 100, cellsalign: 'center', align: 'center', cellsformat: 'yyyy/MM/dd' },
+                    { text: '截止日', datafield: 'REALSTOPDATE', width: 100, cellsalign: 'center', align: 'center', cellsformat: 'yyyy/MM/dd' },
+                    { text: '印單序號', datafield: 'PRTSNO', width: 130, cellsalign: 'left', align: 'left', hidden: false },
+                    { text: '媒體單號', datafield: 'MEDIABILLNO', width: 130, cellsalign: 'left', align: 'left' },
+                    { text: '備註', datafield: 'NOTE', width: 400, cellsalign: 'left', align: 'left' }
+                ]
+            });
+        });
+    </script> -->
+</head>
+<body>
+    <table class="SO3311CTable">
+        <tr class="SO3311CTr" style="height:30px">
+            <td class="SO3311CTd" data-id="txtBillCnt0" style="width:80px"></td>
+            <td class="SO3311CTd" data-id="txtBillCnt" style="width:150px">0</td>
+            <td class="SO3311CTd" data-id="txtTotalAmt0" style="width:95px"></td>
+            <td class="SO3311CTd" data-id="txtTotalAmt">0</td>
+            <td class="SO3311CTd" width="115px" ></td>
+            <td class="SO3311CTd" width="85px"></td>
+        </tr>
+        <tr class="SO3311CTr" style="height:30px">
+            <td class="SO3311CTd" data-id="txtBillNo" >單據登錄</td>
+            <td class="SO3311CTd" ><input type="text" data-id="tedBillNo"  /></td>
+            <td class="SO3311CTd" data-id="txtUpload"></td>
+            <td class="SO3311CTd">
+                <table class="SO3311CTable">
+                    <tr class="SO3311CTr">
+                        <td class="SO3311CTd" data-id="uploadContainer"><div data-id="txtUploadField"></div></td>
+                        <td class="SO3311CTd" width="70px"><input type="button" data-id="btnImport" /> </td>
+                    </tr>
+                </table>
+                
+            </td>
+            <td class="SO3311CTd"><input type="button" data-id="btnDelete" /></td>
+            <td class="SO3311CTd"><input type="button" data-id="btnExit" /></td>
+        </tr>
+        <tr class="SO3311CTr" >
+            <td class="SO3311CTd" colspan="6">
+                <div data-id="grdCharge"></div>
+            </td>
+        </tr>
+        <tr class="SO3311CTr" style="height:50px">
+            <td class="SO3311CTd" colspan="6">
+                <table class="SO3311CTable">
+                    <tr class="SO3311CTr" >
+                        <td class="SO3311CTd" >
+                            <div data-id="ImportDescription" style="color:red"></div>
+                            <div data-id="ImportDescription2" style="color:red"></div>
+                        </td>
+                       <!-- <td class="SO3311CTd" data-id="ImportDescription" style="color:red"></td> -->
+                                               
+                    </tr>
+                    <tr class="SO3311CTr" style="height:10px">
+                        <!--<td class="SO3311CTd" data-id="ImportDescription2" style="color:red"></td>-->
+                        <td class="SO3311CTd"></td>
+                    </tr>
+                </table>
+            </td>
+            
+        </tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,298 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .SO1111A_DIV {
+            padding-top: 2px;
+            padding-left: 3px;
+            width: 99%;
+            float: left;
+        }
+
+        .SO1111A_DIV2 {
+            height: 14%;
+        }
+
+        .SO1111A_DIV2_1 {
+            height: 28%;
+        }
+
+        .SO1111A_DIV3 {
+            height: 20%;
+        }
+
+        .SO1111A_DIV3_1 {
+            height: 39%;
+        }
+
+        .SO1111A_lbl1 {
+            float: left;
+            margin-top: 6px;
+            margin-left: 2px;
+            width: 60px;
+            text-align: left;
+        }
+
+        .SO1111A_lbl2 {
+            width: 80px;
+        }
+
+        .SO1111A_lbl3 {
+            text-align: left;
+        }
+
+        .SO1111A_t {
+            float: left;
+            margin-left: 2px;
+            padding-left: 1px;
+        }
+
+        .SO1111A_t2 {
+            float: left;
+            margin-left: 5px;
+            padding-left: 1px;
+        }
+
+        .SO1111A_c {
+            float: left;
+            margin-left: 2px;
+        }
+
+        .SO1111A_red {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div data-id="gbxAll" style="padding:0px;margin:0px;">
+        <div data-id="gbxSpTop">
+            <!--head-->
+            <div style="clear:both;margin-bottom:1px;" data-id="gbxT">
+                <table style="width:100%;" cellspacing="0" cellpadding="2">
+                    <tr>
+                        <td data-id="lSno" style="width:7%;margin:2px;">派工單號:</td>
+                        <td data-id="tSno" style="width:12%;margin:1px;"></td>
+
+                        <td data-id="lOrderNo" style="width:7%;margin:2px;">訂單單號:</td>
+                        <td data-id="tOrderNo" style="width:12%;margin:1px;"></td>
+
+                        <td data-id="lServName" style="width:7%;margin:2px;">服務區:</td>
+                        <td data-id="tServName" style="width:12%;margin:1px;"></td>
+
+                        <td data-id="lAcceptEn" style="width:7%;margin:2px;">受理人員:</td>
+                        <td data-id="tAcceptEn" style="width:14%;margin:1px;"></td>
+
+                        <td data-id="lAcceptTime" style="width:7%;margin:2px;">受理時間:</td>
+                        <td data-id="tAcceptTime" style="width:14%;margin:1px;"></td>
+                    </tr>
+                    <tr>
+                        <td data-id="lContName" style="width:7%;margin:1px;">申請人姓名:</td>
+                        <td data-id="tContName" style="width:12%;margin:1px;"></td>
+
+                        <td data-id="lContTel" style="width:7%;margin:1px;">申請人電話:</td>
+                        <td data-id="tContTel" style="width:12%;margin:1px;"></td>
+
+                        <td data-id="lContmobile" style="width:7%;margin:1px;">申請人手機:</td>
+                        <td data-id="tContmobile" style="width:12%;margin:1px;"></td>
+
+                        <td data-id="lID" style="width:7%;margin:1px;">申請人證號:</td>
+                        <td data-id="tID" style="width:14%;margin:1px;"></td>
+
+                        <td style="width:21%;" colspan="2"></td>
+                    </tr>
+                </table>
+            </div>
+            <!--body-->
+            <div style="clear:both;margin-bottom:1px;">
+                <!--左邊-->
+                <div style="width:33%;float:left;margin-right:1px;" data-id="gbxML">
+                    <div class="SO1111A_DIV">
+                        <label data-id="lServiceType" class="SO1111A_lbl1 SO1111A_red">服務別</label>
+                        <div tabindex="1" data-id="csServiceType" class="SO1111A_t"></div>
+                    </div>
+                    <div class="SO1111A_DIV">
+                        <label data-id="lInstCode" class="SO1111A_lbl1 SO1111A_red">派工類別</label>
+                        <div tabindex="2" data-id="csInstCode" class="SO1111A_t"></div>
+                    </div>
+                    <div class="SO1111A_DIV">
+                        <label data-id="lResvTime" class="SO1111A_lbl1 SO1111A_red">預約時間</label>
+                        <div>
+                            <input tabindex="3" data-id="dtResvTime" style="margin:1px;float:left;" />
+                            <button tabindex="4" data-id="btnReserve" style="margin:1px;float:left;">預</button>
+                        </div>
+                    </div>
+                    <div class="SO1111A_DIV">
+                        <div tabindex="5" data-id="chkResvFlag" style="margin:1px;float:left;">客戶指定時間</div>
+                        <input tabindex="6" data-id="dtResvFlagTime" style="margin:1px;float:left;" />
+                        <div tabindex="7" data-id="chkPrintBillFlag" style="margin:1px;float:left;">順收月費</div>
+                    </div>
+                    <div class="SO1111A_DIV">
+                        <label data-id="lInstCount" class="SO1111A_lbl1">裝機台數</label>
+                        <input tabindex="8" data-id="tInstCount" class="SO1111A_t" />
+                    </div>
+                    <div class="SO1111A_DIV">
+                        <label data-id="lPinCode" class="SO1111A_lbl1">吊牌號碼</label>
+                        <input tabindex="9" data-id="tPinCode" class="SO1111A_t" />
+                    </div>
+                    <div class="SO1111A_DIV">
+                        <label data-id="lWorkUnit" class="SO1111A_lbl1">派工點數</label>
+                        <input tabindex="10" data-id="tWorkUnit" class="SO1111A_t" />
+                    </div>
+                    <div class="SO1111A_DIV">
+                        <label data-id="lNote" class="SO1111A_lbl1">備註</label>
+                        <textarea tabindex="11" data-id="tNote" class="SO1111A_t"></textarea>
+                    </div>
+                </div>
+                <!--中間-->
+                <div style="width:33%;float:left;margin-right:1px;" data-id="gbxMM">
+                    <div data-id="gbxInto" style="margin-left:1px;">
+                        <div>
+                            介紹人
+                        </div>
+                        <div>
+                            <div class="SO1111A_DIV">
+                                <label data-id="lMediaCode" class="SO1111A_lbl1">介紹媒介</label>
+                                <div tabindex="12" data-id="csMediaCode" class="SO1111A_t"></div>
+                            </div>
+                            <div class="SO1111A_DIV">
+                                <label data-id="lIntroId" class="SO1111A_lbl1">介紹人</label>
+                                <div>
+                                    <input tabindex="13" data-id="tIntroId" style="margin:1px;float:left;" />
+                                    <input tabindex="14" data-id="tIntroName" style="margin:1px;float:left;" />
+                                    <button tabindex="15" data-id="btnFindIntro" style="margin:1px;width:26px;height:26px;float:left;"></button>
+                                </div>
+                            </div>
+                            <div class="SO1111A_DIV">
+                                <label data-id="lPromCode" class="SO1111A_lbl1">促銷方案</label>
+                                <div tabindex="16" data-id="csPromCode" class="SO1111A_t"></div>
+                            </div>
+                            <div class="SO1111A_DIV">
+                                <label data-id="lBPCode" class="SO1111A_lbl1">優待組合</label>
+                                <div tabindex="17" data-id="csBPCode" class="SO1111A_t"></div>
+                            </div>
+                            <div class="SO1111A_DIV">
+                                <label data-id="lBulletinCode" class="SO1111A_lbl1">消息來源</label>
+                                <div tabindex="18" data-id="csBulletinCode" class="SO1111A_t"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-id="gbxWork" style="margin-top:1px;margin-left:1px;">
+                        <div class="SO1111A_DIV">
+                            <label data-id="lGroupCode" class="SO1111A_lbl1 SO1111A_lbl3">工程組別</label>
+                            <div tabindex="19" data-id="csGroupCode" class="SO1111A_t"></div>
+                        </div>
+                        <div class="SO1111A_DIV">
+                            <label data-id="lWorkerEn1" class="SO1111A_lbl1 SO1111A_lbl3">工程人員一</label>
+                            <div tabindex="20" data-id="csWorkerEn1" class="SO1111A_t"></div>
+                        </div>
+                        <div class="SO1111A_DIV">
+                            <label data-id="lWorkerEn2" class="SO1111A_lbl1 SO1111A_lbl3">工程人員二</label>
+                            <div tabindex="21" data-id="csWorkerEn2" class="SO1111A_t"></div>
+                        </div>
+                        <div class="SO1111A_DIV">
+                            <label data-id="lCallOkTime" class="SO1111A_lbl1 SO1111A_lbl2 SO1111A_lbl3">線上回報時間</label>
+                            <input tabindex="22" data-id="dtCallOkTime" class="SO1111A_t" />
+                        </div>
+                    </div>
+                </div>
+                <!--右邊-->
+                <div style="width:33%;" data-id="gbxMR">
+                    <div data-id="gbxClose" style="margin-left:1px;">
+                        <div>
+                            結案
+                        </div>
+                        <div>
+                            <div class="SO1111A_DIV">
+                                <label data-id="lFinTime" class="SO1111A_lbl1 SO1111A_lbl3">完工時間</label>
+                                <input tabindex="23" data-id="dtFinTime" class="SO1111A_t" />
+                            </div>
+                            <div class="SO1111A_DIV">
+                                <label data-id="lReturnCode" class="SO1111A_lbl1 SO1111A_lbl3">退單原因</label>
+                                <div tabindex="24" data-id="csReturnCode" class="SO1111A_t"></div>
+                            </div>
+                            <div class="SO1111A_DIV">
+                                <label data-id="lReturnDescCode" class="SO1111A_lbl1 SO1111A_lbl2 SO1111A_lbl3">退單原因分類</label>
+                                <div tabindex="25" data-id="csReturnDescCode" class="SO1111A_t"></div>
+                            </div>
+                            <div class="SO1111A_DIV">
+                                <label data-id="lSatiCode" class="SO1111A_lbl1 SO1111A_lbl2 SO1111A_lbl3">服務滿意度</label>
+                                <div tabindex="26" data-id="csSatiCode" class="SO1111A_t"></div>
+                            </div>
+                            <div class="SO1111A_DIV">
+                                <label data-id="lSignDate" class="SO1111A_lbl1 SO1111A_lbl3">簽收日期</label>
+                                <input tabindex="27" data-id="dtSignDate" class="SO1111A_t" />
+                            </div>
+                            <div class="SO1111A_DIV">
+                                <label data-id="lSignEn" class="SO1111A_lbl1 SO1111A_lbl3">簽收人員</label>
+                                <div tabindex="28" data-id="csSignEn" class="SO1111A_t"></div>
+                            </div>
+                            <div class="SO1111A_DIV">
+                                <label data-id="lFinUnit" class="SO1111A_lbl1 SO1111A_lbl3">完工點數</label>
+                                <input tabindex="29" data-id="tFinUnit" class="SO1111A_t" />
+                            </div>
+                        </div>
+                    </div>
+                    <div data-id="gbxPrint" style="margin-top:1px;margin-left:1px;">
+                        <div class="SO1111A_DIV">
+                            <label data-id="lPrintUserName" style="width:40%;margin:1px;">列印人員</label>
+                            <label data-id="tPrintUserName" style="margin:1px;"></label>
+                        </div>
+                        <div class="SO1111A_DIV">
+                            <label data-id="lPrintTime" style="width:40%;margin:1px;">列印時間</label>
+                            <label data-id="tPrintTime" style="margin:1px;"></label>
+                        </div>
+                        <div class="SO1111A_DIV">
+                            <label data-id="lPrtCount" style="width:40%;margin:1px;">工單列印次數</label>
+                            <label data-id="tPrtCount" style="margin:1px;"></label>
+                        </div>
+                        <div class="SO1111A_DIV">
+                            <label data-id="lClsTime" style="width:40%;margin:1px;">日結時間</label>
+                            <label data-id="tClsTime" style="margin:1px;"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div data-id="gbxSpBottom">
+            <!--grids-->
+            <div data-id="gbxFacility" class="SO1111A_DIV" style="width:40%;height:100%;">
+                <div>
+                    <div data-id="lSub1" style="float:left;margin:4px;">設備項目</div>
+                    <button tabindex="30" data-id="btnSubAdd1" style="float:left;margin-right:1px;">新增</button>
+                    <button tabindex="31" data-id="btnSubEdit1" style="float:left;margin-right:1px;">修改</button>
+                    <button tabindex="32" data-id="btnSubDelete1" style="float:left;">刪除</button>
+                </div>
+                <div data-id="gFacility" style="padding-top:1px;width:100%;height:85%;">
+                </div>
+            </div>
+            <div data-id="gbxCharge" class="SO1111A_DIV" style="width:59.5%;height:100%;">
+                <div style="width:100%;">
+                    <div style="float:left;">
+                        <div data-id="lSub2" style="float:left;margin:4px;">收費項目</div>
+                        <button tabindex="33" data-id="btnSubAdd2" style="float:left;margin-right:1px;">新增</button>
+                        <button tabindex="34" data-id="btnSubEdit2" style="float:left;margin-right:1px;">修改</button>
+                        <button tabindex="35" data-id="btnSubDelete2" style="float:left;">作廢</button>
+                    </div>
+                    <div style="float:right;">
+                        <div data-id="lSumAmount" class="SO1111A_red" style="float:left;width:80px;margin:4px;">應收小計</div>
+                        <div data-id="tSumAmount" class="SO1111A_red" style="float:left;width:60px;margin:4px;">0</div>
+                    </div>
+                </div>
+                <div data-id="gCharge" style="padding-top:1px;width:100%;height:85%;">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--buttons-->
+    <div style="clear:both;">
+        <button tabindex="36" style="float:left;margin:1px;" data-id="btnSave">存檔</button>
+        <button tabindex="37" style="float:left;margin:1px;" data-id="btnReserve2">預約明細</button>
+        <button tabindex="38" style="float:left;margin:1px;" data-id="btnViewPR">指定變更設備</button>
+        <!--<button style="float:left;margin:1px;" data-id="btnChangeProd">指定變更產品</button>-->
+        <div style="float:right;">
+            <button tabindex="39" data-id="btnExit" style="float:left;margin:1px;">取消</button>
+            <label data-id="lEditMode" class="csslEditMode" style="float:left;margin:1px;">顯示</label>
+        </div>
+    </div>
+</body>
+</html>

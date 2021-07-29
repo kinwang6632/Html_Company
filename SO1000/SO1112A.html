@@ -1,0 +1,430 @@
+﻿<!DOCTYPE html>
+<html >
+<head>
+    <title></title>
+    <style type="text/css">
+        /*
+        html {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            height: 98%;
+            margin: 2px;
+            padding: 2px;
+            
+            font-size: 12px;
+        }
+
+        * {
+            -webkit-box-sizing: border-box; 
+            -moz-box-sizing: border-box; 
+            box-sizing: border-box; 
+        } */
+
+        .SO1112Atb {
+            width: 100%;
+            height: 100%;
+            table-layout: fixed;
+             /*border : 1px solid red;*/
+            margin: 0;
+            padding: 0;
+            text-align: left;
+        }
+
+        .SO1112Atr {
+            /*border : 1px solid red;*/
+            margin: 0;
+            padding: 0;
+            text-align: left;
+        }
+
+        .SO11112Atd {
+            /*border : 1px solid red; */
+            margin: 0;
+            padding: 0;
+            text-align: left;
+        }
+    
+        /*
+        .lbl {
+            width: 95%;
+            text-align: left;
+        }
+
+        .txt {
+            width: 95%;
+        }*/
+    </style>
+      
+</head>
+<body  >
+    <table class="SO1112Atb">
+        <tr class="SO1112Atr">
+            <td class="SO11112Atd">
+                <!--<div data-id="mainDiv" style="width:100%;height:100%">-->
+                    <div data-id="mainDiv" >
+                        <div data-id="mainSplitter" id="mainSplitter">
+                            <div data-id="PartA">
+                                <!--<div data-id="partA-Head" id="partA-Head" style="padding:0px;margin:0">-->
+                                <div data-id="partA-Head" id="partA-Head">
+                                    <table class="SO1112Atb">
+                                        <tr class="SO1112Atr" style="height:50%">
+                                            <td class="SO11112Atd" style="width:8%" data-id="lblSNo"></td>
+                                            <td class="SO11112Atd" style="width:17%">
+                                                <input type="text" data-id="txtSNo" />
+                                            </td>
+                                            <td class="SO11112Atd" style="width:8%" data-id="lblServName">
+                                                服務區:
+                                            </td>
+                                            <td class="SO11112Atd" style="width:17%">
+                                                <input type="text" data-id="txtServName" />
+                                            </td>
+                                            <td class="SO11112Atd" style="width:8%" data-id="lblClassName">
+                                                客戶類別:
+                                            </td>
+                                            <td class="SO11112Atd" style="width:17%">
+                                                <input type="text" data-id="txtClassName" />
+                                            </td>
+                                            <td class="SO11112Atd" style="width:8%" data-id="lblCustId">
+                                                客戶編號:
+                                            </td>
+                                            <td class="SO11112Atd">
+                                                <input type="text" data-id="txtCustId" />
+                                            </td>
+                                        </tr>
+                                        <tr class="SO1112Atr" style="height:50%">
+                                            <td class="SO11112Atd" data-id="lblCustName">
+                                                客戶名稱:
+                                            </td>
+                                            <td class="SO11112Atd">
+                                                <input type="text" data-id="txtCustName" />
+                                            </td>
+                                            <td class="SO11112Atd" data-id="lblTel1">
+                                                電話(1):
+                                            </td>
+                                            <td class="SO11112Atd">
+                                                <input type="text" data-id="txtTel1" />
+                                            </td>
+                                            <td data-id="lblInstAddress">
+                                                裝機地址:
+                                            </td>
+                                            <td class="SO11112Atd" colspan="3">
+                                                <input type="text" data-id="txtInstAddress" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                                <div data-id="partA-Detail" style="padding:2px;margin:0">
+                                    <table class="SO1112Atb" style="height:98%">
+                                        <tr class="SO1112Atr">
+                                            <td class="SO11112Atd" style="width:300px">
+                                                <table class="SO1112Atb">
+                                                    <tr class="SO1112Atr">
+                                                        <td class="SO11112Atd" style="width:70px;color:red" data-id="lblServiceType"></td>
+                                                        <td class="SO11112Atd"><div data-id="gilServiceType"></div></td>
+                                                    </tr>
+                                                    <tr class="SO1112Atr">
+                                                        <td class="SO11112Atd" style="color:red" data-id="lblServiceCode"></td>
+                                                        <td class="SO11112Atd"><div data-id="gilServiceCode"></div></td>
+                                                    </tr>
+                                                    <tr class="SO1112Atr">
+                                                        <td class="SO11112Atd" colspan="2">
+                                                            <table class="SO1112Atb">
+                                                                <tr class="SO1112Atr">
+                                                                    <td class="SO11112Atd" style="color:red" width="70px" data-id="lblResvTime"></td>
+                                                                    <td class="SO11112Atd"><input data-id="edtResvTime" /></td>
+                                                                    <td class="SO11112Atd" style="width:40px"><button data-id="btnResv" style="margin-left:5px"></button></td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+
+                                                    </tr>
+                                                    <tr class="SO1112Atr">
+                                                        <td class="SO11112Atd" colspan="2">
+                                                            <table class="SO1112Atb">
+                                                                <tr class="SO1112Atr">
+                                                                    <td class="SO11112Atd" width="80px" data-id="lblCallOKTime"></td>
+                                                                    <td class="SO11112Atd"><input data-id="edtCallOkTime" style="width:100%" /></td>
+
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="SO1112Atr">
+                                                        <td class="SO11112Atd" colspan="2">
+                                                            <table class="SO1112Atb">
+                                                                <tr class="SO1112Atr">
+                                                                    <td class="SO11112Atd" width="80px" data-id="lblResvFlagTime"></td>
+                                                                    <td class="SO11112Atd" width="50px"><div data-id="edtResvFlagTime"></div></td>
+                                                                    <td class="SO11112Atd" style="width:70px"><div data-id="chkFlag"></div></td>
+                                                                    <td class="SO11112Atd" style="width:20px">
+                                                                        <div data-id="chkPrintBillFlag" id="chkPrintBillFlag"></div>
+                                                                    </td>
+                                                                    <td class="SO11112Atd"><button data-id="btnPrintBillFlag"></button></td>
+                                                                </tr>
+                                                            </table>
+                                                    </tr>
+                                                    <tr class="SO1112Atr">
+                                                        <td class="SO11112Atd" data-id="lblGroupCode"></td>
+                                                        <td class="SO11112Atd"><div data-id="gilGroupCode"></div></td>
+                                                    </tr>
+                                                    <tr class="SO1112Atr">
+                                                        <td class="SO11112Atd" colspan="2">
+                                                            <table class="SO1112Atb">
+                                                                <tr class="SO1112Atr">
+                                                                    <td class="SO11112Atd" style="width:70px" data-id="lblWorkerEn1"></td>
+                                                                    <td class="SO11112Atd"><div data-id="gilWorkerEn1"></div></td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="SO1112Atr">
+                                                        <td class="SO11112Atd" colspan="2">
+                                                            <table class="SO1112Atb">
+                                                                <tr class="SO1112Atr">
+                                                                    <td class="SO11112Atd" style="width:70px" data-id="lblWorkerEn2"></td>
+                                                                    <td class="SO11112Atd"><div data-id="gilWorkerEn2"></div></td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+
+                                                </table>
+                                            </td>
+                                            <td class="SO11112Atd" width="350px">
+                                                <table class="SO1112Atb">
+                                                    <tr class="SO1112Atr" style="height:20px">
+                                                        <td class="SO11112Atd" width="60px" data-id="lblAcceptName1"></td>
+                                                        <td class="SO11112Atd" data-id="lblAcceptName"></td>
+                                                        <td class="SO11112Atd" width="60px" data-id="lblPrintUserName1"></td>
+                                                        <td class="SO11112Atd" data-id="lblPrintUserName"></td>
+                                                    </tr>
+                                                    <tr class="SO1112Atr" style="height:20px">
+                                                        <td class="SO11112Atd" colspan="4">
+                                                            <table class="SO1112Atb">
+                                                                <tr class="SO1112Atr">
+                                                                    <td class="SO11112Atd" width="60px" data-id="lblAcceptTime1"></td>
+                                                                    <td class="SO11112Atd" data-id="lblAcceptTime"></td>
+                                                                    <!--<td class="SO11112Atd" style="width:60px" data-id="lblPrtCount1"></td>
+                                                    <td class="SO11112Atd" style="width:12px" data-id="lblPrtCount"></td>-->
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+
+
+                                                    </tr>
+                                                    <tr class="SO1112Atr" style="height:20px">
+                                                        <td class="SO11112Atd" colspan="4">
+                                                            <table class="SO1112Atb">
+                                                                <tr class="SO1112Atr">
+                                                                    <td class="SO11112Atd" style="width:60px" data-id="lblClsTime1"></td>
+                                                                    <td class="SO11112Atd" data-id="lblClsTime"></td>
+
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+
+                                                    </tr>
+                                                    <tr class="SO1112Atr" style="height:20px">
+                                                        <td class="SO11112Atd" colspan="4">
+                                                            <table class="SO1112Atb">
+                                                                <tr class="SO1112Atr">
+                                                                    <td class="SO11112Atd" style="width:60px" data-id="lblPrintTime1"></td>
+                                                                    <td class="SO11112Atd" data-id="lblPrintTime"></td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+
+                                                    </tr>
+                                                    <tr class="SO1112Atr" style="height:20px">
+                                                        <td class="SO11112Atd" colspan="4">
+                                                            <table class="SO1112Atb">
+                                                                <tr class="SO1112Atr">
+                                                                    <td class="SO11112Atd" style="width:55px" data-id="lblWorkUnit"></td>
+                                                                    <td class="SO11112Atd" style="width:65px"><input type="text" data-id="txtWorkUnit" style="text-align:right" /></td>
+                                                                    <td class="SO11112Atd" style="width:55px" data-id="lblFinUnit"></td>
+                                                                    <td class="SO11112Atd" style="width:65px"><input type="text" data-id="txtFinUnit" style="text-align:right" /></td>
+                                                                    <td class="SO11112Atd" style="width:60px" data-id="lblPrtCount1"></td>
+                                                                    <td class="SO11112Atd" data-id="lblPrtCount"></td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="SO1112Atr">
+                                                        <td class="SO11112Atd" colspan="4">
+                                                            <table class="SO1112Atb">
+                                                                <tr class="SO1112Atr">
+                                                                    <td class="SO11112Atd" style="width:30px" data-id="lblMemo"></td>
+                                                                    <td class="SO11112Atd" style="width:100%;height:100%"><textarea data-id="txtMemo"></textarea></td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+
+
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                            <td class="SO11112Atd" style="width:100%">
+                                                <div data-id='jqxTabs'>
+
+                                                    <div style="margin-left: 20px" data-id="grpClose"></div>
+
+                                                    <div style="height:100%;padding:0">
+                                                        <table class="SO11112Atd" style="width:100%;height:100%">
+                                                            <tr class="SO1112Atr">
+                                                                <td class="SO11112Atd" style="width:80px" data-id="lblFinTime"></td>
+                                                                <td class="SO11112Atd"><div data-id="dtFinTime"></div></td>
+                                                            </tr>
+                                                            <tr class="SO1112Atr">
+                                                                <td class="SO11112Atd" data-id="lblMFCode1"></td>
+                                                                <td class="SO11112Atd"><div data-id="gilMFCode1"></div></td>
+                                                            </tr>
+                                                            <tr class="SO1112Atr">
+                                                                <td class="SO11112Atd" data-id="lblMFCode2"></td>
+                                                                <td class="SO11112Atd"><div data-id="gilMFCode2"></div></td>
+                                                            </tr>
+                                                            <tr class="SO1112Atr">
+                                                                <td class="SO11112Atd" data-id="lblReturnCode"></td>
+                                                                <td class="SO11112Atd"><div data-id="gilReturnCode"></div></td>
+                                                            </tr>
+                                                            <tr class="SO1112Atr">
+                                                                <td class="SO11112Atd" data-id="lblReturnDescCode"></td>
+                                                                <td class="SO11112Atd"><div data-id="gilReturnDescCode"></div></td>
+                                                            </tr>
+                                                            <tr class="SO1112Atr">
+                                                                <td class="SO11112Atd" data-id="lblSatiCode"></td>
+                                                                <td class="SO11112Atd"><div data-id="gilSatiCode"></div></td>
+                                                            </tr>
+                                                            <tr class="SO1112Atr">
+                                                                <td class="SO11112Atd" data-id="lblSignEn"></td>
+                                                                <td class="SO11112Atd"><div data-id="gilSignEn"></div></td>
+                                                            </tr>
+                                                            <tr class="SO1112Atr">
+                                                                <td class="SO11112Atd" data-id="lblSignDate"></td>
+                                                                <!-- <td class="SO11112Atd"><div data-id="edtSignDate"></div></td>-->
+                                                                <td class="SO11112Atd"><input data-id="edtSignDate" /></td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+
+                                                </div>
+                                            </td>
+
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div data-id="PartB">
+                                <div data-id="partBUI" id="partBUI" style="padding:2px;margin:0">
+                                    <table class="SO1112Atb" data-id="gridDetail">
+                                        <tr class="SO1112Atr" style="height:30px">
+                                            <td class="SO11112Atd" width="40%">
+                                                <table class="SO1112Atb">
+                                                    <tr class="SO1112Atr">
+                                                        <td class="SO11112Atd" style="width:70px;height:100%" data-id="lblFaciItem"></td>
+                                                        <td class="SO11112Atd" style="width:50px;height:100%">
+                                                            <button data-id="btnSubAdd1"></button>
+                                                        </td>
+                                                        <td class="SO11112Atd" style="width:50px">
+                                                            <button data-id="btnSubEdit1"></button>
+                                                        </td>
+                                                        <td class="SO11112Atd" style="width:50px">
+                                                            <button data-id="btnSubDelete1"></button>
+                                                        </td>
+                                                        <td class="SO11112Atd"></td>
+                                                    </tr>
+
+                                                </table>
+
+                                            </td>
+                                            <td class="SO11112Atd" style="width:1px"></td>
+                                            <td class="SO11112Atd">
+                                                <table class="SO1112Atb">
+                                                    <tr class="SO1112Atr">
+                                                        <td class="SO11112Atd" data-id="lblCitem" style="width:70px"></td>
+                                                        <td class="SO11112Atd" style="width:50px">
+                                                            <button data-id="btnSubAdd2"></button>
+                                                        </td>
+                                                        <td class="SO11112Atd" style="width:50px">
+                                                            <button data-id="btnSubEdit2"></button>
+                                                        </td>
+                                                        <td class="SO11112Atd" style="width:50px">
+                                                            <button data-id="btnSubDelete2"></button>
+                                                        </td>
+                                                        <td class="SO11112Atd">
+                                                            <table class="SO1112Atb">
+                                                                <tr class="SO1112Atr">
+                                                                    <td class="SO11112Atd" data-id="lblShouldSub" style="text-align:right;color:red"></td>
+                                                                    <td class="SO11112Atd" data-id="lblSum" style="width:60px; text-align:right;color:red">0</td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+
+                                                </table>
+                                            </td>
+
+                                        </tr>
+                                        <tr class="SO1112Atr" style="height:100%">
+                                            <td class="SO11112Atd">
+                                                <div data-id="grdData1"></div>
+                                            </td>
+                                            <td class="SO11112Atd"></td>
+                                            <td class="SO11112Atd">
+                                                <div data-id="grdData2"></div>
+                                            </td>
+
+                                        </tr>
+
+                                    </table>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+            </td>
+        </tr>
+        <tr class="SO1112Atr" style="height:30px">
+            <td class="SO11112Atd">
+                <div>
+                    <table class="SO1112Atb">
+                        <tr class="SO1112Atr">
+                            <td class="SO11112Atd">
+                                <table class="SO1112Atb">
+                                    <tr class="SO1112Atr">
+                                        <td class="SO11112Atd" style="width:90px"><button data-id="btnSave"></button></td>
+                                        <td class="SO11112Atd" style="width:105px"><button data-id="btnReserve2"></button></td>
+                                        <td style="width:105px"><button data-id="btnViewPR"></button></td>
+                                        <td class="SO11112Atd"></td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td class="SO11112Atd">
+                                <table class="SO1112Atb">
+                                    <tr class="SO1112Atr">
+                                        <td class="SO11112Atd"></td>
+                                        <td class="SO11112Atd" style="width :90px"><button data-id="btnCancel"></button></td>
+                                        <!--<td  class="SO11112Atd" style="width:60px"><input type="text"  class="csslEditMode" data-id="txtStatus" /></td>-->
+                                        <td class="csslEditMode" style="width:60px">
+                                            <label class="csslEditMode" data-id="txtStatus"></label>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>           
+            </td>
+        </tr>
+    </table>
+    
+    
+
+</body>
+</html>

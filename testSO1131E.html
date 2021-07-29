@@ -1,0 +1,192 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <link href="jqwidgets/styles/jqx.base.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.black.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.classic.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.energyblue.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.orange.css" rel="stylesheet" />
+    <script type="text/javascript" src="scripts/json2.js"></script>
+    <script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqx-all.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxcore.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxdatetimeinput.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxcalendar.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxtooltip.js"></script>
+    <script type="text/javascript" src="jqwidgets/globalization/globalize.js"></script>
+    <script type="text/javascript" src="scripts/jquery.mask.min.js"></script>
+    <script src="Scripts/CryptoJS v3.1.2/rollups/aes.js"></script>
+    <script src="component/csList.js"></script>
+    <script src="component/csMulti.js"></script>
+    <script src="component/csDateTime.js"></script>
+    <!--
+    <script type="text/javascript" src="SO3000/SO3311A.js"></script>
+    <script type="text/javascript" src="SO3000/SO3311B.js"></script>
+    <script type="text/javascript" src="SO3000/SO3311F.js"></script>
+    <script type="text/javascript" src="SO3000/SO3311E.js"></script>
+    <script type="text/javascript" src="SO3000/SO3311D.js"></script>
+    <script type="text/javascript" src="SO3000/SO3311C.js"></script>
+    <script type="text/javascript" src="SO3000/SO3311G.js"></script> -->
+    <script type="text/javascript" src="SO1000/SO1131E.js"></script>
+    <script type="text/javascript" src="component/csUploadFile.js"></script>
+    <script src="language/zh-TW/language61.js"></script>
+    <script src="language/zh-TW/language01.js"></script>
+    <script src="language/zh-TW/language52.js"></script>
+    <script src="language/zh-TW/language21.js"></script>
+    <script src="component/csWindow.js"></script>
+    <script type="text/javascript" src="Utility/utility.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("body").hide();
+            var loginInfo = {
+                loginInfo: {
+                    type: 'logininfo',
+                    columns: [{ name: 'compcode', type: 'integer' },
+                        { name: 'entryid', type: 'string' },
+                        { name: 'entryname', type: 'string' },
+                        { name: 'groupid', type: 'string' }
+                    ],
+                    rows: [{
+                        compcode: 3,
+                        entryid: 'test',
+                        entryname: 'test',
+                        groupid: '0'
+                    }]
+                }
+            };
+            var editmode = {
+                type: 'integer',
+                value: editMode.view
+            };
+            $.jqx.theme = "energyblue";
+            var params = getParameters('getKey', 'getKey', 'getKey', loginInfo);
+            getServerData(params, { success: initOk });
+            function initOk(data) {
+                $("body").show();
+                try {
+                    $('#btnSO1131E').on('click', function () {
+                        try {
+                            var ds = {
+                                type: 'string',
+                                chooseFaci: {
+                                    columns: [{ name: 'CUSTID', type: 'integer' },
+                                        { name: 'SERVICETYPE', type: 'string' },
+                                        { name: 'FACISEQNO', type: 'string' },
+                                        { name: 'FACISNO', type: 'string' },
+                                    ],
+                                    rows: [{                                        
+                                        CUSTID: 617414,
+                                        SERVICETYPE: 'I',
+                                        FACISEQNO : null,
+                                        FACISNO :null,
+                                    }]
+                                }
+                            };
+                            var parameters = {
+                                chooseFaci: {
+                                    columns: [{ name: "CUSTID", type: "integer" },
+                                            { name: "SERVICETYPE", type: "string" },
+                                            { name: "FACISEQNO", type: "string" }
+                                    ],
+                                    rows: [{
+                                        CUSTID: 600119,
+                                        SERVICETYPE: "D",
+                                        FACISEQNO: "201307170224540"
+                                    }]
+                                }
+                            };
+                            var customerRow = {                                
+                                    columns: [{ name: "CUSTID", type: "integer" },
+                                            { name: "SERVICETYPE", type: "string" },
+                                            { name: "FACISEQNO", type: "string" }
+                                    ],
+                                    rows: [{
+                                        CONTTEL:"622308",
+                                        CPLIST:0,
+                                        CUSTID:600119,
+                                        DECLARANTNAME:"黃玉美1",
+                                        DEPOSIT:1500,
+                                        DIALACCOUNT:"sh015395",
+                                        DIALPASSWORD:"nkk4u8va",
+                                        DOMICILEADDRESS:"竹南鎮大埔里15鄰67-6號",
+                                        DVRAUTHSIZECODE:100,
+                                        DVRSIZECODE:2,
+                                        DYNIPCOUNT:0,
+                                        EBTCONTNO:"031311280005667",
+                                        FACICODE:101,
+                                        FACICOMMANDSTATUS:"開機",
+                                        FACIID:"13072118100",
+                                        FACINAME:"數位機上盒",
+                                        FACISNO:"1685144051",
+                                        FACISTATUS:"正常",
+                                        FACISTATUSCODE:1,
+                                        FACIWIPSTATUS:"暫停頻道/暫停頻道",
+                                        FIXIPCOUNT:0,
+                                        ID:"K221266448",
+                                        IDKINDCODE1:5,
+                                        IDKINDNAME1:"身分證",
+                                        INITPLACENAME:"客廳",
+                                        INITPLACENO:1,
+                                        INSTDATE:"2013-11-28T11:03:32+08:00",
+                                    }]
+                                }
+                            
+                            var divName = 'div' + getUniqueId();
+                            var div2Name = 'div2' + getUniqueId();
+                            $('<div id="' + divName + '"><div>測試Form</div><div id="' + div2Name + '"></div></div>').appendTo('body');
+                            var div = $('#' + divName);
+                            $(div).csWindow($.extend({}, {
+                                width: 800, height: 600,
+                                maxWidth: 1028,
+                                maxHeight: 900,
+                                keyboardCloseKey: 'none',
+                                haveClosing: true
+                            }));
+                            var div2 = $('#' + div2Name);
+
+                            $(div2).SO1131E($.extend({}, {
+                                loginInfo: loginInfo,
+                                container: div,
+                                includeDVR: true,
+                                includePR: true,
+                                parameters: $.extend(true, {}, parameters),
+                                editMode: editmode.value,
+                                canMutilChoose: false,
+                                isQueryMVodID: false,
+                                customerTable: customerRow
+                            }));
+                            $(div).on('close', function (event) {
+                                //alert($(div2).SO6460A.methods['options']);
+
+                                //var options = $.data($(div2), formName).options;
+                                // var options = $(div2).SO6460A.methods['options'];
+
+
+                                var options = $(div2).SO1131E('options');
+
+                                $(div2).SO1131E('destroy');
+                                $(div).csWindow('destroy');
+                            });
+                            $(div2).on('loaded', function () {
+                                $(this).each(function () {
+                                });
+                            });
+                        }
+                        catch (err) {
+                            alert(err.stack)
+                        }
+                    });
+                } catch (err) {
+                    alert(err.stack)
+                }
+            };
+        });
+    </script>
+</head>
+<body>
+    <button id="btnSO1131E">SO1131E</button>
+</body>
+</html>

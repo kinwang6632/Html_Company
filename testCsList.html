@@ -1,0 +1,452 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+   <title id='Description'>
+      單選元件測試+研究
+   </title>
+   <meta charset="utf-8" />
+    <link href="jqwidgets/styles/jqx.base.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.energyblue.css" rel="stylesheet" />
+    <style>
+        * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+    </style>
+
+    <script src="scripts/jquery-1.11.1.min.js"></script>
+    <script src="jqwidgets/jqx-all.js"></script>
+    <script src="language/zh-TW/language01.js"></script>
+    <script src="Utility/utility.js"></script>
+    
+    <script src="component/csList.js"></script>
+
+   <script type="text/javascript">
+      $(document).ready(function () {
+
+         /*
+         columns: [{ name: t1, type: 'int' },
+            { name: t2, type: 'str' },
+            { name: t3, type: 'dec' },
+            { name: t4, type: 'dbl' },
+            { name: t5, type: 'date' },
+         ],
+         rows: [{ t1: 1, t2: 'test', t3: 500, t4: 600, t5: 5.5 },
+            { t1: 1, t2: 'test', t3: 500, t4: 600, t5: 5.5 },
+            { t1: 1, t2: 'test', t3: 500, t4: 600, t5: 5.5 }]
+         */
+
+         var data = new Array();
+         var k = 0;
+         for (var i = 1000; i < 1100; i++) {
+            var row = {};
+            row["CODENO"] = i + '';
+            row["DESCRIPTION"] = '張三_' + i;
+            row["OTHER"] = '張三_aaaaaa' + i;
+            data[k] = row;
+            k++;
+         }
+
+
+         var source =
+         {
+            localdata: data,
+            datatype: "array",
+            datafields:
+                [
+                    { name: 'codeNo', type: 'string' },
+                    { name: 'description', type: 'string' },
+                    { name: 'other', type: 'string' },
+                    { name: 'quantity', type: 'number' },
+                    { name: 'price', type: 'number' },
+                    { name: 'total', type: 'number' }
+                ]
+         };
+
+         var dataAdapter = new $.jqx.dataAdapter(source,
+            {
+               ///autoBind: true,
+               formatData: function (data) {
+                  data.city_startsWith = $("#txtCodeNo").val();
+                  return data;
+               },
+               loadComplete: function (records) {
+                  records = records;
+               }
+            }
+         );
+
+
+         
+         //88888888888888888888888888888888888888888888888888888888888888888888888
+         //元件的Init Code
+         ///*
+         var csl =  $("#csList1").csList({
+            source: data,
+            codeNoWidth: 88,
+            width: '75%',
+            showColumnHeaders: false,
+            theme: 'energyblue',
+            selectedIndex: -1,
+            readOnly: false,
+            codeNoReadOnly: false,
+            popupWidth: null,
+            popupHeight: null,
+            autoFitAllCols: false,
+            descriptionReadOnly: false,
+            /*
+            displayValue: {
+               CODENO: '1030',
+               DESCRIPTION: '張三_1030'
+            },*/
+            loadCompleted: function (s, args) {
+               var i = 1;
+               
+            }
+         });
+         $("#csList1").on('selectedIndexChanged', function (data) {
+            alert('test');
+         });
+
+         //return;
+        
+         ///*
+         $("#csList2").csList({
+            source: data,
+            codeNoWidth: 70,
+            width: 300,
+            showColumnHeaders: true,
+            theme: 'energyblue',
+            selectedIndex: -1,
+            readOnly: false,
+            codeNoReadOnly: false,
+            popupWidth: null,
+            popupHeight: null,
+            autoFitAllCols: false,
+            descriptionReadOnly: false,
+            columns: [
+                 { text: '代碼2', datafield: 'CODENO', width: 70 },
+                 { text: '名稱2', datafield: 'DESCRIPTION', width: 100 },
+                 { text: '其它2', datafield: 'OTHER', width: 100 }
+            ]
+         });
+         $('#btnenabled').on('click', function () {
+            var oo = $("#csList2").csList('disabled', false);
+         });
+         $('#btndisabled').on('click', function () {
+            var oo = $("#csList2").csList('disabled', true);
+         });
+         
+         $("#csList3").csList({
+            source: null,
+            codeNoWidth: 70,
+            width: '50%',
+            showColumnHeaders: true,
+            theme: 'energyblue',
+            selectedIndex: -1,
+            readOnly: true,
+            codeNoReadOnly: false,
+            popupWidth: null,
+            popupHeight: null,
+            autoFitAllCols: false,
+            descriptionReadOnly: false,
+            displayValue: {
+               CODENO: '1060',
+               DESCRIPTION: '張三_1060'
+            }
+         });
+         $('#btnGetValue').on('click', function () {
+            var oo = $("#csList3").csList('codeNo');
+            
+         });
+         //*/
+         $("#csList4").csList({
+            source: null,
+            codeNoWidth: 70,
+            width: '75%',
+            showColumnHeaders: true,
+            theme: 'energyblue',
+            selectedIndex: -1,
+            readOnly: false,
+            codeNoReadOnly: false,
+            popupWidth: null,
+            popupHeight: null,
+            autoFitAllCols: false,
+            descriptionReadOnly: false,
+         });
+         //*/
+         $('#btnSetData').on('click', function () {
+            var data2 = new Array();
+            k = 0;
+            for (var i = 3000; i < 3100; i++) {
+               var row = {};
+               row["CODENO"] = i + '';
+               row["DESCRIPTION"] = '張三_' + i;
+               row["OTHER"] = '張三_bbbbbb' + i;
+               data2[k] = row;
+               k++;
+            }
+            $("#csList4").csList('source', data2);
+         });
+         $('#btnSetCodeNo').on('click', function () {
+            if ($('#txtCodeNo').val() === '') {
+               var oo = $("#csList4").csList('codeNo');
+               alert(oo);
+            } else {
+               //{CODE:3005}也可以支援
+               //$("#csList4").csList('codeNo', {CODENO:3005});
+               $("#csList4").csList('codeNo', $('#txtCodeNo').val());
+            }
+         });
+         
+         //return false;
+/* 屬性
+ CodeField
+ DescField
+'SelectedIndex
+'ReadOnly
+'IsReadOnly
+'CodeNoReadOnly
+'DescriptionReadOnly
+'ShowColumnHeaders
+'PopupWidth
+'PopupHeight
+ AutoDropDown
+ SearchAutoPopup
+ SearchAutoFilter
+'AutoFitAllCols
+ ShowIndicator
+ PopupAutoWidth
+'SelectedItem
+ IsTabStop
+*/   
+         //監聽自定義事件 dataLoadCompleted loadCompleted lostFocus gotFocus popupOpened popupClosed dropDownButtonClick
+         // codeNo_lostFocus description_lostFocus codeNo_gotFocus description_gotFocus
+          // codeNo_keyUp description_keyUp selectedIndexChanged
+          
+         csl.on('dataLoadCompleted', function (data) {
+            var i = 1;
+         }); 
+         //csl.on('loadCompleted', function (data) {
+         //   var i = 1;
+         //   $("#csList1").csList('setDisplayValue', {
+         //      CODENO: '1060',
+         //      DESCRIPTION: '張三_1060'
+         //   });
+          //});
+          
+         csl.on('lostFocus', function (data) {
+            var i = 1;
+         });
+         csl.on('gotFocus', function (data) {
+            var i = 1;
+         });
+         csl.on('popupOpened', function (data) {
+            var i = 1;
+         });
+         csl.on('popupClosed', function (data) {
+            var i = 1;
+         });
+         csl.on('dropDownButtonClick', function (data) {
+            var i = 1;
+         });
+         csl.on('codeno_lostFocus', function (data) {
+            var i = 1;
+         });
+         csl.on('description_lostFocus', function (data) {
+            var i = 1;
+         });
+         csl.on('codeNo_gotFocus', function (data) {
+            var i = 1;
+         });
+         csl.on('description_gotFocus', function (data) {
+            var i = 1;
+         });
+         csl.on('codeNo_keyUp', function (data) {
+            var i = 1;
+         });
+         csl.on('description_keyUp', function (data) {
+            var i = 1;
+         });
+         //csl.on('selectedIndexChanged', function (data) {
+         //   var i = 1;
+         //}); 
+
+
+         //Method codeNo description focus selectedItem source clearDisplayValue
+
+         $('#btnShowCodeNo').on('click', function () {
+            var codeNo = $("#csList1").csList('codeNo');
+            alert(codeNo);
+         });
+         $('#btnShowDesc').on('click', function () {
+            var description = $("#csList1").csList('description');
+            alert(description);
+         });
+         $('#btnFocus').on('click', function () {
+            $("#csList1").csList('focus');
+         });
+         $('#btnSelectedItem').on('click', function () {
+            var row = $("#csList1").csList('selectedItem');
+            alert(JSON.stringify(row));
+         });
+         $('#btnsetDisplayValue').on('click', function () {
+            $("#csList1").csList('setDisplayValue', { CODENO: '1060', DESCRIPTION: '張三_1060' });
+         });
+         $('#btnsource').on('click', function () {
+            var data2 = new Array();
+            k = 0;
+            for (var i = 2000; i < 2100; i++) {
+               var row = {};
+               row["CODENO"] = i + '';
+               row["DESCRIPTION"] = '張三_' + i;
+               row["OTHER"] = '張三_bbbbbb' + i;
+               data2[k] = row;
+               k++;
+            }
+            $("#csList1").csList('source', data2);
+         });
+         $('#btnclearDisplayValue').on('click', function () {
+            $("#csList1").csList('clearDisplayValue');
+         });
+         $('#btndestroy').on('click', function () {
+            $("#csList1").csList('destroy');
+         });
+         $('#btnresize').on('click', function () {
+            $("#csList1").csList('resize', { width: 366, height: 30 });
+         });
+       
+         
+
+
+
+
+
+
+
+
+
+
+         $('#txtChange').on('input change', function () {
+            alert($(this).val());
+         });
+         $('#btnPGChange').on('click', function () {
+            $('#txtChange').val('給定預設值');
+         });
+
+
+         
+         //isReadOnly = isReadOnly;
+
+         /* class Point {
+            constructor(x, y) {
+               this.x = x;
+               this.y = y;
+            }
+            toString() {
+               return '(' + this.x + ', ' + this.y + ')=' + (this.x + this.y);
+            }
+         }
+
+         let bb = new Point(2, 3);
+         alert(bb.toString());
+         */
+         
+/* 事件
+'SelectedIndexChanged
+'DropDownButtonClick
+ PopupOpening
+'PopupOpened
+ PopupClosing
+'PopupClosed
+'CodeNo_KeyDown Up
+'Description_KeyDown Up
+'CodeNo_GotFocus
+'Description_GotFocus
+'CodeNo_LostFocus
+'Description_LostFocus
+ CodeNo_EditValueChanged
+ CodeNo_EditValueChanging
+ Description_EditValueChanged
+ Description_EditValueChanging
+ CustomDisplayText
+ LookUpEditValueChanged
+ LookUpEditValueChanging
+ GridColumnsPopulated
+ GridCustomRowFilter
+ GridFilterChanged
+ CodeNoQueried
+ DescriptionQueried
+'GotFocus
+'LostFocus
+*/
+
+
+
+        
+
+
+
+       
+      });
+
+      function getRowIndexByValue(rows, cellName, value) {
+         for (var i = 0, len = rows.length; i < len; i++) {
+            if (rows[i][cellName].toLowerCase() === value.toLowerCase()) {
+               return rows[i]['boundindex'];
+            }
+         }
+         return -1;
+      }
+
+      function cleanUp() {
+         var elem = document.getElementById('id')
+         elem.parentNode.removeChild(elem)
+      }
+
+
+
+   </script>
+</head>
+<body>
+
+ 
+   <div>封裝好的單選元件--編輯模式 有清單 給定預設值</div>
+   <div id="csList1"></div>
+   <div>單選元件Layout結束</div>
+   <input type="button" id="btnShowCodeNo" value="顯示CodeNo" />
+   <input type="button" id="btnShowDesc" value="顯示Description" />
+   <input type="button" id="btnFocus" value="取得焦點" />
+   <input type="button" id="btnSelectedItem" value="selectedItem" />
+   <input type="button" id="btnsetDisplayValue" value="setDisplayValue" />
+   <input type="button" id="btnsource" value="source" />
+   <input type="button" id="btnclearDisplayValue" value="clearDisplayValue" />
+   <input type="button" id="btndestroy" value="destroy" />
+   <input type="button" id="btnresize" value="resize" />
+
+   <p /><p />
+
+   <div>封裝好的單選元件--測試含第二顆以上, 邏輯與變數的獨立性 & 自訂欄位(名稱及欄位名)</div>
+   <div id="csList2"></div>
+   <input type="button" value="enabled" id="btnenabled" />
+   <input type="button" value="disabled" id="btndisabled" />
+   <div>單選元件Layout結束</div>
+
+   <div>封裝好的單選元件--顯示模式 無清單 給定預設值</div>
+   <div id="csList3"></div>
+     <div>單選元件Layout結束</div>
+   <input type="text" id="txtChange" />
+   <input type="button" value="程式改值" id="btnPGChange" />
+   <input type="button" value="取值" id="btnGetValue" />
+   <p /><p />
+
+   <div>封裝好的單選元件--無清單 用Button補清單</div>
+   <div id="csList4"></div>
+   <div>單選元件Layout結束</div>
+   <input type="button" value="指定清單" id="btnSetData" />
+   <input type="text" id="txtCodeNo" />
+   <input type="button" value="<-指定CodeNo" id="btnSetCodeNo" />
+</body>
+</html>

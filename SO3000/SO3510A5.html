@@ -1,0 +1,220 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <!--
+    <link href="../jqwidgets/styles/jqx.base.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.orange.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.office.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.energyblue.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.energyblue2.css" rel="stylesheet" />
+    <script type="text/javascript" src="../scripts/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../scripts/json2.js"></script>
+    <script src="../jqwidgets/jqx-all.js"></script>
+    <script src="../component/csTabs.js"></script>
+    <script src="../component/csList.js"></script>
+    <script src="../component/csMulti.js"></script>
+    <script src="../component/csDateTime.js"></script>
+    <script src="../component/csUploadFile.js"></script>
+    <script src="../component/csAddress1.js"></script>
+    <script src="../component/csAddress2.js"></script>
+    <script src="../component/csWindow.js"></script>
+    <script src="../jqwidgets/globalization/globalize.js"></script>
+    <script src="../language/zh-TW/language01.js"></script>
+    <script src="../language/zh-TW/language21.js"></script>
+    <script src="../language/zh-TW/language31.js"></script>
+    <script src="../language/zh-TW/language51.js"></script>
+    <script src="../language/zh-TW/language52.js"></script>
+    <script src="../language/zh-TW/language61.js"></script>
+    <script src="../language/zh-TW/language71.js"></script>
+    <script type="text/javascript" src="../Utility/utility.js"></script>
+    <script type="text/javascript" src="../Utility/ChargeUtility.js"></script> -->
+    <style type="text/css">
+        /*
+        html {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            height: 99.9%;
+            margin: 0px;
+            padding: 0px;
+            font-size:12px
+        }
+
+        * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        } */
+
+         .SO3510A5Table {
+             width: 100%;
+             height: 100%;
+             table-layout: fixed;
+             /*border : 1px solid red;*/
+             margin: 0;
+             padding: 0;
+             text-align: left;
+         }
+
+         .SO3510A5Tr {
+             /*border : 1px solid red;*/
+             margin: 0;
+             padding: 0;
+             text-align: left;
+         }
+
+         .SO3510A5Td {
+             /*border : 1px solid red;*/
+             margin: 0;
+             padding: 0;
+             vertical-align: central;
+             text-align: left;
+         }
+
+         .SO3510A5Mode {
+             text-align: center;
+             background-color: cyan;
+         }
+    </style>
+<!--
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+
+            $("#csCompCode").csList({
+                source: null,
+                codeNoWidth: 60,
+                width: 250,
+                height: '25px',
+                showColumnHeaders: false,
+                readOnly: false,
+                codeNoReadOnly: false,
+                popupWidth: null,
+                popupHeight: null,
+                autoFitAllCols: false,
+                descriptionReadOnly: false,
+                columns: [
+                       { text: 'CODENO', datafield: 'CODENO' },
+                       { text: 'DESCRIPTION', datafield: 'DESCRIPTION' }
+                ]
+            });
+
+            $("#txtBillNo").jqxInput({
+                width: '140px',
+                height: '25px',
+            });
+            $("#txtPaperNum").jqxInput({
+                width: '140px',
+                height: '25px',
+                disabled:true,
+            });
+            $("#txtNewPaperNum").jqxInput({
+                width: '140px',
+                height: '25px',                
+            });
+            $('#btnFind').jqxButton({
+                width: 80,
+                height: 25,
+            });
+            $('#btnExit').jqxButton({
+                width: 80,
+                height: 25,
+            });
+            $('#btnOK').jqxButton({
+                width: 80,
+                height: 25,
+            });
+            
+            $('#csGrid').jqxGrid({
+                width: '99.7%',
+                height: '98%',
+                //source: dataAdapter1,
+                editable: false,
+                sortable: false,
+                altrows: true,
+                columnsresize: true,
+                columns: [
+                    {
+                        text: '#', sortable: false, filterable: false, editable: false,
+                        groupable: false, draggable: false, resizable: false,
+                        datafield: '', columntype: 'number', width: 40,
+                        cellsrenderer: function (row, column, value) {
+                            return "<div style='margin:4px;'>" + (value + 1) + "</div>";
+                        }
+                    },
+                    { text: '客戶編號', datafield: 'CUSTID', width: 100, editable: false, groupable: false },
+                    { text: '客戶姓名', datafield: 'CUSTNAME', width: 120, editable: false, groupable: false },
+                    { text: '單據編號', datafield: 'BILLNO', width: 150, editable: false, groupable: false },
+                    { text: '手開單號', datafield: 'MANUAlNO', width: 110, editable: false, groupable: false },
+                    { text: '項次', datafield: 'ITEM', width: 40, editable: false, groupable: false },
+                    { text: '收費項目名稱', datafield: 'CITEMNAME', width: 160, editable: false, groupable: false },
+                    { text: '應收金額', datafield: 'SHOULDAMT', width: 70, editable: false, groupable: false, cellsalign: 'right', align: 'center' },
+                    { text: '實收日期', datafield: 'REALDATE', width: 110, editable: false, groupable: false, cellsformat: 'yyyy/MM/dd' },
+                    { text: '實收金額', datafield: 'REALAMT', width: 70, editable: false, groupable: false, cellsalign: 'right', align: 'center' },
+                    { text: '收費人員', datafield: 'CLCTNAME', width: 110, editable: false, groupable: false },
+                    { text: '收費方式', datafield: 'CMNAME', width: 110, editable: false, groupable: false },
+                    { text: '短收原因', datafield: 'STNAME', width: 110, editable: false, groupable: false },                    
+                    /*
+                    { text: '合計張數', datafield: 'TOTALPAPERCOUNT', width: 80, editable: false, groupable: false, cellsalign: 'right', align: 'center' },
+                    { text: '退回日期', datafield: 'RETURNDATE', width: 110, editable: false, groupable: false },
+                    { text: '清除日期', datafield: 'CLEARDATE', width: 110, editable: false, groupable: false },
+                    { text: '備註', datafield: 'NOTE', width: 250, editable: false, groupable: false }, */
+                ]
+                //localization: options.localization,
+
+            });
+        });
+
+    </script> -->    
+
+
+</head>
+<body>
+    <table class="SO3510A5Table">
+        <tr class="SO3510A5Tr" style="height:30px">
+            <td class="SO3510A5Td">
+                <table class="SO3510A5Table">
+                    <tr class="SO3510A5Tr">
+                        <td class="SO3510A5Td" style="color:red;width:50px" data-id="lblCompCode">公司別</td>
+                        <td class="SO3510A5Td" ><div data-id="csCompCode" id="csCompCode"></div></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="SO3510A5Tr" style="height:100px">
+            <td class="SO3510A5Td">
+                <table class="SO3510A5Table">
+                    <tr class="SO3510A5Tr">
+                        <td class="SO3510A5Td" style="width:100px;text-align:right"  data-id="lblBillNo">收費單號</td>
+                        <td class="SO3510A5Td" style="width:150px"><input type="text" data-id="txtBillNo" id="txtBillNo" /></td>
+                        <td class="SO3510A5Td"  style="width:85px"><button data-id="btnFind" id="btnFind"></button></td>
+                        <td class="SO3510A5Td"><button data-id="btnExit" id="btnExit"></button></td>
+                    </tr>
+                    <tr class="SO3510A5Tr">
+                        <td class="SO3510A5Td" style="text-align:right" data-id="lblPaperNum">對應之收開單號</td>
+                        <td class="SO3510A5Td"><input type="text" data-id="txtPaperNum" id="txtPaperNum" /></td>
+                        <td class="SO3510A5Td"></td>
+                        <td class="SO3510A5Td"></td>
+                    </tr>
+                    <tr class="SO3510A5Tr">
+                        <td class="SO3510A5Td" style="text-align:right" data-id="lblNewPaperNum"></td>
+                        <td class="SO3510A5Td"><input type="text" data-id="txtNewPaperNum" id="txtNewPaperNum" /></td>
+                        <td class="SO3510A5Td"><button data-id="btnOK" id="btnOK"></button></td>
+                        <td class="SO3510A5Td"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="SO3510A5Tr">
+            <td class="SO3510A5Td">
+                <div data-id="csGrid" id="csGrid"></div>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

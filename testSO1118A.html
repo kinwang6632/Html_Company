@@ -1,0 +1,340 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="jqwidgets/styles/jqx.base.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.orange.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.office.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.energyblue.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.energyblue2.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.ui-lightness.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.ui-sunny2.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.ui-start2.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.ui-lightness2.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.darkblue2.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.ui-redmond2.css" rel="stylesheet" />
+    <style>
+        * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            font-size: 12px;
+        }
+
+        input:focus {
+            background: #E0E9F5;
+        }
+
+        textarea:focus {
+            background: #E0E9F5;
+        }
+    </style>
+    <script type="text/javascript" src="Scripts/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="Scripts/json2.js"></script>
+    <!--<script type="text/javascript" src="jqwidgets/jqx-all.js"></script>-->
+    <script src="component/jqx-all2.js"></script>
+    <script type="text/javascript" src="jqwidgets/globalization/globalize.js"></script>
+    <script type="text/javascript" src="component/csList.js"></script>
+    <script type="text/javascript" src="component/csMulti.js"></script>
+    <script src="component/csDateTime.js"></script>
+    <script src="component/csWindow.js"></script>
+    <script src="SO1000/SO1118A.js"></script>
+    <script src="SO1000/SO1118A1.js"></script>
+    <script src="SO1000/SO1118A12.js"></script>
+    <script src="SO1000/SO1118A2.js"></script>
+    <script src="SO1000/SO1118A3.js"></script>
+    <script src="SO1000/SO1118A4.js"></script>
+    <script src="SO1000/SO1118A5.js"></script>
+    <script src="SO1000/SO1118A6.js"></script>
+    <script src="SO1000/SO1118D.js"></script>
+    <script src="SO1000/SO1132B.js"></script>
+    <script src="SO1000/SO1144B6.js"></script>
+    <script src="SO1000/SO114EA.js"></script>
+    <script src="language/zh-TW/language01.js"></script>
+    <script src="language/zh-TW/language11.js"></script>
+    <script src="language/zh-TW/language21.js"></script>
+    <script src="language/zh-TW/language61.js"></script>
+    <script src="language/zh-TW/language71.js"></script>     
+    <script src="Scripts/CryptoJS v3.1.2/rollups/aes.js"></script>
+    <script src="Scripts/CryptoJS v3.1.2/components/mode-ecb-min.js"></script>
+    <script src="Utility/utility.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var init = function () {
+                try {
+                    //var xx = getDateFromServer();
+                    //alert(xx);
+                    //getDateFromServer( function (r) {
+                    //    alert(r);
+                    //});
+                    var loginInfo = {
+                        loginInfo: {
+                            columns: [{ name: 'compcode', type: 'integer' },
+                                { name: 'entryid', type: 'string' },
+                                { name: 'entryname', type: 'string' },
+                                { name: 'groupid', type: 'string' }
+                            ],
+                            rows: [{
+                                compcode: 3,
+                                entryid: 'TEST',
+                                entryname: 'TEST50',
+                                groupid: '50'
+                            }]
+                        }
+                    };
+                    $('#custId').val('600496');
+                    $('#orderNo').val('201808220057098');
+                    $('#isOrder').prop('checked', true);
+                    $('#serviceType').val('C');
+                    $('#sno').val('199901IC2053813');
+                    var getInData = (function () {
+                        var custId = $('#custId').val();
+                        var servCode = '';
+                        var serviceType = $('#serviceType').val();
+                        var orderNo = $('#orderNo').val();
+                        var sno = $('#sno').val();
+                        var dsData = {
+                            customer: {
+                                columns: [{ name: 'CUSTID', type: 'integer' },
+                                    { name: 'CUSTNAME', type: 'string' },
+                                    { name: 'SERVCODE', type: 'string' },
+                                ],
+                                rows: [{
+                                    CUSTID: custId,
+                                    CUSTNAME: '無',
+                                    SERVCODE: servCode,
+                                    ORDERNO: orderNo
+                                }]
+                            },
+                            Order: {
+                                columns: [{ name: 'CUSTID', type: 'integer' },
+                                    { name: 'SNO', type: 'string' },
+                                    { name: 'SERVICETYPE', type: 'string' },
+                                { name: 'ORDERNO', type: 'string' },
+                                ],
+                                rows: [{
+                                    CUSTID: custId,
+                                    SNO: sno,
+                                    SERVICETYPE: serviceType,
+                                    ORDERNO: orderNo
+                                }]
+                            },
+                            CallOK: {
+                                columns: [{ name: 'CUSTID', type: 'integer' },
+                                    { name: 'SNO', type: 'string' },
+                                    { name: 'SERVICETYPE', type: 'string' },
+                                { name: 'ORDERNO', type: 'string' },
+                                ],
+                                rows: [{
+                                    CUSTID: custId,
+                                    SNO: sno,
+                                    SERVICETYPE: serviceType,
+                                    ORDERNO: orderNo
+                                }]
+                            }
+                        };
+                        return dsData;
+                    });
+                    //秀出form2 並傳參數
+                    $.jqx.theme = "ui-redmond2";
+                    //$.jqx.theme = "office";
+                    var currentControlId;
+                    var localization = getLocalization('zh-TW');
+                    var params = getParameters('getKey', 'getKey', 'getKey', loginInfo);
+                    var showChildForm = (function (type, inData, isCopyOrder, formName) {
+                        try {
+                            var divName = 'div' + getUniqueId();
+                            var div2Name = 'div' + getUniqueId();
+                            $('<div id="' + divName + '"><div>測試Form</div><div id="' + div2Name + '"></div></div>').appendTo('body');
+                            var div = $('#' + divName);
+                            $('#' + divName).csWindow($.extend({}, {
+                                width: 1024,
+                                height: 560,
+                                minHeight: 200,
+                                minWidth: 600,
+                                maxWidth: $(document).innerWidth(),
+                                maxHeight: $(document).innerHeight(),
+                                resizable: true,
+                                haveClosing: true
+                            }));
+                            currentControlId = div2Name;
+                            if (formName == null) {
+                                formName = "SO1118A";
+                                if ($('#isOrder').prop('checked') == true) formName = "SO1118D";
+                            }
+                            $('#' + div2Name)[formName]($.extend({}, {
+                                loginInfo: cloneJSON(loginInfo),
+                                container: $('#' + divName),
+                                parameters: inData,
+                                localization: localization,
+                                editMode: editMode.edit,
+                                refNo: type,
+                                isCopyOrder: true
+                            }));
+
+                            $('[data-id=changeTheme]').on('click', function () {
+                                if ($('#' + divName).jqxWindow('theme') == 'office') {
+                                    $('#' + divName).jqxWindow('theme', 'energyblue');
+                                    $('#' + div2Name).SO1118A('theme', 'energyblue');
+                                }
+                                else {
+                                    $('#' + divName).jqxWindow('theme', 'office');
+                                    $('#' + div2Name).SO1118A('theme', 'office');
+                                }
+                            });
+
+                            $('#' + divName).on('close', function (event) {
+                                $('#' + div2Name)[formName]('destroy');
+                                $('#' + divName).jqxWindow('destroy');
+                            });
+                        }
+                        catch (err) {
+                            alert(err);
+                        }
+                    });
+                    var chkShow = (function (em, inData, action) {
+                        try {
+                            var method;
+                            switch (em) {
+                                case editMode.append:
+                                    method = "canAppend";
+                                    break;
+                                case editMode.edit:
+                                    method = "canEdit";
+                                    break;
+                                case editMode.view:
+                                    method = "canView";
+                                    break;
+                                case editMode.delete:
+                                    method = "canDelete";
+                                    break;
+
+                            }
+                            var formName = "SO1118A";
+                            if ($('#isOrder').prop('checked') == true) formName = "SO1118D";
+
+                            $.fn[formName](method, $.extend({}, loginInfo, inData), action);
+                        }
+                        catch (err) {
+                            alert(err);
+                        }
+                    });
+                    var canDo = (function (data) {
+                        try {
+                            $('[data-id=btnCallOk]').on('click', function () {
+                                var inData = getInData();
+                                chkShow(editMode.edit, inData, function (d) {
+                                    if (d[0] == false) {
+                                        messageBox(d[1]);
+                                    }
+                                    else {
+                                        showChildForm(1, inData);
+                                    }
+                                });
+                            });
+                            $('[data-id=btnCancelCallOk]').on('click', function () {
+                                var inData = getInData();
+                                chkShow(editMode.edit, inData, function (d) {
+                                    if (d[0] == false) {
+                                        messageBox(d[1]);
+                                    }
+                                    else {
+                                        showChildForm(2, inData);
+                                    }
+                                });
+                            });
+                            $('[data-id=btnFinish]').on('click', function () {
+                                var inData = getInData();
+                                chkShow(editMode.edit, inData, function (d) {
+                                    if (d[0] == false) {
+                                        messageBox(d[1]);
+                                    }
+                                    else {
+                                        showChildForm(3, inData);
+                                    }
+                                });
+                            });
+                            $('[data-id=btnReturn]').on('click', function () {
+                                var inData = getInData();
+                                chkShow(editMode.edit, inData, function (d) {
+                                    if (d[0] == false) {
+                                        messageBox(d[1]);
+                                    }
+                                    else {
+                                        showChildForm(4, inData);
+                                    }
+                                });
+                            });
+                            $('[data-id=btnCopyReturn]').on('click', function () {
+                                var inData = getInData();
+                                showChildForm(4, inData, true, 'SO1118A5');
+                            });
+                            $('[data-id=btnGetExecuteTable]').on('click', function () {
+                                var data = $('#' + currentControlId)['SO1118A5']('getExecuteTable');
+                                if (data != null) {
+                                    alert(JSON.stringify(data));
+                                }
+                            });
+                        }
+                        catch (err) {
+                            alert(err.stack);
+                        }
+                    });
+
+                    getServerData(params, { success: canDo });
+                }
+                catch (err) {
+                    alert(err.stack);
+                }
+            }
+            init();
+        });
+
+    </script>
+
+</head>
+<body>
+    <div id="maindiv">
+        <table>
+            <tr>
+                <td>
+                    客編
+                </td>
+                <td>
+
+                    <input id="custId" type="text" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    訂單單號
+                </td>
+                <td>
+                    <input id="orderNo" type="text" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    是訂單
+                </td>
+                <td>
+                    <input id="isOrder" type="checkbox" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input data-id="btnCallOk" type="button" value="線上回報" />
+                    <input data-id="btnCancelCallOk" type="button" value="取消線上回報" />
+                    <input data-id="btnFinish" type="button" value="完工" />
+                    <input data-id="btnReturn" type="button" value="退單" />
+                    <input data-id="btnCopyReturn" type="button" value="複製退單" />
+                    <input data-id="btnGetExecuteTable" type="button" value="取退單ExecuteTable" />
+                    <input data-id="changeTheme" type="button" value="改佈景" />
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

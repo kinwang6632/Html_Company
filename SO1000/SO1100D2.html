@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <!--
+    <link href="../jqwidgets/styles/jqx.base.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.black.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.classic.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.dark.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.office.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.energyblue.css" rel="stylesheet" />
+    <script src="../scripts/json2.js"></script>
+    <script src="../scripts/jquery-1.11.1.min.js"></script>
+    <script src="../scripts/jquery.mask.min.js"></script>
+    <script src="../jqwidgets/jqx-all.js"></script>
+    <script type="text/javascript" src="../jqwidgets/globalization/globalize.js"></script>
+    <script type="text/javascript" src="../jqwidgets/jqxtooltip.js"></script>
+    <script src="../component/csDateTime.js"></script>
+    <script src="../language/zh-TW/language61.js"></script>
+    <script src="../language/zh-TW/language01.js"></script>
+    <script src="../Utility/utility.js"></script>
+    <script src="../component/csList.js"></script>
+    <script src="../component/csMulti.js"></script>-->
+    <style type="text/css">
+        /*
+          html {
+              width: 100%;
+              height: 100%;
+          }
+
+          body {
+              height: 99.9%;
+              margin: 0px;
+              padding: 0px;
+              font-size:12px
+          }
+
+          * {
+              -webkit-box-sizing: border-box;
+              -moz-box-sizing: border-box;
+              box-sizing: border-box;
+          }*/
+
+        .SO1100D2table {
+            width: 100%;
+            height: 100%;
+            table-layout: fixed;
+            /*border : 1px solid red;*/
+            margin: 0;
+            padding: 0;
+            text-align: left;
+        }
+
+        .SO1100D2tr {
+            /*border : 1px solid red;*/
+            margin: 0;
+            padding: 0;
+            text-align: left;
+        }
+
+        .SO1100D2td {
+            /*border : 1px solid red;*/
+            margin: 0;
+            padding: 0;
+            vertical-align: central;
+            /*  text-align: left;*/
+        }
+
+        .SO1100D2Mode {
+            text-align: center;
+            background-color: cyan;
+        }
+        /*
+        .lbl {
+            width: 95%;
+            text-align: left;
+        }
+
+        .txt {
+            width: 95%;
+        }*/
+    </style>
+    <script type="text/javascript">
+        /*
+        $(document).ready(function () {
+            
+            $('#btnOK').jqxButton({
+                width: 65,
+                height: 25,
+                imgSrc: imageScr.ok.imgSrc
+            });            
+            $("#grdCsGrid").jqxGrid({
+                width: '99.7%',
+                height: '99%',
+                sortable: true,
+                altrows: true,
+                editable: true,
+                columnsresize: true,
+                columns: [
+                    {
+                        text: '#', sortable: false, filterable: false, editable: false,
+                        groupable: false, draggable: false, resizable: false,
+                        datafield: '', columntype: 'number', width: 30,
+                        cellsrenderer: function (row, column, value) {
+                            return "<div style='margin:4px;'>" + (value + 1) + "</div>";
+                        }
+                    },
+                    {
+                        text: '選擇',
+                        datafield: 'CHOOSE',
+                        width: 50,
+                        editable: true,
+                        threestatecheckbox: false,
+                        columntype: 'checkbox',
+                        cellsalign: 'center',
+                        align: 'center'
+                    },
+                    { text: '單據編號', datafield: 'BILLNO', width: 120, editable: false },
+                    { text: '項次', datafield: 'ITEM', width: 50, editable: false, cellsalign: 'center', align: 'center' },
+                    { text:'收費項目代碼', datafield: 'CITEMCODE', width: 130, editable: false },
+                    { text: '收費項目', datafield: 'CITEMNAME', width: 200, editable: false },
+                    { text:'收費期數', datafield: 'REALPERIOD', width: 60, cellsalign: 'center', align: 'center', editable: false },
+                    { text: '應收金額', datafield: 'SHOULDAMT', width: 70, editable: false },
+                    { text: '收費方式', datafield: 'CMNAME', width: 90, editable: false, cellsalign: 'center', align: 'center' },                    
+                    { text: '有效起始日', datafield: 'REALSTARTDATE', width: 90, editable: false, cellsalign: 'center', align: 'center', cellsformat: 'yyyy/MM/dd' },
+                    { text: '有效截止日', datafield: 'REALSTOPDATE', width: 90, editable: false, cellsalign: 'center', align: 'center', cellsformat: 'yyyy/MM/dd' }                 
+                ]
+            });         
+        }); */
+
+    </script> 
+
+</head>
+<body>
+    <table class="SO1100D2table" >
+        <tr class="SO1100D2tr">
+            <td class="SO1100D2td">
+                <div style="height:100%;width:100%" data-id="grdCsGrid"></div>
+            </td>
+        </tr>
+        <tr class="SO1100D2tr" style="height:35px">
+            <td class="SO1100D2td">
+                <button data-id="btnOK"></button>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

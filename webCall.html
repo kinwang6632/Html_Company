@@ -1,0 +1,550 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>開博客戶管理系統</title>
+    <link rel="Shortcut Icon" type="image/x-icon" href="images/favicon.ico" />
+    <meta charset="utf-8" />
+    <meta http-equiv="PRAGMA" content="NO-CACHE" />
+    <!-- <meta http-equiv="CACHE-CONTROL" max-age="31536000"> -->
+    <meta http-equiv="EXPIRES" content="0" />
+    <meta http-equiv="CACHE-CONTROL" content="NO-CACHE" />
+    <!-- <meta  http-equiv="EXPIRES" content="Tue, 19 Sep 2017 23:20:01 GMT"> -->
+    <link rel="stylesheet" href="jqwidgets/styles/jqx.base.css" type="text/css" />
+	<!--<link rel="stylesheet" href="jqwidgets/styles/jqx.ui-redmond.css" type="text/css" />-->
+	<link rel="stylesheet" href="jqwidgets/styles/jqx.ui-redmond2.css" type="text/css" />
+	<link rel="stylesheet" href="Scripts/jquery.json-viewer.css" type="text/css" />
+
+    <style>
+        * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            font-family:'Microsoft JhengHei';
+            font-size: 12px;
+            /*overflow: hidden;*/
+        }
+
+        html {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            height: 98%;
+            margin: 2px;
+            padding: 2px;
+            /*overflow: hidden;*/
+            /*border: 1px  solid  red;*/
+        }
+
+        div.floatCV {
+            float: left;
+            text-align: left;
+            display: table;
+            /*margin-right: 6px;*/
+            /*border:solid;border-width:1px; border-color:green;*/
+        }
+
+            div.floatCV label {
+                text-align: center;
+            }
+
+            div.floatCV div {
+                text-align: left;
+            }
+
+            div.floatCV span {
+                text-align: left;
+                display: table-cell;
+                vertical-align: middle;
+                /*border:solid;border-width:1px; border-color:red;*/
+            }
+
+            div.floatCV img {
+                width: 30px;
+                height: 30px;
+                margin-right: 25px;
+            }
+
+        .marquee-news-scroll {
+            -webkit-box-sizing: content-box;
+            -moz-box-sizing: content-box;
+            box-sizing: content-box;
+            border: 1px solid #f39;
+            background-color: darkgrey;
+            width: 320px;
+            height: 60px;
+            overflow: hidden;
+            position: fixed;
+            float: right;
+            /*bottom: 0;*/
+            top: 0;
+            right: 0;
+            margin-bottom: 2px;
+            margin-right: 50px;
+            z-index: 9999;
+        }
+
+            .marquee-news-scroll ul {
+                position: absolute;
+                margin: 5px 0;
+                padding: 0;
+                list-style: none;
+            }
+
+            .marquee-news-scroll li {
+                clear: left;
+                padding: 5px;
+                margin-bottom: 20px;
+                list-style: none;
+            }
+
+                .marquee-news-scroll li a {
+                    float: left;
+                }
+
+                    .marquee-news-scroll li a img {
+                        border: 1px solid #ccc;
+                        padding: 2px;
+                        width: 40px;
+                        height: 40px;
+                    }
+
+                .marquee-news-scroll li div {
+                    float: left;
+                    margin-left: 5px;
+                    font-size: 12px;
+                }
+
+
+
+
+        .jqx-widget, .jqx-widget-content, input[type=text].jqx-input, input[type=password].jqx-input {
+             font-family:'Microsoft JhengHei';
+             font-size: 12px;
+        }
+
+
+        input:focus {
+            background: #E0E9F5;
+        }
+
+        textarea:focus {
+            background: #E0E9F5;
+        }
+
+        .csslEditMode {
+            background-color: #FFFF99;
+            border-color: white;
+            width: 60px;
+            height: 25px;
+            text-align: center;
+            padding: 6px;
+
+        }
+
+        label {
+            white-space: pre-wrap;
+        }
+		
+		div[role="button"][aria-disabled="true"] {
+            background: whitesmoke;
+        }
+
+        div[role="checkbox"][aria-disabled="true"] {
+            background: whitesmoke;
+        }
+
+        input[disabled="true"] {
+            background: whitesmoke;
+        }
+
+        input[disabled="disabled"] {
+            background: whitesmoke;
+        }
+
+        input[readonly="readonly"] {
+            background: whitesmoke;
+        }
+
+        textarea[disabled="disabled"] {
+            background: whitesmoke;
+        }
+		
+		        /*.jqx-menu-ul li {
+            font-size:14px;
+         }*/
+        .megamenu-ul li:hover {
+            /*background-color:#e17009;*/
+            box-shadow: 0px 0px 1px 2px #e17009 inset;
+        }
+
+        .megamenu-ul li a {
+            line-height: 25px;
+            font-size: 14px;
+            text-decoration: none;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .jqx-menuitem-header b {
+            font-size: 14px;
+        }
+
+        .contextMenu:hover {
+            /*background-color:#e17009;*/
+            box-shadow: 0px 0px 1px 2px #e17009 inset;
+            cursor: pointer;
+        }
+
+        [item-label] {
+            color: rgb(92, 156, 204);
+            background: white;
+        }
+
+            [item-label]:hover {
+                box-shadow: 0px 0px 1px 2px #e17009 inset;
+            }
+
+        .jqx-menuitem-header {
+            border-bottom: 1px #eef3f7 solid;
+            padding: 5px;
+        }
+    </style>
+
+
+    <script type="text/javascript" src="Scripts/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="scripts/jquery.mask.min.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqx-all.js"></script>
+    <script type="text/javascript" src="jqwidgets/globalization/globalize.js"></script>
+    <script type="text/javascript" src="jqwidgets/globalization/globalize.culture.zh-TW.js"></script>
+    <script type="text/javascript" src="Scripts/jquery.json-viewer.js"></script>
+    <script type="text/javascript" src="Scripts/CryptoJS v3.1.2/rollups/aes.js"></script>
+
+    <script type="text/javascript" src="SO0000/autoLogon.js"></script>
+
+
+
+
+    <script type="text/javascript" src="Component/csList.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="Component/csMulti.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="Component/csAddress1.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="Component/csAddress2.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="Component/csAddress3.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="Component/csDateTime.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="Component/csUploadFile.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="Component/csWindow.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="Component/csTabs.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="Component/csPrinting.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="dynamicComponent/dynamicCondition.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="dynamicComponent/dynamicConditionSave.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="dynamicComponent/dynamicGrid.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="dynamicComponent/dynConditionGrid.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="dynamicComponent/dynLinkProgram.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="dynamicComponent/showPreviousPara.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="dynamicComponent/dynExecBatch.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="dynamicComponent/dynTextFileOut.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="dynamicComponent/dynamicUpdate.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="dynamicComponent/dynUpdateGrid.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="dynamicComponent/dynCopyToOther.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="dynamicComponent/dynTextFileIn.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="dynamicComponent/dynDBStoreFunction.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="dynamicComponent/dynamicReport.js?ver=625.20181212A"></script>
+
+    <script type="text/javascript" src="SO0000/login.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO0000/index.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO0000/SO0000B.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO0000/SO0000B1.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO0000/SO0000B2.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO0000/SO0000B3.js?ver=625.20181212A"></script>
+
+    <script type="text/javascript" src="SO1000/SO1100A.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1100B.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1100B1.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1100BA.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1100BA1.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1100BA2.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1100BA3.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1100C.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1100C1.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1100D.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1100D1.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1100D2.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1100D3.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1100V.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1100V1.js?ver=625.20181212A"></script>
+
+    <script type="text/javascript" src="SO1000/CheckManagerPWD.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1111A.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1112A.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1113A.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1113A1.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1113B.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1113C.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO111FA.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO111XD.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO111xCEA.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1114A.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1115A.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1117B.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1117D.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1118A.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1118A1.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1118A12.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1118A2.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1118A3.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1118A4.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1118A5.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1118D.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1119A.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO111AA.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1120A.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1120A1.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1120A2.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1120A3.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1120A4.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1120A5.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1120A6.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1120A7.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1120A8.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1120A9.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1120AA.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1120AD.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1122A.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/WipUtility.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1131A.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1131A1.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1131A2.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1131B.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1131D.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1131D1.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1131F.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1132A.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1132A1.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1132A2.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1132A11.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1132A12.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1132A13.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1132A14.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1132B.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1132B1.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1132C.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1132D.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1132D1.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1133A.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1133B.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1144A.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1144B.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1144B1.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1144B2.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1144B21.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1144B3.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1144B4.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1144B5.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1144B6.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1144B7.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1144B8.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1144B9.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1144BA.js?ver=625.20181212A"></script>
+	<script type="text/javascript" src="SO1000/SO1146A.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1146B.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1148A.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1148A1.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1148A2.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO114EA.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO114EB.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO114EC.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1144J.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1144k.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1144L.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1145A.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1116A.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1116A1.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1116A2.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1116B.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO111BA.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO111BB.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO111EA.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1131E.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1200B.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1200C.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1300B.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1300C.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1300E.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1300F.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1300G.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1300H.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1300J.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1300K.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1300N.js?ver=625.20181212A"></script>
+	<script type="text/javascript" src="SO1000/SO1300Q.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1620B1.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1620B2.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1620C1.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1620C2.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1620D.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1630B.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1630C.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1640B.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1640F.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1650B.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1800A.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1800B.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1800C.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO1000/SO1100U.js?ver=625.20181212A"></script>
+
+    <script type="text/javascript" src="SO2000/SO2110A.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO2000/SO2120A.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO2000/SO2130A.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO2000/SO2500B.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO2000/SO2500B1.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO2000/SO2500C.js?ver=625.20181212A"></script>
+
+    <script type="text/javascript" src="SO3000/SO3279A.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO3000/SO32B0A.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO3000/SO32B0B.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO3000/SO32B0C.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO3000/SO32B0D.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO3000/SO32B0E.js?ver=625.20181212A"></script>
+
+    <script type="text/javascript" src="SO3000/SO3311A.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO3000/SO3311B.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO3000/SO3311F.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO3000/SO3311E.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO3000/SO3311D.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO3000/SO3311C.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO3000/SO3311G.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO3000/SO3316A.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO3000/SO3318A.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO3000/SO3318B.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO3000/SO3318C.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO3000/ChangeClctEn.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO3000/SO3510A1.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO3000/SO3510A2.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO3000/SO3510A3.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO3000/SO3510A4.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO3000/SO3510A5.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO3000/SO3272A3.js?ver=625.20181211A"></script>
+  	
+
+    <script type="text/javascript" src="SO4000/SO4110A.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO4000/SO4131A.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO4000/SO4132A.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO4000/SO4141A.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO4000/SO4142A.js?ver=625.20181212A"></script>
+
+    <script type="text/javascript" src="SO5000/SO5A11A.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO5000/SO5A11B.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO5000/SO5A12A.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO5000/SO5A12B.js?ver=625.20181212A"></script>
+
+    <script type="text/javascript" src="SO6000/SO6430A.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO6000/SO6430A1.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO6000/SO6430A2.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO6000/SO6430A3.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO6000/SO6460A.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO6000/SO6460B.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO6000/SO6460C.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO6000/SO6770A.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO6000/SO6770A1.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO6000/SO6770A2.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO6000/SO6770A21.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO6000/SO6770A22.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO6000/SO6770A23.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO6000/SO6770A3.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO6000/SO6770A31.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO6000/SO6770A32.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO6000/SO6770A4.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO6000/SO6770A5.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO6000/SO6770A6.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO6000/SO6770A7.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO6000/SO6770A71.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO6000/SO6770A8.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO6000/SO6770A9.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO6000/SO6770A10.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO6000/SO6770B.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO6000/SO6770B1.js?ver=625.20181212A"></script>
+	<script type="text/javascript" src="SO6000/SO6770B3.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO6000/SO6880A1.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO6000/SO68L0A.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO6000/SO68L0A1.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO6000/SO68L0A2.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO6000/SO68L0A3.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO6000/SO68L0A4.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO6000/SO68M0A.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO6000/SO68M0A1.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO6000/SO68M0A2.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO6000/SO68M0A3.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO6000/SO68M0A4.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO6000/SyncDataToDB.js?ver=625.20181212A"></script>
+	<script type="text/javascript" src="SO6000/SyncDataToDB_Local.js?ver=625.20181211A"></script>
+
+    <script type="text/javascript" src="SO7000/SO7100A.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO7000/SO7110A.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO7000/SO7220A.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO7000/SO7220A1.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO7000/SO7220B.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO7000/SO7360A.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO7000/SO7370A.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO7000/SO7370B.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO7000/SO7380A.js?ver=625.20181212A"></script>
+
+    <script type="text/javascript" src="SO8000/SO8100A.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="SO8000/SO8100B.js?ver=625.20181212A"></script>
+
+    <script type="text/javascript" src="language/zh-TW/language01.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="Utility/utility.js?ver=625.20181212A"></script>
+
+    <script type="text/javascript" src="language/zh-TW/language11.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="language/zh-TW/language21.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="language/zh-TW/language31.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="language/zh-TW/language51.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="language/zh-TW/language52.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="language/zh-TW/language61.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="language/zh-TW/language71.js?ver=625.20181212A"></script>
+    <script type="text/javascript" src="Utility/ChargeUtility.js?ver=625.20181212A"></script>
+
+    <script>
+        //var json_webCall = '?encryptkey=SNdylkpYkMcqBtv1686OWXG0%2bImt6rIsjyuvMSmK8OI%3d&sysprogramid=&logininfo={%22compcode%22%3a3%2c%22entryid%22%3a%22maintain%22%2c%22entryname%22%3a%22%e6%b8%ac%e8%a9%a6%e4%ba%ba%e5%93%a12%22%2c%22groupid%22%3a%2211%22}&parameters=';
+
+        //var json_webCall = '?encryptkey=UQiXf1D/C8aqyd8hgOt+mDaCOcn6va+ADorhsVGMj+A=&programid=SO6770A&logininfo={"compcode":3,"entryid":"TEST","entryname":"TEST50","groupid":"50"}&parameters={}';
+
+        //var json_webCall = '?encryptkey=qIVFeMxL09qfAkyeT54V9Mb%2BzI8gdu07dX68wVAB5eA%3D&programid=SO1144B&logininfo={"compcode":3,"entryid":"6666","entryname":"HaHa","groupid":"0"}&parameters={Order:{columns: [{"name":"ORDERNO","type":"string"},{"name":"CUSTID","type":"integer"},{"name":"CUSTNAME","type":"string"},{"name":"PROMCODE","type":"integer"},{"name":"PROMNAME","type":"string"},{"name":"CPCODE","type":"integer"},{"name":"CPNAME","type":"string"},{"name":"DISCOUNTTYPE","type":"integer"},{"name":"RATE","type":"integer"},{"name":"FIXAMOUNT","type":"integer"},{"name":"CITEMCODESTR","type":"string"},{"name":"MEDIACODE","type":"integer"},{"name":"MEDIANAME","type":"string"},{"name":"ACCEPTTIME","type":"string"},{"name":"ACCEPTEN","type":"string"},{"name":"ACCEPTNAME","type":"string"},{"name":"RESVTIME","type":"string"},{"name":"SERVICETYPE","type":"string"},{"name":"COMPCODE","type":"integer"},{"name":"SERVICECODE","type":"integer"},{"name":"SERVDESCCODE","type":"integer"},{"name":"BULLETINCODE","type":"integer"},{"name":"SEQNO","type":"string"},{"name":"CATVSNO","type":"string"},{"name":"CAISPSNO","type":"string"},{"name":"INTROID","type":"string"},{"name":"INTRONAME","type":"string"},{"name":"CATVBNO","type":"string"},{"name":"CAISPBNO","type":"string"},{"name":"CATVID","type":"integer"},{"name":"CAISPID","type":"integer"},{"name":"BUDGETPERIOD","type":"integer"},{"name":"CATVRETURNCODE","type":"integer"},{"name":"CATVRETURNNAME","type":"string"},{"name":"CAISPRETURNCODE","type":"integer"},{"name":"CAISPRETURNNAME","type":"string"},{"name":"RETURNCODE","type":"integer"},{"name":"RETURNNAME","type":"string"},{"name":"FINTIME","type":"string"},{"name":"CANCELEN","type":"string"},{"name":"CANCELNAME","type":"string"},{"name":"CANCELDATE","type":"string"},{"name":"CHANCEDAYS","type":"integer"},{"name":"DVSSNO","type":"string"},{"name":"DVSBNO","type":"string"},{"name":"DVSID","type":"integer"},{"name":"DVSRETURNCODE","type":"integer"},{"name":"DVSRETURNNAME","type":"string"},{"name":"BYHOUSE","type":"integer"},{"name":"CPSNO","type":"string"},{"name":"CPBNO","type":"string"},{"name":"CPID","type":"integer"},{"name":"CPRETURNCODE","type":"integer"},{"name":"CPRETURNNAME","type":"string"},{"name":"ORDERTYPE","type":"integer"},{"name":"NOPROMOTION","type":"integer"},{"name":"CAISPRESVTIME","type":"string"},{"name":"DVSRESVTIME","type":"string"},{"name":"CPRESVTIME","type":"string"},{"name":"SALESBOOKING","type":"integer"},{"name":"NOTE","type":"string"},{"name":"SOURCEORDERNO","type":"string"},{"name":"RETURNDESCCODE","type":"integer"},{"name":"RETURNDESCNAME","type":"string"},{"name":"UPDTIME","type":"string"},{"name":"UPDEN","type":"string"},{"name":"OLDORDERNO","type":"string"},{"name":"CONTRACTTYPE","type":"integer"},{"name":"CONTCITEMCODE","type":"integer"},{"name":"CONTFACISEQNO","type":"string"},{"name":"PAYOK","type":"integer"},{"name":"PAYNOW","type":"integer"},{"name":"CALLSEQNO","type":"string"},{"name":"NEWUPDTIME","type":"string"},{"name":"RESVTYPE","type":"integer"},{"name":"GROUPNO","type":"integer"},{"name":"SALESAUTOSNO","type":"integer"},{"name":"RESVSNO","type":"string"}],rows: [{"ORDERNO":"201706150056697","CUSTID":600025,"CUSTNAME":"廖梅英","PROMCODE":1079,"PROMNAME":"均一價二年約","CPCODE":0,"CPNAME":"","DISCOUNTTYPE":0,"RATE":0,"FIXAMOUNT":0,"CITEMCODESTR":"","MEDIACODE":3,"MEDIANAME":"口碑相傳","ACCEPTTIME":"2017/06/15 下午 03:37:37","ACCEPTEN":"TEST","ACCEPTNAME":"TEST50","RESVTIME":"2017/06/15 下午 12:12:00","SERVICETYPE":"","COMPCODE":3,"SERVICECODE":1855,"SERVDESCCODE":1377,"BULLETINCODE":1,"SEQNO":"201706150094307","CATVSNO":"","CAISPSNO":"","INTROID":"","INTRONAME":"","CATVBNO":"","CAISPBNO":"","CATVID":0,"CAISPID":0,"BUDGETPERIOD":0,"CATVRETURNCODE":0,"CATVRETURNNAME":"","CAISPRETURNCODE":0,"CAISPRETURNNAME":"","RETURNCODE":0,"RETURNNAME":"","FINTIME":"","CANCELEN":"","CANCELNAME":"","CANCELDATE":"","CHANCEDAYS":0,"DVSSNO":"","DVSBNO":"","DVSID":0,"DVSRETURNCODE":0,"DVSRETURNNAME":"","BYHOUSE":1,"CPSNO":"","CPBNO":"","CPID":0,"CPRETURNCODE":0,"CPRETURNNAME":"","ORDERTYPE":1,"NOPROMOTION":0,"CAISPRESVTIME":"","DVSRESVTIME":"","CPRESVTIME":"","SALESBOOKING":0,"NOTE":"","SOURCEORDERNO":"","RETURNDESCCODE":0,"RETURNDESCNAME":"","UPDTIME":"106/06/15 15:37:37","UPDEN":"TEST50","OLDORDERNO":"","CONTRACTTYPE":0,"CONTCITEMCODE":0,"CONTFACISEQNO":"","PAYOK":0,"PAYNOW":0,"CALLSEQNO":"201706150094307","NEWUPDTIME":"2017/06/15 下午 03:37:37","RESVTYPE":0,"GROUPNO":0,"SALESAUTOSNO":0,"RESVSNO":""}]}}';
+        //var json_webCall = '?encryptkey=qIVFeMxL09qfAkyeT54V9Mb%252BzI8gdu07dX68wVAB5eA%253D%26programid%3DSO1144B%26logininfo%3D%7B%22compcode%22%3A3%2C%22entryid%22%3A%226666%22%2C%22entryname%22%3A%22HaHa%22%2C%22groupid%22%3A%220%22%7D%26parameters%3D%7BOrder%3A%7Bcolumns%3A+%5B%7B%22name%22%3A%22ORDERNO%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22CUSTID%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22CUSTNAME%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22PROMCODE%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22PROMNAME%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22CPCODE%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22CPNAME%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22DISCOUNTTYPE%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22RATE%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22FIXAMOUNT%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22CITEMCODESTR%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22MEDIACODE%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22MEDIANAME%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22ACCEPTTIME%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22ACCEPTEN%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22ACCEPTNAME%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22RESVTIME%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22SERVICETYPE%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22COMPCODE%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22SERVICECODE%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22SERVDESCCODE%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22BULLETINCODE%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22SEQNO%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22CATVSNO%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22CAISPSNO%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22INTROID%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22INTRONAME%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22CATVBNO%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22CAISPBNO%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22CATVID%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22CAISPID%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22BUDGETPERIOD%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22CATVRETURNCODE%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22CATVRETURNNAME%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22CAISPRETURNCODE%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22CAISPRETURNNAME%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22RETURNCODE%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22RETURNNAME%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22FINTIME%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22CANCELEN%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22CANCELNAME%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22CANCELDATE%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22CHANCEDAYS%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22DVSSNO%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22DVSBNO%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22DVSID%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22DVSRETURNCODE%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22DVSRETURNNAME%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22BYHOUSE%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22CPSNO%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22CPBNO%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22CPID%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22CPRETURNCODE%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22CPRETURNNAME%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22ORDERTYPE%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22NOPROMOTION%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22CAISPRESVTIME%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22DVSRESVTIME%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22CPRESVTIME%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22SALESBOOKING%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22NOTE%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22SOURCEORDERNO%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22RETURNDESCCODE%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22RETURNDESCNAME%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22UPDTIME%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22UPDEN%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22OLDORDERNO%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22CONTRACTTYPE%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22CONTCITEMCODE%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22CONTFACISEQNO%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22PAYOK%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22PAYNOW%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22CALLSEQNO%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22NEWUPDTIME%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22RESVTYPE%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22GROUPNO%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22SALESAUTOSNO%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22RESVSNO%22%2C%22type%22%3A%22string%22%7D%5D%2Crows%3A+%5B%7B%22ORDERNO%22%3A%22201706150056697%22%2C%22CUSTID%22%3A600025%2C%22CUSTNAME%22%3A%22%F9%F6%5E%22%2C%22PROMCODE%22%3A1079%2C%22PROMNAME%22%3A%22%A1%40%F9%47%7E%F9%22%2C%22CPCODE%22%3A0%2C%22CPNAME%22%3A%22%22%2C%22DISCOUNTTYPE%22%3A0%2C%22RATE%22%3A0%2C%22FIXAMOUNT%22%3A0%2C%22CITEMCODESTR%22%3A%22%22%2C%22MEDIACODE%22%3A3%2C%22MEDIANAME%22%3A%22%66%4F%DB%C7%22%2C%22ACCEPTTIME%22%3A%222017%2F06%2F15+%55%C8+03%3A37%3A37%22%2C%22ACCEPTEN%22%3A%22TEST%22%2C%22ACCEPTNAME%22%3A%22TEST50%22%2C%22RESVTIME%22%3A%222017%2F06%2F15+%55%C8+12%3A12%3A00%22%2C%22SERVICETYPE%22%3A%22%22%2C%22COMPCODE%22%3A3%2C%22SERVICECODE%22%3A1855%2C%22SERVDESCCODE%22%3A1377%2C%22BULLETINCODE%22%3A1%2C%22SEQNO%22%3A%22201706150094307%22%2C%22CATVSNO%22%3A%22%22%2C%22CAISPSNO%22%3A%22%22%2C%22INTROID%22%3A%22%22%2C%22INTRONAME%22%3A%22%22%2C%22CATVBNO%22%3A%22%22%2C%22CAISPBNO%22%3A%22%22%2C%22CATVID%22%3A0%2C%22CAISPID%22%3A0%2C%22BUDGETPERIOD%22%3A0%2C%22CATVRETURNCODE%22%3A0%2C%22CATVRETURNNAME%22%3A%22%22%2C%22CAISPRETURNCODE%22%3A0%2C%22CAISPRETURNNAME%22%3A%22%22%2C%22RETURNCODE%22%3A0%2C%22RETURNNAME%22%3A%22%22%2C%22FINTIME%22%3A%22%22%2C%22CANCELEN%22%3A%22%22%2C%22CANCELNAME%22%3A%22%22%2C%22CANCELDATE%22%3A%22%22%2C%22CHANCEDAYS%22%3A0%2C%22DVSSNO%22%3A%22%22%2C%22DVSBNO%22%3A%22%22%2C%22DVSID%22%3A0%2C%22DVSRETURNCODE%22%3A0%2C%22DVSRETURNNAME%22%3A%22%22%2C%22BYHOUSE%22%3A1%2C%22CPSNO%22%3A%22%22%2C%22CPBNO%22%3A%22%22%2C%22CPID%22%3A0%2C%22CPRETURNCODE%22%3A0%2C%22CPRETURNNAME%22%3A%22%22%2C%22ORDERTYPE%22%3A1%2C%22NOPROMOTION%22%3A0%2C%22CAISPRESVTIME%22%3A%22%22%2C%22DVSRESVTIME%22%3A%22%22%2C%22CPRESVTIME%22%3A%22%22%2C%22SALESBOOKING%22%3A0%2C%22NOTE%22%3A%22%22%2C%22SOURCEORDERNO%22%3A%22%22%2C%22RETURNDESCCODE%22%3A0%2C%22RETURNDESCNAME%22%3A%22%22%2C%22UPDTIME%22%3A%22106%2F06%2F15+15%3A37%3A37%22%2C%22UPDEN%22%3A%22TEST50%22%2C%22OLDORDERNO%22%3A%22%22%2C%22CONTRACTTYPE%22%3A0%2C%22CONTCITEMCODE%22%3A0%2C%22CONTFACISEQNO%22%3A%22%22%2C%22PAYOK%22%3A0%2C%22PAYNOW%22%3A0%2C%22CALLSEQNO%22%3A%22201706150094307%22%2C%22NEWUPDTIME%22%3A%222017%2F06%2F15+%55%C8+03%3A37%3A37%22%2C%22RESVTYPE%22%3A0%2C%22GROUPNO%22%3A0%2C%22SALESAUTOSNO%22%3A0%2C%22RESVSNO%22%3A%22%22%7D%5D%7D%7D';
+        //var json_webCall = '?encryptkey=FY11ItEUiV7GBXnB37sjqgNEqLjXMA8MTYncvu7bxVA%3D&programid=SO1144B&logininfo={%22compcode%22%3A3%2C%22entryid%22%3A%226666%22%2C%22entryname%22%3A%22HaHa%22%2C%22groupid%22%3A%220%22}&parameters={Order%3A%7Bcolumns%3A+%5B%7B%22name%22%3A%22ORDERNO%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22CUSTID%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22CUSTNAME%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22PROMCODE%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22PROMNAME%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22CPCODE%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22CPNAME%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22DISCOUNTTYPE%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22RATE%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22FIXAMOUNT%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22CITEMCODESTR%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22MEDIACODE%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22MEDIANAME%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22ACCEPTTIME%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22ACCEPTEN%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22ACCEPTNAME%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22RESVTIME%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22SERVICETYPE%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22COMPCODE%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22SERVICECODE%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22SERVDESCCODE%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22BULLETINCODE%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22SEQNO%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22CATVSNO%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22CAISPSNO%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22INTROID%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22INTRONAME%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22CATVBNO%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22CAISPBNO%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22CATVID%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22CAISPID%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22BUDGETPERIOD%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22CATVRETURNCODE%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22CATVRETURNNAME%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22CAISPRETURNCODE%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22CAISPRETURNNAME%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22RETURNCODE%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22RETURNNAME%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22FINTIME%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22CANCELEN%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22CANCELNAME%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22CANCELDATE%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22CHANCEDAYS%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22DVSSNO%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22DVSBNO%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22DVSID%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22DVSRETURNCODE%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22DVSRETURNNAME%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22BYHOUSE%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22CPSNO%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22CPBNO%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22CPID%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22CPRETURNCODE%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22CPRETURNNAME%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22ORDERTYPE%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22NOPROMOTION%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22CAISPRESVTIME%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22DVSRESVTIME%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22CPRESVTIME%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22SALESBOOKING%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22NOTE%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22SOURCEORDERNO%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22RETURNDESCCODE%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22RETURNDESCNAME%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22UPDTIME%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22UPDEN%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22OLDORDERNO%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22CONTRACTTYPE%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22CONTCITEMCODE%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22CONTFACISEQNO%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22PAYOK%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22PAYNOW%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22CALLSEQNO%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22NEWUPDTIME%22%2C%22type%22%3A%22string%22%7D%2C%7B%22name%22%3A%22RESVTYPE%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22GROUPNO%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22SALESAUTOSNO%22%2C%22type%22%3A%22integer%22%7D%2C%7B%22name%22%3A%22RESVSNO%22%2C%22type%22%3A%22string%22%7D%5D%2Crows%3A+%5B%7B%22ORDERNO%22%3A%22201706150056697%22%2C%22CUSTID%22%3A600025%2C%22CUSTNAME%22%3A%22%F9%F6%5E%22%2C%22PROMCODE%22%3A1079%2C%22PROMNAME%22%3A%22%A1%40%F9%47%7E%F9%22%2C%22CPCODE%22%3A0%2C%22CPNAME%22%3A%22%22%2C%22DISCOUNTTYPE%22%3A0%2C%22RATE%22%3A0%2C%22FIXAMOUNT%22%3A0%2C%22CITEMCODESTR%22%3A%22%22%2C%22MEDIACODE%22%3A3%2C%22MEDIANAME%22%3A%22%66%4F%DB%C7%22%2C%22ACCEPTTIME%22%3A%222017%2F06%2F15+%55%C8+03%3A37%3A37%22%2C%22ACCEPTEN%22%3A%22TEST%22%2C%22ACCEPTNAME%22%3A%22TEST50%22%2C%22RESVTIME%22%3A%222017%2F06%2F15+%55%C8+12%3A12%3A00%22%2C%22SERVICETYPE%22%3A%22%22%2C%22COMPCODE%22%3A3%2C%22SERVICECODE%22%3A1855%2C%22SERVDESCCODE%22%3A1377%2C%22BULLETINCODE%22%3A1%2C%22SEQNO%22%3A%22201706150094307%22%2C%22CATVSNO%22%3A%22%22%2C%22CAISPSNO%22%3A%22%22%2C%22INTROID%22%3A%22%22%2C%22INTRONAME%22%3A%22%22%2C%22CATVBNO%22%3A%22%22%2C%22CAISPBNO%22%3A%22%22%2C%22CATVID%22%3A0%2C%22CAISPID%22%3A0%2C%22BUDGETPERIOD%22%3A0%2C%22CATVRETURNCODE%22%3A0%2C%22CATVRETURNNAME%22%3A%22%22%2C%22CAISPRETURNCODE%22%3A0%2C%22CAISPRETURNNAME%22%3A%22%22%2C%22RETURNCODE%22%3A0%2C%22RETURNNAME%22%3A%22%22%2C%22FINTIME%22%3A%22%22%2C%22CANCELEN%22%3A%22%22%2C%22CANCELNAME%22%3A%22%22%2C%22CANCELDATE%22%3A%22%22%2C%22CHANCEDAYS%22%3A0%2C%22DVSSNO%22%3A%22%22%2C%22DVSBNO%22%3A%22%22%2C%22DVSID%22%3A0%2C%22DVSRETURNCODE%22%3A0%2C%22DVSRETURNNAME%22%3A%22%22%2C%22BYHOUSE%22%3A1%2C%22CPSNO%22%3A%22%22%2C%22CPBNO%22%3A%22%22%2C%22CPID%22%3A0%2C%22CPRETURNCODE%22%3A0%2C%22CPRETURNNAME%22%3A%22%22%2C%22ORDERTYPE%22%3A1%2C%22NOPROMOTION%22%3A0%2C%22CAISPRESVTIME%22%3A%22%22%2C%22DVSRESVTIME%22%3A%22%22%2C%22CPRESVTIME%22%3A%22%22%2C%22SALESBOOKING%22%3A0%2C%22NOTE%22%3A%22%22%2C%22SOURCEORDERNO%22%3A%22%22%2C%22RETURNDESCCODE%22%3A0%2C%22RETURNDESCNAME%22%3A%22%22%2C%22UPDTIME%22%3A%22106%2F06%2F15+15%3A37%3A37%22%2C%22UPDEN%22%3A%22TEST50%22%2C%22OLDORDERNO%22%3A%22%22%2C%22CONTRACTTYPE%22%3A0%2C%22CONTCITEMCODE%22%3A0%2C%22CONTFACISEQNO%22%3A%22%22%2C%22PAYOK%22%3A0%2C%22PAYNOW%22%3A0%2C%22CALLSEQNO%22%3A%22201706150094307%22%2C%22NEWUPDTIME%22%3A%222017%2F06%2F15+%55%C8+03%3A37%3A37%22%2C%22RESVTYPE%22%3A0%2C%22GROUPNO%22%3A0%2C%22SALESAUTOSNO%22%3A0%2C%22RESVSNO%22%3A%22%22%7D%5D%7D}';
+        //var json_webCall = '';
+        var json_webCall = '';
+        function setParams(params) {
+            json_webCall = params;
+            //alert(json_webCall);
+        }
+        $(document).ready(function () {
+			//$.jqx.CCB_Version = '625.20170922A'; //更新程式時請指定新Key值(與前次不同即可)
+
+			json_webCall=window.location.search;
+			//if (json_webCall.indexOf('&ver=') < 0) {
+			//    json_webCall = "webCall.html" + json_webCall + "&ver=" + $.jqx.CCB_Version
+			//    window.location.replace(json_webCall);
+			//	return false;
+			//}
+			
+			//alert(json_webCall);
+            var num = 0;
+            var i = setInterval(function () {
+                if (json_webCall != '') {
+                    clearInterval(i);
+                    autoLogon(json_webCall);
+                } else {
+                    num += 1;
+                    $('#waitCallStatus').text('等待系統繫結中....(' + num +  '秒)');
+                }
+            }, 1000);
+        });
+    </script>
+</head>
+<body>
+    <div id="progId_webCall" style="font-family: Verdana; font-size: 13px; margin: 0px auto;"></div>
+    <div id="waitCallStatus"></div>
+</body>
+</html>

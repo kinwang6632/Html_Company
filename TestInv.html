@@ -1,0 +1,270 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <link href="jqwidgets/styles/jqx.base.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.black.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.classic.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.energyblue.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.orange.css" rel="stylesheet" />
+    <script type="text/javascript" src="scripts/json2.js"></script>
+    <!--<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>-->
+    <script type="text/javascript" src="scripts/jquery-3.3.1.min.js"></script>
+    <!--<script type="text/javascript" src="jqwidgets/jqx-all.js"></script>-->
+    <script type="text/javascript" src="component/jqx-all2.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxcore.js"></script>
+    <!--<script type="text/javascript" src="jqwidgets/jqxcore.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxdatetimeinput.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxcalendar.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxtooltip.js"></script>-->
+    <script type="text/javascript" src="jqwidgets/globalization/globalize.js"></script>
+    <script type="text/javascript" src="scripts/jquery.mask.min.js"></script>
+    <script src="Scripts/CryptoJS v3.1.2/rollups/aes.js"></script>
+    <script type="text/javascript" src="language/zh-TW/SO1131CLanguage.js"></script>
+    <script src="component/csList.js"></script>
+    <script src="component/csMulti.js"></script>
+    <script src="component/csDateTime.js"></script>
+    <script src="component/csTabs.js"></script>    
+    <script src="dynamicComponent/dynamicGrid.js"></script>
+    <script type="text/javascript" src="SO1000/WipUtility.js"></script>
+    <script src="INV1000/INV1120A1.js"></script>
+    <script src="INV1000/INV1120A11.js"></script>
+    <script src="INV1000/INV1120A12.js"></script>
+    <script src="INV1000/INV1120A13.js"></script>
+    <script src="INV1000/INV1110A.js"></script>
+    <script src="INV1000/INV1110A2.js"></script>
+
+    <script src="language/zh-TW/language61.js"></script>
+    <script src="language/zh-TW/language01.js"></script>
+    <script src="language/zh-TW/language52.js"></script>
+    <script src="language/zh-TW/language51.js"></script>    
+    <script src="language/zh-TW/language21.js"></script>
+    <script src="language/zh-TW/language11.js"></script>
+    <script src="language/zh-TW/language71.js"></script>
+    <script src="component/csWindow.js"></script>
+    <script type="text/javascript" src="Utility/utility.js"></script>
+    <script type="text/javascript" src="Utility/ChargeUtility.js"></script>
+    <script src="dynamicComponent/dynLinkProgram.js"></script>
+    <script src="dynamicComponent/dynamicReport.js"></script>
+    <script src="component/csPrinting.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("body").hide();
+            
+            var loginInfo = {
+                loginInfo: {
+                    type: 'logininfo',
+                    columns: [{ name: 'compcode', type: 'integer' },
+                        { name: 'entryid', type: 'string' },
+                        { name: 'entryname', type: 'string' },
+                        { name: 'groupid', type: 'string' }
+                    ],
+                    rows: [{
+                        compcode: 3,
+                        entryid: 'DEBBY',
+                        entryname: 'DEBBY楊',
+                        groupid: '50',
+                        ReportServicePath: 'http://192.168.10.80:1688/CSReport.aspx',
+                    }]
+                }
+            };
+            var editmode = {
+                type: 'integer',
+                value: editMode.edit
+            };
+            $.jqx.theme = "energyblue";
+            var params = getParameters('getKey', 'getKey', 'getKey', loginInfo);
+            
+            getServerData(params, { success: initOk });
+            /*
+            var d = $.Deferred()
+            d.promise()
+            d.resolve()
+            d.reject */
+
+            function initOk(data) {
+                $("body").show();
+                try {
+                    $('#INV1120A1').on('click', function () {
+                        var ds = {                            
+                            INV007: {
+                                columns: [{ name: 'INVID', type: 'string' },
+                                ],
+                                rows: [{
+                                    // 3 MASTERID: 35487,
+                                    // 3 SEQNO: 105626
+                                    INVID: $('#txtinvid').val(),
+
+                                }],
+                            }
+                        };
+                        switch ($('#editmode').val()) {
+                            case 'add':
+                                editmode.value = editMode.append;
+                                break;
+                            case 'edit':
+                                editmode.value = editMode.edit;
+                                break;
+                            case 'view':
+                                editmode.value = editMode.view;
+                                break;
+                            default:
+                                editmode.value = editMode.view;
+                                break;
+                        };
+                        var refNo = 3;
+                        if ($('#howtocreate').val() == 'normal') { refNo = 4 };
+                        //$.fn['INV1120A1']('canEdit', $.extend({}, loginInfo, { ds: ds }), function (r) {
+                        //    if (r[0] != true) {
+                        //        if (r[1] != null) {
+                        //            messageBox(r[1]);
+                        //        };
+                             
+                        //        delete r;
+                        //        r = null;
+                              
+                        //        return;
+                        //    }});
+
+
+                        try {
+                            var d = $.Deferred();
+                            
+                            var aDate = new Date();
+                            //var ds = {
+                            //    type: 'string',
+                            //    INV007: {
+                            //        columns: [{ name: 'INVID', type: 'string' },                                        
+                            //        ],
+                            //        rows: [{
+                            //            // 3 MASTERID: 35487,
+                            //            // 3 SEQNO: 105626
+                            //            INVID: 'KC02757423',
+                                          
+                            //        }]
+                            //    }
+                            //};
+                            var divName = 'div' + getUniqueId();
+                            var div2Name = 'div2' + getUniqueId();
+                            $('<div id="' + divName + '"><div>測試Form</div><div id="' + div2Name + '"></div></div>').appendTo('body');
+                            var div = $('#' + divName);
+                            $(div).csWindow($.extend({}, {
+                                width: 850, height: 700,
+                                maxWidth: 1028,
+                                maxHeight: 900,
+                                keyboardCloseKey: 'none',
+                                haveClosing: true
+                            }));
+                            var div2 = $('#' + div2Name);
+
+                            $(div2).INV1120A1($.extend({}, {
+                                loginInfo:cloneJSON( loginInfo),
+                                container: div,
+                                parameters: cloneJSON(ds),
+                                isAutoClosed: false,
+                                refNo :refNo,
+                                //CPEMAC: dsData,
+                                //fixIPCount: 2,
+                                //faciSeqNo:'201003180066906',
+                                editMode: editmode.value
+                            }));
+                            $(div).on('close', function (event) {
+                                //alert($(div2).SO6460A.methods['options']);
+
+                                //var options = $.data($(div2), formName).options;
+                                // var options = $(div2).SO6460A.methods['options'];
+
+
+                                var options = $(div2).INV1120A1('options');
+                                $(div2).INV1120A1('destroy');
+                                $(div).csWindow('destroy');
+                            });
+                            $(div2).on('loaded', function () {
+                                $(this).each(function () {
+                                });
+                            });
+                        }
+                        catch (err) {
+                            alert(err.stack)
+                        }
+                    });
+                    $('#INV1110A').on('click', function () {
+                        
+                       
+                     
+
+                        try {
+                            var d = $.Deferred();
+
+                          
+                            var divName = 'div' + getUniqueId();
+                            var div2Name = 'div2' + getUniqueId();
+                            $('<div id="' + divName + '"><div>測試Form</div><div id="' + div2Name + '"></div></div>').appendTo('body');
+                            var div = $('#' + divName);
+                            $(div).csWindow($.extend({}, {
+                                width: 650, height: 600,
+                                maxWidth: 1028,
+                                maxHeight: 900,
+                                keyboardCloseKey: 'none',
+                                haveClosing: true
+                            }));
+                            var div2 = $('#' + div2Name);
+                            
+                            $(div2).INV1110A($.extend({}, {
+                                loginInfo: cloneJSON(loginInfo),
+                                container: div,
+                                //parameters: cloneJSON(ds),
+                                isAutoClosed: false,
+                                //refNo: refNo,
+                                //CPEMAC: dsData,
+                                //fixIPCount: 2,
+                                //faciSeqNo:'201003180066906',
+                                editMode: editmode.value
+                            }));
+                            $(div).on('close', function (event) {
+                                //alert($(div2).SO6460A.methods['options']);
+
+                                //var options = $.data($(div2), formName).options;
+                                // var options = $(div2).SO6460A.methods['options'];
+
+
+                                var options = $(div2).INV1110A('options');
+                                $(div2).INV1110A('destroy');
+                                $(div).csWindow('destroy');
+                            });
+                            $(div2).on('loaded', function () {
+                                $(this).each(function () {
+                                });
+                            });
+                        }
+                        catch (err) {
+                            alert(err.stack)
+                        }
+                    });
+                    
+                } catch (err) {
+                    alert(err.stack)
+                }
+            };
+        })
+    </script>
+</head>
+<body>
+    <button id="INV1120A1">INV1120A1</button>
+    <select  id="editmode">
+        <option value="add">新增</option>
+        <option value="edit">修改</option>
+        <option value="view">檢視</option>
+    </select>
+    <select id="howtocreate">
+        <option value="locacl">現場開立</option>
+        <option value="normal">一般開立</option>
+        
+    </select>
+    <input  id="txtinvid" style="width:100px;height:25px" value="LB03061499"/>
+    <button id="INV1110A">INV1110A</button>
+    <div ></div>
+</body>
+</html>

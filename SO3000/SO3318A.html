@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .SO3318A_DIV {
+            padding-top: 2px;
+            padding-left: 3px;
+            height: 24.5%;
+            width: 99%;
+            float: left;
+        }
+        .SO3318A_lbl1 {
+            float: left;
+            margin-top: 6px;
+        }
+        .SO3318A_labelWidth {
+            width: 70px;
+            text-align: right;
+            margin-right: 2px;
+        }
+        .SO3318A_cs {
+            float: left;
+            /*margin-left: 1px;*/
+        }
+    </style>
+</head>
+<body>
+    <div data-id="gbxCompCode">
+        <label data-id="lCompCode" class="SO3318A_lbl1" style="margin-right:5px;color:red;">公司別</label>
+        <div data-id="csCompCode" class="SO3318A_cs" style="margin-bottom:2px;"/>
+    </div>
+    <div data-id="gbxData" style="margin-top: 2px;">
+        <div class="SO3318A_DIV">
+            <label data-id="lRealDate" class="SO3318A_lbl1 SO3318A_labelWidth">入帳日期</label>
+            <input data-id="dtRealDate" class="SO3318A_cs"/>
+        </div>
+        <div class="SO3318A_DIV">
+            <label data-id="lCMCode" class="SO3318A_lbl1 SO3318A_labelWidth">收費方式</label>
+            <div data-id="csCMCode" class="SO3318A_cs"></div>
+        </div>
+        <div class="SO3318A_DIV">
+            <label data-id="lClctEn" class="SO3318A_lbl1 SO3318A_labelWidth">收費人員</label>
+            <div data-id="csClctEn" class="SO3318A_cs"></div>
+        </div>
+        <div class="SO3318A_DIV">
+            <label data-id="lPTCode" class="SO3318A_lbl1 SO3318A_labelWidth">付款種類</label>
+            <div data-id="csPTCode" class="SO3318A_cs"></div>
+        </div>
+    </div>
+    <div style="clear:both;">
+        <button style="float:left;margin:1px;" data-id="btnOk">確定</button>
+        <div style="float:right;">
+            <button data-id="btnExit" style="float:left;margin:1px;">離開</button>
+        </div>
+    </div>
+</body>
+</html>

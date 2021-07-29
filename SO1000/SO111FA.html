@@ -1,0 +1,429 @@
+﻿ <!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <!--
+    <link href="../jqwidgets/styles/jqx.base.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.black.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.classic.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.dark.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.office.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.energyblue.css" rel="stylesheet" />
+    <script src="../scripts/json2.js"></script>
+    <script src="../scripts/jquery-1.11.1.min.js"></script>
+    <script src="../scripts/jquery.mask.min.js"></script>
+    <script src="../jqwidgets/jqx-all.js"></script>
+    <script type="text/javascript" src="../jqwidgets/globalization/globalize.js"></script>
+    <script type="text/javascript" src="../jqwidgets/jqxtooltip.js"></script>
+    <script src="../component/csDateTime.js"></script>        
+    <script src="../language/zh-TW/language61.js"></script>    
+    <script src="../language/zh-TW/language01.js"></script>
+    <script src="../Utility/utility.js"></script>
+    <script src="../component/csList.js"></script>
+    <script src="../component/csMulti.js"></script>-->
+    <style type="text/css">
+        /*
+        html {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            height: 99.9%;
+            margin: 0px;
+            padding: 0px;
+            
+        } */
+        /*
+        * {
+            -webkit-box-sizing: border-box; 
+            -moz-box-sizing: border-box; 
+            box-sizing: border-box; 
+        } */
+
+        .IntroMediatable {
+            width: 100%;
+            height: 100%;
+            table-layout: fixed;
+            /*border : 1px solid red; */
+            margin: 0;
+            padding: 0;
+            text-align: left;
+        }
+
+        .IntroMediatr {
+            /*border : 1px solid red;*/
+            margin: 0;
+            padding: 0;
+            text-align: left;
+        }
+
+        .IntroMediatd {
+            /*border : 1px solid red;*/
+            margin: 0;
+            padding: 0;
+            text-align:left;
+        }
+        /*
+        .lbl {
+            width: 95%;
+            text-align: left;
+        }
+
+        .txt {
+            width: 95%;
+        }*/
+    </style>
+    <!--<script type="text/javascript">
+        $(document).ready(function () {
+            $('#txtName').jqxInput({
+                height: '97%',
+                width:'97%'
+            });
+            $('#txtNo').jqxInput({
+                height: '97%',
+                width: '97%'
+            });
+            $('#btnFind').jqxButton({
+                width: '95%',
+                height:40,
+                imgSrc: imageScr.query.imgSrc
+            });
+            $('#btnOK').jqxButton({
+                width: 70,
+                height: 30,
+                imgSrc: imageScr.ok.imgSrc
+            });
+            $('#btnCancel').jqxButton({
+                width: 70,
+                height: 30,
+                imgSrc: imageScr.cancel.imgSrc
+            });
+            $("#grdIntro").jqxGrid({
+                width: '99.7%',
+                height: '99%',
+                //source: dataAdapter1,
+                sortable: true,
+                altrows: true,
+                columnsresize: true,
+                columns: [
+                    {
+                        text: '#', sortable: false, filterable: false, editable: false,
+                        groupable: false, draggable: false, resizable: false,
+                        datafield: '', columntype: 'number', width: 30,
+                        cellsrenderer: function (row, column, value) {
+                            return "<div style='margin:4px;'>" + (value + 1) + "</div>";
+                        }
+                    },
+                    { text: 'CODENO', datafield: 'CODENO', width: 130, cellsalign: 'center', align: 'center' },
+                    { text: 'DESCRIPTION', datafield: 'DESCRIPTION', width: 250, cellsalign: 'left', align: 'left' }
+                ]
+            });
+            /*
+            $('#txtCPEMAC').mask('FF:FF:FF:FF:FF:FF', {
+                translation:
+                    {
+                        "F": {
+                            pattern: "[0-9a-z]", optional: true
+                    }  }
+            });
+
+            $('#txtIPAddress').mask('0ZZ.0ZZ.0ZZ.0ZZ', {
+                translation: {
+                    'Z': {
+                        pattern: /[0-9]/, optional: true
+                    }
+                }
+            });
+            $("#txtStopDate").csDateTime({
+                formatString: 'yyyy/MM/dd HH:mm:ss',
+                value: null,
+                height:20,
+                width: 150
+            });
+            $("#grdNormal").jqxGrid({
+                width: '99.7%',
+                height: '99%',
+                //source: dataAdapter1,
+                sortable: true,
+                altrows: true,
+                columnsresize: true,
+                columns: [
+                    {
+                        text: '#', sortable: false, filterable: false, editable: false,
+                        groupable: false, draggable: false, resizable: false,
+                        datafield: '', columntype: 'number', width: 30,
+                        cellsrenderer: function (row, column, value) {
+                            return "<div style='margin:4px;'>" + (value + 1) + "</div>";
+                        }
+                    },
+                    { text: 'CPE MAC', datafield: 'CPEMAC', width:200, cellsalign: 'center', align: 'center' },
+                    { text: 'IP Address', datafield: 'IPADDRESS', width:180, cellsalign: 'center', align: 'center' },
+                    { text: '停用時間', datafield: 'STOPDATE', width: 150, cellsalign: 'center', align: 'center', cellsformat: 'yyyy/MM/dd HH:mm:ss' },
+
+                ]
+            });
+            $('#btnSave').jqxButton({
+                width :80,
+                imgSrc: imageScr.save.imgSrc
+            });
+            $('#btnAdd').jqxButton({
+                width: 80,
+                imgSrc: imageScr.append.imgSrc
+            });
+            $('#btnDelete').jqxButton({
+                width: 80,
+                imgSrc: imageScr.delete.imgSrc
+            });
+            $('#btnEdit').jqxButton({
+                width: 80,
+                imgSrc: imageScr.edit.imgSrc
+            });
+            $('#btnCancel').jqxButton({
+                width: 80,
+                imgSrc: imageScr.cancel.imgSrc
+            }); */
+            /*
+            $("#txtCPEMAC").jqxMaskedInput({
+                width: 150,
+                height: '90%',
+                mask:'[1-9]|[a]',
+                disabled: false
+            });*/
+            /*
+            var regex = '(\\b[A-KM-NP-Z0-9])';
+            for (i = 0; i < 17; i++) {
+                $("#txtCPEMAC").jqxMaskedInput('setRegex', i, regex);
+            } */
+            /*
+            $("#txtIPAddress").jqxInput({
+                width: '95%',
+                height: '90%',
+                //disabled: true
+            }); */
+            /*
+            $('#jqxTabs').jqxTabs({
+                width: '100%',
+                height: '99%'
+            });
+            $('#cboType').jqxDropDownList({
+                width: 110,
+                placeHolder: ""
+            });
+            $('#btnChangeFaci').jqxButton({
+                width:65
+            });
+            $('#btnCPEMAC').jqxButton({
+                width: 65
+            });
+            $('#btnCancelChange').jqxButton({
+                width: 120
+            });
+            $('#gilKind').csList({
+                source: null,
+                codeNoWidth: 60,
+                width: '100%',
+                height: 25,
+                showColumnHeaders: false,
+                readOnly: false,
+                codeNoReadOnly: false,
+                popupWidth: null,
+                popupHeight: null,
+                autoFitAllCols: false,
+                descriptionReadOnly: false,
+                columns: [
+                       { text: 'CODENO', datafield: 'CODENO' },
+                       { text: 'DESCRIPTION', datafield: 'DESCRIPTION' }
+                ]
+            });
+            $('#gilKind2').csList({
+                source: null,
+                codeNoWidth: 50,
+                width: 200,
+                height: 25,
+                showColumnHeaders: false,
+                readOnly: false,
+                codeNoReadOnly: false,
+                popupWidth: null,
+                popupHeight: null,
+                autoFitAllCols: false,
+                descriptionReadOnly: false,
+                columns: [
+                       { text: 'CODENO', datafield: 'CODENO' },
+                       { text: 'DESCRIPTION', datafield: 'DESCRIPTION' }
+                ]
+            });
+            $("#grdNormal").jqxGrid({
+                width: '99.7%',
+                height: '99%',
+                //source: dataAdapter1,
+                sortable: true,
+                altrows: true,
+                columnsresize: true,
+                columns: [
+                    {
+                        text: '#', sortable: false, filterable: false, editable: false,
+                        groupable: false, draggable: false, resizable: false,
+                        datafield: '', columntype: 'number', width: 30,
+                        cellsrenderer: function (row, column, value) {
+                            return "<div style='margin:4px;'>" + (value + 1) + "</div>";
+                        }
+                    },
+                    { text: '設備狀態', datafield: 'FACISTATUS', width: 70, cellsalign: 'center', align: 'center' },
+                    { text: '派工狀態', datafield: 'FACIWIPSTATUS', width: 70, cellsalign: 'center', align: 'center' },
+                    { text: '開通狀態', datafield: 'FACICOMMANDSTATUS', width: 70, cellsalign: 'center', align: 'center' },
+                    { text: '品名', datafield: 'FACINAME', width: 150 },
+                    { text: '物品序號', datafield: 'FACISNO', width: 100 },
+                    { text: '智慧卡序號', datafield: 'SMARTCARDNO', width: 100 },
+                    { text: '設備申請人', datafield: 'DECLARANTNAME', width: 100 },
+                    { text: '買賣方式', datafield: 'BUYNAME', width: 60 },
+                    { text: '安裝日期', datafield: 'INSTDATE', width: 100, cellsalign: 'center', align: 'center' },
+                    { text: '代碼', datafield: 'CMBAUDNO', width: 60 },
+                    { text: 'CM速率', datafield: 'CMBAUDRATE', width: 70 },
+                    { text: '固定IP數', datafield: 'FIXIPCOUNT', width: 60 },
+                    { text: '動態IP數', datafield: 'DYNIPCOUNT', width: 60 },
+                    { text: '安裝人員1', datafield: 'INSTNAME1', width: 80, cellsalign: 'center', align: 'center' },
+                    { text: '安裝人員2', datafield: 'INSTNAME2', width: 80, cellsalign: 'center', align: 'center' },
+                    { text: '設備流水號', datafield: 'SEQNO', width: 80, hidden: true },
+                    { text: 'DVR授權容量代碼', datafield: 'DVRAUTHSIZECODE', width: 80, hidden: true }
+                ]
+            });
+            $("#grdChange").jqxGrid({
+                width: '99.7%',
+                height: '99%',
+                //source: dataAdapter1,
+                sortable: true,
+                altrows: true,
+                columnsresize: true,
+                columns: [
+                    {
+                        text: '#', sortable: false, filterable: false, editable: false,
+                        groupable: false, draggable: false, resizable: false,
+                        datafield: '', columntype: 'number', width: 30,
+                        cellsrenderer: function (row, column, value) {
+                            return "<div style='margin:4px;'>" + (value + 1) + "</div>";
+                        }
+                    },
+                    { text: '異動屬性', datafield: 'KIND', width: 90, cellsalign: 'center', align: 'center'},
+                    { text: '品名代碼', datafield: 'FACICODE', width: 60},
+                    { text: '項目名稱', datafield: 'FACINAME', width: 150 },
+                    { text: '物品序號', datafield: 'FACISNO', width: 100 },
+                    { text: '舊速率', datafield: 'OCMBAUDRATE', width: 70 },
+                    { text: '新速率', datafield: 'NCMBAUDRATE', width: 70 },
+                    { text: '舊IP數(動)', datafield: 'ODYNIPCOUNT', width: 80 },
+                    { text: '新IP數(動)', datafield: 'NDYNIPCOUNT', width: 80 },
+                    { text: '舊IP數(固)', datafield: 'OFIXIPCOUNT', width: 80 },
+                    { text: '新IP數(固)', datafield: 'NFIXIPCOUNT', width: 80 },
+                    { text: '舊授權容量', datafield: 'ODVRAUTHSIZECODE', width: 80 },
+                    { text: '新授權容量', datafield: 'NDVRAUTHSIZECODE', width: 80 },
+                    { text: '舊IP', datafield: 'OIPADDRESS', width: 130},
+                    { text: '新IP', datafield: 'NIPADDRESS', width: 130 },
+                    { text: '舊CPE MAC', datafield: 'OCPEMAC', width: 130 },
+                    { text: '新CPE MAC', datafield: 'NCPEMAC', width: 130 },
+                    { text: '舊CPE IP ADDRESS', datafield: 'OCPEIPADDRESS', width: 140 },
+                    { text: '新CPE IP ADDRESS', datafield: 'NCPEIPADDRESS', width: 140 },
+                    { text: '舊促銷方案', datafield: 'OPROMNAME', width: 150 },
+                    { text: '新促銷方案', datafield: 'NPROMNAME', width: 150 },
+                    { text: '舊優惠組合', datafield: 'OBPNAME', width: 150 },
+                    { text: '新優惠組合', datafield: 'NBPNAME', width: 150 },
+                    { text: '異動收費項目', datafield: 'DELETE003CITEM', width: 120 },
+                    { text: 'SEQNO', datafield: 'SEQNO', width: 120, hidden: true },
+                    { text: '選取產品編號', datafield: 'CHOOSESERVICEID', width: 200 }
+                ]
+            });
+            $("#grdDelete003").jqxGrid({
+                width: '99.7%',
+                height: '99%',
+                //source: dataAdapter1,
+                sortable: true,
+                altrows: true,
+                editable: true,
+                columnsresize: true,
+                columns: [
+                    {
+                        text: '#', sortable: false, filterable: false, editable: false,
+                        groupable: false, draggable: false, resizable: false,
+                        datafield: '', columntype: 'number', width: 30,
+                        cellsrenderer: function (row, column, value) {
+                            return "<div style='margin:4px;'>" + (value + 1) + "</div>";
+                        }
+                    },
+                    {
+                        text: '選擇',
+                        datafield: 'CHOOSE',
+                        width: 50,
+                        threestatecheckbox: false,
+                        columntype: 'checkbox',
+                        cellsalign: 'center',
+                        align: 'center'
+                    },
+                    { text: '物品序號', datafield: 'FACISNO', width: 120 },
+                    { text: '產品ID', datafield: 'SERVICEID', width: 110 },
+                    { text: '產品名稱', datafield: 'PRODUCTNAME', width: 200 },
+                    { text: '收費項目', datafield: 'CITEMNAME', width: 150 },
+                    { text: '期數', datafield: 'PERIOD', width: 70, cellsalign: 'center', align: 'center' },
+                    { text: '金額', datafield: 'AMOUNT', width: 80 },
+                    { text: '起始日', datafield: 'STARTDATE', width: 100 },
+                    { text: '截止日', datafield: 'STOPDATE', width: 100 },
+                    { text: '優惠組合', datafield: 'BPNAME', width: 120 },
+                    { text: '合約編號', datafield: 'CONTNO', width: 100 },
+                    { text: '合約起始日', datafield: 'CONTSTARTDATE', width: 100 },
+                    { text: '合約截止日', datafield: 'CONTSTOPDATE', width: 100 },
+                    { text: '設備流水號', datafield: 'FACISEQNO', width: 100 },
+                    { text: 'CITEMCODE', datafield: 'CITEMCODE', width: 130, hidden: true }
+                ]
+            }); */
+        });
+
+    </script>  -->
+
+</head>
+<body>
+    <table class="IntroMediatable">
+        <tr class="IntroMediatr" style="height:70px">
+            <td class="IntroMediatd">
+                <table class="IntroMediatable">
+                    <tr class="IntroMediatr">
+                        <td class="IntroMediatd">
+                            <table  class="IntroMediatable">
+                                <tr class="IntroMediatr">
+                                    <td class="IntroMediatd" width="70px"   data-id="lblName"></td>
+                                    <td class="IntroMediatd"><input type ="text" data-id="txtName" /></td>
+                                </tr>
+                                <tr class="IntroMediatr">
+                                    <td class="IntroMediatd" data-id="lblNo"></td>
+                                    <td class="IntroMediatd"><input type="text" data-id="txtNo" /></td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td class="IntroMediatd" style="width:120px">
+                            <button data-id="btnFind" ></button>                            
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="IntroMediatr" >
+            <td class="IntroMediatd">
+                <div data-id="grdIntro"></div>
+            </td>
+        </tr>
+        <tr class="IntroMediatr" style="height:35px" >
+            <td class="IntroMediatd">
+                <table class="IntroMediatable">
+                    <tr>
+                        <td class="IntroMediatd" align="left">
+                            <button data-id="btnOK" ></button>                            
+                        </td>
+                        <td class="IntroMediatd" >
+                            <button data-id="btnCancel" style="float:right" ></button>
+                            
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

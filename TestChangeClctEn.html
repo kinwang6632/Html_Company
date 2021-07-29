@@ -1,0 +1,213 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <link href="jqwidgets/styles/jqx.base.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.black.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.classic.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.energyblue.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.orange.css" rel="stylesheet" />
+    <script type="text/javascript" src="scripts/json2.js"></script>
+    <!--<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>-->
+    <script type="text/javascript" src="scripts/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="component/jqx-all2.js"></script>
+    <!--<script type="text/javascript" src="jqwidgets/jqx-all.js"></script>-->
+    <script type="text/javascript" src="jqwidgets/jqxcore.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxdatetimeinput.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxcalendar.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxtooltip.js"></script>
+    <script type="text/javascript" src="jqwidgets/globalization/globalize.js"></script>
+    <script type="text/javascript" src="scripts/jquery.mask.min.js"></script>    
+    <script src="Scripts/CryptoJS v3.1.2/rollups/aes.js"></script>    
+    <script src="component/csList.js"></script>
+    <script src="component/csMulti.js"></script>
+    <script src="component/csDateTime.js"></script>
+    <!--
+    <script type="text/javascript" src="SO1000/SO1112A.js"></script>
+    <script type="text/javascript" src="SO1000/SO111XD.js"></script>
+    <script type="text/javascript" src="SO1000/SO1115A.js"></script>
+    <script type="text/javascript" src="SO1000/SO111xCEA.js"></script>
+    <script type="text/javascript" src="SO1000/SO1114A.js"></script>
+    <script type="text/javascript" src="SO1000/SO1132A.js"></script>
+    <script type="text/javascript" src="SO1000/SO1132A1.js"></script>
+    <script type="text/javascript" src="SO1000/SO1120A.js"></script>
+    <script type="text/javascript" src="SO1000/WipUtility.js"></script>-->
+    <script type="text/javascript" src="SO3000/ChangeClctEn.js"></script>
+    <script src="language/zh-TW/language61.js"></script>
+    <script src="language/zh-TW/language01.js"></script>
+    <script src="language/zh-TW/language52.js"></script>
+    <script src="language/zh-TW/language51.js"></script>
+    <script src="language/zh-TW/language31.js"></script>
+    <script src="language/zh-TW/language21.js"></script>
+    <script src="language/zh-TW/language11.js"></script>
+    <script src="language/zh-TW/language71.js"></script>
+    <script src="component/csWindow.js"></script>
+    <script type="text/javascript" src="Utility/utility.js"></script>
+    <script type="text/javascript" src="Utility/ChargeUtility.js"></script>
+    <style type="text/css">
+        .csslEditMode {
+            background-color: #FFFF99;
+            border-color: white;
+            width: 60px;
+            height: 25px;
+            text-align: center;
+            padding: 6px;
+        }
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var loginInfo = {
+                "loginInfo": {
+                    "columns": [
+                        {
+                            "name": "compcode",
+                            "type": "integer"
+                        },
+                        {
+                            "name": "entryid",
+                            "type": "string"
+                        },
+                        {
+                            "name": "entryname",
+                            "type": "string"
+                        },
+                        {
+                            "name": "groupid",
+                            "type": "string"
+                        },
+                        {
+                            "name": "compstr",
+                            "type": "string"
+                        },
+                        {
+                            "name": "ReportServicePath",
+                            "type": "string"
+                        }
+                    ],
+                    "rows": [
+                        {
+                            "compcode": 3,
+                            "entryid": "TEST",
+                            "entryname": "TEST50",
+                            "groupid": "50",
+                            "compstr": "1,3",
+                            "ReportServicePath": "http://192.168.10.80:3210/CSReportService.svc"
+                        }
+                    ]
+                }
+            };
+            var editmode = {
+                type: 'integer',
+                value: editMode.view
+            };
+            $.jqx.theme = "energyblue";
+            var params = getParameters('getKey', 'getKey', 'getKey', loginInfo);
+            getServerData(params, { success: initOk });
+            function initOk(data) {
+                $("body").show();
+                try {
+                    $('#csWindows').on('click', function () {
+                        var divName = 'div' + getUniqueId();
+                        var div2Name = 'div2' + getUniqueId();
+                        /*
+                        var divName2 = 'div' + getUniqueId();
+                        var div2Name2 = 'div2' + getUniqueId(); */
+                        $('<div id="' + divName + '"><div>測試Form</div><div id="' + div2Name + '">adfadfafda</div></div>').appendTo('body');
+                        //$('<div id="' + divName2 + '"><div>測試Form2</div><div id="' + div2Name2 + '"></div></div>').appendTo($('#'+div2Name));
+                        var div = $('#' + divName);
+                        $(div).csWindow($.extend({}, {
+                            width: 920, height: 600,
+                            maxWidth: 1028,
+                            maxHeight: 900,
+                            keyboardCloseKey: 'none',
+                            haveClosing: false,
+
+                        }));
+
+
+                        var divName2 = 'div' + getUniqueId();
+                        var div2Name2 = 'div2' + getUniqueId();
+                        //$('<div id="' + divName2 + '"><div>測試Form</div><div id="' + div2Name2 + '"></div></div>').appendTo('body');
+                        $('<div id="' + divName2 + '"><div>測試Form2</div><div id="' + div2Name2 + '"></div></div>').appendTo('body');
+
+                        var div2 = $('#' + divName2);
+                        $(div2).csWindow($.extend({}, {
+                            width: 800, height: 400,
+                            maxWidth: 1028,
+                            maxHeight: 900,
+                            keyboardCloseKey: 'none',
+                            haveClosing: false,
+                        }));
+
+                        $('#' + div2Name).append($('#' + divName2)[0])
+                        // $('#div21').append($('#' + divName2));
+
+                    });
+                   
+                    $('#btnChangeClctEn').on('click', function () {
+                        try {
+
+                          
+                            var divName = 'div' + getUniqueId();
+                            var div2Name = 'div2' + getUniqueId();
+
+                            $('<div id="' + divName + '"><div>測試Form</div><div id="' + div2Name + '"></div></div>').appendTo('body');
+                            var div = $('#' + divName);
+                            $(div).csWindow($.extend({}, {
+                                width: 920, height: 500,
+                                maxWidth: 1028,
+                                maxHeight: 900,
+                                keyboardCloseKey: 'none',
+                                haveClosing: true
+                            }));
+                            var div2 = $('#' + div2Name);
+
+                            $(div2)['ChangeClctEn']($.extend({}, {
+                                loginInfo: loginInfo,
+                                container: div,
+                                refNo :1,
+                                //parameters: dsData,
+                                //IsAutoClosed: true,
+                                //finMode :false,
+                                editMode: editmode.value
+                            }));
+                            $(div).on('close', function (event) {
+                                //alert($(div2).SO6460A.methods['options']);
+
+                                //var options = $.data($(div2), formName).options;
+                                // var options = $(div2).SO6460A.methods['options'];
+
+
+                                var options = $(div2).ChangeClctEn('options');
+
+                                $(div2).ChangeClctEn('destroy');
+                                $(div).csWindow('destroy');
+                            });
+                            $(div2).on('loaded', function () {
+                                //alert(JSON.stringify($(this).SO6460A('options').language));
+                                $(this).each(function () {
+                                    //alert($(this).SO6460A('options'));
+                                });
+                            });
+                        }
+                        catch (err) {
+                            alert(err.stack)
+                        }
+                    });
+
+                   
+                }
+                catch (err) {
+                    alert(err.stack)
+                }
+
+            };
+        })
+    </script>
+</head>
+<body>
+    <button id="btnChangeClctEn">ChangeClctEn</button>
+</body>
+</html>

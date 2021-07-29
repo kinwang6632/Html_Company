@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <!--
+    <link href="../jqwidgets/styles/jqx.base.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.orange.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.office.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.energyblue.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.energyblue2.css" rel="stylesheet" />
+    <script type="text/javascript" src="../scripts/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../scripts/json2.js"></script>
+    <script src="../jqwidgets/jqx-all.js"></script>
+    <script type="text/javascript" src="../jqwidgets/jqxcore.js"></script>
+    <script type="text/javascript" src="../jqwidgets/jqxdatetimeinput.js"></script>
+    <script type="text/javascript" src="..//jqwidgets/jqxcalendar.js"></script>
+    <script type="text/javascript" src="../jqwidgets/jqxtooltip.js"></script>
+    <script src="../component/csTabs.js"></script>
+    <script src="../component/csList.js"></script>
+    <script src="../component/csMulti.js"></script>
+    <script src="../component/csDateTime.js"></script>
+    <script src="../component/csUploadFile.js"></script>
+    <script src="../component/csAddress1.js"></script>
+    <script src="../component/csAddress2.js"></script>
+    <script src="../component/csWindow.js"></script>
+
+    <script src="dynamicComponent/dynamicCondition.js"></script>
+    <script src="dynamicComponent/dynamicUpdate.js"></script>
+    <script src="../jqwidgets/globalization/globalize.js"></script>
+    <script src="../language/zh-TW/language01.js"></script>
+    <script src="../language/zh-TW/language21.js"></script>
+    <script src="../language/zh-TW/language31.js"></script>
+    <script src="../language/zh-TW/language51.js"></script>
+    <script src="../language/zh-TW/language52.js"></script>
+    <script src="../language/zh-TW/language61.js"></script>
+    <script src="../language/zh-TW/language71.js"></script>
+    <script type="text/javascript" src="../Utility/utility.js"></script>
+    <script type="text/javascript" src="../Utility/ChargeUtility.js"></script> -->
+    <style type="text/css">
+        
+        
+
+         .DyCopyTable {
+             width: 100%;
+             height: 100%;
+             table-layout: fixed;
+             /*border: 1px solid red;*/
+             margin: 0;
+             padding: 0;
+             text-align: left;
+         }
+
+         .DyCopyTr {
+             /*border: 1px solid red;*/
+             margin: 0;
+             padding: 0;
+             text-align: left;
+         }
+
+         .DyCopyTd {
+             /*border: 1px solid red;*/
+             margin: 0;
+             padding: 0;
+             vertical-align: central;
+             /*  text-align: left;*/
+         }
+
+         .DyCopyMode {
+             text-align: center;
+             background-color: cyan;
+         }
+       
+    </style>
+    <!--
+    <script type="text/javascript">
+        $(document).ready(function () {
+            
+            $('#GroupBox1').jqxExpander({
+                width: '100%',
+                height: '100%',
+                toggleMode: 'none',
+                showArrow: false
+            });
+            $("#optNoneCover").jqxRadioButton({ width: 120, height: 25, checked:true });
+            $("#optCover").jqxRadioButton({ width: 120, height: 25 });
+            $('#btnOK').jqxButton({
+                width: 75,
+                height: 25,
+                imgSrc: imageScr.ok.imgSrc
+            });
+            $('#btnExit').jqxButton({
+                width: 75,
+                height: 25,
+                imgSrc: imageScr.exit.imgSrc
+            });
+            $("#csmCompCode").csList({
+                source: null,
+                codeNoWidth: 60,
+                width: '250px',
+                height: '25px',
+                showColumnHeaders: false,
+                readOnly: false,
+                codeNoReadOnly: false,
+                popupWidth: null,
+                popupHeight: null,
+                autoFitAllCols: false,
+                descriptionReadOnly: false,
+                columns: [
+                       { text: 'CODENO', datafield: 'CODENO' },
+                       { text: 'DESCRIPTION', datafield: 'DESCRIPTION' }
+                ]
+            });
+        })
+    </script> -->
+
+</head>
+<body>
+    <table class="DyCopyTable">
+        <tr class="DyCopyTr" style="height:30px">
+            <td class="DyCopyTd" style="width:50px;color:red" data-id="lblCompCode" ></td>
+            <td class="DyCopyTd">
+                <div data-id="csmCompCode" ></div>
+            </td>
+        </tr>
+        <tr class="DyCopyTr">
+            <td class="DyCopyTd" colspan="2">
+                <div data-id="GroupBox1" >
+                    <div  data-id="grpTitle"></div>
+                    <div >
+                        <table class="DyCopyTable">
+                            <tr class="DyCopyTr">
+                                <td class="DyCopyTd" style="width:150px" data-id="lblExists"></td>
+                                <td class="DyCopyTd">
+                                    <table class="DyCopyTable">
+                                        <tr class="DyCopyTr">
+                                            <td class="DyCopyTd">
+                                                <div data-id="optNoneCover" ></div>
+                                            </td>
+                                        </tr>
+                                        <tr class="DyCopyTr">
+                                            <td class="DyCopyTd">
+                                                <div data-id="optCover"></div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            
+                        </table>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr class="DyCopyTr" style="height:30px">
+            <td class="DyCopyTd" colspan="2" >
+                <table class="DyCopyTable">
+                    <tr class="DyCopyTr">
+                        <td class="DyCopyTd">
+                            <button data-id="btnOK"></button>
+                        </td>
+                        <td class="DyCopyTd">
+                            <button data-id="btnExit" style="float:right"></button>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            
+        </tr>
+    </table>
+</body>
+</html>

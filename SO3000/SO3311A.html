@@ -1,0 +1,327 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+   <!--
+    <link href="../jqwidgets/styles/jqx.base.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.orange.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.office.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.energyblue.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.energyblue2.css" rel="stylesheet" />
+    <script type="text/javascript" src="../scripts/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../scripts/json2.js"></script>
+    <script src="../jqwidgets/jqx-all.js"></script>
+    <script src="../component/csTabs.js"></script>
+    <script src="../component/csList.js"></script>
+    <script src="../component/csMulti.js"></script>
+    <script src="../component/csDateTime.js"></script>
+    <script src="../component/csUploadFile.js"></script>
+    <script src="../component/csAddress1.js"></script>
+    <script src="../component/csAddress2.js"></script>
+    <script src="../component/csWindow.js"></script>
+
+    <script src="dynamicComponent/dynamicCondition.js"></script>
+    <script src="dynamicComponent/dynamicUpdate.js"></script>
+    <script src="../jqwidgets/globalization/globalize.js"></script>
+    <script src="../language/zh-TW/language01.js"></script>
+    <script src="../language/zh-TW/language21.js"></script>
+    <script src="../language/zh-TW/language31.js"></script>
+    <script src="../language/zh-TW/language51.js"></script>
+    <script src="../language/zh-TW/language52.js"></script>
+    <script src="../language/zh-TW/language61.js"></script>
+    <script src="../language/zh-TW/language71.js"></script>
+    <script type="text/javascript" src="../Utility/utility.js"></script>
+    <script type="text/javascript" src="../Utility/ChargeUtility.js"></script> -->
+    
+    <style type="text/css">
+         /*
+          html {
+              width: 100%;
+              height: 100%;
+          }
+
+          body {
+              height: 99.9%;
+              margin: 0px;
+              padding: 0px;
+              font-size:12px
+          }
+
+          * {
+              -webkit-box-sizing: border-box;
+              -moz-box-sizing: border-box;
+              box-sizing: border-box;
+          } */
+
+         .SO3311ATable {
+             width: 100%;
+             height: 100%;
+             table-layout: fixed;
+             /*border : 1px solid red;*/
+             margin: 0;
+             padding: 0;
+             text-align: left;
+         }
+
+         .SO3311ATr {
+             /*border : 1px solid red;*/
+             margin: 0;
+             padding: 0;
+             text-align: left;
+         }
+
+         .SO3311ATd {
+             /*border : 1px solid red;*/
+             margin: 0;
+             padding: 0;
+             vertical-align: central;
+             /*  text-align: left;*/
+         }
+
+         .SO3311AMode {
+             text-align: center;
+             background-color: cyan;
+         }
+     
+    </style> 
+    <!--
+    <script type="text/javascript">
+        $(document).ready(function () {
+           
+            $("#csCompCode").csList({
+                source: null,
+                codeNoWidth: 80,
+                width: '300px',
+                height: '22px',
+                showColumnHeaders: false,
+                readOnly: false,
+                codeNoReadOnly: false,
+                popupWidth: null,
+                popupHeight: null,
+                autoFitAllCols: false,
+                descriptionReadOnly: false,
+                columns: [
+                       { text: 'CODENO', datafield: 'CODENO' },
+                       { text: 'DESCRIPTION', datafield: 'DESCRIPTION' }
+                ]
+            });
+
+            $("#csDefCMCode").csList({
+                source: null,
+                codeNoWidth: 80,
+                width: '300px',
+                height: '22px',
+                showColumnHeaders: false,
+                readOnly: false,
+                codeNoReadOnly: false,
+                popupWidth: null,
+                popupHeight: null,
+                autoFitAllCols: false,
+                descriptionReadOnly: false,
+                columns: [
+                       { text: 'CODENO', datafield: 'CODENO' },
+                       { text: 'DESCRIPTION', datafield: 'DESCRIPTION' }
+                ]
+            });
+
+            $("#csDefClctEn").csList({
+                source: null,
+                codeNoWidth: 80,
+                width: '300px',
+                height: '22px',
+                showColumnHeaders: false,
+                readOnly: false,
+                codeNoReadOnly: false,
+                popupWidth: null,
+                popupHeight: null,
+                autoFitAllCols: false,
+                descriptionReadOnly: false,
+                columns: [
+                       { text: 'CODENO', datafield: 'CODENO' },
+                       { text: 'DESCRIPTION', datafield: 'DESCRIPTION' }
+                ]
+            });
+
+            $("#csDefPTCode").csList({
+                source: null,
+                codeNoWidth: 80,
+                width: '300px',
+                height: '22px',
+                showColumnHeaders: false,
+                readOnly: false,
+                codeNoReadOnly: false,
+                popupWidth: null,
+                popupHeight: null,
+                autoFitAllCols: false,
+                descriptionReadOnly: false,
+                columns: [
+                       { text: 'CODENO', datafield: 'CODENO' },
+                       { text: 'DESCRIPTION', datafield: 'DESCRIPTION' }
+                ]
+            });
+
+            $("#csDefSTCode").csList({
+                source: null,
+                codeNoWidth: 80,
+                width: '300px',
+                height: '22px',
+                showColumnHeaders: false,
+                readOnly: false,
+                codeNoReadOnly: false,
+                popupWidth: null,
+                popupHeight: null,
+                autoFitAllCols: false,
+                descriptionReadOnly: false,
+                columns: [
+                       { text: 'CODENO', datafield: 'CODENO' },
+                       { text: 'DESCRIPTION', datafield: 'DESCRIPTION' }
+                ]
+            });
+
+            $("#dteClctYM").csDateTime({
+                formatString: 'yyyy/MM',
+                value: null,
+                showCalendarButton: false,
+                width: 300
+            });
+
+            $("#dteDefCMDate").csDateTime({
+                formatString: 'yyyy/MM/dd',
+                value: null,
+                showCalendarButton: false,
+                width: 300
+            });
+
+            $("#tedDefRealPeriod").jqxNumberInput({
+                width: '95%',
+                height: 25,
+                inputMode: 'simple',
+                min: 0,
+                max: 999,
+                decimalDigits: 0,
+                disabled: false
+            });
+
+            $("#tedDefRealAmt").jqxNumberInput({
+                width: '95%',
+                height: 25,
+                inputMode: 'simple',
+                min: 0,
+                max: 999999,
+                decimalDigits: 0,
+                disabled: false
+            });
+
+            $("#tedDefNote").jqxInput({
+                height: 22,
+                width: 300,
+            });
+
+          
+            $('#btnOK').jqxButton({
+                width:90,
+                height: 25,
+            });  
+
+            $('#btnFastEntry').jqxButton({
+                width: 90,
+                height: 25,
+            });
+            $('#btnCancel').jqxButton({
+                width: 90,
+                height: 25,
+            });
+        });
+
+    </script>   -->
+
+</head>
+<body>
+    <table class="SO3311ATable">
+        <tr class="SO3311ATr">
+            <td class="SO3311ATd" data-id="txtCompCode" style="color:red"></td>
+            <td class="SO3311ATd" colspan="3"> 
+                <div data-id="csCompCode" ></div>
+                
+            </td>
+            
+        </tr>
+        <tr class="SO3311ATr">
+            <td class="SO3311ATd" data-id="txtClctYM"></td>
+            <td class="SO3311ATd" colspan="3">
+                <input data-id="dteClctYM"  />
+            </td>
+        </tr>
+        <tr class="SO3311ATr">
+            <td class="SO3311ATd" data-id="txtDefCMDate"  style="color:red"></td>
+            <td class="SO3311ATd" colspan="3">
+                <input data-id="dteDefCMDate" />
+            </td>
+        </tr>
+        <tr class="SO3311ATr">
+            <td class="SO3311ATd" data-id="txtDefCMCode" style="color:red"></td>
+            <td class="SO3311ATd" colspan="3">
+                <div data-id="csDefCMCode"></div>
+            </td>
+        </tr>
+        <tr class="SO3311ATr">
+            <td class="SO3311ATd" data-id="txtDefClctEn"></td>
+            <td class="SO3311ATd" colspan="3">
+                <div data-id="csDefClctEn"></div>
+            </td>
+            
+        </tr>
+        <tr class="SO3311ATr">
+            <td class="SO3311ATd" data-id="txtDefPTCode" style="color:red"></td>
+            <td class="SO3311ATd" colspan="3">
+                <div data-id="csDefPTCode"></div>
+            </td>            
+        </tr>
+        <tr class="SO3311ATr">
+            <td class="SO3311ATd" data-id="txtDefRealPeriod"></td>
+            <td class="SO3311ATd">
+                <input type="text" data-id="tedDefRealPeriod"  style="text-align:right" />
+            </td>
+            <td class="SO3311ATd" data-id="txtDefRealAmt" ></td>
+            <td class="SO3311ATd">
+                <input type="text" data-id="tedDefRealAmt" style="text-align:right" />
+            </td>
+        </tr>
+        <tr class="SO3311ATr">
+            <td class="SO3311ATd" data-id="txtDefSTCode"></td>
+            <td class="SO3311ATd" colspan="3">
+                <div data-id="csDefSTCode"></div>
+            </td>
+            
+        </tr>
+        <tr class="SO3311ATr">
+            <td class="SO3311ATd" data-id="txtDefNote"></td>
+            <td class="SO3311ATd" colspan="3">
+                <input type="text" data-id="tedDefNote" />
+            </td>            
+        </tr>
+        <tr class="SO3311ATr" style="height:20px;width:100%">
+            <td class="SO3311ATd" colspan="3" style="color:red;width:100%" data-id="PayDescription1">
+               
+            </td>            
+        </tr>
+        <tr class="SO3311ATr" style="height:20px;width:100%">
+            <td class="SO3311ATd" colspan="3" style="color:red;width:100%" data-id="PayDescription2"></td>
+        </tr>
+        <tr class="SO3311ATr" style="height:30px">
+            <td class="SO3311ATd">
+                <button data-id="btnOK" ></button>
+            </td>
+            <td class="SO3311ATd">
+                <button  data-id="btnFastEntry" ></button>
+            </td>
+            <td class="SO3311ATd" colspan="2">
+                <button data-id="btnCancel" style="float:right;vertical-align:bottom"></button>
+            </td>
+            
+        </tr>
+    </table>
+</body>
+</html>

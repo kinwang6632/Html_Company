@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <!--
+    <link href="../jqwidgets/styles/jqx.base.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.black.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.classic.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.dark.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.office.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.energyblue.css" rel="stylesheet" />
+    <script src="../scripts/json2.js"></script>
+    <script src="../scripts/jquery-1.11.1.min.js"></script>
+    <script src="../jqwidgets/jqx-all.js"></script>
+    <script type="text/javascript" src="../jqwidgets/globalization/globalize.js"></script>
+    <script type="text/javascript" src="../jqwidgets/jqxtooltip.js"></script>    
+    <script src="../language/zh_TW/language061.js"></script>    
+    <script src="../language/zh_TW/language01.js"></script>
+    <script src="../Utility/utility.js"></script>
+    <script src="../component/csList.js"></script>
+    <script src="../component/csMulti.js"></script> -->
+    <style type="text/css">
+        /*
+        html {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            height: 99.9%;
+            margin: 0px;
+            padding: 0px;
+           
+        }
+
+        * {
+            -webkit-box-sizing: border-box; 
+            -moz-box-sizing: border-box; 
+            box-sizing: border-box; 
+        } */
+
+        .SO111XDtable {
+            width: 100%;
+            height: 100%;
+            table-layout: fixed;
+            /*border : 1px solid red; */
+            margin: 0;
+            padding: 0;
+            text-align: left;
+        }
+
+        .SO111XDtr {
+            /*border : 1px solid red;*/
+            margin: 0;
+            padding: 0;
+            text-align: left;
+        }
+
+        .SO111XDtd {
+            /*border : 1px solid red; */
+            margin: 0;
+            padding: 0;
+            text-align: left;
+        }
+        
+        .lbl {
+            width: 95%;
+            text-align: left;
+        }
+
+        .txt {
+            width: 95%;
+        }
+    </style>
+    
+</head>
+<body>
+    <div data-id="jqxTabs" id="jqxTabs">
+        <ul style='margin-left: 0px;'>
+            <li data-id="TabItem1"></li>
+            <li data-id="TabItem2"></li>            
+        </ul>          
+        <div>
+            <table class="SO111XDtable">
+                <tr class="SO111XDtr" style="height:20px">
+                    <td class="SO111XDtd" style="width:180px;">
+                        <table class="SO111XDtable">
+                            <tr class="SO111XDtr">
+                                <td class="SO111XDtd" style="width:100px">
+                                    <div  data-id="cboType" id="cboType"></div>
+                                </td>
+                                <td class="SO111XDtd">
+                                    <input type="button" style="margin-left:2px;" data-id="btnChangeFaci"  value="" />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td class="SO111XDtd" style="width:370px" >
+                        <table class="SO111XDtable" data-id="grpKind" hidden="hidden">
+                            <tr class="SO111XDtr" >
+                                <td  class="SO111XDtd"style="width:40px" data-id="txtKind" >                                    
+                                </td>
+                                <td class="SO111XDtd">
+                                    <div data-id="gilKind" ></div>
+                                </td>
+                                <td class="SO111XDtd" style="width:75px">
+                                    <input type="button" style="margin-left:2px;" data-id="btnCPEMAC"  value="" />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td class="SO111XDtd" >
+                        <table class="SO111XDtable" data-id="grpKind2" hidden="hidden" >
+                            <tr class="SO111XDtr">
+                                <td class="SO111XDtd" style="width:40px" data-id="txtKind2">
+                                    
+                                </td>
+                                <td class="SO111XDtd">
+                                    <div data-id="gilKind2" ></div>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr class="SO111XDtr" style="height:100%">
+                    <td class="SO111XDtd" colspan="3" >
+                        <div style="height:100%;width:100%;margin-top:0px"  data-id="grdNormal" ></div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <table class="SO111XDtable" >
+                <tr class="SO111XDtr" style="height:30px">
+                    <td class="SO111XDtd">
+                        <input type="button" style="margin-left:10px;" data-id="btnCancelChange" value="" />
+                    </td>
+                </tr>
+                <tr class="SO111XDtr" style="height:100%">
+                    <td class="SO111XDtd">
+                        <div style="height:100%;width:100%" data-id="grdChange" ></div>
+                    </td>
+                </tr>
+                <tr class="SO111XDtr"  data-id="SO111XDgrdDelete003" >
+                    <td  class="SO111XDtd" >
+                        <div style="height:100%;width:100%" data-id="grdDelete003" ></div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

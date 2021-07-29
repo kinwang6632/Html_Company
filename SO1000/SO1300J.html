@@ -1,0 +1,470 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <!--
+    <link href="../jqwidgets/styles/jqx.base.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.black.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.classic.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.energyblue.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.orange.css" rel="stylesheet" />
+    <script type="text/javascript" src="../scripts/json2.js"></script>
+    <script type="text/javascript" src="../scripts/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../jqwidgets/jqx-all.js"></script>
+    <script type="text/javascript" src="../jqwidgets/jqxcore.js"></script>
+    <script type="text/javascript" src="../jqwidgets/jqxdatetimeinput.js"></script>
+    <script type="text/javascript" src="../jqwidgets/jqxcalendar.js"></script>
+    <script type="text/javascript" src="../jqwidgets/jqxtooltip.js"></script>
+    <script type="text/javascript" src="../jqwidgets/globalization/globalize.js"></script>
+    <script type="text/javascript" src="../scripts/jquery.mask.min.js"></script>
+    <script src="../component/csList.js"></script>
+    <script src="../component/csMulti.js"></script>
+    <script src="../component/csDateTime.js"></script>
+    <script src="../component/csTabs.js"></script>
+    <script type="text/javascript" src="../SO1000/SO1144J.js"></script>
+    <script type="text/javascript" src="../component/csUploadFile.js"></script>
+    <script src="../language/zh-TW/language61.js"></script>
+    <script src="../language/zh-TW/language51.js"></script>
+    <script src="../language/zh-TW/language01.js"></script>
+    <script src="../language/zh-TW/language52.js"></script>
+    <script src="../language/zh-TW/language21.js"></script>
+    <script src="../language/zh-TW/language31.js"></script>
+    <script src="../component/csWindow.js"></script>
+    <script type="text/javascript" src="../Utility/utility.js"></script>-->
+    <style type="text/css">
+        /*
+        html {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            height: 99.9%;
+            margin: 0px;
+            padding: 0px;
+            font-size:12px
+        }
+
+        * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }   */
+
+          .SO1300JTable {
+              width: 100%;
+              height: 100%;
+              table-layout: fixed;
+              /*border : 1px solid red;*/
+              margin: 0;
+              padding: 0;
+              text-align: left;
+          }
+
+          .SO1300JTr {
+              /*border : 1px solid red;*/
+              margin: 0;
+              padding: 0;
+              text-align: left;
+          }
+
+          .SO1300JTd {
+              /*border : 1px solid red;*/
+              margin: 0;
+              padding: 0;
+              vertical-align: central;
+              text-align: left;
+          }
+
+          .SO1300JMode {
+              text-align: center;
+              background-color: aquamarine;
+          }
+    </style>
+    <!--
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#csServiceType").csList({
+                source: null,
+                codeNoWidth: 50,
+                width: 220,
+                height: 25,
+                showColumnHeaders: false,
+                readOnly: false,
+                codeNoReadOnly: false,
+                popupWidth: null,
+                popupHeight: null,
+                autoFitAllCols: false,
+                descriptionReadOnly: false,
+                columns: [
+                       { text: 'CODENO', datafield: 'CODENO' },
+                       { text: 'DESCRIPTION', datafield: 'DESCRIPTION' }
+                ]
+            });
+            $("#csMainCustID").csList({
+                source: null,
+                codeNoWidth: 50,
+                width: 160,
+                height: 22,
+                showColumnHeaders: false,
+                readOnly: false,
+                codeNoReadOnly: false,
+                popupWidth: null,
+                popupHeight: null,
+                autoFitAllCols: false,
+                descriptionReadOnly: false,
+                columns: [
+                       { text: 'CODENO', datafield: 'CODENO' },
+                       { text: 'DESCRIPTION', datafield: 'DESCRIPTION' }
+                ]
+            });
+            $("#csCitemCode").csList({
+                source: null,
+                codeNoWidth: 50,
+                width: 270,
+                height: 22,
+                showColumnHeaders: false,
+                readOnly: false,
+                codeNoReadOnly: false,
+                popupWidth: null,
+                popupHeight: null,
+                autoFitAllCols: false,
+                descriptionReadOnly: false,
+                columns: [
+                       { text: 'CODENO', datafield: 'CODENO' },
+                       { text: 'DESCRIPTION', datafield: 'DESCRIPTION' }
+                ]
+            });
+            $("#csSignEn").csList({
+                source: null,
+                codeNoWidth: 80,
+                width: 270,
+                height: 22,
+                showColumnHeaders: false,
+                readOnly: false,
+                codeNoReadOnly: false,
+                popupWidth: null,
+                popupHeight: null,
+                autoFitAllCols: false,
+                descriptionReadOnly: false,
+                columns: [
+                       { text: 'CODENO', datafield: 'CODENO' },
+                       { text: 'DESCRIPTION', datafield: 'DESCRIPTION' }
+                ]
+            });
+            $("#csGroupCode").csList({
+                source: null,
+                codeNoWidth: 60,
+                width: '200px',
+                height: 22,
+                showColumnHeaders: false,
+                readOnly: false,
+                codeNoReadOnly: false,
+                popupWidth: null,
+                popupHeight: null,
+                autoFitAllCols: false,
+                descriptionReadOnly: false,
+                columns: [
+                       { text: 'CODENO', datafield: 'CODENO' },
+                       { text: 'DESCRIPTION', datafield: 'DESCRIPTION' }
+                ]
+            });
+            $("#csWorkEn1").csList({
+                source: null,
+                codeNoWidth: 60,
+                width: '205px',
+                height: 22,
+                showColumnHeaders: false,
+                readOnly: false,
+                codeNoReadOnly: false,
+                popupWidth: null,
+                popupHeight: null,
+                autoFitAllCols: false,
+                descriptionReadOnly: false,
+                columns: [
+                       { text: 'CODENO', datafield: 'CODENO' },
+                       { text: 'DESCRIPTION', datafield: 'DESCRIPTION' }
+                ]
+            });
+            $("#csWorkEn2").csList({
+                source: null,
+                codeNoWidth: 60,
+                width: '200px',
+                height: 22,
+                showColumnHeaders: false,
+                readOnly: false,
+                codeNoReadOnly: false,
+                popupWidth: null,
+                popupHeight: null,
+                autoFitAllCols: false,
+                descriptionReadOnly: false,
+                columns: [
+                       { text: 'CODENO', datafield: 'CODENO' },
+                       { text: 'DESCRIPTION', datafield: 'DESCRIPTION' }
+                ]
+            });
+            $('#txtFlag').jqxInput({
+                width: 50,
+                height: 22
+            });
+            $('#grp1').jqxExpander({
+                width: '100%',
+                height: '100%',
+                toggleMode: 'none',
+                showArrow: false
+            });
+            $('#grp2').jqxExpander({
+                width: '100%',
+                height: '100%',
+                toggleMode: 'none',
+                showArrow: false
+            });
+            $('#grp3').jqxExpander({
+                width: '100%',
+                height: '100%',
+                toggleMode: 'none',
+                showArrow: false
+            });
+            $('#txtPeriod').jqxMaskedInput({
+                width: '87%',
+                height: '22px',
+                promptChar: '',
+                textAlign: 'right',
+                mask: '[1-9][0-9]'
+            });
+            $("#txtAmount").jqxNumberInput({
+                width: '95%',
+                height: 22,
+                inputMode: 'simple',
+                min: 0,
+                max: 999,
+                decimalDigits: 0,
+                disabled: false,
+            });
+            $("#dteStartDate").csDateTime({
+                formatString: 'yyyy/MM/dd',
+                value: null,
+                height:22,
+                showCalendarButton: false,
+                width: '90%'
+            });
+            $("#dteStopDate").csDateTime({
+                formatString: 'yyyy/MM/dd',
+                value: null,
+                height: 22,
+                showCalendarButton: false,
+                width: '90%'
+            });
+            $("#dteClctDate").csDateTime({
+                formatString: 'yyyy/MM/dd',
+                value: null,
+                height: 22,
+                showCalendarButton: false,
+                width: '90%'
+            });
+            $("#txtFinTime").csDateTime({
+                formatString: 'yyyy/MM/dd HH:mm',
+                value: null,
+                height: 22,
+                showCalendarButton: false,
+                width: '95%'
+            });
+            $('#ccCustStatus').csMulti({                
+                buttonText: '客戶狀態',
+                width: '99.5%',
+                buttonWidth: 80,                                                
+                isReadOnly: false,
+            });
+            $('#ccCustClass').csMulti({                
+                buttonText: '客戶類別',
+                width: '99.5%',
+                buttonWidth: 80,                                     
+                isReadOnly: false,
+            });
+            $('#ccCitemCode').csMulti({                
+                buttonText: '收費項目',
+                width: '99.5%',
+                buttonWidth: 80,                                   
+                isReadOnly: false,
+            });
+            $("#chkOption1").jqxCheckBox({
+                width: '100%',
+                height: 22,
+                checked: true              
+            });
+            $("#chkOption2").jqxCheckBox({
+                width: '100%',
+                height: 22,
+                checked: true,
+            });
+            $('#pnl').jqxPanel({
+                width: 600,
+                height: 70,
+                autoUpdate: true
+            });
+            $('#btnOK').jqxButton({
+                width: 70,
+                height: 22,
+            });
+            $('#btnCancel').jqxButton({
+                width: 70,
+                height: 22,
+            });           
+        });
+    </script>-->
+</head>
+<body>
+    <table class="SO1300JTable">
+        <tr class="SO1300JTr" style="height:30px">
+            <td class="SO1300JTd" width="80px" data-id="lblServiceType"></td>
+            <td class="SO1300JTd"><div  data-id="csServiceType"></div></td>
+        </tr>
+        <tr class="SO1300JTr" style="height:30%">
+            <td class="SO1300JTd" colspan="2">
+                <div data-id="grp1" >
+                    <div data-id="lblAllChargeCustom"></div>
+                    <div>
+                        <table class="SO1300JTable">
+                            <tr class="SO1300JTr">
+                                <td class="SO1300JTd" width="270px">
+                                    <table class="SO1300JTable">
+                                        <tr class="SO1300JTr">
+                                            <td class="SO1300JTd" width="100px" data-id="lblMainCustID"></td>
+                                            <td class="SO1300JTd"><div data-id="csMainCustID" ></div></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td class="SO1300JTd" width="70px" style="text-align:right" data-id="lblFlag"></td>
+                                <td class="SO1300JTd" width="90px">
+                                    <input type="text" data-id="txtFlag"  class="SO1300JMode" />
+                                </td>
+                                <td class="SO1300JTd" width="110px"></td>
+                                <td class="SO1300JTd" width="20px"></td>
+                                <td class="SO1300JTd" width="110px"></td>
+                                <td class="SO1300JTd"></td>
+                            </tr>
+                            <tr class="SO1300JTr">
+                                <td class="SO1300JTd" colspan="7" data-id="lblMainCustNotes"></td>
+                                
+                            </tr>
+                            <tr class="SO1300JTr">
+                                <td class="SO1300JTd" data-id="lblCitemCode" ></td>
+                                <td class="SO1300JTd" data-id="lblPeriod" ></td>
+                                <td class="SO1300JTd" data-id="lblAmount"></td>
+                                <td class="SO1300JTd" data-id="lblStartDate"></td>
+                                <td class="SO1300JTd"></td>
+                                <td class="SO1300JTd" data-id="lblStopDate"></td>
+                                <td class="SO1300JTd" data-id="lblClctDate"></td>
+                            </tr>
+                            <tr class="SO1300JTr">
+                                <td class="SO1300JTd" >
+                                    <div data-id="csCitemCode" ></div>
+                                </td>
+                                <td class="SO1300JTd">
+                                    <input type="text" data-id="txtPeriod"  />
+                                </td>
+                                <td class="SO1300JTd">
+                                    <div data-id="txtAmount" ></div>
+                                </td>
+                                <td class="SO1300JTd">
+                                    <input type="text" data-id="dteStartDate"  />
+                                </td>
+                                <td class="SO1300JTd" data-id="lblDash"></td>
+                                <td class="SO1300JTd"><input type="text" data-id="dteStopDate" /></td>
+                                <td class="SO1300JTd"><input type="text" data-id="dteClctDate"  /></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </td>
+            
+        </tr>
+        <tr class="SO1300JTr" style="height:20%">
+            <td class="SO1300JTd" colspan="2">
+                <div data-id="grp2">
+                    <div data-id="lblOneChargeOpt"></div>
+                    <div>
+                        <table class="SO1300JTable">
+                            <tr class="SO1300JTr">
+                                <td class="SO1300JTd" data-id="ccCustStatusContainer">
+                                    <div data-id="ccCustStatus"></div>
+                                </td>
+                            </tr>
+                            <tr class="SO1300JTr">
+                                <td class="SO1300JTd" data-id="ccCustClassContainer">
+                                    <div data-id="ccCustClass"></div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </td>
+            
+        </tr>
+        <tr class="SO1300JTr" style="height:50%">
+            <td class="SO1300JTd" colspan="2">
+                <div data-id="grp3" id="grp3">
+                    <div data-id="lblAdjCitemCode" ></div>
+                    <div>
+                        <table class="SO1300JTable">
+                            <tr class="SO1300JTr">
+                                <td class="SO1300JTd" data-id="csCitemCodeContainer">
+                                    <div data-id="ccCitemCode"></div>
+                                </td>
+                            </tr>
+                            <tr class="SO1300JTr">
+                                <td class="SO1300JTd">
+                                    <div data-id="chkOption1" ></div>
+                                </td>
+                            </tr>
+                            <tr class="SO1300JTr" style="height:70px">
+                                <td class="SO1300JTd">
+                                    <div data-id="pnl" >
+                                        <table class="SO1300JTable">
+                                            <tr class="SO1300JTr">
+                                                <td class="SO1300JTd" width="85px" data-id="lblFinTime"></td>
+                                                <td class="SO1300JTd"><input type="text" data-id="txtFinTime" /></td>
+                                                <td class="SO1300JTd" width="85px" data-id="lblGroupCode"></td>
+                                                <td class="SO1300JTd" ><div data-id="csGroupCode"></div></td>                                                
+                                            </tr>
+                                            <tr class="SO1300JTr">
+                                                <td class="SO1300JTd" data-id="lblcsWorkEn1"></td>
+                                                <td class="SO1300JTd"><div data-id="csWorkEn1"></div></td>
+                                                <td class="SO1300JTd" data-id="lblcsWorkEn2"></td>
+                                                <td class="SO1300JTd"><div data-id="csWorkEn2" ></div> </td>
+                                                
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="SO1300JTr">
+                                <td class="SO1300JTd">
+                                    <div id="chkOption2" data-id="chkOption2"></div>
+                                </td>
+                            </tr>
+                            <tr class="SO1300JTr">
+                                <td class="SO1300JTd">
+                                    <table class="SO1300JTable">
+                                        <tr class="SO1300JTr">
+                                            <td class="SO1300JTd" style="width:60px" data-id="lblSignEn"></td>
+                                            <td class="SO1300JTd"><div data-id="csSignEn" ></div></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </td>
+            
+        </tr>
+        <tr class="SO1300JTr" style="height:30px">
+            <td class="SO1300JTd"><input type="button" data-id="btnOK"  /></td>
+            <td class="SO1300JTd"><input type="button" data-id="btnCancel"  style="float:right" /></td>
+        </tr>
+    </table>
+</body>
+</html>

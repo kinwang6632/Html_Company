@@ -1,0 +1,371 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+   <title id='Description'>開博  多選元件</title>
+   <link rel="stylesheet" href="jqwidgets/styles/jqx.base.css" type="text/css" />
+   <link rel="stylesheet" href="jqwidgets/styles/jqx.energyblue.css" type="text/css" />
+   <link rel="stylesheet" href="jqwidgets/styles/jqx.office.css" type="text/css" />
+    
+   <!--<script type="text/javascript" src="Scripts/jquery-3.1.0.js"></script>-->
+    <script src="scripts/jquery-1.11.1.min.js"></script>
+   <script type="text/javascript" src="jqwidgets/jqx-all.js"></script>    
+   <script type="text/javascript" src="language/zh-Tw/language01.js"></script>
+   <script type="text/javascript" src="Utility/utility.js"></script>
+    
+   <script type="text/javascript" src="component/csMulti.js"></script>
+   <script type="text/javascript" src="component/csWindow.js"></script>
+   <script type="text/javascript" src="/language/zh-Tw/language21.js"></script>
+   
+  
+   <script type="text/javascript">
+      /*
+      var csCC_Demo = (function () {
+         //全或變數
+         var data = [];
+
+         function _createElements() {
+            var o = {
+               name: "王大明_", age: 20, address: "桃園市_"
+            };
+
+            for (i = 1; i < 10000; i++) {
+               var oo = {
+                  ord: i, name: o.name + i, age: o.age + i, address: o.address + i
+               };
+               data.push(oo);
+            }
+
+            var source =
+              {
+                 localdata: data,
+                 datatype: "array"
+                 //datatype: "local"
+              };
+
+
+            var dataAdapter = new $.jqx.dataAdapter(source);
+
+            $("#jqxgrid").jqxGrid(
+            {
+               width: 300,
+               height: 350,
+               source: dataAdapter,
+               columns: [
+                 { text: '順序', datafield: 'ord', width: 45 },
+                 { text: '姓名', datafield: 'name', width: 80 },
+                 { text: '年齡', datafield: 'age', width: 50, cellsalign: 'right', cellsformat: 'f' },
+                 { text: '住址', datafield: 'address', width: 180 },
+               ]
+            });
+         };
+
+         // ***************
+         // 真正的建構子
+         // ***************
+         return {
+            config: {
+               dragArea: null
+            },
+            init: function () {
+               _createElements();
+               //_addEventListeners();
+               //_createWindow();
+            }
+         };
+      }()) //end csCC_Demo
+
+
+      $(document).ready(function () {
+         csCC_Demo.init();
+        });
+        */
+
+      /*
+      (function () {
+         // 實體化物件
+         var csCC = new csMulti({
+            searchSchool: true
+         });
+
+      }())
+      */
+
+      $(document).ready(function () {
+         var data = [];
+         var data2 = [];
+         var data3 = [];
+         var o = {
+            name: "王大明_", age: 20, address: "桃園市9999999999999999_"
+         };
+
+         for (i = 1; i < 10000; i++) {
+            var oo = {
+               codeno: i, description: o.name + i, address: o.address + i, address2: "2_" + o.address + i
+            };
+            data.push(oo);
+         }
+
+         for (i = 100; i < 110; i++) {
+            var oo = {
+               codeno2: i, description2: o.name + i, address2: o.address + i, address22: "2_" + o.address + i
+            };
+            data2.push(oo);
+         }
+
+         for (i = 300; i < 310; i++) {
+            var oo = {
+               codeno2: i, description2: o.name + i, address2: o.address + i, address22: "2_" + o.address + i
+            };
+            data3.push(oo);
+         }
+
+         // 實體化物件
+         //var csCC = new csMulti({
+         //   eid: "#jqxgrid",
+         //   source: data,
+         //   width:650,
+         //   searchSchool: true
+         //});
+         
+         //if (csCC == null) {
+         //   alert("無法實體化一個新的csMulti !");
+         //}
+
+         //var csCC = new csMulti({
+         //   eid: "#jqxgrid2",
+         //   source: data,
+         //   width: 450,
+         //   searchSchool: true
+         //});
+        
+         var csm = $('#csm1').csMulti({
+            source: data2,
+            buttonText: '選擇 1',
+            width: 800,
+            //height:23,
+            buttonWidth: 67,
+            buttonHeight: 25,
+            winWidth:800,
+            winHeight:500,
+            widthDesc: 150,
+            showOrdColumn: true,
+            orderByChoose: true,
+            disabled: false,
+            displayValue: '100,101,105,107',
+            theme: 'energyblue',
+            columns: [
+                 { text: '代碼2', datafield: 'codeno2', width: 70, hidden: true },
+                 { text: '名稱2', datafield: 'description2', width: 100, hidden: true },
+                 { text: '其它2', datafield: 'address2', width: 100 }
+            ]
+            //columnNames: ['address', 'address2'],
+            //columnTitles: ['地址', '地址_2']
+         });
+         
+         
+         var csm2 = $('#csm2').csMulti({
+            source: data2,
+            buttonText: '選擇 2',
+            width: '75%',
+            buttonWidth: 99,
+            selectAll: true,
+            disabled: false,
+            theme: 'energyblue'
+         });
+         var csm3 = $('#csm3').csMulti({
+            source: data3,
+            buttonText: '選擇 3',
+            width: '100%',
+            buttonWidth: 65,
+            disabled: true,
+            displayValue: '300,301,305,307',
+            theme: 'energyblue'
+         });
+         
+         var csm4 = $('#csm4').csMulti({
+            source: null,
+            buttonText: '選擇 4',
+            width: '50%',
+            buttonWidth: 100,
+            winWidth: 400,
+            winHeight: 500,
+            disabled: true,
+            theme: 'energyblue',
+            columns: [
+                { text: '代碼2', datafield: 'codeno2', width: 70, hidden: true },
+                { text: '名稱2', datafield: 'description2', width: 100, hidden: true },
+                { text: '其它2', datafield: 'address2', width: 100 }
+            ]
+         });
+         
+         $('#btnsetSource').on('click', function () {
+            $('#csm4').csMulti('source', data3);
+         });
+         $('#btnsetTheme').on('click', function () {
+            $('#csm4').csMulti('theme', 'office');
+         });
+         
+        //$('#jqxgrid').csMulti('showList', { name: 'chaucer', age: 45 });
+       
+        //監聽自定義事件 ChooseButtonClick ClearButtonClick LoadCompleted ChooseCompleted
+        csm.on('chooseButtonClick', function (data) {
+          var i=1;
+        });
+        csm.on('clearButtonClick', function (data) {
+           var i = 1;
+        });
+        csm.on('loadCompleted', function (data) {
+           var i = 1;
+        });
+        csm.on('chooseCompleted', function (data) {
+           var i = 1;
+        });
+        csm.on('change', function (data) {
+           var i = 1;
+        });
+        //csm2.showList();
+
+         //method clearChoose/clearItemSource/getChooseList/getChooseQuoteList/getChooseListName
+         //getChooseQuoteListName/getChooseItems/destroy/source/resize
+        $('#btnclearChoose').on('click', function () {
+           $('#csm1').csMulti('clearChoose', { name: 'chaucer', age: 45 });
+        });
+        $('#btnclearItemSource').on('click', function () {
+           $('#csm1').csMulti('clearItemSource');
+        });
+        $('#btngetChooseList').on('click', function () {
+           var dd = $('#csm1').csMulti('getChooseList', { name: 'chaucer', age: 45 });
+           alert(dd);
+        });
+        $('#btngetChooseQuoteList').on('click', function () {
+           var dd = $('#csm1').csMulti('getChooseQuoteList', { name: 'chaucer', age: 45 });
+           alert(dd);
+        });
+        $('#btngetChooseListName').on('click', function () {
+           var dd = $('#csm1').csMulti('getChooseListName', { name: 'chaucer', age: 45 });
+           alert(dd);
+        });
+        $('#btngetChooseQuoteListName').on('click', function () {
+           var dd = $('#csm1').csMulti('getChooseQuoteListName', { name: 'chaucer', age: 45 });
+           alert(dd);
+        });
+        $('#btngetChooseItems').on('click', function () {
+           var dd = $('#csm1').csMulti('getChooseItems', { name: 'chaucer', age: 45 });
+           alert(JSON.stringify(dd));
+        });
+        
+        $('#btndestroy').on('click', function () {
+           $('#csm1').csMulti('destroy');
+           alert('destroy OK!');
+           $(this).off();
+        });
+        
+        $('#btnsource').on('click', function () {
+           var data21 = [];
+           for (i = 10; i < 60; i++) {
+              var oo = {
+                 codeno2: i, description2: o.name + i, address2: o.address + i, address22: "2_" + o.address + i
+              };
+              data21.push(oo);
+           }
+           $('#csm1').csMulti('source', data21);
+           alert('source OK!');
+        });
+        
+        $('#btnresize').on('click', function () {
+           $('#csm1').csMulti('resize', { width: 458, height: 38 });
+           alert('resize OK!');
+        });
+        $('#btnsetDisplayValue').on('click', function () {
+           $('#csm1').csMulti('setDisplayValue', '101,103,105,107');
+           alert('setDisplayValue OK!');
+        });
+        $('#btnsetDisplayValue2').on('click', function () {
+           $('#csm1').csMulti('setDisplayValue', '');
+           alert('setDisplayValue=\'\' OK!');
+        });
+        $('#btnsetDisplayValue3').on('click', function () {
+           $('#csm1').csMulti('setDisplayValue', null);
+           alert('setDisplayValue null OK!');
+        });
+
+
+        $('#btnselectAll').on('click', function () {
+           $('#csm1').csMulti('selectAll', true);
+           alert('selectAll OK!');
+        });
+        $('#btnEnable').on('click', function () {
+           $('#csm1').csMulti('disabled', false);
+        });
+        $('#btnDisable').on('click', function () {
+           $('#csm1').csMulti('disabled', true);
+        });
+       
+        
+       
+
+        //$("#jqxWidget").jqxButtonGroup({ mode: 'radio' });
+        //$("#jqxWidget").on('buttonclick', function (event) {
+        //   var clickedButton = event.args.button;
+        //   $("#eventsLog").text("Clicked: " + clickedButton[0].id);
+        //});
+
+
+      });
+
+   </script>
+
+</head>
+<body>
+
+   <div>第一個元件封裝,編輯模式--> 有給定 資料 + 預設值</div>
+   <div id="csm1" style="display:inline-block;"></div>
+   <div style="clear:both;display:block;">
+      <input type="button" id="btnclearChoose" value="clearChoose" />
+      <input type="button" id="btnclearItemSource" value="clearItemSource" />
+      <input type="button" id="btngetChooseList" value="getChooseList" />
+      <input type="button" id="btngetChooseQuoteList" value="getChooseQuoteList" />
+      <input type="button" id="btngetChooseListName" value="getChooseListName" />
+      <input type="button" id="btngetChooseQuoteListName" value="getChooseQuoteListName" />
+      <input type="button" id="btngetChooseItems" value="getChooseItems" />
+      <input type="button" id="btndestroy" value="destroy" />
+      <input type="button" id="btnsource" value="source" />
+      <input type="button" id="btnresize" value="resize" />
+      <input type="button" id="btnsetDisplayValue" value="setDisplayValue" />
+      <input type="button" id="btnsetDisplayValue2" value="setDisplayValue=''''" />
+      <input type="button" id="btnsetDisplayValue3" value="setDisplayValue=null" />
+      <input type="button" id="btnselectAll" value="selectAll" />
+      <input type="button" id="btnEnable" value="enable" />
+      <input type="button" id="btnDisable" value="disabled" />
+   </div>
+   <p></p>
+  
+
+   <div>第二個元件封裝,新增模式--> 有給定資料 </div>
+   <div id="csm2" style="display:inline-block;"></div>
+   <p></p>
+   
+
+   <div>第三個元件封裝,單筆檢視模式--> 有給定資料 + 預設值</div>
+   <div id="csm3" style="display:inline-block;"></div>
+   <p></p>
+
+
+   <div>第四個元件封裝,無資料</div>
+   <div id="csm4" style="display:inline-block;"></div>
+   <br />
+   <input type="button" id="btnsetSource" value="setSource" />
+   <input type="button" id="btnsetTheme" value="setTheme-->office" />
+   <p></p>
+
+  
+      <!--<div id="btnclearChoose">clearChoose</div>
+      <div id="btnclearItemSource">clearItemSource</div>
+      <div id="btngetChooseList">getChooseList</div>
+      <div id="btngetChooseQuoteList">getChooseQuoteList</div>
+      <div id="btngetChooseListName">getChooseListName</div>
+      <div id="btngetChooseQuoteListName">getChooseQuoteListName</div>
+      <div id="btngetChooseItems">getChooseItems</div>-->
+
+</body>
+</html>

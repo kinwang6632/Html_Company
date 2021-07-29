@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+        .SO1132A1_DIV {
+            padding-top: 2px;
+            padding-left: 2px;
+            /*height: 24.5%;*/
+            width: 99.9%;
+            float: left;
+        }
+
+        .SO1132A1_lbl {
+            float: left;
+            margin-top: 6px;
+            color:red;
+        }
+
+        .SO1132A1_lblWidth {
+            width: 50px;
+            text-align: right;
+            margin-right: 2px;
+        }
+
+        .SO1132A1_cs {
+            float: left;
+
+            /*margin-left: 1px;*/
+        }
+
+    </style>
+
+    <!--<title></title>-->
+</head>
+<body>
+    <div data-id="gbxAll" class="SO1132A1_DIV">
+        <div class="SO1132A1_DIV" data-id="gbxTop">
+            <div class="SO1132A1_DIV">
+                <label data-id="lCancelDate" class="SO1132A1_lbl SO1132A1_lblWidth">作廢日期</label>
+                <input data-id="dtCancelDate" class="SO1132A1_cs" />
+            </div>
+            <div class="SO1132A1_DIV">
+                <label data-id="lCancelCode" class="SO1132A1_lbl SO1132A1_lblWidth">作廢原因</label>
+                <div data-id="csCancelCode" class="SO1132A1_cs"></div>
+            </div>
+        </div>
+        <div class="SO1132A1_DIV" data-id="gbxBottom">
+            <div class="SO1132A1_DIV">
+                <button data-id="btnSave" class="SO1132A1_cs">確定</button>
+                <button data-id="btnExit" style="float:right;">離開</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+﻿<div data-id='tabControl' style="margin:0px 0px 0px 3px;padding:1px;">
+    <ul>
+        <li data-id='lbltabItem_A' style="margin-left:3px;">單據合併</li>
+        <li data-id='lbltabItem_B' style="margin-left:3px;">產生媒體單號</li>
+        <li data-id='lbltabItem_B' style="margin-left:3px;">拆單</li>
+    </ul>
+    <div data-id='tabItem_A' style="height:100%;">
+        <div data-id="tabItem_A_Content" style="height:95%;margin:0px 3px 0px 3px;">
+            <!--單據合併-->
+            <div data-id="gbxSource" style="height:20%;width:100%;">
+                <div>
+                    合併單據區
+                </div>
+                <div data-id="gbxSourceContent" style="overflow-x:hidden;">
+                    <div data-id="gbxSourceTop" style="width:100%;height:80%;">
+                        <div data-id="dgLeft" style="float:left;width:30%;height:100%;"></div>
+                        <div data-id="dgRight" style="float:left;width:70%;height:100%;"></div>
+                    </div>
+                    <div data-id="btnSO1132D1" style="margin-left:10px;margin-bottom:6px;display:inline-block;"></div>
+                    <div data-id="gbxSourceBottom" style="float:right;width:30%;height:20%;display:inline-block;">
+                        <div data-id="lCombineAmt" style="margin-top:4px;display:inline-block;">合併後金額</div>
+                        <div data-id="lCombineAmt2" style="margin-top:4px;display:inline-block;margin-left:4px;color:red;">0</div>
+                        <div data-id="lCombineAmt3" style="margin-top:4px;display:inline-block;margin-left:4px;">元</div>
+                    </div>
+                </div>
+            </div>
+            <div data-id="gbxTarget" style="width:100%;height:58%;margin-top:1px;">
+                <div>
+                    被合併單據區
+                </div>
+                <div data-id="gbxTargetContent" style="overflow-x:hidden;">
+                    <div data-id="gbxTargetTop" style="width:100%;height:20%;margin-left:10px">
+                        <div data-id="chkBillNo" style="float:left;width:20%;"></div>
+                        <div data-id="chkAccountNo" style="float:left;width:20%;"></div>
+                        <div data-id="chkFaciSeqNo" style="float:left;width:20%;"></div>
+                        <div data-id="chkDeclarantName" style="float:left;width:20%;"></div>
+                    </div>
+                    <div data-id="dgTarget" style="width:100%;height:80%;"></div>
+                </div>
+            </div>
+            <div data-id="gbxButton" style="height:auto;padding:0px;margin:0px;width:100%;">
+                <button style="float:left;margin:1px;" data-id="btnOk">存檔</button>
+            </div>
+
+        </div>
+    </div>
+    <div data-id='tabItem_B' style="height:100%;">
+        <div data-id="tabItem_B_Content" style="height:100%;margin:0px 3px 0px 3px;">
+            <!--產生媒體單號--> 
+            <div data-id="SO1132D" style="height:100%;"></div>
+        </div>
+    </div>
+    <div data-id='tabItem_C' style="height:100%;">
+        <div data-id="tabItem_C_Content" style="height:100%;margin:0px 3px 0px 3px;">
+            <!--拆單-->
+            <div data-id="gbxSourcePR" style="height:20%;width:100%;">
+                <div>
+                    拆單單據區      
+                </div>
+                <div data-id="gbxSourcePRContent" style="overflow-x:hidden;">
+                    <div data-id="gbxSourcePRTop" style="width:100%;height:80%;">
+                        <div data-id="dgPRLeft" style="float:left;width:30%;height:100%;"></div>
+                        <div data-id="dgPRRight" style="float:left;width:70%;height:100%;"></div>
+                    </div>
+                    <div data-id="btnOkPR" style="margin-left:10px;margin-bottom:6px;display:inline-block;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="float:right;height:46px;">
+    <button data-id="btnQuit" style="float:right;margin-bottom:5px;margin-top:5px;">離開</button>
+</div>
+
+<div data-id="cswSO1132D1" style="clear:both;"></div>

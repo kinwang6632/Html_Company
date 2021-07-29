@@ -1,0 +1,197 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="jqwidgets/styles/jqx.base.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.orange.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.office.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.energyblue.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.energyblue2.css" rel="stylesheet" />
+    <style>
+        * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            font-size: 12px;
+        }
+
+        input:focus {
+            background: #E0E9F5;
+        }
+
+        textarea:focus {
+            background: #E0E9F5;
+        }
+    </style>
+    <!--<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>-->
+    <script type="text/javascript" src="scripts/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="Scripts/json2.js"></script>    
+    <!--<script type="text/javascript" src="jqwidgets/jqx-all.js"></script>-->
+    <script type="text/javascript" src="component/jqx-all2.js"></script>
+    <!--<script type="text/javascript" src="jqwidgets/jqxtabs.js"></script>-->
+    <script src="component/csTabs.js"></script>
+    <script type="text/javascript" src="jqwidgets/globalization/globalize.js"></script>
+    <script type="text/javascript" src="component/csList.js"></script>
+    <script type="text/javascript" src="component/csMulti.js"></script>
+    <script src="component/csDateTime.js"></script>
+    <script src="component/csUploadFile.js"></script>
+    <script src="component/csWindow.js"></script>
+    <script src="component/csAddress1.js"></script>
+    <script src="component/csAddress2.js"></script>
+    <script type="text/javascript" src="dynamicComponent/dynamicCondition.js"></script>
+    <script type="text/javascript" src="dynamicComponent/dynamicGrid.js"></script>
+    <script src="dynamicComponent/dynLinkProgram.js"></script>
+    <script src="dynamicComponent/showPreviousPara.js"></script>
+    <script type="text/javascript" src="dynamicComponent/dynTextFileOut.js"></script>
+    <script src="SO8000/SO8100B.js"></script>
+    <script src="SO8000/SO8100A.js"></script>
+    <script src="language/zh-TW/language01.js"></script>
+    <script src="language/zh-TW/language21.js"></script>
+    <script src="language/zh-TW/language31.js"></script>
+    <script src="language/zh-TW/language51.js"></script>
+    <script src="language/zh-TW/language52.js"></script>
+    <script src="language/zh-TW/language61.js"></script>
+    <script src="language/zh-TW/language71.js"></script>
+    <script src="Scripts/CryptoJS v3.1.2/rollups/aes.js"></script>
+    <script type="text/javascript" src="Utility/utility.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $ = jQuery = window.jQuery.noConflict(true);
+            var init = function () {
+                try {
+                    var loginInfo = {
+                        loginInfo: {
+                            columns: [{ name: 'compcode', type: 'integer' },
+                                { name: 'entryid', type: 'string' },
+                                { name: 'entryname', type: 'string' },
+                                { name: 'groupid', type: 'string' }
+                            ],
+                            rows: [{
+                                compcode: 3,
+                                entryid: 'TEST',
+                                entryname: 'TEST50',
+                                groupid: '50'
+                            }]
+                        }
+                    };
+
+                    var editmode = {
+                        type: 'integer',
+                        value: 1
+                    };
+                    var dsData = {
+                        customer: {
+                            columns: [{ name: 'custid', type: 'integer' },
+                                { name: 'custname', type: 'string' },
+                                { name: 'custidstr', type: 'string' },
+                                { name: 'selectcondition', type: 'string' },
+                                { name: 'faciseqno', type: 'string' },
+                                { name: 'orderitem', type: 'integer' }
+                            ],
+                            rows: [{
+                                custid: 600028,
+                                custname: '無',
+                                custidstr: '601005',
+                                selectcondition: '',
+                                faciseqno: '199902030169828',
+                                orderitem: 1
+                            }]
+                        }
+                    };
+                    //秀出form2 並傳參數
+                    $.jqx.theme = "energyblue2";
+                    //$.jqx.theme = "office";
+
+                    var localization = getLocalization('zh-TW');
+
+                    //$('#Text1').jqxInput({ width: 120, height: 25 });
+                    $('#Text1').val('SO3273A');
+                    var width = 900;
+                    var height = 600;
+                    var params = getParameters('getKey', 'getKey', 'getKey', loginInfo);
+                    var callChildForm = (function (data) {
+                        try {
+                            var divName = 'div' + getUniqueId();
+                            var div2Name = 'div' + getUniqueId();
+                            $('[data-id=Button1]').on('click', function () {
+                                //var programId = $('#Text1').val();
+                                var sysProgramId = $('#Text1').val();
+
+                                $('<div id="' + divName + '"><div>測試Form</div><div id="' + div2Name + '"></div></div>').appendTo('body');
+                                var div = $('#' + divName);
+                                $('#' + divName).csWindow($.extend({}, {
+                                    width: width,
+                                    height: height,
+                                    minHeight: 300,
+                                    minWidth: 600,
+                                    maxWidth: $(document).innerWidth(),
+                                    maxHeight: $(document).innerHeight(),
+                                    resizable: true,
+                                    hasClosing: false
+                                }));
+
+                                $('#' + div2Name).dynTextFileOut($.extend({}, {
+                                    loginInfo: cloneJSON(loginInfo),
+                                    container: $('#' + divName),
+                                    //programId: programId,
+                                    sysProgramId: sysProgramId,
+                                    parentData:cloneJSON( dsData),
+                                    localization:cloneJSON( localization)
+                                }));
+                                $('#' + div2Name).on('loaded', function () {
+                                });
+                                $('#' + div2Name).on('afterFindClick', function (r) {
+                                });
+                                $('#' + div2Name).on('afterClearClick', function () {
+                                });
+                                $(div).on('close', function (event) {
+                                    $('#' + div2Name).dynTextFileOut('destroy');
+                                    $('#' + divName).csWindow('destroy');
+                                });
+                            });
+                            $('[data-id=Button3]').on('click', function () {
+                                try {
+                                    if ($('#' + divName).csWindow('theme') == 'office') {
+                                        $('#' + divName).csWindow({ theme: 'energyblue' });
+                                        $('#' + div2Name).dynTextFileOut('theme', 'energyblue');
+                                    }
+                                    else {
+                                        $('#' + divName).csWindow({ theme: 'office' });
+                                        $('#' + div2Name).dynTextFileOut('theme', 'office');
+                                    }
+                                }
+                                catch (err) {
+                                    alert(err);
+                                }
+                            });
+
+                        }
+                        catch (err) {
+                            alert(err.stack);
+                        }
+                    });
+
+                    getServerData(params, { success: callChildForm });
+                }
+                catch (err) {
+                    alert(err.stack);
+                }
+            }
+
+            init();
+        });
+    </script>
+
+</head>
+<body>
+    <div id="maindiv">
+        <input id="Text1" type="text" />
+        <input data-id="Button1" type="button" value="Show Form" />
+        <input data-id="Button2" type="button" value="Close Form" />
+        <input data-id="Button3" type="button" value="Change Theme" />
+    </div>
+</body>
+</html>

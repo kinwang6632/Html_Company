@@ -1,0 +1,728 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    
+    <!--<link href="../jqwidgets/styles/jqx.base.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.black.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.classic.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.dark.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.office.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.energyblue.css" rel="stylesheet" />
+    <script src="../scripts/json2.js"></script>
+
+    <script src="../scripts/jquery-3.3.1.min.js"></script>
+    <script src="../scripts/jquery.mask.min.js"></script>
+    <script src="../jqwidgets/jqx-all.js"></script>
+    <script type="text/javascript" src="../jqwidgets/globalization/globalize.js"></script>
+    <script type="text/javascript" src="../jqwidgets/jqxtooltip.js"></script>
+    <script src="../component/csDateTime.js"></script>
+    <script src="../component/csList.js"></script>
+    <script src="../component/csTabs.js"></script>
+    
+    <script src="../language/zh-TW/language61.js"></script>
+    <script src="../language/zh-TW/language01.js"></script>
+    <script src="../language/zh-TW/language52.js"></script>
+    <script src="../language/zh-TW/language21.js"></script>
+    <script src="../Utility/utility.js"></script>
+    <script src="../component/csList.js"></script>
+    <script src="../component/csMulti.js"></script>-->
+    <style type="text/css">
+        /*
+          html {
+              width: 100%;
+              height: 100%;
+          }
+
+          body {
+              height: 99.9%;
+              margin: 0px;
+              padding: 0px;
+              font-size:12px
+          }
+
+          * {
+              -webkit-box-sizing: border-box;
+              -moz-box-sizing: border-box;
+              box-sizing: border-box;
+          }*/
+        .INV1120controlsHeight {
+            height:25px;
+        }
+        .INV1120table {
+            width: 100%;
+            height: 100%;
+            table-layout: fixed;
+            /*border : 1px solid red;*/
+            margin: 0;
+            padding: 0;
+            text-align: left;
+        }
+
+        .INV1120ttr {
+            /*border : 1px solid red;*/
+            margin: 0;
+            padding: 0;
+            text-align: left;
+        }
+
+        .INV1120td {
+            /*border : 1px solid red;*/
+            margin: 0;
+            padding: 0;
+            vertical-align: central;
+              text-align: left;
+        }
+
+        .INV1120Mode {
+            text-align: center;
+            background-color: cyan;
+        }
+        /*
+        .lbl {
+            width: 95%;
+            text-align: left;
+        }
+
+        .txt {
+            width: 95%;
+        }*/
+    </style>
+   
+    
+    <!--<script type="text/javascript">
+        $(document).ready(function() {
+            $('#invtab').csTabs({
+                width: '99.7%',
+                height: '99%'
+            })
+            $('#txtInvNo').jqxInput({ width: '100%' })
+            $('#txtMainInvNo').jqxInput({ width: '100%' })
+            $('#txtInvFormat').jqxInput({ width: '100%'})
+            $('#txtHowToCreate').jqxInput({ width: '100%' })
+            
+            $('#txtInvDate').csDateTime({ width: '100%' })
+            $('#txtCustId').jqxInput({ width: '100%' })
+            $('#txtCustName').jqxInput({ width: '100%' })
+            $('#txtInvTitle').jqxInput({ width: '100%' })
+            $('#txtBusinessId').jqxInput({ width: '100%' })
+            $('#txtIsObsolete').jqxInput({ width: '100%' })
+            $('#txtInvAddr').jqxInput({ width: '100%' })
+            $('#txtChargeDate').csDateTime({ width: '100%' })
+            $('#txtObsoleteReason').jqxInput({ width: '100%' })
+            $('#txtMailAddr').jqxInput({ width: '100%' })
+            $('#txtZipCode').jqxInput({ width: '100%' })
+            $('#txtDestroyReason').jqxInput({ width: '100%' })
+            $('#txtInstAddr').jqxInput({ width: '100%' })
+            $('#csInvUseId').csList({
+                source: null,
+                codeNoWidth: 50,
+                width: '100%',
+                //height: '23px',
+                showColumnHeaders: false,
+                //theme: 'energyblue',
+                //selectedIndex: -1,
+                readOnly: false,
+                codeNoReadOnly: false,
+                popupWidth: null,
+                popupHeight: null,
+                autoFitAllCols: false,
+                descriptionReadOnly: false
+            })
+            $('#txtPrintCount').jqxInput({ width: '100%' })
+            $('#txtCanModify').jqxInput({ width: '100%' })
+            $('#txtMemo1').jqxInput({ width: '100%' })
+            $('#txtSaleAmount').jqxInput({ width: '100%' })
+            
+            $('#txtTaxAmount').jqxInput({ width: '100%' })
+            
+            $('#txtInvAmount').jqxInput({ width: '100%' })
+            $('#txtMainSaleAmount').jqxInput({ width: '100%' })
+            $('#txtMainTaxAmount').jqxInput({ width: '100%' })
+            $('#txtMainInvAmount').jqxInput({ width: '100%' })
+            $('#txtMemo2').jqxInput({ width: '100%' })
+            $("#rdoTax1").jqxRadioButton({ width: 50, height: 25, checked:true });
+            $("#rdoTax2").jqxRadioButton({ width: 60, height: 25 });
+            $("#rdoTax3").jqxRadioButton({ width: 50, height: 25 });
+            $('#txtRate').jqxInput({ width: 30 })
+            $('#txtContmobile').jqxInput({ width: '100%' })
+            $('#txtEmail').jqxInput({ width: '100%' })
+            $('#chkPrizeType').jqxCheckBox({ width: 90 })
+            $('#chkAutoUploadFlag').jqxCheckBox({ width: 120 })
+            $('#chkFIXFlag').jqxCheckBox({ width: 180 })
+            $('#chkUploadFlag').jqxCheckBox({ width: 120 })
+            $('#chkDestroyFlag').jqxCheckBox({ width: 120 })
+            $('#chkObUploadFlag').jqxCheckBox({ width: 120 })
+            $('#txtPrizeFileFirst').jqxInput({ width: '100%' })
+            $('#txtLoveNum').jqxInput({ width: '100%' })
+            
+            $('#csGiveUnitId').csList({
+                source: null,
+                codeNoWidth: 40,
+                width: '180px',
+                //height: '23px',
+                showColumnHeaders: false,
+                //theme: 'energyblue',
+                //selectedIndex: -1,
+                readOnly: false,
+                codeNoReadOnly: false,
+                popupWidth: null,
+                popupHeight: null,
+                autoFitAllCols: false,
+                descriptionReadOnly: false
+            })
+            $('#txtCreateInvDate').csDateTime({
+                width: 175,
+                formatString: 'yyyy/MM/dd HH:mm:ss'
+            })
+            $('#txtPrintEn').jqxInput({ width: '100%' })
+            $('#txtlblPrintTime').csDateTime({
+                width: 175,
+                disabled : true,
+                formatString: 'yyyy/MM/dd HH:mm:ss'
+            })
+            $('#txtUploadTime').csDateTime({
+                width: 175,
+                disabled: true,
+                formatString: 'yyyy/MM/dd HH:mm:ss'
+            })
+            $('#txtOBUPLOADTIME').csDateTime({
+                width: 175,
+                disabled: true,
+                formatString: 'yyyy/MM/dd HH:mm:ss'
+            })
+            $('#txtDestroyUploadTime').csDateTime({
+                width: 175,
+                disabled: true,
+                formatString: 'yyyy/MM/dd HH:mm:ss'
+            })
+            $('#txtCarrierType').jqxInput({ width: '100%' })
+            $('#txtCarrierId1').jqxInput({ width: '100%' })
+            $('#txtA_CarrierId1').jqxInput({ width: '100%' })
+            $('#txtRandomNum').jqxInput({ width: '100%' })
+            $('#txtCarrierId2').jqxInput({ width: '100%' })
+            $('#txtA_CarrierId2').jqxInput({ width: '100%' })
+            
+            
+            
+        })
+
+       
+    </script>-->
+</head>
+<body>
+    
+        <table class="INV1120table" data-id="tbINV1120Table">
+            <tr style="height:390px" >
+                <td>
+                    <div data-id="invtab" id="invtab" style="width:100%;height:100%">
+                        <ul style='margin-left: 0px;'>
+                            <li data-id="TabItem1">資訊一</li>
+                            <li data-id="TabItem2">資訊二</li>
+                        </ul>  
+                        <!--頁面1-->
+                         <div data-id="invInfo1">
+                             <table class="INV1120table">
+                                 <!--主檔第一列-->
+                                 <tr  class="INV1120controlsHeight"> 
+                                     <td>
+                                         <table class="INV1120table">
+                                             <tr>
+                                                 <td style="width:55px;color:red" data-id="lblInvNo">
+                                                     
+                                                 </td>
+                                                 <td style="width:110px" >
+                                                     <input data-id="txtInvNo" id="txtInvNo" class="INV1120controlsHeight"  />
+                                                 </td>
+                                                 <td style="width:80px" data-id="lblMainInvNo" >
+                                                     
+                                                 </td>
+                                                 <td  style="width:90px" >
+                                                     <input data-id="txtMainInvNo" id="txtMainInvNo" class="INV1120controlsHeight"/>
+                                                 </td>
+                                                 <td style="width:55px" class="controlsHeight">
+                                                     <label data-id="lblInvFormat" style="float:left"></label>
+                                                 </td>
+                                                 <td style="width:60px" >
+                                                     <input data-id="txtInvFormat" id="txtInvFormat" class="INV1120controlsHeight" />
+                                                 </td>
+                                                 <td style="width:55px" class="controlsHeight">
+                                                     <label data-id="lblHowToCreate" style="float:left"></label>
+                                                 </td>
+                                                 <td style="width:60px" class="controlsHeight">
+                                                     <input data-id="txtHowToCreate" id="txtHowToCreate"  class="INV1120controlsHeight" />
+                                                 </td>
+                                                 <td style="width:55px" data-id="lblPrintCount"></td>
+                                                 <td style="width:25px" class="INV1120controlsHeight">
+                                                     <input data-id="txtPrintCount" id="txtPrintCount" class="INV1120controlsHeight" style="text-align:right" />
+
+                                                 </td>
+
+                                                 <td style="width:55px" data-id="lblCanModify"></td>
+                                                 <td style="width:25px" class="INV1120controlsHeight">
+                                                     <input data-id="txtCanModify" id="txtCanModify" class="INV1120controlsHeight" />
+
+                                                 </td>
+                                                 <td></td>
+                                             </tr>
+                                         </table>                                                                                  
+                                    </td>
+                                 </tr>
+                                 <!--主檔第二列-->
+                                 <tr class="INV1120controlsHeight">
+                                     <td>
+                                         <table class="INV1120table">
+                                             <tr>
+                                                 <td style="width:55px;color:red" data-id="lblInvDate"></td>
+                                                 <td style="width:140px" class="INV1120controlsHeight" >
+                                                     <input type="tel" data-id="txtInvDate" id="txtInvDate" class="INV1120controlsHeight" style="float:left"  />                                                     
+                                                     <button data-id='btnINV099' style="float:left">...</button>
+                                                 </td>
+                                                 <!--<td style="width:20px" class="INV1120controlsHeight">
+                                                     
+                                                 </td>-->
+                                                 <td style="width:50px;color:red" data-id="lblCustId"></td>           
+                                                 <td style="width:140px">
+                                                    <input  data-id="txtCustId" id="txtCustId" class="INV1120controlsHeight" style="float:left" />
+                                                     <input data-id='btnfindCust' style="float:left"/>
+                                                 </td>                                        
+                                                 <td style="width:55px;color:red" data-id="lblCustName"></td>
+                                                 <td style="width:300px"><input data-id="txtCustName" id="txtCustName" class="INV1120controlsHeight" /></td>                                        
+                                                 
+                                                 <td></td>                                                                                         
+                                             </tr>
+                                         </table>
+                                     </td>
+                                 </tr>
+                                 <!--主檔第三列-->
+                                 <tr class="INV1120controlsHeight">
+                                     <td>
+                                         <table class="INV1120table">
+                                             <tr>
+                                                 <td style="width:55px" data-id="lblInvTitle"></td>
+                                                 <td style="width:280px" class="INV1120controlsHeight">
+                                                     <input  data-id="txtInvTitle" id="txtInvTitle" class="INV1120controlsHeight" />
+                                                 </td>
+                                                 <td style="width:55px" data-id="lblBusinessId"></td>
+                                                 <td style="width:90px" class="INV1120controlsHeight">
+                                                     <input type="tel" data-id="txtBusinessId" id="txtBusinessId" class="INV1120controlsHeight" style="ime-mode:disabled" />
+                                                 </td>
+                                                 <td style="width:55px" data-id="lblContmobile"></td>
+                                                 <td style="width:110px" class="INV1120controlsHeight">
+                                                     <input type="tel" data-id="txtContmobile" id="txtContmobile" class="INV1120controlsHeight"  />
+                                                 </td>
+                                                 <td style="width:45px" data-id="lblIsObsolete"></td>
+                                                 <td style="width:30px" class="INV1120controlsHeight">
+                                                     <input  data-id="txtIsObsolete" id="txtIsObsolete" class="INV1120controlsHeight" />
+                                                 </td>
+                                                 <td></td>
+                                             </tr>
+                                         </table>
+                                     </td>
+                                  
+                                 </tr>
+                                 <!--主檔第四列-->
+                                 <tr class="INV1120controlsHeight">
+                                     <td>
+                                         <table class="INV1120table">
+                                             <tr>
+                                                 <td style="width:55px" data-id="lblInvAddr"></td>
+                                                 <td style="width:280px" class="INV1120controlsHeight">
+                                                     <input data-id="txtInvAddr" id="txtInvAddr" class="INV1120controlsHeight" />
+                                                 </td>
+                                                 <td style="width:55px" data-id="lblChargeDate"></td>
+                                                 <td style="width:120px" class="INV1120controlsHeight">
+                                                     <input type="tel" data-id="txtChargeDate" id="txtChargeDate" class="INV1120controlsHeight" style="ime-mode:disabled" />
+                                                 </td>
+                                                 <td style="width:55px" data-id="lblObsoleteReason"></td>
+                                                 <td style="width:120px" class="INV1120controlsHeight">
+                                                     <input  data-id="txtObsoleteReason" id="txtObsoleteReason" class="INV1120controlsHeight" style="ime-mode:disabled" />
+                                                 </td>
+                                                 <td style="width:80px;height:25px">
+                                                     <!--<input type="checkbox" data-id="chkEInv" class="INV1120controlsHeight"  />-->
+                                                     <div data-id="chkEInv" class="INV1120controlsHeight" style="margin-top:7px" ></div>
+                                                 </td>
+                                                 <td>
+
+                                                 </td>
+                                             </tr>
+                                         </table>
+                                     </td>
+                                    
+                                 </tr>
+                                 <!--主檔第五列-->
+                                 <tr class="INV1120controlsHeight">
+                                     <td>
+                                         <table class="INV1120table">
+                                             <tr>
+                                                 <td style="width:55px" data-id="lblMailAddr"></td>
+                                                 <td style="width:280px" class="INV1120controlsHeight">
+                                                     <input data-id="txtMailAddr" id="txtMailAddr" class="INV1120controlsHeight" />
+                                                 </td>
+                                                 <td style="width:55px" data-id="lblInstAddr"></td>
+                                                 <td style="width:280px" class="INV1120controlsHeight">
+                                                     <input data-id="txtInstAddr" id="txtInstAddr" class="INV1120controlsHeight" />
+                                                 </td>
+                                                 
+                                                 <td></td>
+                                             </tr>
+                                         </table>
+                                     </td>
+
+                                 </tr>
+                                 <!--主檔第六列-->
+                                 <tr class="INV1120controlsHeight">
+                                     <td>
+                                         <table class="INV1120table">
+                                             <tr>
+                                                 <!--
+                                                 <td style="width:55px" data-id="lblInstAddr"></td>
+                                                 <td style="width:280px" class="INV1120controlsHeight">
+                                                     <input data-id="txtInstAddr" id="txtInstAddr" class="INV1120controlsHeight" />
+                                                 </td> -->
+                                                 <td style="width:55px" data-id="lblZipCode"></td>
+                                                 <td style="width:50px" class="INV1120controlsHeight">
+                                                     <input data-id="txtZipCode" id="txtZipCode" class="INV1120controlsHeight" />
+                                                 </td>
+                                                 <td style="width:55px" data-id="lblDestroyReason"></td>
+                                                 <td style="width:100px" class="INV1120controlsHeight">
+                                                     <input data-id="txtDestroyReason" id="txtDestroyReason" class="INV1120controlsHeight" />
+                                                 </td>
+                                                 <td style="width:60px" data-id="lblInvUseId"></td>
+                                                 <td style="width:140px" class="INV1120controlsHeight">
+                                                     <div data-id="csInvUseId"  id="csInvUseId" class="INV1120controlsHeight"></div>
+                                                 </td>
+                                                 <td data-id="lblLoveNum" style="width:50px" class="INV1120controlsHeight"></td>
+                                                 <td style="width:50px">
+                                                     <input data-id="txtLoveNum" id="txtLoveNum" class="INV1120controlsHeight" />
+                                                 </td>
+                                                 <td data-id="lblGiveUnitId" style="width:60px" class="INV1120controlsHeight"></td>
+                                                 <td style="width:140px">
+                                                     <div data-id="csGiveUnitId" id="csGiveUnitId" class="INV1120controlsHeight"></div>
+
+                                                 </td>
+                                                 <!--
+                                                 <td style="width:55px" data-id="lblPrintCount"></td>
+                                                 <td style="width:25px" class="INV1120controlsHeight">
+                                                     <input data-id="txtPrintCount" id="txtPrintCount" class="INV1120controlsHeight"/>
+                                                     
+                                                 </td>
+                                                 
+                                                 <td style="width:55px" data-id="lblCanModify"></td>
+                                                 <td style="width:25px" class="INV1120controlsHeight">
+                                                     <input data-id="txtCanModify" id="txtCanModify" class="INV1120controlsHeight" />
+
+                                                 </td>-->
+                                               
+                                                 <td></td>
+                                             </tr>
+                                         </table>
+                                     </td>
+
+                                 </tr>
+                                 <!--主檔第七列-->
+                                 <tr class="INV1120controlsHeight">
+                                     <td>
+                                         <table class="INV1120table">
+                                             <tr>
+                                                 
+                                                 <td style="width:55px" data-id="lblSaleAmount"></td>
+                                                 <td style="width:60px" class="INV1120controlsHeight">                                                     
+                                                     <input data-id="txtSaleAmount" id="txtSaleAmount" class="INV1120controlsHeight" style="text-align:right" />
+                                                 </td>
+                                                 <td style="width:35px" data-id="lblTaxAmount"></td>
+                                                 <td style="width:60px" class="INV1120controlsHeight">
+                                                     <input data-id="txtTaxAmount" id="txtTaxAmount" class="INV1120controlsHeight" style="text-align:right"/>
+                                                 </td>
+                                                 <td style="width:55px" data-id="lblInvAmount"></td>
+                                                 <td style="width:60px" class="INV1120controlsHeight">
+                                                     <input data-id="txtInvAmount" id="txtInvAmount" class="INV1120controlsHeight" style="text-align:right" />
+                                                 </td>
+                                                 <td style="width:80px" data-id="lblMainSaleAmount"></td>
+                                                 <td style="width:60px" class="INV1120controlsHeight">
+                                                     <input data-id="txtMainSaleAmount" id="txtMainSaleAmount" class="INV1120controlsHeight" style="text-align:right" />
+                                                 </td>
+                                                
+                                                 <td style="width:70px" data-id="lblMainTaxAmount"></td>
+                                                 <td style="width:50px" class="INV1120controlsHeight">
+                                                     <input data-id="txtMainTaxAmount" id="txtMainTaxAmount" class="INV1120controlsHeight" style="text-align:right"/>
+
+                                                 </td>
+                                                 <td style="width:80px" data-id="lblMainInvAmount"></td>
+                                                 <td style="width:60px" class="INV1120controlsHeight">
+                                                     <input data-id="txtMainInvAmount" id="txtMainInvAmount" class="INV1120controlsHeight" style="text-align:right" />
+
+                                                 </td>
+                                                
+                                                 <td></td>
+                                             </tr>
+                                         </table>
+                                     </td>
+
+                                 </tr>
+                                 <!--主檔第八列-->
+                                 <tr class="INV1120controlsHeight">
+                                     <td>
+                                         <table class="INV1120table">
+                                             <tr>
+                                                 <td style="width:55px" data-id="lblMemo1"></td>
+                                                 <td style="width:280px" class="INV1120controlsHeight">
+                                                     <input data-id="txtMemo1" id="txtMemo1" class="INV1120controlsHeight" />
+                                                 </td>
+                                                 <td style="width:55px" data-id="lblMemo2"></td>
+                                                 <td style="width:320px" class="INV1120controlsHeight">
+                                                     <input data-id="txtMemo2" id="txtMemo2" class="INV1120controlsHeight" />
+                                                 </td>                                                 
+                                                 <td></td>
+                                             </tr>
+                                         </table>
+                                     </td>
+
+                                 </tr>
+                                 <!--主檔第九列-->
+                                 <tr class="INV1120controlsHeight">
+                                     <td>
+                                         <table class="INV1120table">
+                                             <tr>
+                                                 <td data-id="lblTaxType" width="30px"></td>
+                                                 <td  width="270px">     
+                                                     <table class="INV1120table">
+                                                         <tr>
+                                                             <td>
+                                                                 <div data-id="rdoTax1" id='rdoTax1' style="float:left;margin-right:5px" class="INV1120controlsHeight">
+                                                                     
+                                                                 </div>
+                                                                 <input data-id="txtRate" id="txtRate" style="float:left;margin-right:3px" class="INV1120controlsHeight" />
+                                                                 <div style="float:left;vertical-align:middle;text-align:center;margin-top:5px;margin-right:3px" class="INV1120controlsHeight">%</div>
+                                                                 <div data-id="rdoTax2" id='rdoTax2' style="float:left;margin-right:5px" class="INV1120controlsHeight">
+                                                                     
+                                                                 </div>
+                                                                 <div data-id="rdoTax3" id='rdoTax3' style="float:left" class="INV1120controlsHeight">
+                                                                     
+                                                                 </div>
+                                                             </td>
+                                                         </tr>
+                                                     </table>                                                
+                                                     
+                                                 </td>
+                                                 <td data-id="Email" width="90px" > </td>
+                                                 
+                                                 <td style="width:320px" class="INV1120controlsHeight">
+                                                     <input data-id="txtEmail" id="txtEmail" class="INV1120controlsHeight" />
+                                                 </td>
+                                                 <td></td>
+                                             </tr>
+                                         </table>
+                                     </td>
+                                    
+                                 </tr>
+                                 <!--主檔第十列(Grid)-->
+                                 <tr>
+                                     <td>
+                                         <div style="height:100%"></div>
+                                     </td>
+                                  
+                                 </tr>
+
+                             </table>
+                         </div>
+                       <!--頁面2-->
+                         <div data-id="invInfo2">
+                             <table class="INV1120table">
+                                 <!--第一列-->
+                                 <tr class="INV1120controlsHeight">
+                                     
+                                     <td>
+                                         <table class="INV1120table">
+                                             <tr>
+                                                 <td class="INV1120controlsHeight" width="90px">
+                                                    <div data-id="chkPrizeType" id="chkPrizeType" class="INV1120controlsHeight"></div>                                                     
+                                                 </td>
+                                                 <td class="INV1120controlsHeight" width="120px">
+                                                     <div data-id="chkAutoUploadFlag" id="chkAutoUploadFlag" class="INV1120controlsHeight"></div>
+                                                 </td>
+                                                 <td  class="INV1120controlsHeight" width="120px">
+                                                     <div data-id="chkFIXFlag" id="chkFIXFlag" class="INV1120controlsHeight"></div>
+                                                 </td>
+                                                 <td  class="INV1120controlsHeight" width="120px">
+                                                     <div data-id="chkUploadFlag" id="chkUploadFlag" class="INV1120controlsHeight"></div>
+                                                 </td>
+                                                 <td  class="INV1120controlsHeight" width="120px">
+                                                     <div data-id="chkDestroyFlag" id="chkDestroyFlag" class="INV1120controlsHeight"></div>
+                                                 </td>
+                                                 <td class="INV1120controlsHeight" width="120px">
+                                                     <div data-id="chkObUploadFlag" id="chkObUploadFlag" class="INV1120controlsHeight"></div>
+                                                 </td>                                                                                                  
+                                             </tr>
+                                         </table>
+                                     </td>
+                                 </tr>
+                                 <!--第二列-->
+                                 <tr  class="INV1120controlsHeight">
+                                     <td>
+                                         <table class="INV1120table">
+                                             <tr>
+                                                 <td data-id="lblPrizeFileFirst" style="width:90px" class="INV1120controlsHeight" ></td>
+                                                 <td style="width:30px">
+                                                     <input data-id="txtPrizeFileFirst" id="txtPrizeFileFirst" class="INV1120controlsHeight" />
+                                                 </td>
+                                                 
+                                                 <td style="width:150px">
+                                                    <div data-id="chkDEPOSITMK" class="INV1120controlsHeight" style="margin-top:10px" />
+                                                 </td>             
+                                                 <td data-id="lblDataType" style="width:60px" class="INV1120controlsHeight">資料類別</td>                           
+                                                 <td style="width:80px">
+                                                     <input data-id="txtDataType" id="txtDataType" class="INV1120controlsHeight" />
+                                                 </td>
+                                                 <!--
+                                                 <td data-id="lblLoveNum" style="width:50px" class="INV1120controlsHeight"></td>
+                                                 <td style="width:100px">
+                                                     <input  data-id="txtLoveNum" id="txtLoveNum" class="INV1120controlsHeight" />
+                                                 </td>-->
+                                                 <!--
+                                                 <td data-id="lblGiveUnitId" style="width:60px" class="INV1120controlsHeight"></td>
+                                                 <td style="width:180px">
+                                                     <div data-id="csGiveUnitId" id="csGiveUnitId" class="INV1120controlsHeight"></div>
+                                                     
+                                                 </td>-->
+                                                 <td></td>
+                                             </tr>
+                                         </table>
+                                     </td>
+                                 </tr>
+                                 <!--第三列-->
+                                 <tr  class="INV1120controlsHeight">
+                                     <td>
+                                         <table class="INV1120table">
+                                             <tr>
+                                                 <td data-id="lblCreateInvDate" class="INV1120controlsHeight" width="80px"></td>
+                                                 <td class="INV1120controlsHeight" width="175px">
+                                                     <input data-id="txtCreateInvDate" id="txtCreateInvDate" />
+                                                 </td>
+                                                 <td data-id="lblPrintEn" class="INV1120controlsHeight" width="80px"></td>
+                                                 <td class="INV1120controlsHeight" width="120px">
+                                                     <input data-id="txtPrintEn" id="txtPrintEn" class="INV1120controlsHeight"/>
+                                                 </td>
+                                                 <td data-id="lbllblPrintTime" class="INV1120controlsHeight" width="80px"></td>
+                                                 <td class="INV1120controlsHeight" width="175px">
+                                                     <input data-id="txtlblPrintTime" id="txtlblPrintTime" />
+                                                 </td>
+
+                                                 <td>
+
+                                                 </td>
+                                             </tr>
+                                         </table>
+                                    </td>
+                                 </tr>
+                                 <!--第四列-->
+                                 <tr class="INV1120controlsHeight">
+                                     <td>
+                                         <table class="INV1120table">
+                                             <tr>
+                                                 <td data-id="lblUploadTime" class="INV1120controlsHeight" width="80px"></td>
+                                                 <td class="INV1120controlsHeight" width="175px">
+                                                     <input data-id="txtUploadTime" id="txtUploadTime" />
+                                                 </td>
+                                                 <td data-id="lblOBUPLOADTIME" class="INV1120controlsHeight" width="80px"></td>
+                                                 <td class="INV1120controlsHeight" width="175px">
+                                                     <input data-id="txtOBUPLOADTIME" id="txtOBUPLOADTIME" />
+                                                 </td>
+                                                 <td data-id="lblDestroyUploadTime" class="INV1120controlsHeight" width="80px"></td>
+                                                 <td class="INV1120controlsHeight" width="175px">
+                                                     <input data-id="txtDestroyUploadTime" id="txtDestroyUploadTime" />
+                                                 </td>
+                                                 <td></td>
+                                             </tr>
+                                        </table>
+                                    </td>
+                                 </tr>
+                                 <!--第五列-->
+                                 <tr class="INV1120controlsHeight">
+                                     <td>
+                                         <table class="INV1120table">
+                                             <tr>
+                                                 <td data-id="lblCarrierType" class="INV1120controlsHeight" width="110px"></td>
+                                                 <td class="INV1120controlsHeight" width="140px">
+                                                     <input data-id="txtCarrierType" id="txtCarrierType" class="INV1120controlsHeight" />
+                                                 </td>
+                                                 <td data-id="lblCarrierId1" class="INV1120controlsHeight" width="85px"></td>
+                                                 <td class="INV1120controlsHeight" width="175px">
+                                                     <input data-id="txtCarrierId1" id="txtCarrierId1" class="INV1120controlsHeight" />
+                                                 </td>
+                                                 <td data-id="lblA_CarrierId1" class="INV1120controlsHeight" width="80px"></td>
+                                                 <td class="INV1120controlsHeight" width="175px">
+                                                     <input data-id="txtA_CarrierId1" id="txtA_CarrierId1" class="INV1120controlsHeight" />
+                                                 </td>
+                                                
+                                                 <td></td>
+                                             </tr>
+                                         </table>
+                                     </td>
+                                 </tr>
+                                 <!--第六列-->
+                                 <tr class="INV1120controlsHeight">
+                                     <td>
+                                         <table class="INV1120table">
+                                             <tr>
+                                                 <td data-id="lblRandomNum" class="INV1120controlsHeight" width="110px"></td>
+                                                 <td class="INV1120controlsHeight" width="140px">
+                                                     <input data-id="txtRandomNum" id="txtRandomNum" class="INV1120controlsHeight" />
+                                                 </td>
+                                                 <td data-id="lblCarrierId2" class="INV1120controlsHeight" width="85px"></td>
+                                                 <td class="INV1120controlsHeight" width="175px">
+                                                     <input data-id="txtCarrierId2" id="txtCarrierId2" class="INV1120controlsHeight" />
+                                                 </td>
+                                                 <td data-id="lblA_CarrierId2" class="INV1120controlsHeight" width="80px"></td>
+                                                 <td class="INV1120controlsHeight" width="175px">
+                                                     <input data-id="txtA_CarrierId2" id="txtA_CarrierId2" class="INV1120controlsHeight" />
+                                                 </td>
+                                                
+                                                 <td></td>
+                                             </tr>
+                                         </table>
+                                     </td>
+                                 </tr>
+                                 <tr>
+                                     <td></td>
+                                 </tr>
+                             </table>
+                         </div>              
+                    </div>
+                </td>
+            </tr>
+            <tr style="height:20px">
+                <td>
+                    <button data-id="btndetailAdd" style="float:left"></button>
+                    <button data-id="btndetailEdit" style="float:left"></button>
+                    <button data-id="btndetailDel" style="float:left"></button>
+
+                </td>
+            </tr>
+            <tr style="height:100%">
+                <td>
+                    <div data-id="iSec_1" style="height:100%">
+
+                    </div>
+                </td>
+            </tr>
+            <tr style="width:100%;height:25px">
+                <td>
+                    <div style="float:left">
+                        <button data-id="btnSave"></button>
+                    </div>
+                    <div data-id="txtEditMode" style="display: table-cell; vertical-align: middle;height:25px;width:60px;float:right" class="csslEditMode">
+                        
+                    </div>
+                    <div style="float:right">
+                        <button data-id="btnExit"></button>
+                    </div>
+                    
+                </td>
+            </tr>
+        </table>
+    
+</body>
+</html>

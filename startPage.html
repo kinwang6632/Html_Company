@@ -1,0 +1,300 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+    <link href="jqwidgets/styles/jqx.base.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.orange.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.office.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.energyblue.css" rel="stylesheet" />
+    <!--
+    <script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>
+    <script src="component/csList.js"></script>
+    <script src="component/csDateTime.js"></script>
+    <script type="text/javascript" src="Scripts/json2.js"></script>
+    <script type="text/javascript" src="SO6000/SO6460A.js"></script>
+    <script type="text/javascript" src="SO1000/SO1114A.js"></script>
+    <script src="jqwidgets/jqx-all.js"></script>
+    <script type="text/javascript" src="language/zh_TW/SO6460ALanguage.js"></script>
+    <script type="text/javascript" src="language/zh_TW/language31.js"></script>
+    <script type="text/javascript" src="language/zh_TW/language01.js"></script>
+    <script type="text/javascript" src="Utility/utility.js"></script> -->
+    <script type="text/javascript" src="scripts/json2.js"></script>
+    <script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqx-all.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxcore.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxdatetimeinput.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxcalendar.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxtooltip.js"></script>
+    <script type="text/javascript" src="jqwidgets/globalization/globalize.js"></script>
+    <script type="text/javascript" src="scripts/jquery.mask.min.js"></script>
+    <script type="text/javascript" src="SO1000/SO1131C.js"></script>
+
+    <script type="text/javascript" src="language/zh-TW/SO1131CLanguage.js"></script>
+    <script src="component/csList.js"></script>
+    <script src="component/csMulti.js"></script>
+    <script src="component/csDateTime.js"></script>
+    <script type="text/javascript" src="SO1000/SO1112A.js"></script>
+    <script type="text/javascript" src="SO1000/SO111XD.js"></script>
+    <script type="text/javascript" src="SO1000/SO1115A.js"></script>
+    <script type="text/javascript" src="SO1000/SO111xCEA.js"></script>
+    <script type="text/javascript" src="SO1000/SO1114A.js"></script>
+
+    <script src="language/zh-TW/language61.js"></script>
+    <script src="language/zh-TW/language01.js"></script>
+    <script src="language/zh-TW/language52.js"></script>
+    <script src="language/zh-TW/language31.js"></script>
+    <script src="component/csWindow.js"></script>
+    <script type="text/javascript" src="Utility/utility.js"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $.jqx.theme = "energyblue";
+            //$($(document).find('[data-id=win]')[0]).csWindow({
+            //    width: 800, height: 600
+            //});
+            //$($(document).find('[data-id=dgcontainer]')[0]).jqxTabs({
+            //    width: '50%', height: 300, position: 'top'
+            //});
+            //return;
+            //var formName = "SO6460A";
+            //$.ajax({
+            //    url: 'SO6000\\' + formName + '.html',
+            //    type: "get",
+            //    datatype: 'html',
+            //    success: function (msg) {
+            //        var div = $($(document).find('[data-id=maindiv]')[0]);
+            //        $('<div data-id="div"><div>測試Form</div><div data-id="div2"></div></div>').appendTo('body');
+
+            //        div.html(msg);
+
+            //        $(div.find('[data-id=dgcontainer]')[0]).jqxTabs({
+            //            width: '50%', height: 300, position: 'top'
+            //        });
+            //    },
+            //    error: function (xhr, ajaxOptions, thrownError) {
+            //        var param = options;
+            //        if (param['loadError']) {
+            //            param['loadError'](xhr, ajaxOptions, thrownError);
+            //        }
+            //        else {
+            //            messageBox('error status:' + xhr.status + ', thrownError:' + thrownError, messageType.critical);
+            //        }
+            //    }
+            //});
+            //return;
+            try {
+
+                var loginInfo = {
+                    loginInfo: {
+                        columns: [{ name: 'compcode', type: 'int' },
+                            { name: 'entryid', type: 'str' },
+                            { name: 'entryname', type: 'str' },
+                            { name: 'groupid', type: 'str' }
+                        ],
+                        rows: [{
+                            compcode: 3,
+                            entryid: 'test',
+                            entryname: 'test',
+                            groupid: '50'
+                        }]
+                    }
+                };
+                loginInfo.loginInfo.rows;
+
+                //var editmode = {
+                //    type: 'integer',
+                //    value: 1
+                //};
+                var editmode = 1;
+                var editmode = { type: 'integer', value: editmode };
+
+                var dsData = {
+                    type: 'string',
+                    table1: {
+                        columns: [{ name: 'compcode', type: 'integer' },
+                            { name: 'entryid', type: 'string' },
+                            { name: 'entryname', type: 'string' },
+                            { name: 'groupid', type: 'string' }
+                        ],
+                        rows: [{
+                            compcode: 3,
+                            entryid: 'test',
+                            entryname: 'test',
+                            groupid: '50'
+                        }]
+                    },
+                    table2: {
+                        columns: [{ name: 'compcode', type: 'integer' },
+                            { name: 'entryid', type: 'string' },
+                            { name: 'entryname', type: 'string' },
+                            { name: 'groupid', type: 'string' }
+                        ],
+                        rows: [{
+                            compcode: 3,
+                            entryid: 'test',
+                            entryname: 'test',
+                            groupid: '50'
+                        }]
+                    }
+                };
+
+                //dsData.table1.rows[0].compcode = 3;
+
+                //var theme = 'orange';
+                var params = getParameters('getKey', 'getKey', 'getKey', loginInfo);
+                getServerData(params, { success: initOk })
+                //function findRowByKey(rows, key, value) {
+                //    for (i = 0; i < rows.length; i++) {
+
+                //    }
+                //}
+                //秀出form2 並傳參數
+                //$.jqx.theme = "energyblue";
+                //$("#jqxImageButton").jqxButton({ width: 120, height: 40 });
+                $('body').attr('disabled', true);
+
+                function initOk(data) {
+                    //alert(data);
+                    $('body').removeAttr('disabled');
+                    try {
+                        $('[data-name=Button1]').on('click', function () {
+                            var divName = 'div' + getUniqueId();
+                            var div2Name = 'div2' + getUniqueId();
+                            $('<div id="' + divName + '"><div>測試Form</div><div id="' + div2Name + '"></div></div>').appendTo('body');
+                            var div = $('#' + divName);
+                            $(div)['csWindow']($.extend({}, {
+                                width: 800, height: 600
+                            }));
+                            var div2 = $('#' + div2Name);
+                            $(div2).SO6460A($.extend({}, {
+                                loginInfo: loginInfo,
+                                refNo: 1,
+                                parameters: {},
+                                container: div
+                                //closed: function (ret) {
+                                //    //alert(JSON.stringify(ret));
+                                //}
+                                //,
+                                //loaded: function () {
+                                //    $(div).on('close', function (event) {
+                                //        $(div2)['SO6460A']('destroy');
+                                //        $(div).csWindow('destroy');
+                                //    });
+                                //    //關閉 form2 並取回參數
+                                //    $('[data-id=Button2]').on('click', function () {
+                                //        $(div2)['SO6460A']('close');
+                                //    });
+                                //}
+                            }));
+                            $(div).on('close', function () {
+                                //alert($(div2).SO6460A.methods['options']);
+
+                                //var options = $.data($(div2), formName).options;
+                                var options = $(div2).SO6460A.methods['options'];
+
+                                $(div2).SO6460A('destroy');
+                                $(div).csWindow('destroy');
+                            });
+                            $(div2).on('loaded', function () {
+                                //alert(JSON.stringify($(this).SO6460A('options').language));
+                                $(this).each(function () {
+                                    //alert($(this).SO6460A('options'));
+                                });
+                            });
+                            $(div).appendTo($($('body').find('[data-id=maindiv]')[0]));
+
+                            $('[data-id=Button3]').on('click', function () {
+                                //$.jqx.theme = "office";
+                                $(div).csWindow('theme', 'office');
+                                $(div2).SO6460A('setTheme', 'office');
+                            });
+                        });
+                        $('[data-name=butSO1114A]').on('click', function () {
+                            var divName = 'div' + getUniqueId();
+                            var div2Name = 'div2' + getUniqueId();
+                            $('<div id="' + divName + '"><div>測試 SO1114A Form</div><div id="' + div2Name + '"></div></div>').appendTo('body');
+                            var div = $('#' + divName);
+                            $(div)['csWindow']($.extend({}, {
+                                width: 800, height: 400
+                            }));
+                            var div2 = $('#' + div2Name);
+                            var setServiceType = 'C';
+                            var setServCode = 101;
+                            var setResvTime = '2012/09/02';
+                            $(div2).SO1114A($.extend({}, {
+                                loginInfo: loginInfo,
+                                refNo: 1,
+                                parameters: {},
+                                serviceType:setServiceType,
+                                servCode: setServCode,
+                                resvTime:setResvTime,
+                                container: div
+                            }));
+                            $(div).on('close', function () {
+                                var options = $(div2).SO1114A.methods['options'];
+                                $(div2).SO1114A('destroy');
+                                $(div).csWindow('destroy');
+                            });
+                            $(div2).on('loaded', function () {
+                                $(this).each(function () {
+                                });
+                            });
+                            $(div).appendTo($($('body').find('[data-id=maindiv]')[0]));
+                            $('[data-id=Button3]').on('click', function () {
+                                $(div).csWindow('theme', 'office');
+                                $(div2).SO1114A('setTheme', 'office');
+                            });
+                        });
+                    }
+                    catch (err) {
+                        alert(err.stack);
+                    }
+                }
+            }
+            catch (err) {
+                alert(err.stack);
+            }
+        });
+    </script>
+</head>
+<body class="jqx-widget-content">
+    <div data-id="maindiv">
+        <input data-id="Button1" data-name="Button1" type="button" value="Show Form SO6460A" />
+        <input data-id="Button2" type="button" value="Close Form" />
+        <input data-id="Button3" type="button" value="Change Theme" />
+        <input style='margin-top: 20px;' type="button" id='jqxImageButton' />
+        <!--<div data-id="win" >
+            <div>
+                測試Form
+            </div>
+            <div>
+                <table>
+                    <tr>
+                        <td data-id="lcodeno">代碼</td>
+                        <td>
+                            <input data-id="codeno" />
+                        </td>
+                    </tr>
+                </table>
+                <div data-id="dgcontainer" style="float:right;width:50%;top:0px;">
+                    <ul>
+                        <li data-id="ltbuycode">買賣付款方式</li>
+                        <li data-id="ltwipcode">派工類別</li>
+                    </ul>
+                    <div>123</div>
+                    <div>3456</div>
+                </div>
+            </div>
+
+        </div>-->
+    </div>
+    <div>||</div>
+    <div>||</div>
+    <div>
+        <input data-id="butSO1114A" data-name="butSO1114A" type="button" value="Show Form SO1114A" />
+    </div>
+
+</body>
+</html>

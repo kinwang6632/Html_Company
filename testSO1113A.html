@@ -1,0 +1,387 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="jqwidgets/styles/jqx.base.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.orange.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.office.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.energyblue.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.ui-lightness.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.ui-redmond2.css" rel="stylesheet" />
+    <style>
+        * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            font-size: 12px;
+        }
+
+        input:focus {
+            background: #E0E9F5;
+        }
+
+        .csslEditMode {
+            background-color: #FFFF99;
+            border-color: white;
+            width: 120px;
+            height: 25px;
+            text-align: center;
+            padding: 6px;
+        }
+
+        textarea:focus {
+            background: #E0E9F5;
+        }
+    </style>
+    <script type="text/javascript" src="Scripts/jquery-3.3.1.min.js"></script>
+    <!--<script type="text/javascript" src="jqwidgets/jqx-all.js"></script>-->
+    <script type="text/javascript" src="jqwidgets/globalization/globalize.js"></script>
+    <script type="text/javascript" src="component/csList.js"></script>
+    <script type="text/javascript" src="component/csMulti.js"></script>
+    <script src="component/jqx-all2.js"></script>
+    <script src="component/csDateTime.js"></script>
+    <script src="component/csTabs.js"></script>
+    <script src="component/csAddress1.js"></script>
+    <script src="component/csAddress2.js"></script>
+    <script src="component/csWindow.js"></script>
+    <script src="dynamicComponent/dynamicGrid.js"></script>
+    <script src="SO1000/WipUtility.js"></script>
+    <script src="SO1000/SO1100BA.js"></script>
+    <script src="SO1000/SO114EA.js"></script>
+    <script src="SO1000/SO1113A.js"></script>
+    <script src="SO1000/SO1113A1.js"></script>
+    <script src="SO1000/SO1113B.js"></script>
+    <script src="SO1000/SO1113C.js"></script>
+    <script src="SO1000/SO1114A.js"></script>
+    <script src="SO1000/SO1100BA4.js"></script>
+    <script src="SO1000/SO1115A.js"></script>
+    <script src="SO1000/SO1111A.js"></script>
+    <script src="SO1000/SO111XD.js"></script>
+    <script src="SO1000/SO1132A.js"></script>
+    <script src="SO1000/SO1120AA.js"></script>
+    <script src="SO1000/SO1120A9.js"></script>
+    <script src="SO1000/SO1120A8.js"></script>
+    <script src="SO1000/SO1120A7.js"></script>
+    <script src="SO1000/SO1120A6.js"></script>
+    <script src="SO1000/SO1120A5.js"></script>
+    <script src="SO1000/SO1120A4.js"></script>
+    <script src="SO1000/SO1120A3.js"></script>
+    <script src="SO1000/SO1120A2.js"></script>
+    <script src="SO1000/SO1120A1.js"></script>
+    <script src="SO1000/SO1120A.js"></script>
+    
+
+    <script src="language/zh-TW/language01.js"></script>
+    <script src="language/zh-TW/language21.js"></script>    
+    <script src="language/zh-TW/language61.js"></script>
+    <script src="language/zh-TW/language71.js"></script>
+    <script src="Scripts/CryptoJS v3.1.2/rollups/aes.js"></script>
+    <script src="Scripts/CryptoJS v3.1.2/components/mode-ecb-min.js"></script>
+    <script src="Utility/utility.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            //$ = jQuery = window.jQuery.noConflict(true);
+            //var d = new Date('2016/08/23 16:04');
+            //alert(d.toJSON());
+            ////alert(formatDateTime(d) + "," + d.getTimezoneOffset());
+            //return;
+            //try {
+            //    //$.cs.Utility('messageBox', 'TEST');
+            //    alert($.utility.formatDateTime(new Date(), 'datetime'));
+            //    //alert($.cs.utility('formatDateTime',new Date(),'datetime'));
+            //}
+            //catch (err) {
+            //    alert(err);
+            //}
+            //$('#csDateTime').on('dateChanged', function () {
+            //    alert('valueChanged');
+            //});
+            //$('#csDateTime').csDateTime({ formatString: 'yyyy/MM/dd HH:mm' });
+            ////, inputMode: 'simple'
+            ////$('#csDateTime').csDateTime('setText', '');
+            //return;
+            //return;
+            //var data = {
+            //    columns: [{ name: 'CUSTID', type: 'integer' },
+            //            { name: 'AMOUNT', type: 'decimal' }
+            //    ],
+            //    rows: [{
+            //        CUSTID: 3,
+            //        AMOUNT: 500,
+            //    }, {
+            //        CUSTID: 3,
+            //        AMOUNT: 600
+            //    }]
+            //};
+            //var total = 0;
+            //for (var i = 0; i < data.rows.length; i++) {
+            //    total += data.rows[i]['AMOUNT'];
+            //}
+            //return;
+            var init = function () {
+                try {
+                    var loginInfo = {
+                        loginInfo: {
+                            columns: [{ name: 'compcode', type: 'integer' },
+                                { name: 'entryid', type: 'string' },
+                                { name: 'entryname', type: 'string' },
+                                { name: 'groupid', type: 'string' }
+                            ],
+                            rows: [{
+                                compcode: 3,
+                                entryid: 'TEST',
+                                entryname: 'TEST50',
+                                groupid: '50'
+                            }]
+                        }
+                    };
+                    $('#custId').val('628436');
+                    $('#serviceType').val('D');
+                    $('#sno').val('201412PD0034676');
+                    var getInData = (function () {
+                        var custId = $('#custId').val();
+                        var servCode = '';
+                        var serviceType = $('#serviceType').val();
+                        var sno = $('#sno').val();
+                        var x = "\"";
+                        var dsData = {
+                            customer: {
+                                columns: [{ name: 'CUSTID', type: 'integer' },
+                                    { name: 'CUSTNAME', type: 'string' },
+                                    { name: 'SERVCODE', type: 'string' },
+                                ],
+                                rows: [{
+                                    CUSTID: custId,
+                                    CUSTNAME: '無',
+                                    SERVCODE: servCode,
+                                }]
+                            },
+                            pr: {
+                                columns: [{ name: 'CUSTID', type: 'integer' },
+                                    { name: 'SNO', type: 'string' },
+                                    { name: 'SERVICETYPE', type: 'string' }
+                                ],
+                                rows: [{
+                                    CUSTID: custId,
+                                    SNO: sno,
+                                    SERVICETYPE: serviceType,
+                                }]
+                            }
+                        };
+                        var xx = dsData['customer'];
+                        var keys = Object.keys(dsData);
+                        return dsData;
+                    });
+                    //秀出form2 並傳參數
+                    //$.jqx.theme = "office";
+                    //$.jqx.theme = "energyblue2";
+                    $.jqx.theme = "ui-redmond2";
+                    //$.jqx.theme = "office";
+                    if ($("#xxx").length == 0) {
+                        // alert(0);
+                    }
+                    var localization = getLocalization('zh-TW');
+                    //$('#Text1').jqxInput({ width: 120, height: 25 });
+                    var params = getParameters('getKey', 'getKey', 'getKey', loginInfo);
+                    var showChildForm = (function (em, inData) {
+                        try {
+                            var divName = 'div' + getUniqueId();
+                            var div2Name = 'div' + getUniqueId();
+                            $('<div id="' + divName + '"><div>測試Form</div><div id="' + div2Name + '"></div></div>').appendTo('body');
+                            var div = $('#' + divName);
+
+                            $('#' + divName).csWindow($.extend({}, {
+                                width: 1000,
+                                height: 600,
+                                maxWidth: 1024,
+                                maxHeight: 768,
+                  //              minHeight: 200,
+                  //              minWidth: 600,
+                  //              maxWidth: $(document).innerWidth(),
+                  //              maxHeight: $(document).innerHeight(),
+                                resizable: true,
+                                haveClosing: true
+                            }));
+                            $('#' + div2Name)['SO1113A']($.extend({}, {
+                                loginInfo: cloneJSON(loginInfo),
+                                container: $('#' + divName),
+                                parameters: inData,
+                                localization: localization,
+                                editMode: em
+                            }));
+                            if ($('#' + div2Name).length > 0) {
+                                // alert($('#' + div2Name).length);
+                            }
+                            $('[data-id=changeTheme]').on('click', function () {
+                                if ($('#' + divName).jqxWindow('theme') == 'office') {
+                                    $('#' + divName).jqxWindow('theme', 'energyblue');
+                                    $('#' + div2Name).SO1113A('theme', 'energyblue');
+                                }
+                                else {
+                                    $('#' + divName).jqxWindow('theme', 'office');
+                                    $('#' + div2Name).SO1113A('theme', 'office');
+                                }
+                            });
+
+                            $('#' + divName).on('close', function (event) {
+                                $('#' + div2Name).SO1113A('destroy');
+                                $('#' + divName).csWindow('destroy');
+                                //$('#' + divName).jqxWindow('destroy');
+                            });
+                        }
+                        catch (err) {
+                            alert(err);
+                        }
+                    });
+                    var chkShow = (function (em, inData, action) {
+                        try {
+                            var method;
+                            switch (em) {
+                                case editMode.append:
+                                    method = "canAppend";
+                                    break;
+                                case editMode.edit:
+                                    method = "canEdit";
+                                    break;
+                                case editMode.view:
+                                    method = "canView";
+                                    break;
+                                case editMode.delete:
+                                    method = "canDelete";
+                                    break;
+
+                            }
+                            $.fn.SO1113A(method, $.extend({}, loginInfo, inData), action);
+                        }
+                        catch (err) {
+                            alert(err);
+                        }
+                    });
+                    var canDo = (function (data) {
+                        try {
+                            $('[data-id=btnAppend]').on('click', function () {
+                                var inData = getInData();
+                                chkShow(editMode.append, inData, function (d) {
+                                    if (d[0] == false) {
+                                        messageBox(d[1]);
+                                    }
+                                    else {
+                                        showChildForm(editMode.append, inData);
+                                    }
+                                });
+                            });
+                            $('[data-id=btnEdit]').on('click', function () {
+                                var inData = getInData();
+                                chkShow(editMode.edit, inData, function (d) {
+                                    if (d[0] == false) {
+                                        messageBox(d[1]);
+                                    }
+                                    else {
+                                        showChildForm(editMode.edit, inData);
+                                    }
+                                });
+                            });
+                            $('[data-id=btnView]').on('click', function () {
+                                var inData = getInData();
+                                chkShow(editMode.view, inData, function (d) {
+                                    if (d[0] == false) {
+                                        messageBox(d[1]);
+                                    }
+                                    else {
+                                        showChildForm(editMode.view, inData);
+                                    }
+                                });
+                            });
+                            $('[data-id=btnDelete]').on('click', function () {
+                                var inData = getInData();
+                                chkShow(editMode.delete, inData, function (d) {
+                                    if (d[0] == false) {
+                                        messageBox(d[1]);
+                                    }
+                                    else {
+                                        showChildForm(editMode.delete, inData);
+                                    }
+                                });
+                            });
+
+                        }
+                        catch (err) {
+                            alert(err.stack);
+                        }
+                    });
+
+                    getServerData(params, { success: canDo });
+                }
+                catch (err) {
+                    alert(err.stack);
+                }
+            }
+            init();
+        });
+
+    </script>
+
+</head>
+<body>
+    <hr />
+    <div id="maindiv">
+        <table>
+            <tr>
+                <td>
+                    客編
+                </td>
+                <td>
+
+                    <input id="custId" type="text" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    工單單號
+                </td>
+                <td>
+                    <input id="sno" type="text" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    服務別
+                </td>
+                <td>
+                    <input id="serviceType" type="text" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    測試日期
+                </td>
+                <td>
+                    <input id="csDateTime" type="text" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input data-id="btnAppend" type="button" value="新增" />
+                    <input data-id="btnEdit" type="button" value="修改" />
+                    <input data-id="btnView" type="button" value="顯示" />
+                    <input data-id="btnDelete" type="button" value="刪除" />
+                    <input data-id="changeTheme" type="button" value="改佈景" />
+                </td>
+            </tr>
+            <tr />
+            <tr />
+            <tr>
+                <td>
+                    Jason 轉換
+                </td>
+                <td>
+                    <input id="fromJSON" type="text" />
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

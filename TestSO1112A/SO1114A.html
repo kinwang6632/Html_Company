@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <table style="width:100%;" cellspacing="0">
+        <tr style="width:100%;height:60px">
+            <td>
+                <div data-id="detaildata">
+                    <table style="width:100%;" cellspacing="0" height="50">
+                        <tr>
+                            <td data-id="ChooseSet1">
+                                <table style="width:100%;" cellspacing="0">
+                                    <tr>
+                                        <td>
+                                            <table style="width:100%;" cellspacing="0">
+                                                <tr>
+                                                    <td data-id="lServCode" style="width:60px;">服務區</td>
+                                                    <td>
+                                                        <div data-id="csServCode"></div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <table style="width:100%;" cellspacing="0">
+                                                <tr>
+                                                    <td><div style="width:100px;"><input id="rDateType1" type="radio" name="resvTime" checked="checked" />A.預約日期</div></td>
+                                                    <td>
+                                                        <input data-id="dtResvTime" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><div style="width:100px;"><input id="rDateType0" type="radio" name="resvTime" />B.受理日期</div></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr></tr>
+                                </table>
+                            </td>
+                            <td data-id="ChooseSet2">
+                                <table style="width:100%;" cellspacing="0">
+                                    <tr>
+                                        <td>
+                                            <div data-id="lWipType" style="width:60px;">派工類別</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><div data-id="ChkbInst">裝機</div></td>
+                                        <td><div data-id="ChkbMaintain">維修</div></td>
+                                    </tr>
+                                    <tr>
+                                        <td><div data-id="ChkbPR">停拆機</div></td>
+                                        <td><div data-id="ChkbReInt">移機</div></td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td data-id="ChooseSet3">
+                                <table style="width:98%;" cellspacing="0">
+                                    <tr>
+                                        <td></td>
+                                        <td>
+                                            <div>
+                                                <button data-id="QueryButton">查詢</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><div data-id="lPointCount" style="width:100px;">派工點數小計：</div></td>
+                                        <td><div><input data-id="txtWorkUnitSum" /></div></td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td data-id="ChooseSet4">
+                                <table style="width:100%;" cellspacing="0">
+                                    <tr>
+                                        <td>
+                                            <div style="width:100px;">
+                                                <button data-id="OKButton">確定</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div style="width:100px;">
+                                                <button data-id="CancelButton">離開</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+        </tr>
+        <tr style="width:100%;height:auto">
+            <td><div data-id="grdResvDetail" style="margin-top:2px;"></div></td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,205 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <link href="../jqwidgets/styles/jqx.base.css" rel="stylesheet" />    
+    <link href="../jqwidgets/styles/jqx.orange.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.office.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.energyblue.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.energyblue2.css" rel="stylesheet" />
+    <script type="text/javascript" src="../scripts/jquery-1.11.1.min.js"></script>    
+    <script type="text/javascript" src="../scripts/json2.js"></script>
+    <script src="../jqwidgets/jqx-all.js"></script>
+    <script src="../component/csTabs.js"></script>
+    <script src="../component/csList.js"></script>
+    <script src="../component/csMulti.js"></script>
+    <script src="../component/csDateTime.js"></script>
+    <script src="../component/csUploadFile.js"></script>
+    <script src="../component/csAddress1.js"></script>
+    <script src="../component/csAddress2.js"></script>
+    <script src="../component/csWindow.js"></script>
+    
+    <script src="dynamicComponent/dynamicCondition.js"></script>    
+    <script src="dynamicComponent/dynamicUpdate.js"></script>
+    <script src="../jqwidgets/globalization/globalize.js"></script>
+    <script src="../language/zh-TW/language01.js"></script>
+    <script src="../language/zh-TW/language21.js"></script>
+    <script src="../language/zh-TW/language31.js"></script>
+    <script src="../language/zh-TW/language51.js"></script>
+    <script src="../language/zh-TW/language52.js"></script>
+    <script src="../language/zh-TW/language61.js"></script>
+    <script src="../language/zh-TW/language71.js"></script>
+    <script type="text/javascript" src="../Utility/utility.js"></script>
+    <script type="text/javascript" src="../Utility/ChargeUtility.js"></script>
+    <style type="text/css">
+          
+          html {
+              width: 100%;
+              height: 100%;
+          }
+
+          body {
+              height: 99.9%;
+              margin: 0px;
+              padding: 0px;
+              font-size:12px
+          }
+
+          * {
+              -webkit-box-sizing: border-box;
+              -moz-box-sizing: border-box;
+              box-sizing: border-box;
+          }
+
+          .DyUpdGrdTable {
+              width: 100%;
+              height: 100%;
+              table-layout: fixed;
+              border : 1px solid red;
+              margin: 0;
+              padding: 0;
+              text-align: left;
+          }
+
+          .DyUpdGrdTr {
+              border: 1px solid red;
+              margin: 0;
+              padding: 0;
+              text-align: left;
+          }
+
+          .DyUpdGrdTd {
+              border : 1px solid red;
+              margin: 0;
+              padding: 0;
+              vertical-align: central;
+              /*  text-align: left;*/
+          }
+
+          .DyUpdGrdMode {
+              text-align: center;
+              background-color: cyan;
+          }
+
+          /*
+        .lbl {
+            width: 95%;
+            text-align: left;
+        }
+
+        .txt {
+            width: 95%;
+        }*/
+    </style>
+    <script type="text/javascript" >
+        $(document).ready(function () {
+            $("#mainSplitter").jqxSplitter({
+                width: '100%',
+                height: '100%',
+                orientation: 'horizontal',
+                splitBarSize: 2,
+                panels: [{ size: '50%' }, { size: '50%' }]
+            });
+            $('#btnSave').jqxButton({
+                width: 65,
+                height: 25,
+                imgSrc: imageScr.save.imgSrc
+            });
+            $('#btnAppend').jqxButton({
+                width: 65,
+                height: 25,
+                imgSrc: imageScr.append.imgSrc
+            });
+            $('#btnEdit').jqxButton({
+                width: 65,
+                height: 25,
+                imgSrc: imageScr.edit.imgSrc
+            });
+            $('#btnDelete').jqxButton({
+                width: 65,
+                height: 25,
+                imgSrc: imageScr.delete.imgSrc
+            });
+            $('#btnCopy').jqxButton({
+                width: 110,
+                height: 25,                
+            });
+            $('#btnCancel').jqxButton({
+                width: 65,
+                height: 25,
+                imgSrc: imageScr.cancel.imgSrc
+            });
+            $("#txtStatusMode").jqxInput({
+                width: 50,
+                height: 25,
+                disabled: true,
+            });
+            $("#gilCompCode").csList({
+                source: null,
+                codeNoWidth: 60,
+                width: '300px',
+                height: '25px',
+                showColumnHeaders: false,
+                readOnly: false,
+                codeNoReadOnly: false,
+                popupWidth: null,
+                popupHeight: null,
+                autoFitAllCols: false,
+                descriptionReadOnly: false,
+                columns: [
+                       { text: 'CODENO', datafield: 'CODENO' },
+                       { text: 'DESCRIPTION', datafield: 'DESCRIPTION' }
+                ]
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+    
+    <table class="DyUpdGrdTable" id="Maincontainer">
+        <tr class="DyUpdGrdTr" style="height:30px">
+            <td class="DyUpdGrdTd" style="width:60px;color:red"  data-id="lblCompCode"></td>
+            <td class="DyUpdGrdTd"><div data-id="gilCompCode" id="gilCompCode"></div></td>
+        </tr>
+        <tr class="DyUpdGrdTr" data-id="splitterName">
+            <td class="DyUpdGrdTd"  colspan="2">
+                <div data-id="mainSplitter" id="mainSplitter">
+                    <div data-id="partA" id="partA"></div>
+                    <div data-id="partB" id="partB"></div>
+                </div>
+            </td>
+        </tr>
+        <tr class="DyUpdGrdTr" style="height:30px">
+            <td class="DyUpdGrdTd" colspan="2">
+                <table class="DyUpdGrdTable">
+                    <tr class="DyUpdGrdTr">
+                        <td class="DyUpdGrdTd" style="width:70px">
+                            <button data-id="btnSave" id="btnSave"></button>
+                        </td>
+                        <td class="DyUpdGrdTd" style="width:70px">
+                            <button data-id="btnAppend" id="btnAppend"></button>
+                        </td>
+                        <td class="DyUpdGrdTd" style="width:70px">
+                            <button data-id="btnEdit" id="btnEdit"></button>
+                        </td>
+                        <td class="DyUpdGrdTd" style="width:70px">
+                            <button data-id="btnDelete" id="btnDelete"></button>
+                        </td>
+                        <td class="DyUpdGrdTd" style="width:120px">
+                            <button data-id="btnCopy" id="btnCopy"></button>
+                        </td>
+                        <td class="DyUpdGrdTd">
+                            <button data-id="btnCancel" id="btnCancel" style="float:right;margin-right:4px"></button>
+                        </td>
+                        <td class="DyUpdGrdTd" style="width:60px"><input class="DyUpdGrdMode" type="text" data-id="txtStatusMode" id="txtStatusMode" /></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

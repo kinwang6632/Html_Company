@@ -1,0 +1,236 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <!--
+    <link href="../jqwidgets/styles/jqx.base.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.black.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.classic.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.dark.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.office.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.energyblue.css" rel="stylesheet" />
+    <script src="../scripts/json2.js"></script>
+    <script src="../scripts/jquery-1.11.1.min.js"></script>
+    <script src="../scripts/jquery.mask.min.js"></script>
+    <script src="../jqwidgets/jqx-all.js"></script>
+    <script type="text/javascript" src="../jqwidgets/globalization/globalize.js"></script>
+    <script type="text/javascript" src="../jqwidgets/jqxtooltip.js"></script>
+    <script src="../component/csDateTime.js"></script>
+    <script src="../language/zh-TW/language61.js"></script>
+    <script src="../language/zh-TW/language01.js"></script>
+    <script src="../Utility/utility.js"></script>
+    <script src="../component/csList.js"></script>
+    <script src="../component/csMulti.js"></script>-->
+    <style type="text/css">
+        /*
+          html {
+              width: 100%;
+              height: 100%;
+          }
+
+          body {
+              height: 99.9%;
+              margin: 0px;
+              padding: 0px;
+              font-size:12px
+          }
+
+          * {
+              -webkit-box-sizing: border-box;
+              -moz-box-sizing: border-box;
+              box-sizing: border-box;
+          }*/
+
+        .SO1100D3table {
+            width: 100%;
+            height: 100%;
+            table-layout: fixed;
+            /*border : 1px solid red;*/
+            margin: 0;
+            padding: 0;
+            text-align: left;
+        }
+
+        .SO1100D3tr {
+            /*border : 1px solid red;*/
+            margin: 0;
+            padding: 0;
+            text-align: left;
+        }
+
+        .SO1100D3td {
+            /*border : 1px solid red;*/
+            margin: 0;
+            padding: 0;
+            vertical-align: central;
+            /*  text-align: left;*/
+        }
+
+        .SO1100D3Mode {
+            text-align: center;
+            background-color: cyan;
+        }
+        /*
+        .lbl {
+            width: 95%;
+            text-align: left;
+        }
+
+        .txt {
+            width: 95%;
+        }*/
+    </style>
+    <!--
+    <script type="text/javascript">
+        $(document).ready(function () {          
+            $("#grdProduct").jqxGrid({
+                width: '99.7%',
+                height: '99%',
+                sortable: true,
+                altrows: true,
+                editable: true,
+                columnsresize: true,
+                columns: [
+                    {
+                        text: '#', sortable: false, filterable: false, editable: false,
+                        groupable: false, draggable: false, resizable: false,
+                        datafield: '', columntype: 'number', width: 30,
+                        cellsrenderer: function (row, column, value) {
+                            return "<div style='margin:4px;'>" + (value + 1) + "</div>";
+                        }
+                    },
+                    { text: '選擇', datafield: 'CHOOSE', width: 40, cellsalign: 'center', align: 'center' },
+                    { text: '服務編號', datafield: 'SERVICEID', width: 70, cellsalign: 'left', align: 'left', editable: false },
+                    { text: '產品名稱', datafield: 'PRODUCTNAME', width: 120, cellsalign: 'left', align: 'center', editable: false },
+                    { text: '客戶編號', datafield: 'CUSTID', width: 80, cellsalign: 'center', align: 'center', editable: false },
+                    { text: '裝機地址', datafield: 'INSTADDRESS', width: 250, cellsalign: 'left', align: 'center', editable: false },
+                    { text: '設備序號', datafield: 'FACISNO', width: 110, cellsalign: 'left', align: 'center', editable: false },
+                    { text: '家戶編號', datafield: 'HOMEID', width: 80, cellsalign: 'left', align: 'center', editable: false },
+
+                ]
+            });
+            $("#grdNonePeriod").jqxGrid({
+                width: '99.7%',
+                height: '99%',
+                sortable: true,
+                altrows: true,
+                editable: true,
+                columnsresize: true,
+                columns: [
+                    {
+                        text: '#', sortable: false, filterable: false, editable: false,
+                        groupable: false, draggable: false, resizable: false,
+                        datafield: '', columntype: 'number', width: 30,
+                        cellsrenderer: function (row, column, value) {
+                            return "<div style='margin:4px;'>" + (value + 1) + "</div>";
+                        }
+                    },
+                    { text: '選擇', datafield: 'CHOOSE', width: 40, cellsalign: 'center', align: 'center' },
+                    { text: '客編', datafield: 'CUSTID', width: 80, cellsalign: 'center', align: 'left', editable: false },
+                    { text: '申請人', datafield: 'DECLARANTNAME', width: 120, cellsalign: 'left', align: 'center', editable: false },
+                    { text: '收費項目代碼', datafield: 'CITEMCODE', width: 100, cellsalign: 'center', align: 'center', editable: false },
+                    { text: '收費項目名稱', datafield: 'CITEMNAME', width: 150, cellsalign: 'left', align: 'center', editable: false },
+                    { text: '停用', datafield: 'STOPFLAG', width: 40, cellsalign: 'center', align: 'center', editable: false },
+                    { text: '期數', datafield: 'PERIOD', width: 50, cellsalign: 'center', align: 'center', editable: false },
+                    { text: '金額', datafield: 'AMOUNT', width: 80, cellsalign: 'right', align: 'center', editable: false },
+                    { text: '扣款帳號', datafield: 'ACCOUNTNO', width: 150, cellsalign: 'center', align: 'center', editable: false },
+                    { text: '收費方式', datafield: 'CMNAME', width: 70, cellsalign: 'center', align: 'center', editable: false },
+                    { text: '起始日', datafield: 'STARTDATE', width: 110, cellsalign: 'center', align: 'center', editable: false, cellsformat: 'yyyy/MM/dd' },
+                    { text: '截止日', datafield: 'STOPDATE', width: 110, cellsalign: 'center', align: 'center', editable: false, cellsformat: 'yyyy/MM/dd' },
+                    { text: '物品序號', datafield: 'FACISNO', width: 90, cellsalign: 'left', align: 'center', editable: false },
+
+                ]
+            });
+            $("#grdBillNo").jqxGrid({
+                width: '99.7%',
+                height: '99%',
+                sortable: true,
+                altrows: true,
+                editable: true,
+                columnsresize: true,
+                columns: [
+                    {
+                        text: '#', sortable: false, filterable: false, editable: false,
+                        groupable: false, draggable: false, resizable: false,
+                        datafield: '', columntype: 'number', width: 30,
+                        cellsrenderer: function (row, column, value) {
+                            return "<div style='margin:4px;'>" + (value + 1) + "</div>";
+                        }
+                    },
+                    { text: '選擇', datafield: 'CHOOSE', width: 40, cellsalign: 'center', align: 'center' },
+                    { text: '客編', datafield: 'CUSTID', width: 80, cellsalign: 'center', align: 'left', editable: false },
+                    { text: '申請人', datafield: 'DECLARANTNAME', width: 120, cellsalign: 'left', align: 'center', editable: false },
+                    { text: '單據編號', datafield: 'BILLNO', width: 100, cellsalign: 'center', align: 'center', editable: false },
+                    { text: '收費項目代碼', datafield: 'CITEMCODE', width: 100, cellsalign: 'center', align: 'center', editable: false },
+                    { text: '收費項目名稱', datafield: 'CITEMNAME', width: 150, cellsalign: 'left', align: 'center', editable: false },                    
+                    { text: '期數', datafield: 'REALPERIOD', width: 50, cellsalign: 'center', align: 'center', editable: false },
+                    { text: '金額', datafield: 'SHOULDAMT', width: 80, cellsalign: 'right', align: 'center', editable: false },
+                    { text: '扣款帳號', datafield: 'ACCOUNTNO', width: 150, cellsalign: 'center', align: 'center', editable: false },
+                    { text: '收費方式', datafield: 'CMNAME', width: 70, cellsalign: 'center', align: 'center', editable: false },
+                    { text: '起始日', datafield: 'REALSTARTDATE', width: 110, cellsalign: 'center', align: 'center', editable: false, cellsformat: 'yyyy/MM/dd' },
+                    { text: '截止日', datafield: 'REALSTOPDATE', width: 110, cellsalign: 'center', align: 'center', editable: false, cellsformat: 'yyyy/MM/dd' },
+                    { text: '物品序號', datafield: 'FACISNO', width: 90, cellsalign: 'left', align: 'center', editable: false },
+
+                ]
+            });
+        });
+
+    </script>-->
+
+</head>
+<body>    
+    <table class="SO1100D3table"   data-id="Maincontainer">
+        <tr class="SO1100D3tr">
+            <td class="SO1100D3td" colspan="2" >
+                <!--
+                <div style="float:left;width:50%;height:100%">
+                    <table class="SO1100D3table">
+                        <tr class="SO1100D3tr">
+                            <td class="SO1100D3td"><div data-id="grdProduct"></div></td>
+                        </tr>
+                        <tr class="SO1100D3tr">
+                            <td class="SO1100D3td"><div data-id="grdNonePeriod"></div> </td>
+                        </tr>
+                    </table>
+                </div> -->
+                <div style="float:left; width:50%" data-id="split1">
+                    <table class="SO1100D3table">
+                        <tr class="SO1100D3tr">
+                            <td class="SO1100D3td"><div data-id="grdProduct"></div></td>
+                        </tr>
+                        <tr class="SO1100D3tr">
+                            <td class="SO1100D3td"><div data-id="grdNonePeriod"></div> </td>
+                        </tr>
+                    </table>
+                </div>
+                <!--
+                <div style="height:100%">
+                    <table style="width:50%;height:100%">
+                        <tr>
+                            <td><div data-id="grdBillNo"></div></td>
+                        </tr>
+
+                    </table>
+                </div>-->
+                <div data-id="split2">
+                    <table style="width:50%" >
+                        <tr>
+                            <td><div data-id="grdBillNo"></div></td>
+                        </tr>
+
+                    </table>
+                </div>
+            </td>
+        </tr>
+        <tr class="SO1100D3tr" style="height:28px">
+            <td class="SO1100D3td" ><button data-id="btnOK"></button></td>
+            <td class="SO1100D3td"><button style="float:right" data-id="btnCancel"></button></td>
+        </tr>        
+    </table>
+    
+   
+   
+</body>
+</html>

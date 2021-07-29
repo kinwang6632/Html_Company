@@ -1,0 +1,321 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <!--
+    <link href="../jqwidgets/styles/jqx.base.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.orange.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.office.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.energyblue.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.energyblue2.css" rel="stylesheet" />
+    <script type="text/javascript" src="../scripts/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../scripts/json2.js"></script>
+    <script src="../jqwidgets/jqx-all.js"></script>
+    <script src="../component/csTabs.js"></script>
+    <script src="../component/csList.js"></script>
+    <script src="../component/csMulti.js"></script>
+    <script src="../component/csDateTime.js"></script>
+    <script src="../component/csUploadFile.js"></script>
+    <script src="../component/csAddress1.js"></script>
+    <script src="../component/csAddress2.js"></script>
+    <script src="../component/csWindow.js"></script>
+    <script src="dynamicComponent/dynamicCondition.js"></script>
+    <script src="dynamicComponent/dynamicUpdate.js"></script>
+    <script src="../jqwidgets/globalization/globalize.js"></script>
+    <script src="../language/zh-TW/language01.js"></script>
+    <script src="../language/zh-TW/language21.js"></script>
+    <script src="../language/zh-TW/language31.js"></script>
+    <script src="../language/zh-TW/language51.js"></script>
+    <script src="../language/zh-TW/language52.js"></script>
+    <script src="../language/zh-TW/language61.js"></script>
+    <script src="../language/zh-TW/language71.js"></script>
+    <script type="text/javascript" src="../Utility/utility.js"></script>
+    <script type="text/javascript" src="../Utility/ChargeUtility.js"></script> -->
+    <style type="text/css">
+        /*
+         html {
+             width: 100%;
+             height: 100%;
+         }
+
+         body {
+             height: 99.9%;
+             margin: 0px;
+             padding: 0px;
+             font-size:12px
+         }
+
+         * {
+             -webkit-box-sizing: border-box;
+             -moz-box-sizing: border-box;
+             box-sizing: border-box;
+         }  */
+
+        .SO3311BTable {
+            width: 100%;
+            height: 100%;
+            table-layout: fixed;
+            /*border : 1px solid red;*/
+            margin: 0;
+            padding: 0;
+            text-align: left;
+        }
+
+        .SO3311BTr {
+            /*border : 1px solid red;*/
+            margin: 0;
+            padding: 0;
+            text-align: left;
+        }
+
+        .SO3311BTd {
+            /*border : 1px solid red;*/
+            margin: 0;
+            padding: 0;
+            vertical-align: central;
+            /*  text-align: left;*/
+        }
+
+        .SO3311BMode {
+            text-align: center;
+            background-color: cyan;
+        }
+    </style>
+    <!--
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#btnQuery').jqxButton({
+                width: 90,
+                height: 25,
+            });
+            $('#btnExit').jqxButton({
+                width: 90,
+                height: 25,
+            });
+            $('#btnDelete').jqxButton({
+                width: 90,
+                height: 25,
+            });
+
+            $("#csClctEn").csList({
+                source: null,
+                codeNoWidth: 50,
+                width: '160px',
+                height: '22px',
+                showColumnHeaders: false,
+                readOnly: false,
+                codeNoReadOnly: false,
+                popupWidth: null,
+                popupHeight: null,
+                autoFitAllCols: false,
+                descriptionReadOnly: false,
+                columns: [
+                       { text: 'CODENO', datafield: 'CODENO' },
+                       { text: 'DESCRIPTION', datafield: 'DESCRIPTION' }
+                ]
+            });
+
+            $("#csCMCode").csList({
+                source: null,
+                codeNoWidth: 50,
+                width: '160px',
+                height: '22px',
+                showColumnHeaders: false,
+                readOnly: false,
+                codeNoReadOnly: false,
+                popupWidth: null,
+                popupHeight: null,
+                autoFitAllCols: false,
+                descriptionReadOnly: false,
+                columns: [
+                       { text: 'CODENO', datafield: 'CODENO' },
+                       { text: 'DESCRIPTION', datafield: 'DESCRIPTION' }
+                ]
+            });
+
+
+            $("#csPTCode").csList({
+                source: null,
+                codeNoWidth: 50,
+                width: '160px',
+                height: '22px',
+                showColumnHeaders: false,
+                readOnly: false,
+                codeNoReadOnly: false,
+                popupWidth: null,
+                popupHeight: null,
+                autoFitAllCols: false,
+                descriptionReadOnly: false,
+                columns: [
+                       { text: 'CODENO', datafield: 'CODENO' },
+                       { text: 'DESCRIPTION', datafield: 'DESCRIPTION' }
+                ]
+            });
+            $("#csSTCode").csList({
+                source: null,
+                codeNoWidth: 50,
+                width: '160px',
+                height: '22px',
+                showColumnHeaders: false,
+                readOnly: false,
+                codeNoReadOnly: false,
+                popupWidth: null,
+                popupHeight: null,
+                autoFitAllCols: false,
+                descriptionReadOnly: false,
+                columns: [
+                       { text: 'CODENO', datafield: 'CODENO' },
+                       { text: 'DESCRIPTION', datafield: 'DESCRIPTION' }
+                ]
+            });
+
+            $("#dteCMDate").csDateTime({
+                formatString: 'yyyy/MM/dd',
+                value: null,
+                showCalendarButton: false,
+                height:22,
+                width: 110
+            });
+            $("#tedManualNo").jqxInput({
+                height: 22,
+                width: 150,
+            });
+            $("#tedNote").jqxInput({
+                height: 22,
+                width: 340,
+            });
+            $("#tedBillNo").jqxInput({
+                height: 22,
+                width: 150,
+            });
+            $("#grdCharge").jqxGrid({
+                width: '99.7%',
+                height: '99%',
+                sortable: true,
+                altrows: true,
+                columnsresize: true,
+                columns: [
+                    {
+                        text: '#', sortable: false, filterable: false, editable: false,
+                        groupable: false, draggable: false, resizable: false,
+                        datafield: '', columntype: 'number', width: 30,
+                        cellsrenderer: function (row, column, value) {
+                            return "<div style='margin:4px;'>" + (value + 1) + "</div>";
+                        }
+                    },
+                    { text: 'BILLNO', datafield: 'BILLNO', hidden: true },
+                    { text: 'ITEM', datafield: 'ITEM', hidden: true },
+                    { text: 'CITEMCODE', datafield: 'CITEMCODE', hidden: true },
+                    { text: '客戶編號', datafield: 'CUSTID', width: 70, cellsalign: 'center', align: 'center', hidden: false },
+                    { text: '收費項目', datafield: 'CITEMNAME', width: 200, cellsalign: 'left', align: 'left' },
+                    { text: '出單金額', datafield: 'SHOULDAMT', width: 70, cellsalign: 'right', align: 'right', hidden: false },
+                    { text: '期數', datafield: 'REALPERIOD', width: 60, cellsalign: 'right', align: 'right', hidden: false },
+                    { text: '實收金額', datafield: 'REALAMT', width: 70, cellsalign: 'right', align: 'right', hidden: false },
+                    { text: '期限起始日', datafield: 'REALSTARTDATE', width: 100, cellsalign: 'center', align: 'center', cellsformat: 'yyyy/MM/dd' },
+                    { text: '期限截止日', datafield: 'REALSTOPDATE', width: 100, cellsalign: 'center', align: 'center', cellsformat: 'yyyy/MM/dd' },
+                    { text: '作廢', datafield: 'CANCELFLAGNAME', width: 50, cellsalign: 'center', align: 'center' },
+                    { text: '備註', datafield: 'NOTE', width: 300, cellsalign: 'left', align: 'left' },
+                ]
+            });
+        });
+    </script> -->
+</head>
+<body>
+    <table class="SO3311BTable">
+        <tr class="SO3311BTr" style="height:150px">
+            <td class="SO3311BTd">
+                <table class="SO3311BTable">
+                    <tr class="SO3311BTr">
+                        <td class="SO3311BTd" data-id="txtBillCnt0" style="width:75px"></td>
+                        <td class="SO3311BTd" data-id="txtBillCnt">0</td>
+                        <td class="SO3311BTd" data-id="txtTotalAmt0" style="width:75px"></td>
+                        <td class="SO3311BTd" data-id="txtTotalAmt">0</td>
+                        <td class="SO3311BTd"></td>
+                        <td class="SO3311BTd"></td>
+                        <td class="SO3311BTd"><input type="button" data-id="btnQuery"  style="float:right;margin-right:5px" />
+                        <td class="SO3311BTd"><input type="button" data-id="btnExit"  style="float:right;margin-right:5px" />
+                    </tr>
+                    <tr class="SO3311BTr">
+                        <td class="SO3311BTd" data-id="txtClctEn"></td>
+                        <td class="SO3311BTd" colspan="7">
+                            <table class="SO3311BTable">
+                                <tr class="SO3311BTr">
+                                    <td class="SO3311BTd" style="width:160px" colspan="2">
+                                        <div data-id="csClctEn"></div>
+                                    </td>
+                                    <td class="SO3311BTd" style="width:60px" data-id="txtCMDate"></td>
+                                    <td class="SO3311BTd" style="width:120px">
+                                        <input type="text" data-id="dteCMDate" />
+                                    </td>
+                                    <td class="SO3311BTd" style="width:60px" data-id="txtCMCode"></td>
+                                    <td class="SO3311BTd" style="width:160px">
+                                        <div data-id="csCMCode" ></div>
+                                    </td>
+                                    <td class="SO3311BTd" style="width:60px" data-id="txtPTCode"></td>
+                                    <td class="SO3311BTd">
+                                        <div data-id="csPTCode"></div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+
+                    </tr>
+                    <tr class="SO3311BTr">
+                        <td class="SO3311BTd" data-id="txtManualNo"></td>
+                        <td class="SO3311BTd" colspan="7">
+                            <table class="SO3311BTable">
+                                <tr class="SO3311BTr">
+                                    <td class="SO3311BTd" style="width:160px">
+                                        <input type="text" data-id="tedManualNo" />
+                                    </td>
+                                    <td class="SO3311BTd" style="width:60px" data-id="txtNote"></td>
+                                    <td class="SO3311BTd">
+                                        <input type="text" data-id="tedNote"  />
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+
+
+                    </tr>
+                    <tr class="SO3311BTr">
+                        <td class="SO3311BTd" data-id="txtBillNo"></td>                        
+                        <td class="SO3311BTd" colspan="7">
+                            <table class="SO3311BTable">
+                                <tr class="SO3311BTr">
+                                    <td class="SO3311BTd" style="width:160px">
+                                        <input type="text" data-id="tedBillNo" />
+                                    </td>
+                                    <td class="SO3311BTd" style="width:60px" data-id="lblSTCode"></td>
+                                    <td class="SO3311BTd">
+                                        <div data-id="csSTCode" ></div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr class="SO3311BTr">
+                        <td class="SO3311BTd" colspan="2">
+                            <input type="button" data-id="btnDelete" />
+                        </td>
+
+                        <td class="SO3311BTd"></td>
+                        <td class="SO3311BTd"></td>
+                        <td class="SO3311BTd"></td>
+                        <td class="SO3311BTd"></td>
+                        <td class="SO3311BTd"></td>
+                        <td class="SO3311BTd"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="SO3311BTr">
+            <td class="SO3311BTd">
+                <div data-id="grdCharge"></div>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

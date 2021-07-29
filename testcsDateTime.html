@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="jqwidgets/styles/jqx.base.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.orange.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.office.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.energyblue.css" rel="stylesheet" />
+
+    <script src="Scripts/jquery-1.11.1.min.js"></script>
+    <script src="jqwidgets/jqx-all.js"></script>
+    <!--<script type="text/javascript" src="jqwidgets/jqxmaskedinput.js"></script>-->
+
+    <script src="Scripts/json2.js"></script>
+    <script src="component/csList2.js"></script>
+    <script src="component/csDateTime.js"></script>
+    <script src="language/zh_TW/language01.js"></script>
+    <script src="Utility/utility.js"></script>
+    <script>
+        $(document).ready(function () {
+            try {
+                $.jqx.theme = 'office';
+                var options = {
+                    formatString: "yyyy/MM/dd HH:mm:ss"
+                };
+                $('#csDateTime1').on('loaded', function () {
+                    //alert('setDate');
+                    $('#csDateTime1').csDateTime('setDate', '2014/03/02');
+                    //alert('getDate:' + $('#csDateTime1').csDateTime('getDate'));
+                    //alert('setText');
+                    //$('#csDateTime1').csDateTime('setText', '2016/05/20');
+                    //alert('getText:' + $('#csDateTime1').csDateTime('getText'));
+                });
+                $('#csDateTime1').on('dateChanged', function () {
+                    alert('dateChanged');
+                });
+                $('#csDateTime1').csDateTime(options);
+                $('#setDate').on('click', function () {
+                    $('#csDateTime1').csDateTime('setDate', new Date());
+                });
+                $('#getDate').on('click', function () {
+                    alert($('#csDateTime1').csDateTime('getDate').toString());
+                });
+                $('#setText').on('click', function () {
+                    var d = new Date();
+                    d.setDate(d.getDate() + 3);
+                    //$('#csDateTime1').csDateTime('setText', formatDateTime(d, 'datetime2'));
+                    $('#csDateTime1').csDateTime('clear');
+                });
+                $('#getText').on('click', function () {
+                    alert($('#csDateTime1').csDateTime('getText'));
+                });
+                $('#destroy').on('click', function () {
+                    $('#csDateTime1').csDateTime('destroy');
+                });
+                $('#disabled1').on('click', function () {
+                    $('#csDateTime1').csDateTime('disabled', true);
+                });
+                $('#disabled2').on('click', function () {
+                    $('#csDateTime1').csDateTime({ disabled: false });
+                });
+
+            }
+            catch (err) {
+                alert(err);
+            }
+        });
+
+    </script>
+</head>
+<body>
+    <div id="cslist2">
+        <input style='margin-top: 3px;' id='csDateTime1' />
+        <button id="setDate">setDate</button>
+        <button id="getDate">getDate</button>
+        <button id="setText">setText</button>
+        <button id="getText">getText</button>
+        <button id="disabled1">disabled1</button>
+        <button id="disabled2">disabled2</button>
+        <button id="destroy">destroy</button>
+    </div>
+</body>
+</html>

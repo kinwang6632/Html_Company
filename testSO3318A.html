@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="jqwidgets/styles/jqx.base.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.orange.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.office.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.energyblue.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.energyblue2.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.ui-lightness.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.ui-sunny2.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.ui-start2.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.ui-lightness2.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.darkblue2.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.ui-redmond2.css" rel="stylesheet" />
+    <style>
+        * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            font-size: 12px;
+        }
+
+        input:focus {
+            background: #E0E9F5;
+        }
+
+        textarea:focus {
+            background: #E0E9F5;
+        }
+    </style>
+    <script type="text/javascript" src="scripts/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="Scripts/json2.js"></script>
+    <script type="text/javascript" src="component/jqx-all2.js"></script>
+    <script type="text/javascript" src="jqwidgets/globalization/globalize.js"></script>
+    <script type="text/javascript" src="component/csList.js"></script>
+    <script type="text/javascript" src="component/csMulti.js"></script>
+    <script type="text/javascript" src="component/csTabs.js"></script>
+    <script src="component/csDateTime.js"></script>
+
+    <script src="component/csWindow.js"></script>
+    <script src="component/csPrinting.js"></script>
+    <script src="dynamicComponent/dynLinkProgram.js"></script>
+    <script src="dynamicComponent/dynamicReport.js"></script>
+    <script src="SO1000/SO1132A.js"></script>
+    <script src="SO3000/SO3318A.js"></script>
+    <script src="SO3000/SO3318B.js"></script>
+    <script src="SO3000/SO3318B1.js"></script>
+    <script src="SO3000/SO3318B2.js"></script>
+    <script src="SO3000/SO3318C.js"></script>
+    
+    <script src="language/zh-TW/language01.js"></script>
+    <script src="language/zh-TW/language21.js"></script>
+    <script src="language/zh-TW/language31.js"></script>
+    <script src="language/zh-TW/language51.js"></script>
+    <script src="language/zh-TW/language52.js"></script>
+    <script src="language/zh-TW/language61.js"></script>
+    <script src="language/zh-TW/language71.js"></script>
+    <script src="Scripts/CryptoJS v3.1.2/rollups/aes.js"></script>
+    <script src="Utility/utility.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var init = function () {
+                try {
+                    var loginInfo = {
+                        loginInfo: {
+                            columns: [{ name: 'compcode', type: 'integer' },
+                                { name: 'entryid', type: 'string' },
+                                { name: 'entryname', type: 'string' },
+                                { name: 'groupid', type: 'string' }
+                            ],
+                            rows: [{
+                                compcode: 3,
+                                entryid: 'kin',
+                                entryname: 'kin',
+                                groupid: '50',
+                                ReportServicePath: "http://192.168.10.80:1688/CSReport.aspx"
+                            }]
+                        }
+                    };
+
+                    //秀出form2 並傳參數
+                    $.jqx.theme = "ui-redmond2";
+                    //$.jqx.theme = "office";
+                    var currentControlId;
+                    var localization = getLocalization('zh-TW');
+                    var params = getParameters('getKey', 'getKey', 'getKey', loginInfo);
+                    var showChildForm = (function () {
+                        try {
+                            var divName = 'div' + getUniqueId();
+                            var div2Name = 'div' + getUniqueId();
+                            $('<div id="' + divName + '"><div>測試Form</div><div id="' + div2Name + '"></div></div>').appendTo('body');
+                            var div = $('#' + divName);
+                            $('#' + divName).csWindow($.extend({}, {
+                                width: 500,
+                                height: 300,
+                                minHeight: 200,
+                                minWidth: 500,
+                                maxWidth: $(document).innerWidth(),
+                                maxHeight: $(document).innerHeight(),                                
+                                resizable: true,
+                                haveClosing: true
+                            }));
+                            $('#' + divName).appendTo('#maindiv');
+                            $('#maindiv').width($(document).innerWidth());
+                            $('#maindiv').height($(document).innerHeight());
+                            currentControlId = div2Name;
+                            var formName = "SO3318A";
+                            $('#' + div2Name)["SO3318A"]($.extend({}, {
+                                loginInfo: cloneJSON(loginInfo),
+                                container: $('#' + divName),
+                                usePG: 1,
+                                creditCard4:1,
+                                tabContainer: $('#maindiv'),
+                                localization: localization
+                            }));
+                            $('[data-id=changeTheme]').on('click', function () {
+                                if ($('#' + divName).jqxWindow('theme') == 'office') {
+                                    $('#' + divName).jqxWindow('theme', 'energyblue');
+                                    $('#' + div2Name)[formName]('theme', 'energyblue');
+                                }
+                                else {
+                                    $('#' + divName).jqxWindow('theme', 'office');
+                                    $('#' + div2Name)[formName]('theme', 'office');
+                                }
+                            });
+                            $('#' + divName).on('close', function (event) {
+                                $('#' + div2Name)[formName]('destroy');
+                                $('#' + divName).jqxWindow('destroy');
+                            });
+                        }
+                        catch (err) {
+                            alert(err);
+                        }
+                    });
+                    var canDo = (function (data) {
+                        try {
+                            $('[data-id=btnOk]').on('click', function () {
+                                showChildForm();
+                            });
+                        }
+                        catch (err) {
+                            alert(err.stack);
+                        }
+                    });
+
+                    getServerData(params, { success: canDo });
+                }
+                catch (err) {
+                    alert(err.stack);
+                }
+            }
+            init();
+        });
+    </script>
+</head>
+<body>
+    <div id="maindiv">
+        <table>
+            <tr>
+                <td>
+                    <input data-id="btnOk" type="button" value="櫃台繳款" />
+                    <input data-id="changeTheme" type="button" value="改佈景" />
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

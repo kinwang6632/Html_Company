@@ -1,0 +1,533 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <!--
+    <link href="../jqwidgets/styles/jqx.base.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.black.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.classic.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.energyblue.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.orange.css" rel="stylesheet" />
+    <script type="text/javascript" src="../scripts/json2.js"></script>
+    <script type="text/javascript" src="../scripts/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../jqwidgets/jqx-all.js"></script>
+    <script type="text/javascript" src="../jqwidgets/jqxcore.js"></script>
+    <script type="text/javascript" src="../jqwidgets/jqxdatetimeinput.js"></script>
+    <script type="text/javascript" src="../jqwidgets/jqxcalendar.js"></script>
+    <script type="text/javascript" src="../jqwidgets/jqxtooltip.js"></script>
+    <script type="text/javascript" src="../jqwidgets/globalization/globalize.js"></script>
+    <script type="text/javascript" src="../scripts/jquery.mask.min.js"></script>
+    <script src="../component/csList.js"></script>
+    <script src="../component/csMulti.js"></script>
+    <script src="../component/csDateTime.js"></script>
+    <script src="../component/csTabs.js"></script>
+    <script type="text/javascript" src="../SO1000/SO1144J.js"></script>
+    <script type="text/javascript" src="../component/csUploadFile.js"></script>
+    <script src="../language/zh-TW/language61.js"></script>
+    <script src="../language/zh-TW/language51.js"></script>
+    <script src="../language/zh-TW/language01.js"></script>
+    <script src="../language/zh-TW/language52.js"></script>
+    <script src="../language/zh-TW/language21.js"></script>
+    <script src="../language/zh-TW/language31.js"></script>
+    <script src="../component/csWindow.js"></script>
+    <script type="text/javascript" src="../Utility/utility.js"></script>-->
+    <style type="text/css">
+        /*
+        html {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            height: 99.9%;
+            margin: 0px;
+            padding: 0px;
+            font-size:12px
+        }
+
+        * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }   */
+
+        .SO1300KTable {
+            width: 100%;
+            height: 100%;
+            table-layout: fixed;
+            /*border : 1px solid red;*/
+            margin: 0;
+            padding: 0;
+            text-align: left;
+        }
+
+        .SO1300KTr {
+            /*border : 1px solid red;*/
+            margin: 0;
+            padding: 0;
+            text-align: left;
+        }
+
+        .SO1300KTd {
+            /*border : 1px solid red;*/
+            margin: 0;
+            padding: 0;
+            vertical-align: central;
+            text-align: left;
+        }
+
+        .SO1300KMode {
+            text-align: center;
+            background-color:aquamarine;
+        }
+    </style>
+    <!--
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#csServiceType").csList({
+                source: null,
+                codeNoWidth: 50,
+                width: '220px',
+                height: '25px',
+                showColumnHeaders: false,
+                readOnly: false,
+                codeNoReadOnly: false,
+                popupWidth: null,
+                popupHeight: null,
+                autoFitAllCols: false,
+                descriptionReadOnly: false,
+                columns: [
+                       { text: 'CODENO', datafield: 'CODENO' },
+                       { text: 'DESCRIPTION', datafield: 'DESCRIPTION' }
+                ]
+            });
+            $("#csMainCustID").csList({
+                source: null,
+                codeNoWidth: 50,
+                width: '220px',
+                height: '25px',
+                showColumnHeaders: false,
+                readOnly: false,
+                codeNoReadOnly: false,
+                popupWidth: null,
+                popupHeight: null,
+                autoFitAllCols: false,
+                descriptionReadOnly: false,
+                columns: [
+                       { text: 'CODENO', datafield: 'CODENO' },
+                       { text: 'DESCRIPTION', datafield: 'DESCRIPTION' }
+                ]
+            });
+            $("#csCitemCode1").csList({
+                source: null,
+                codeNoWidth: 50,
+                width: '240px',
+                height: '25px',
+                showColumnHeaders: false,
+                readOnly: false,
+                codeNoReadOnly: false,
+                popupWidth: null,
+                popupHeight: null,
+                autoFitAllCols: false,
+                descriptionReadOnly: false,
+                columns: [
+                       { text: 'CODENO', datafield: 'CODENO' },
+                       { text: 'DESCRIPTION', datafield: 'DESCRIPTION' }
+                ]
+            });
+            $("#csCitemCode2").csList({
+                source: null,
+                codeNoWidth: 50,
+                width: '240px',
+                height: '25px',
+                showColumnHeaders: false,
+                readOnly: false,
+                codeNoReadOnly: false,
+                popupWidth: null,
+                popupHeight: null,
+                autoFitAllCols: false,
+                descriptionReadOnly: false,
+                columns: [
+                       { text: 'CODENO', datafield: 'CODENO' },
+                       { text: 'DESCRIPTION', datafield: 'DESCRIPTION' }
+                ]
+            });
+            $("#csCitemCode3").csList({
+                source: null,
+                codeNoWidth: 50,
+                width: '240px',
+                height: '25px',
+                showColumnHeaders: false,
+                readOnly: false,
+                codeNoReadOnly: false,
+                popupWidth: null,
+                popupHeight: null,
+                autoFitAllCols: false,
+                descriptionReadOnly: false,
+                columns: [
+                       { text: 'CODENO', datafield: 'CODENO' },
+                       { text: 'DESCRIPTION', datafield: 'DESCRIPTION' }
+                ]
+            });
+            $("#csCitemCode4").csList({
+                source: null,
+                codeNoWidth: 50,
+                width: '240px',
+                height: '25px',
+                showColumnHeaders: false,
+                readOnly: false,
+                codeNoReadOnly: false,
+                popupWidth: null,
+                popupHeight: null,
+                autoFitAllCols: false,
+                descriptionReadOnly: false,
+                columns: [
+                       { text: 'CODENO', datafield: 'CODENO' },
+                       { text: 'DESCRIPTION', datafield: 'DESCRIPTION' }
+                ]
+            });
+            $('#grbWhere').jqxExpander({
+                width: '100%',
+                height: '100%',                
+                toggleMode: 'none',
+                showArrow: false
+            });
+            $('#grbWhere2').jqxExpander({
+                width: '100%',
+                height: '100%',
+                toggleMode: 'none',
+                showArrow: false
+            });
+            $('#txtFlag').jqxInput({
+                width:50,
+                height:22
+            });
+            $('#ccCustStatus').csMulti({
+                //     source: data2,
+                buttonText: '客戶狀態',
+                width: '99.5%',
+                buttonWidth: 80,
+                //widthDesc: 150,                                
+                isReadOnly: false,
+            });
+            $('#ccCustClass').csMulti({
+                //     source: data2,
+                buttonText: '客戶類別',
+                width: '99.5%',
+                buttonWidth: 80,
+                //widthDesc: 150,                                
+                isReadOnly: false,
+            });
+            /*
+            $("#txtPeriod1").jqxNumberInput({
+                width: '95%',
+                height: 25,
+                inputMode: 'simple',
+                min: 0,
+                max: 999,
+                decimalDigits: 0,
+                disabled: false,                
+            });
+            $("#txtPeriod1").val(null); */
+            $('#txtPeriod1').jqxMaskedInput({
+                width: '95%',
+                height: '25px',
+                promptChar: '',
+                textAlign: 'right',
+                mask: '[1-9][0-9]'
+            });
+            $('#txtPeriod2').jqxMaskedInput({
+                width: '95%',
+                height: '25px',
+                promptChar: '',
+                textAlign: 'right',
+                mask: '[1-9][0-9]'
+            });
+            $('#txtPeriod3').jqxMaskedInput({
+                width: '95%',
+                height: '25px',
+                promptChar: '',
+                textAlign: 'right',
+                mask: '[1-9][0-9]'
+            });
+            $('#txtPeriod4').jqxMaskedInput({
+                width: '95%',
+                height: '25px',
+                promptChar: '',
+                textAlign: 'right',
+                mask: '[1-9][0-9]'
+            });
+            $("#txtAmount1").jqxNumberInput({
+                width: '95%',
+                height: 25,
+                inputMode: 'simple',
+                min: 0,
+                max: 999,
+                decimalDigits: 0,
+                disabled: false,
+            });
+            $("#txtAmount1").val(null);
+            $("#txtAmount2").jqxNumberInput({
+                width: '95%',
+                height: 25,
+                inputMode: 'simple',
+                min: -99999999,
+                max: 99999999,
+                decimalDigits: 0,
+                disabled: false,
+            });
+            $("#txtAmount2").val(null);
+            $("#txtAmount3").jqxNumberInput({
+                width: '95%',
+                height: 25,
+                inputMode: 'simple',
+                min: -99999999,
+                max: 99999999,
+                decimalDigits: 0,
+                disabled: false,
+            });
+            $("#txtAmount3").val(null);
+            $("#txtAmount4").jqxNumberInput({
+                width: '95%',
+                height: 25,
+                inputMode: 'simple',
+                min: -99999999,
+                max: 99999999,
+                decimalDigits: 0,
+                disabled: false,
+            });
+            $("#txtAmount4").val(null);
+            $("#dteStartDate1").csDateTime({
+                formatString: 'yyyy/MM/dd',
+                value: null,
+                showCalendarButton: false,
+                width: '90%'
+            });
+            $("#dteStartDate2").csDateTime({
+                formatString: 'yyyy/MM/dd',
+                value: null,
+                showCalendarButton: false,
+                width: '90%'
+            });
+            $("#dteStartDate3").csDateTime({
+                formatString: 'yyyy/MM/dd',
+                value: null,
+                showCalendarButton: false,
+                width: '90%'
+            });
+            $("#dteStartDate4").csDateTime({
+                formatString: 'yyyy/MM/dd',
+                value: null,
+                showCalendarButton: false,
+                width: '90%'
+            });
+            $("#dteStopDate1").csDateTime({
+                formatString: 'yyyy/MM/dd',
+                value: null,
+                showCalendarButton: false,
+                width: '90%'
+            });
+            $("#dteStopDate2").csDateTime({
+                formatString: 'yyyy/MM/dd',
+                value: null,
+                showCalendarButton: false,
+                width: '90%'
+            });
+            $("#dteStopDate3").csDateTime({
+                formatString: 'yyyy/MM/dd',
+                value: null,
+                showCalendarButton: false,
+                width: '90%'
+            });
+            $("#dteStopDate4").csDateTime({
+                formatString: 'yyyy/MM/dd',
+                value: null,
+                showCalendarButton: false,
+                width: '90%'
+            });
+            $("#dteClctDate1").csDateTime({
+                formatString: 'yyyy/MM/dd',
+                value: null,
+                showCalendarButton: false,
+                width: '90%'
+            });
+            $("#dteClctDate2").csDateTime({
+                formatString: 'yyyy/MM/dd',
+                value: null,
+                showCalendarButton: false,
+                width: '90%'
+            });
+            $("#dteClctDate3").csDateTime({
+                formatString: 'yyyy/MM/dd',
+                value: null,
+                showCalendarButton: false,
+                width: '90%'
+            });
+            $("#dteClctDate4").csDateTime({
+                formatString: 'yyyy/MM/dd',
+                value: null,
+                showCalendarButton: false,
+                width: '90%'
+            });
+            $('#btnOK').jqxButton({
+                width: 70,
+                height: 22,
+            });
+            $('#btnCancel').jqxButton({
+                width: 70,
+                height: 22,
+            }); 
+            $(window).resize(function () {
+                $('#ccCustStatus').csMulti('resize');
+            });
+        });
+    </script> -->
+</head>
+<body>
+    <table class="SO1300KTable">
+        <tr class="SO1300KTr" style="height:30px">
+            <td class="SO1300KTd" style="width:80px;" data-id="lblServiceType" ></td>
+            <td class="SO1300KTd"><div data-id="csServiceType" ></div></td>
+        </tr>
+        <tr class="SO1300KTr" style="height:35%">
+            <td class="SO1300KTd" colspan="2">
+                <div data-id="grbWhere" >
+                    <div data-id="lblAllChargeInfo"></div>
+                    <div>
+                        <table class="SO1300KTable">
+                            <tr class="SO1300KTr" style="height:30px">
+                                <td class="SO1300KTd" data-id="lblMainCustID" style="width:120px"></td>
+                                <td class="SO1300KTd">
+                                    <div data-id="csMainCustID" ></div>
+                                </td>
+                                <td class="SO1300KTd" data-id="lblFlag" style="text-align:right"></td>
+                                <td class="SO1300KTd" style="width:60px">
+                                    <input type="text" data-id="txtFlag" class="SO1300KMode" />
+                                </td>
+                            </tr>
+                            <tr class="SO1300KTr" style="height:25px">
+                                <td class="SO1300KTd" colspan="4" data-id="lblAdjectCitem"> </td>
+
+                            </tr>
+                            <tr class="SO1300KTr">
+                                <td class="SO1300KTd" colspan="4" data-id="iSec_1">                                    
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+               
+            </td>
+            
+        </tr>
+        <tr class="SO1300KTr" style="height:65%">
+            <td class="SO1300KTd" colspan="2">
+                <div data-id="grbWhere2">
+                    <div data-id="gbOneCustomOPT"></div>
+                    <div>
+                        <table class="SO1300KTable">
+                            <tr class="SO1300KTr">
+                                <td class="SO1300KTd" style="width:50px" colspan="7">
+                                    <div data-id="ccCustStatus" ></div>
+                                </td>
+                                
+                            </tr>
+                            <tr class="SO1300KTr">
+                                <td class="SO1300KTd" colspan="7">
+                                    <div data-id="ccCustClass"></div>
+                                </td>
+                                
+                            </tr>
+                            <tr class="SO1300KTr">
+                                <td class="SO1300KTd" data-id="lblAdjectCitem2" colspan="7"></td>
+                                
+                            </tr>
+                            <tr class="SO1300KTr">
+                                <td class="SO1300KTd"  colspan="7">
+                                    <table class="SO1300KTable">
+                                        <tr class="SO1300KTr">
+                                            <td class="SO1300KTd" style="color:red;text-align:center;" data-id="lblCitemCode1" width="250px"></td>
+                                            <td class="SO1300KTd" style="color:red;text-align:center;" data-id="lblPeriod1"  width="70px"></td>
+                                            <td class="SO1300KTd" style="color:red;text-align:center;" data-id="lblAmount1" width="80px"></td>
+                                            <td class="SO1300KTd" style="color:red;text-align:center;" data-id="lblStartDate1" width="110px"></td>
+                                            <td class="SO1300KTd" style="color:red;text-align:center;"  width="20px"></td>
+                                            <td class="SO1300KTd" style="color:red;text-align:center;" data-id="lblStopDate1" width="110px"></td>
+                                            <td class="SO1300KTd"  style="color:red;text-align:center;" data-id="lblClctDate1"></td>
+                                        </tr>
+                                        <tr class="SO1300KTr">
+                                            <td class="SO1300KTd">
+                                                <div data-id="csCitemCode1" ></div>
+                                            </td>
+                                            <td class="SO1300KTd">
+                                               <!-- <div data-id="txtPeriod1" id='txtPeriod1'></div>-->
+                                                <input data-id="txtPeriod1"  />
+                                            </td>
+                                            <td class="SO1300KTd">
+                                                <div data-id="txtAmount1" ></div>
+                                            </td>
+                                            <td class="SO1300KTd">
+                                                <input type="text" data-id="dteStartDate1"  />
+                                            </td>
+                                            <td class="SO1300KTd" data-id="lblDash"></td>
+                                            <td class="SO1300KTd"><input type="text" data-id="dteStopDate1"  /></td>
+                                            <td class="SO1300KTd"><input type="text" data-id="dteClctDate1"  /></td>
+                                        </tr>
+                                        <tr class="SO1300KTr">
+                                            <td class="SO1300KTd">
+                                                <div data-id="csCitemCode2" ></div>
+                                            </td>
+                                            <td class="SO1300KTd">
+                                                <input data-id="txtPeriod2"  />
+                                            </td>
+                                            <td class="SO1300KTd"><div data-id="txtAmount2" ></div></td>
+                                            <td class="SO1300KTd"><input type="text" data-id="dteStartDate2" /></td>
+                                            <td class="SO1300KTd" data-id="lblDash2"></td>
+                                            <td class="SO1300KTd"><input type="text" data-id="dteStopDate2"  /></td>
+                                            <td class="SO1300KTd"><input type="text" data-id="dteClctDate2"  /></td>
+                                        </tr>
+                                        <tr class="SO1300KTr">
+                                            <td class="SO1300KTd">
+                                                <div data-id="csCitemCode3" ></div>
+                                            </td>
+                                            <td class="SO1300KTd">
+                                                <input data-id="txtPeriod3" />
+                                            </td>
+                                            <td class="SO1300KTd"><div data-id="txtAmount3" ></div></td>
+                                            <td class="SO1300KTd"><input type="text" data-id="dteStartDate3"  /></td>
+                                            <td class="SO1300KTd" data-id="lblDash3"></td>
+                                            <td class="SO1300KTd"><input type="text" data-id="dteStopDate3"  /></td>
+                                            <td class="SO1300KTd"><input type="text" data-id="dteClctDate3"  /></td>
+                                        </tr>
+                                        <tr class="SO1300KTr">
+                                            <td class="SO1300KTd">
+                                                <div data-id="csCitemCode4" ></div>
+                                            </td>
+                                            <td class="SO1300KTd">
+                                                <input data-id="txtPeriod4"  />
+                                            </td>
+                                            <td class="SO1300KTd"><div data-id="txtAmount4" ></div></td>
+                                            <td class="SO1300KTd"><input type="text" data-id="dteStartDate4"  /></td>
+                                            <td class="SO1300KTd" data-id="lblDash4"></td>
+                                            <td class="SO1300KTd"><input type="text" data-id="dteStopDate4"  /></td>
+                                            <td class="SO1300KTd"><input type="text" data-id="dteClctDate4"  /></td>
+                                        </tr>
+
+                                    </table>
+                                </td>
+                            </tr>
+                           
+                        </table>
+                    </div>
+                </div>
+         </td>
+            
+        </tr>
+        <tr class="SO1300KTr" style="height:30px">
+            <td class="SO1300KTd"><input type="button" data-id="btnOK" id="btnOK" /></td>
+            <td class="SO1300KTd"><input type="button" data-id="btnCancel" id="btnCancel" style="float:right" /></td>
+        </tr>
+    </table>
+</body>
+</html>

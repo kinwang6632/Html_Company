@@ -1,0 +1,314 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <!--
+    <link href="../jqwidgets/styles/jqx.base.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.orange.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.office.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.energyblue.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.energyblue2.css" rel="stylesheet" />
+    <script type="text/javascript" src="../scripts/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../scripts/json2.js"></script>
+    <script src="../jqwidgets/jqx-all.js"></script>
+    <script src="../component/csTabs.js"></script>
+    <script src="../component/csList.js"></script>
+    <script src="../component/csMulti.js"></script>
+    <script src="../component/csDateTime.js"></script>
+    <script src="../component/csUploadFile.js"></script>
+    <script src="../component/csAddress1.js"></script>
+    <script src="../component/csAddress2.js"></script>
+    <script src="../component/csWindow.js"></script>
+    <script src="../jqwidgets/globalization/globalize.js"></script>
+    <script src="../language/zh-TW/language01.js"></script>
+    <script src="../language/zh-TW/language21.js"></script>
+    <script src="../language/zh-TW/language31.js"></script>
+    <script src="../language/zh-TW/language51.js"></script>
+    <script src="../language/zh-TW/language52.js"></script>
+    <script src="../language/zh-TW/language61.js"></script>
+    <script src="../language/zh-TW/language71.js"></script>
+    <script type="text/javascript" src="../Utility/utility.js"></script>
+    <script type="text/javascript" src="../Utility/ChargeUtility.js"></script> -->
+    <style type="text/css"> 
+        /*
+         html {
+             width: 100%;
+             height: 100%;
+         }
+
+         body {
+             height: 99.9%;
+             margin: 0px;
+             padding: 0px;
+             font-size:12px
+         }
+
+         * {
+             -webkit-box-sizing: border-box;
+             -moz-box-sizing: border-box;
+             box-sizing: border-box;
+         } */
+
+        .SO3510ATable {
+            width: 100%;
+            height: 100%;
+            table-layout: fixed;
+            /*border : 1px solid red;*/
+            margin: 0;
+            padding: 0;
+            text-align: left;
+        }
+
+        .SO3510ATr {
+            /*border : 1px solid red;*/
+            margin: 0;
+            padding: 0;
+            text-align: left;
+        }
+
+        .SO3510ATd {
+            /*border : 1px solid red;*/
+            margin: 0;
+            padding: 0;
+            vertical-align: central;
+              text-align: left;
+        }
+
+        .SO3510AMode {
+            text-align: center;
+            background-color: cyan;
+        }
+    </style>
+    <!--
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#csCompCode").csList({
+                source: null,
+                codeNoWidth: 50,
+                width: 300,
+                height: '25px',
+                showColumnHeaders: false,
+                readOnly: false,
+                codeNoReadOnly: false,
+                popupWidth: null,
+                popupHeight: null,
+                autoFitAllCols: false,
+                descriptionReadOnly: false,
+                columns: [
+                       { text: 'CODENO', datafield: 'CODENO' },
+                       { text: 'DESCRIPTION', datafield: 'DESCRIPTION' }
+                ]
+            });
+            $("#takeDate1").csDateTime({
+                formatString: 'yyyy/MM/dd',
+                value: null,
+                height:25,
+                width: 110
+            });
+            $("#takeDate2").csDateTime({
+                formatString: 'yyyy/MM/dd',
+                value: null,
+                height: 25,
+                width: 110
+            });
+            $('#takePerson').csMulti({
+                //     source: data2,
+                buttonText: '領單人員',
+                width: 400,
+                //width: 200,
+                buttonWidth: 80,               
+                //widthDesc: 150,                                
+                isReadOnly: false,               
+            });
+            $('#txtFirstletter').jqxInput({
+                width: 80,
+                height: '25px',
+            });
+            $("#txtSeqNo").jqxMaskedInput({
+                width: '110px',
+                height: '25px',
+                promptChar: '',
+                mask: '9999999999'
+            });
+            $('#btnFind').jqxButton({
+                width: 110,
+                height: 25,
+            });
+            $('#btnClean').jqxButton({
+                width: 110,
+                height: 25,
+            });
+            $('#btnAdd').jqxButton({
+                width: 80,
+                height: 25,
+            });
+            $('#btnEdit').jqxButton({
+                width: 80,
+                height: 25,
+            });
+            $('#btnDel').jqxButton({
+                width: 80,
+                height: 25,
+            });
+            $('#btnReuse').jqxButton({
+                width: 100,
+                height: 25,
+            });
+            $('#btnExit').jqxButton({
+                width: 80,
+                height: 25,
+            });
+            $('#csGrid').jqxGrid({
+                width: '99.7%',
+                height: '98%',
+                //source: dataAdapter1,
+                editable: false,
+                sortable: false,
+                altrows: true,
+                columnsresize: true,
+                columns: [
+                    {
+                        text: '#', sortable: false, filterable: false, editable: false,
+                        groupable: false, draggable: false, resizable: false,
+                        datafield: '', columntype: 'number', width: 40,
+                        cellsrenderer: function (row, column, value) {
+                            return "<div style='margin:4px;'>" + (value + 1) + "</div>";
+                        }
+                    },
+                    { text: '領單人員', datafield: 'EMPNAME', width: 110, editable: false, groupable: false },
+                    { text: '領單日期', datafield: 'GETPAPERDATE', width: 110, editable: false, groupable: false },
+                    { text: '字頭', datafield: 'PREFIX', width: 50, editable: false, groupable: false },
+                    { text: '起始單號', datafield: 'BEGINNUM', width: 100, editable: false, groupable: false },
+                    { text: '截止單號', datafield: 'ENDNUM', width: 100, editable: false, groupable: false, cellsalign: 'center', align: 'center' },
+                    { text: '合計張數', datafield: 'TOTALPAPERCOUNT', width: 80, editable: false, groupable: false, cellsalign: 'right', align: 'center' },
+                    { text: '異動人員', datafield: 'OPERATOR', width: 110, editable: false, groupable: false },
+                    { text: '退回日期', datafield: 'RETURNDATE', width: 110, editable: false, groupable: false },
+                    { text: '清除日期', datafield: 'CLEARDATE', width: 110, editable: false, groupable: false },
+                    { text: '備註', datafield: 'NOTE', width: 250, editable: false, groupable: false },
+                    { text: '異動時間', datafield: 'UPDTIME', width: 110, editable: false, groupable: false },
+
+                ]
+                //localization: options.localization,
+
+            });
+            /*
+            $("#csFormatType").csList({
+                source: null,
+                codeNoWidth: 50,
+                width: '97%',
+                height: '25px',
+                showColumnHeaders: false,
+                readOnly: false,
+                codeNoReadOnly: false,
+                popupWidth: null,
+                popupHeight: null,
+                autoFitAllCols: false,
+                descriptionReadOnly: false,
+                columns: [
+                       { text: 'CODENO', datafield: 'CODENO' },
+                       { text: 'DESCRIPTION', datafield: 'DESCRIPTION' }
+                ]
+            });
+
+            $('#grbWhere').jqxExpander({
+                width: '100%',
+                height: '99%',
+                toggleMode: 'none',
+                showArrow: false
+            });
+            $("#chkAuthStop").jqxCheckBox({ width: 110 });
+            $("#edtStopDate1").csDateTime({
+                formatString: 'yyyy/MM/dd',
+                value: null,
+                width: '97%'
+            });
+            $("#edtStopDate2").csDateTime({
+                formatString: 'yyyy/MM/dd',
+                value: null,
+                width: '97%'
+            });
+
+            $('#btnOK').jqxButton({
+                width:60,
+                height: 25,
+            });
+            $('#btnCancel').jqxButton({
+                width: 60,
+                height: 25,
+            }); */
+        }); 
+
+    </script>  -->
+
+</head>
+<body>
+    <table class="SO3510ATable">
+        <tr class="SO3510ATr" style="height:30px">
+            <td class="SO3510ATd">
+                <div data-id="csCompCode" id="csCompCode"></div>
+            </td>
+        </tr>
+        <tr class="SO3510ATr" style="height:120px">
+            <td class="SO3510ATd">
+                <table class="SO3510ATable">
+                    <tr class="SO3510ATr">
+                        <td class="SO3510ATd" style="width:60px;text-align:right" data-id="takeDate"></td>
+                        <td class="SO3510ATd" style="width:120px" ><input type="text" data-id="takeDate1"  /> </td>
+                        <td class="SO3510ATd" style="width:10px">~</td>
+                        <td class="SO3510ATd" style="width:120px"><input type="text" data-id="takeDate2"  /></td>
+                        <td class="SO3510ATd"><div data-id="takePerson" ></div></td>
+                    </tr>
+                    <tr class="SO3510ATr">
+                        <td class="SO3510ATd" style="width:60px;text-align:right" data-id="firstLetter"></td>
+                        <td class="SO3510ATd"><input type="text" data-id="txtFirstletter"  /> </td>
+                        <td class="SO3510ATd" colspan="3" style="color:red" data-id="lblRemind"></td>
+                        
+                    </tr>
+                    <tr class="SO3510ATr">
+                        <td class="SO3510ATd" style="width:60px;text-align:right" data-id="lblSeqno"></td>                        
+                        <td class="SO3510ATd"  colspan="4"><input type="text" data-id="txtSeqNo"  /></td>                        
+                        <!--
+                        <td class="SO3510ATd" style="width:10px">~</td>
+                        <td class="SO3510ATd" colspan="2"><input type="text" data-id="txtSeqNo2" /></td>-->
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="SO3510ATr">
+            <td class="SO3510ATd" style="height:30px">
+                <table class="SO3510ATable">
+                    <tr class="SO3510ATr">
+                        <td class="SO3510ATd" style="width:120px" ><button data-id="btnFind" id="btnFind"></button></td>
+                        <td class="SO3510ATd" style="width:120px"><button data-id="btnClean" id="btnClean"></button></td>
+                        <td class="SO3510ATd"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="SO3510ATr">
+            <td class="SO3510ATd">
+                <div data-id="csGrid" id="csGrid"></div>
+            </td>
+        </tr>
+        <tr class="SO3510ATr" style="height:30px">
+            <td class="SO3510ATd">
+                <table class="SO3510ATable">
+                    <tr class="SO3510ATr">
+                        <td class="SO3510ATd" style="width:82px"><button data-id="btnAdd" id="btnAdd"></button></td>
+                        <td class="SO3510ATd" style="width:82px"><button data-id="btnEdit" id="btnEdit"></button></td>
+                        <td class="SO3510ATd" style="width:82px"><button data-id="btnDel" id="btnDel"></button></td>
+                        <td class="SO3510ATd"></td>
+                        <td class="SO3510ATd"><button data-id="btnReuse" id="btnReuse"></button></td>
+                        <td class="SO3510ATd"></td>
+                        <td class="SO3510ATd"></td>
+                        <td class="SO3510ATd"  style="width:82px"><button data-id="btnExit" id="btnExit"></button></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,191 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="jqwidgets/styles/jqx.base.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.orange.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.office.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.energyblue.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.energyblue2.css" rel="stylesheet" />
+    <script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="Scripts/json2.js"></script>
+    <script src="jqwidgets/jqx-all.js"></script>
+    <script src="Scripts/CryptoJS v3.1.2/rollups/aes.js"></script>
+    <script src="component/csList.js"></script>
+    <script src="component/csWindow.js"></script>
+    <script src="dynamicComponent/dynamicGrid.js"></script>
+    <script src="SO1000/SO1131F.js"></script>
+    <script src="language/zh-TW/language01.js"></script>
+    <script src="jqwidgets/globalization/globalize.js"></script>
+    <script src="language/zh-TW/language01.js"></script>
+    <script type="text/javascript" src="Utility/utility.js"></script>
+    
+       
+
+        <script type="text/javascript" > $(document).ready(function () {
+            try {
+                //$('#maindiv').each(function () {
+                //    $.data(this, 'Button1', { test: { test1: 123, t2: 234 } });
+                //});
+                //$('#maindiv2').each(function () {
+                //    $.data(this, 'Button1', { test: { test1: 123, t2: 2343333 } });
+                //});
+                //$('#maindiv').each(function () {
+                //    alert(JSON.stringify( $.data(this, 'Button1')));
+                //});
+
+                var loginInfo = {
+                    loginInfo: {
+                        columns: [{ name: 'compcode', type: 'int' },
+                            { name: 'entryid', type: 'str' },
+                            { name: 'entryname', type: 'str' },
+                            { name: 'groupid', type: 'str' }
+                        ],
+                        rows: [{
+                            compcode: 3,
+                            entryid: 'test',
+                            entryname: 'test',
+                            groupid: '50'
+                        }]
+                    }
+                };
+
+                var editmode = {
+                    type: 'integer',
+                    value: 1
+                };
+
+                var dsData = {
+                    customer: {
+                        columns: [{ name: 'custid', type: 'integer' },
+                            { name: 'custname', type: 'string' },
+                            { name: 'custidstr', type: 'string' },
+                            { name: 'selectcondition', type: 'string' },
+                            { name: 'AddressCondition', type: 'string' },
+                            { name: 'faciseqno', type: 'string' },
+                            { name: 'orderitem', type: 'integer' }
+                        ],
+                        rows: [{
+                            custid: 600028,
+                            custname: '無',
+                            custidstr: '601005',
+                            selectcondition: ' and a.custid < 600008',
+                            //selectcondition: '',
+                            AddressCondition: '',
+                            faciseqno: '199902030169828',
+                            orderitem: 1
+                        }]
+                    }
+                };
+                $('[data-id=Text1]').val('SO1100A');
+                //var theme = 'orange';
+                var params = getParameters('getKey', 'getKey', 'getKey', loginInfo);
+                getServerData(params, { success: initOk });
+
+                //秀出form2 並傳參數
+                $.jqx.theme = "energyblue2";
+                var localization = getLocalization('zh-TW');
+                function initOk(data) {
+                    try {
+                        var sysProgramId;
+                        $('[data-id=Button1]').on('click', function () {
+                            var programId = $('[data-id=Text1]').val();
+                            var sysProgramId = $('[data-id=Text2]').val();
+                            var divName = 'div' + getUniqueId();
+                            var div2Name = 'div2' + getUniqueId();
+                            $('<div id="' + divName + '"><div>測試Form</div><div id="' + div2Name + '"></div></div>').appendTo('body');
+                            var div = $('#' + divName);
+                            $('#' + divName).csWindow($.extend({}, {
+                                width: 900,
+                                height: 300,
+                                minHeight: 300,
+                                minWidth: 600,
+                                maxWidth: $(document).innerWidth(),
+                                maxHeight: $(document).innerHeight(),
+                                resizable: true
+                            }));
+                            $('#' + div2Name).dynamicGrid($.extend({}, {
+                                loginInfo: loginInfo,
+                                container: $('#' + divName),
+                                programId: programId,
+                                sysProgramId: sysProgramId,
+                                parameters :dsData,
+                                parentData: dsData,
+                                localization: localization,
+                                //onButtonClick: function (r,row) {
+                                //    alert($(r).prop('id') + ',' + JSON.stringify(row));
+                                //}
+                            }));
+                            //$('#' + divName).on('buttonClick', function (r) {
+                            //    alert($(r.item).prop('id') + ',' + JSON.stringify(r.args));
+                            //});
+                            $('#' + divName).on('resized', function () {
+                                //alert('resize');
+                                var height = $('#' + div2Name).height();
+                                $('#' + div2Name).dynamicGrid('resize', { height: height });
+                            });
+                            $('#' + div2Name).on('loaded', function () {
+                                alert('loaded');
+                            });
+                            $('#' + div2Name).on('buttonClick', function () {
+                                //alert('buttonClick');
+                            });
+
+                            $('#' + divName).on('close', function (event) {
+                                $('#' + div2Name).dynamicGrid('destroy');
+                                $('#' + divName).csWindow('destroy');
+                            });
+                            $('#' + div2Name).on('rowselect', function (event) {
+                                //alert(JSON.stringify(event.args));
+                                //alert('yes');
+                            });
+                            $('#' + div2Name).on('rowSelected', function (event) {
+                                //alert(JSON.stringify(event.args));
+                                alert('yes');
+                            });
+                            $('#' + divName).appendTo($($('body').find('[data-id=maindiv]')[0]));
+
+                            $('[data-id=Button3]').on('click', function () {
+                                if ($('#' + divName).csWindow('theme') == 'office') {
+                                    $('#' + divName).csWindow('theme', 'energyblue');
+                                    $('#' + div2Name).dynamicGrid('setTheme', 'energyblue');
+                                }
+                                else {
+                                    $('#' + divName).csWindow('theme', 'office');
+                                    $('#' + div2Name).dynamicGrid('setTheme', 'office');
+                                }
+                                //$.jqx.theme = "office";
+                            });
+                            $('[data-id=Button4]').on('click', function () {
+                                var val = $('#' + div2Name).dynamicGrid('getRows');
+                                alert('getRows\r\n' + JSON.stringify(val));
+                                val = $('#' + div2Name).dynamicGrid('getFocusRow');
+                                alert('getFocusRow\r\n' + JSON.stringify(val));
+                                val = $('#' + div2Name).dynamicGrid('getSelectedRow');
+                                alert('getSelectedRow\r\n' + JSON.stringify(val));
+                                val = $('#' + div2Name).dynamicGrid('getCheckedRows');
+                                alert('getCheckedRows\r\n' + JSON.stringify(val));
+
+                            });
+                            $('[data-id=Button5]').on('click', function () {
+                                var val = $('#' + div2Name).dynamicGrid('refreshGrid', function (r) {
+                                    alert(r);
+                                });
+                            });
+                            $('#' + div2Name).on('bindingcomplete', function (r) {
+                                alert('bindingcomplete Ok!!');
+                            });
+                        });
+                    }
+                    catch (err) {
+                        alert(err.stack);
+                    }
+                }
+            }
+            catch (err) {
+                alert(err.stack);
+            }
+        }); </script > </head > <body > <div id="maindiv" > ProgramId: <input data-id="Text1" type="text" / > SysProgramId: <input data-id="Text2" type="text" / > <input data-id="Button1" type="button" value="Show Form" / > <input data-id="Button2" type="button" value="Close Form" / > <input data-id="Button3" type="button" value="Change Theme" / > <input data-id="Button4" type="button" value="getRow" / > <input data-id="Button5" type="button" value="refreshGrid" / > </div > <div id="maindiv2" > </div > </body > </html >
+        

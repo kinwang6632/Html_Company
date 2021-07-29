@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>jqxWin Closing</title>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=yes">
+    <link rel="stylesheet" href="jqwidgets/styles/jqx.base.css" />
+    <link rel="stylesheet" href="jqwidgets/styles/jqx.energyblue.css" />    
+    <script src="scripts/jquery-1.11.1.min.js"></script>
+    <script src="jqwidgets/jqx-all.js"></script>
+    <script src="jqwidgets/jqxcore.js"></script>
+    <script src="jqwidgets/csWindow.js"></script>
+    <script src="jqwidgets/jqxbuttons.js"></script>
+    <script src="jqwidgets/jqxscrollbar.js"></script>
+    <script src="jqwidgets/jqxpanel.js"></script>
+    <script src="jqwidgets/jqxtabs.js"></script>
+    <script src="jqwidgets/jqxcheckbox.js"></script>
+    <script src="jqwidgets/jqxinput.js"></script>
+    <script src="jqwidgets/jqxnumberinput.js"></script>
+    <script src="jqwidgets/jqxresponsivepanel.js"></script>
+    <script src="jqwidgets/jqxdata.js"></script>
+    <script src="jqwidgets/jqxmenu.js"></script>
+    <script src="jqwidgets/jqxtree.js"></script>
+    <script src="jqwidgets/jqxresponse.js"></script>
+    <script src="jqwidgets/jqxnotification.js"></script>
+    <script src="jqwidgets/jqxloader.js"></script>
+    <script src="jqwidgets/jqxpasswordinput.js"></script>
+    <script src="jqwidgets/jqxlistbox.js"></script>
+
+    <script src="Utility/utility.js"></script>
+    <script>
+
+        $(document).ready(function() {
+            
+            $.jqx.theme = "energyblue";
+            $('#crtWin').on('click', function () {
+                var divName = 'div' + getUniqueId();
+                var div2Name = 'div2' + getUniqueId();
+                $('<div id="' + divName + '"><div>測試Form</div><div id="' + div2Name + '"></div></div>').appendTo('body');
+                var div = $('#' + divName);
+                $(div).csWindow({
+                    width: 800, height: 600,
+                    maxWidth: 1028,
+                    maxHeight: 800,
+                    autoOpen: true,
+                    keyboardCloseKey: 'none'
+                });
+                
+                div.on("closing", function () { return confirm("關 ?") });
+                div.on('close', function () { div.csWindow('destroy'); });
+            });
+            var clzWin = $.jqx._csWindow.prototype.closeWindow;
+            $.jqx._csWindow.prototype.closeWindow = function () {
+                if (this.host.triggerHandler("closing", self))
+                    clzWin.apply(this, arguments);
+            };
+            var csw = $("#csWin");
+            var csw2 = $("#csWin2")
+            csw.csWindow({
+                showCollapseButton: false,
+                showAnimationDuration: 500,
+                closeAnimationDuration: 500,
+                resizable: true,
+                draggable: true,
+                animationType: "fade",
+                height: 480,
+                width: 640,
+                autoOpen: true,
+                isModal: false,
+                modalOpacity: 0.2
+            });
+            csw2.csWindow({
+                showCollapseButton: false,
+                showAnimationDuration: 500,
+                closeAnimationDuration: 500,
+                resizable: true,
+                draggable: true,
+                animationType: "fade",
+                height: 480,
+                width: 640,
+                autoOpen: true,
+                isModal: false,
+                modalOpacity: 0.2
+            });
+            /*
+            var csw = $("#csWin");
+            var csw2 = $("#csWin2")
+            csw.csWindow({
+                showCollapseButton: false,
+                showAnimationDuration: 500,
+                closeAnimationDuration: 500,
+                resizable: true,
+                draggable: true,
+                animationType: "fade",
+                height: 480,
+                width: 640,
+                autoOpen: true,
+                isModal: false,
+                modalOpacity: 0.2
+            });
+            csw2.csWindow({
+                showCollapseButton: false,
+                showAnimationDuration: 500,
+                closeAnimationDuration: 500,
+                resizable: true,
+                draggable: true,
+                animationType: "fade",
+                height: 480,
+                width: 640,
+                autoOpen: true,
+                isModal: false,
+                modalOpacity: 0.2
+            });
+            var clzWin = $.jqx._csWindow.prototype.closeWindow;
+            $.jqx._csWindow.prototype.closeWindow = function () {
+                if (this.host.triggerHandler("closing", self))
+                    clzWin.apply(this, arguments);
+            };
+            csw.on("closing", function () { return confirm("關 ?") });
+            csw.on('close', function () { csw.csWindow('destroy'); });
+            csw2.on("closing", function () { return true  });
+            csw2.on('close', function () { csw2.csWindow('destroy'); }); */
+        });
+
+    </script>
+
+</head>
+
+<body bgcolor="#E6E6FA">
+    <button id="crtWin">create window</button>
+    <div id="csWin">
+        <div>Title</div>
+        <div>
+            <div id="csWin2">
+                <div>Title2</div>
+                <div>aaaa</div>
+            </div>
+        </div>
+    </div>
+    <!--
+    <div id="csWin">
+        <div>
+            <h1>Content.</h1>
+        </div>
+    </div>
+    <div id="csWin2">
+        <div>test</div>
+        <div>AAA</div>
+    </div> -->
+</body>
+
+</html>

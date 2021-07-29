@@ -1,0 +1,1223 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <link href="jqwidgets/styles/jqx.base.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.orange.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.office.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.energyblue.css" rel="stylesheet" />
+    
+    <!--<script type="text/javascript" src="../scripts/jquery-1.11.1.min.js"></script>-->
+    <script type="text/javascript" src="scripts/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="component/jqx-all2.js"></script>
+    <script type="text/javascript" src="../scripts/json2.js"></script>
+    <script src="Scripts/CryptoJS v3.1.2/rollups/aes.js"></script>
+    <!--<script src="jqwidgets/jqx-all.js"></script>-->
+    <script src="component/csTabs.js"></script>
+    <script src="component/csList.js"></script>
+    <script src="component/csMulti.js"></script>
+    <script src="component/csDateTime.js"></script>
+    <script src="component/csUploadFile.js"></script>
+    <script src="component/csAddress1.js"></script>
+    <script src="component/csAddress2.js"></script>
+    <script src="component/csWindow.js"></script>
+    <script src="dynamicComponent/dynamicCondition.js"></script>
+    <script src="dynamicComponent/dynamicUpdate.js"></script>
+    <script src="jqwidgets/globalization/globalize.js"></script>    
+    <script src="language/zh-TW/language01.js"></script>
+    <script src="language/zh-TW/language21.js"></script>
+    <script src="language/zh-TW/language31.js"></script>
+    <script src="language/zh-TW/language51.js"></script>
+    <script src="language/zh-TW/language52.js"></script>
+    <script src="language/zh-TW/language61.js"></script>
+    <script src="language/zh-TW/language71.js"></script>
+    <script src="Scripts/CryptoJS v3.1.2/rollups/aes.js"></script>
+    <script type="text/javascript" src="Utility/utility.js"></script>
+    <script type="text/javascript" src="Utility/ChargeUtility.js"></script>
+    <script type="text/javascript" src="../scripts/json2.js"></script>
+    <style type="text/css">
+        .csslEditMode {
+            background-color: #FFFF99;
+            border-color: white;
+            width: 60px;
+            height: 25px;
+            text-align: center;
+            padding: 6px;
+        }
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("body").hide();
+            var loginInfo = {
+                loginInfo: {
+                    type: 'logininfo',
+                    columns: [{ name: 'compcode', type: 'integer' },
+                        { name: 'entryid', type: 'string' },
+                        { name: 'entryname', type: 'string' },
+                        { name: 'groupid', type: 'string' }                      
+                    ],
+                    rows: [{
+                        compcode: 3,
+                        entryid: 'test',
+                        entryname: 'test',
+                        groupid: '50',                        
+                    }]
+                }
+            };
+            var editmode = {
+                type: 'integer',
+                value: editMode.append
+            };
+            $.jqx.theme = "energyblue";
+            var params = getParameters('getKey', 'getKey', 'getKey', loginInfo);
+            
+
+            getServerData(params, { success: initOk });
+            function initOk(data) {
+                $("body").show();
+                var localization = Globalize('zh-TW');
+                try {
+                    var copyLoginInfo = $.extend({}, { loginInfo: { type: 'logininfo', value: loginInfo.loginInfo } });
+                    copyLoginInfo.loginInfo.value.rows[0].ConnectionString = 'Data Source=RDKNET;User ID=TBCSH;Password=TBCSH;Persist Security Info=True;Unicode=True;Min Pool Size=0;Max Pool Size=25;Connection Lifetime=60';
+                    $('#btnDynamicUpdate').on('click', function () {
+                        try {
+                            //var dsData = {};
+
+
+                            var dsData = {
+                                "Building1": {
+                                    "columns": [
+                                      {
+                                          "name": "COMPCODE",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "THNO",
+                                          "type": "string"
+                                      },
+                                      {
+                                          "name": "STARTDATE",
+                                          "type": "date"
+                                      },
+                                      {
+                                          "name": "STOPDATE",
+                                          "type": "date"
+                                      },
+                                      {
+                                          "name": "CONTRACTOR",
+                                          "type": "string"
+                                      },
+                                      {
+                                          "name": "NAME1",
+                                          "type": "string"
+                                      },
+                                      {
+                                          "name": "NAME2",
+                                          "type": "string"
+                                      },
+                                      {
+                                          "name": "NAME3",
+                                          "type": "string"
+                                      },
+                                      {
+                                          "name": "NAME4",
+                                          "type": "string"
+                                      },
+                                      {
+                                          "name": "UPDEN",
+                                          "type": "string"
+                                      },
+                                      {
+                                          "name": "UPDTIME",
+                                          "type": "string"
+                                      },
+                                      {
+                                          "name": "MDUID",
+                                          "type": "string"
+                                      },
+                                      {
+                                          "name": "NOTE0",
+                                          "type": "string"
+                                      },
+                                      {
+                                          "name": "NOTE1",
+                                          "type": "string"
+                                      },
+                                      {
+                                          "name": "NOTE2",
+                                          "type": "string"
+                                      },
+                                      {
+                                          "name": "NOTE3",
+                                          "type": "string"
+                                      },
+                                      {
+                                          "name": "NOTE4",
+                                          "type": "string"
+                                      },
+                                      {
+                                          "name": "TEL1",
+                                          "type": "string"
+                                      },
+                                      {
+                                          "name": "TEL2",
+                                          "type": "string"
+                                      },
+                                      {
+                                          "name": "TEL3",
+                                          "type": "string"
+                                      },
+                                      {
+                                          "name": "TEL4",
+                                          "type": "string"
+                                      }
+                                    ],
+                                    "rows": [
+                                      {
+                                          "COMPCODE": 3,
+                                          "THNO": "3",
+                                          "STARTDATE": "2020-07-20T00:00:00+08:00",
+                                          "STOPDATE": "2020-08-08T00:00:00+08:00",
+                                          "CONTRACTOR": null,
+                                          "NAME1": null,
+                                          "NAME2": null,
+                                          "NAME3": null,
+                                          "NAME4": null,
+                                          "UPDEN": "TEST50",
+                                          "UPDTIME": "109/07/20 14:58:41",
+                                          "MDUID": "444",
+                                          "NOTE0": null,
+                                          "NOTE1": null,
+                                          "NOTE2": null,
+                                          "NOTE3": null,
+                                          "NOTE4": null,
+                                          "TEL1": null,
+                                          "TEL2": null,
+                                          "TEL3": null,
+                                          "TEL4": null
+                                      }
+                                    ]
+                                },
+                                "Building": {
+                                    "rows": [
+                                      {
+                                          "MDUID": "444",
+                                          "NAME": "TEST111111",
+                                          "MAINADDRNO": 1107248,
+                                          "MAINADDRESS": "竹南鎮康德街44號",
+                                          "CONTADDRNO": 1107248,
+                                          "CONTADDRESS": "竹南鎮康德街44號",
+                                          "DEVEN": "0178",
+                                          "DEVNAME": "吳淑芬",
+                                          "ENGAMT": 500,
+                                          "CLCTMETHOD": 2,
+                                          "TOTALCNT": 0,
+                                          "ACCEPTCNT": 0,
+                                          "INSTCNT": 0,
+                                          "UNINSTCNT": 0,
+                                          "CSTARTDATE": "2019-04-24T00:00:00+08:00",
+                                          "CDUEDATE": "2020-04-23T00:00:00+08:00",
+                                          "CSIGNDATE": "2019-04-23T00:00:00+08:00",
+                                          "CONTENT": "簽約日期：YYYY/MM/DD\n合約期間：YYYY/MM/DD 至 YYYY/MM/DD\n房東：\n簽約人員：\n地址：\n總戶數：X戶\n住戶數：X戶\n合約方式：■ 單一房東  ■ 統收  ■ 專案\n業活需求：新增\nCATV簽約戶數：X戶\nCM  8M簽約戶數：X戶，單戶金額：XXX元\nCM  20M監視系統：X戶，單戶金額：XXX元\nDL簽約戶數：X戶\nDTV簽約戶數：X戶\n增減：X戶\n原有效戶：X戶\n有搭配網路CM不可退\n備註：\n",
+                                          "FLAG": "正常",
+                                          "UPDTIME": "108/01/21  14:10:42",
+                                          "UPDEN": "YANG50",
+                                          "CSIGNEN": "0168B001",
+                                          "CSIGNNAME": "賴瑞恩",
+                                          "COMPCODE": 3,
+                                          "PIPELINECODE": 8,
+                                          "PIPELINENAME": "明線改暗管",
+                                          "ACCEPTCNT1": 0,
+                                          "INSTCNT1": 0,
+                                          "UNINSTCNT1": 0,
+                                          "CONTRACTSTATUS": 1,
+                                          "PERINSTCNT": 0,
+                                          "COMPUTECNT": 0,
+                                          "PERINSTCNT1": 0,
+                                          "ACCEPTCNT2": 0,
+                                          "INSTCNT2": 0,
+                                          "UNINSTCNT2": 0,
+                                          "PERINSTCNT2": 0,
+                                          "ACCEPTCNT3": 0,
+                                          "INSTCNT3": 0,
+                                          "UNINSTCNT3": 0,
+                                          "PERINSTCNT3": 0,
+                                          "CLASSCODE": 1001,
+                                          "CLASSNAME": "大樓客戶",
+                                          "IMMIGRATECNT": 0,
+                                          "SALEDATE": "2017-12-25T00:00:00+08:00",
+                                          "DIGITALDATE": "2017-12-26T00:00:00+08:00",
+                                          "CMCSTATUSCODE": 2,
+                                          "CMCSTATUSNAME": "大樓統收正常",
+                                          "CONTRACTSORTCODE": 2,
+                                          "CONTRACTSORTNAME": "大樓統收合約",
+                                          "FEEDBACKCODE": 1,
+                                          "FEEDBACKNAME": "白米一戶一包",
+                                          "CTOTALCOUNTC": 0,
+                                          "CTOTALCOUNTD": 0,
+                                          "CTOTALCOUNTI": 0,
+                                          "CCONTRACTCOUNTC": 0,
+                                          "CCONTRACTCOUNTD": 0,
+                                          "CCONTRACTCOUNTI": 0,
+                                          "CCONTRACTAMOUNTC": 0,
+                                          "CCONTRACTAMOUNTD": 0,
+                                          "CCONTRACTAMOUNTI": 0,
+                                          "CCONTRACTNO": "123",
+                                          "MDUTYPE": 0,
+                                          "SEQNO": 69
+                                      }
+                                    ],
+                                    "columns": [
+                                      {
+                                          "name": "MDUID",
+                                          "type": "string"
+                                      },
+                                      {
+                                          "name": "NAME",
+                                          "type": "string"
+                                      },
+                                      {
+                                          "name": "MAINADDRNO",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "MAINADDRESS",
+                                          "type": "string"
+                                      },
+                                      {
+                                          "name": "CONTADDRNO",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "CONTADDRESS",
+                                          "type": "string"
+                                      },
+                                      {
+                                          "name": "DEVEN",
+                                          "type": "string"
+                                      },
+                                      {
+                                          "name": "DEVNAME",
+                                          "type": "string"
+                                      },
+                                      {
+                                          "name": "ENGAMT",
+                                          "type": "double"
+                                      },
+                                      {
+                                          "name": "CONTNAME1",
+                                          "type": "string"
+                                      },
+                                      {
+                                          "name": "CONTPHONE11",
+                                          "type": "string"
+                                      },
+                                      {
+                                          "name": "CONTPHONE12",
+                                          "type": "string"
+                                      },
+                                      {
+                                          "name": "CONTNAME2",
+                                          "type": "string"
+                                      },
+                                      {
+                                          "name": "CONTPHONE21",
+                                          "type": "string"
+                                      },
+                                      {
+                                          "name": "CONTPHONE22",
+                                          "type": "string"
+                                      },
+                                      {
+                                          "name": "CONTNAME3",
+                                          "type": "string"
+                                      },
+                                      {
+                                          "name": "CONTPHONE31",
+                                          "type": "string"
+                                      },
+                                      {
+                                          "name": "CONTPHONE32",
+                                          "type": "string"
+                                      },
+                                      {
+                                          "name": "CLCTMETHOD",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "MAINCUSTID",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "MAINCUSTNAME",
+                                          "type": "string"
+                                      },
+                                      {
+                                          "name": "TOTALCNT",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "ACCEPTCNT",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "INSTCNT",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "UNINSTCNT",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "NOTE",
+                                          "type": "string"
+                                      },
+                                      {
+                                          "name": "CSTARTDATE",
+                                          "type": "date"
+                                      },
+                                      {
+                                          "name": "CDUEDATE",
+                                          "type": "date"
+                                      },
+                                      {
+                                          "name": "CSIGNDATE",
+                                          "type": "date"
+                                      },
+                                      {
+                                          "name": "CONTENT",
+                                          "type": "string"
+                                      },
+                                      {
+                                          "name": "FLAG",
+                                          "type": "string"
+                                      },
+                                      {
+                                          "name": "UPDTIME",
+                                          "type": "string"
+                                      },
+                                      {
+                                          "name": "UPDEN",
+                                          "type": "string"
+                                      },
+                                      {
+                                          "name": "UNPRCNT",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "CSIGNEN",
+                                          "type": "string"
+                                      },
+                                      {
+                                          "name": "CSIGNNAME",
+                                          "type": "string"
+                                      },
+                                      {
+                                          "name": "BCAMOUNT",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "BCPERIOD",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "COMPCODE",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "PIPELINECODE",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "PIPELINENAME",
+                                          "type": "string"
+                                      },
+                                      {
+                                          "name": "ACCEPTCNT1",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "INSTCNT1",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "UNINSTCNT1",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "CONTRACTSTATUS",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "PERINSTCNT",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "COMPUTECNT",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "PERINSTCNT1",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "ACCEPTCNT2",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "INSTCNT2",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "UNINSTCNT2",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "PERINSTCNT2",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "ACCEPTCNT3",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "INSTCNT3",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "UNINSTCNT3",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "PERINSTCNT3",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "CLASSCODE",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "CLASSNAME",
+                                          "type": "string"
+                                      },
+                                      {
+                                          "name": "IMMIGRATECNT",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "SALEDATE",
+                                          "type": "date"
+                                      },
+                                      {
+                                          "name": "DIGITALDATE",
+                                          "type": "date"
+                                      },
+                                      {
+                                          "name": "CMCSTATUSCODE",
+                                          "type": "double"
+                                      },
+                                      {
+                                          "name": "CMCSTATUSNAME",
+                                          "type": "string"
+                                      },
+                                      {
+                                          "name": "CONTRACTSORTCODE",
+                                          "type": "double"
+                                      },
+                                      {
+                                          "name": "CONTRACTSORTNAME",
+                                          "type": "string"
+                                      },
+                                      {
+                                          "name": "FEEDBACKCODE",
+                                          "type": "double"
+                                      },
+                                      {
+                                          "name": "FEEDBACKNAME",
+                                          "type": "string"
+                                      },
+                                      {
+                                          "name": "FEEDBACKAMT",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "FEEDBACKPERIOD",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "DISCOUNTNAME",
+                                          "type": "string"
+                                      },
+                                      {
+                                          "name": "DISCOUNTDATE1",
+                                          "type": "date"
+                                      },
+                                      {
+                                          "name": "DISCOUNTDATE2",
+                                          "type": "date"
+                                      },
+                                      {
+                                          "name": "DISCOUNTPERIOD",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "DISCOUNTAMT",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "CEXPIRYDATE",
+                                          "type": "date"
+                                      },
+                                      {
+                                          "name": "CTOTALCOUNTC",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "CTOTALCOUNTD",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "CTOTALCOUNTI",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "CCONTRACTCOUNTC",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "CCONTRACTCOUNTD",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "CCONTRACTCOUNTI",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "CCONTRACTAMOUNTC",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "CCONTRACTAMOUNTD",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "CCONTRACTAMOUNTI",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "CCONTRACTNO",
+                                          "type": "string"
+                                      },
+                                      {
+                                          "name": "MDUTYPE",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "NOMERGEBILL",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "SEQNO",
+                                          "type": "decimal"
+                                      }
+                                    ]
+                                },
+                                "SO018": {
+                                    "rows": [
+                                      {
+                                          "MDUID": "444",
+                                          "CSIGNDATE": "2019-04-23T00:00:00+08:00",
+                                          "CSTARTDATE": "2019-04-24T00:00:00+08:00",
+                                          "CDUEDATE": "2020-04-23T00:00:00+08:00",
+                                          "CONTENT": "簽約日期：YYYY/MM/DD\n合約期間：YYYY/MM/DD 至 YYYY/MM/DD\n房東：\n簽約人員：\n地址：\n總戶數：X戶\n住戶數：X戶\n合約方式：■ 單一房東  ■ 統收  ■ 專案\n業活需求：新增\nCATV簽約戶數：X戶\nCM  8M簽約戶數：X戶，單戶金額：XXX元\nCM  20M監視系統：X戶，單戶金額：XXX元\nDL簽約戶數：X戶\nDTV簽約戶數：X戶\n增減：X戶\n原有效戶：X戶\n有搭配網路CM不可退\n備註：\n",
+                                          "CSIGNEN": "0168B001",
+                                          "CSIGNNAME": "賴瑞恩",
+                                          "COMPCODE": 3,
+                                          "CNO": "123",
+                                          "CONTRACTSORTCODE": 2,
+                                          "FEEDBACKCODE": 1,
+                                          "SEQNO": 69,
+                                          "CONTRACTSTATUS": 1,
+                                          "CTOTALCOUNTC": 0,
+                                          "CTOTALCOUNTD": 0,
+                                          "CTOTALCOUNTI": 0,
+                                          "CCONTRACTCOUNTC": 0,
+                                          "CCONTRACTCOUNTD": 0,
+                                          "CCONTRACTCOUNTI": 0,
+                                          "CCONTRACTAMOUNTC": 0,
+                                          "CCONTRACTAMOUNTD": 0,
+                                          "CCONTRACTAMOUNTI": 0
+                                      }
+                                    ],
+                                    "columns": [
+                                      {
+                                          "name": "MDUID",
+                                          "type": "string"
+                                      },
+                                      {
+                                          "name": "CSIGNDATE",
+                                          "type": "date"
+                                      },
+                                      {
+                                          "name": "CSTARTDATE",
+                                          "type": "date"
+                                      },
+                                      {
+                                          "name": "CDUEDATE",
+                                          "type": "date"
+                                      },
+                                      {
+                                          "name": "CONTENT",
+                                          "type": "string"
+                                      },
+                                      {
+                                          "name": "CSIGNEN",
+                                          "type": "string"
+                                      },
+                                      {
+                                          "name": "CSIGNNAME",
+                                          "type": "string"
+                                      },
+                                      {
+                                          "name": "MAINCUSTID",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "MAINCUSTNAME",
+                                          "type": "string"
+                                      },
+                                      {
+                                          "name": "BCAMOUNT",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "BCPERIOD",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "COMPCODE",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "CNO",
+                                          "type": "string"
+                                      },
+                                      {
+                                          "name": "CEXPIRYDATE",
+                                          "type": "date"
+                                      },
+                                      {
+                                          "name": "CONTRACTSORTCODE",
+                                          "type": "double"
+                                      },
+                                      {
+                                          "name": "FEEDBACKCODE",
+                                          "type": "double"
+                                      },
+                                      {
+                                          "name": "FEEDBACKAMT",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "FEEDBACKPERIOD",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "SEQNO",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "CONTRACTSTATUS",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "CTOTALCOUNTC",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "CTOTALCOUNTD",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "CTOTALCOUNTI",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "CCONTRACTCOUNTC",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "CCONTRACTCOUNTD",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "CCONTRACTCOUNTI",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "CCONTRACTAMOUNTC",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "CCONTRACTAMOUNTD",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "CCONTRACTAMOUNTI",
+                                          "type": "int32"
+                                      }
+                                    ]
+                                },
+                                "Query_CD004": {
+                                    "rows": [
+                                      {
+                                          "CODENO": 82,
+                                          "DESCRIPTION": "快樂家庭戶"
+                                      },
+                                      {
+                                          "CODENO": 1000,
+                                          "DESCRIPTION": "一般客戶"
+                                      },
+                                      {
+                                          "CODENO": 1001,
+                                          "DESCRIPTION": "大樓客戶"
+                                      },
+                                      {
+                                          "CODENO": 1002,
+                                          "DESCRIPTION": "CMA 企業戶"
+                                      },
+                                      {
+                                          "CODENO": 1003,
+                                          "DESCRIPTION": "CMA 一般戶"
+                                      },
+                                      {
+                                          "CODENO": 1004,
+                                          "DESCRIPTION": "CATV一般戶+音樂網"
+                                      },
+                                      {
+                                          "CODENO": 1006,
+                                          "DESCRIPTION": "音樂網+CM"
+                                      },
+                                      {
+                                          "CODENO": 1007,
+                                          "DESCRIPTION": "公共場所"
+                                      },
+                                      {
+                                          "CODENO": 1008,
+                                          "DESCRIPTION": "公播+音樂網+CM"
+                                      },
+                                      {
+                                          "CODENO": 1009,
+                                          "DESCRIPTION": "公播統收代表戶"
+                                      },
+                                      {
+                                          "CODENO": 1010,
+                                          "DESCRIPTION": "公播統收"
+                                      },
+                                      {
+                                          "CODENO": 1011,
+                                          "DESCRIPTION": "公共場所(純音樂)"
+                                      },
+                                      {
+                                          "CODENO": 1012,
+                                          "DESCRIPTION": "公共場所(TV+音樂)"
+                                      },
+                                      {
+                                          "CODENO": 1013,
+                                          "DESCRIPTION": "單一房東+音樂網"
+                                      },
+                                      {
+                                          "CODENO": 1014,
+                                          "DESCRIPTION": "單一房東"
+                                      },
+                                      {
+                                          "CODENO": 1015,
+                                          "DESCRIPTION": "單一統收"
+                                      },
+                                      {
+                                          "CODENO": 1016,
+                                          "DESCRIPTION": "單一統收代表戶"
+                                      },
+                                      {
+                                          "CODENO": 1017,
+                                          "DESCRIPTION": "統收客戶"
+                                      },
+                                      {
+                                          "CODENO": 1018,
+                                          "DESCRIPTION": "統收代表戶"
+                                      },
+                                      {
+                                          "CODENO": 1019,
+                                          "DESCRIPTION": "統包大樓"
+                                      },
+                                      {
+                                          "CODENO": 1020,
+                                          "DESCRIPTION": "縣府專案戶"
+                                      },
+                                      {
+                                          "CODENO": 1021,
+                                          "DESCRIPTION": "縣府專案戶代表戶"
+                                      },
+                                      {
+                                          "CODENO": 1022,
+                                          "DESCRIPTION": "大樓同址多戶"
+                                      },
+                                      {
+                                          "CODENO": 1023,
+                                          "DESCRIPTION": "一般同址多戶"
+                                      },
+                                      {
+                                          "CODENO": 1024,
+                                          "DESCRIPTION": "一般非郵寄"
+                                      },
+                                      {
+                                          "CODENO": 1025,
+                                          "DESCRIPTION": "企業宿舍"
+                                      },
+                                      {
+                                          "CODENO": 1026,
+                                          "DESCRIPTION": "套房客戶"
+                                      },
+                                      {
+                                          "CODENO": 1027,
+                                          "DESCRIPTION": "監視器"
+                                      },
+                                      {
+                                          "CODENO": 1028,
+                                          "DESCRIPTION": "監視器代表戶"
+                                      },
+                                      {
+                                          "CODENO": 1029,
+                                          "DESCRIPTION": "公播+音樂統收代表戶"
+                                      },
+                                      {
+                                          "CODENO": 1030,
+                                          "DESCRIPTION": "公播+音樂統收"
+                                      },
+                                      {
+                                          "CODENO": 1031,
+                                          "DESCRIPTION": "熱點"
+                                      },
+                                      {
+                                          "CODENO": 1032,
+                                          "DESCRIPTION": "熱點代表戶"
+                                      },
+                                      {
+                                          "CODENO": 1033,
+                                          "DESCRIPTION": "轉九太"
+                                      },
+                                      {
+                                          "CODENO": 2000,
+                                          "DESCRIPTION": "大樓公關戶"
+                                      },
+                                      {
+                                          "CODENO": 2001,
+                                          "DESCRIPTION": "工程轉優(光接收機)"
+                                      },
+                                      {
+                                          "CODENO": 2002,
+                                          "DESCRIPTION": "工程轉優(放大器)"
+                                      },
+                                      {
+                                          "CODENO": 2003,
+                                          "DESCRIPTION": "工程轉優(被動元件)"
+                                      },
+                                      {
+                                          "CODENO": 2004,
+                                          "DESCRIPTION": "工程轉優(電源供應器)"
+                                      },
+                                      {
+                                          "CODENO": 2005,
+                                          "DESCRIPTION": "工程轉優(纜線)"
+                                      },
+                                      {
+                                          "CODENO": 2006,
+                                          "DESCRIPTION": "工程轉優戶"
+                                      },
+                                      {
+                                          "CODENO": 2007,
+                                          "DESCRIPTION": "工程轉優-包燈轉嫁"
+                                      },
+                                      {
+                                          "CODENO": 2008,
+                                          "DESCRIPTION": "工程轉優-借電轉嫁"
+                                      },
+                                      {
+                                          "CODENO": 2009,
+                                          "DESCRIPTION": "包燈"
+                                      },
+                                      {
+                                          "CODENO": 2010,
+                                          "DESCRIPTION": "民意代表"
+                                      },
+                                      {
+                                          "CODENO": 2011,
+                                          "DESCRIPTION": "同業公關"
+                                      },
+                                      {
+                                          "CODENO": 2012,
+                                          "DESCRIPTION": "地方社團"
+                                      },
+                                      {
+                                          "CODENO": 2013,
+                                          "DESCRIPTION": "低收入戶"
+                                      },
+                                      {
+                                          "CODENO": 2014,
+                                          "DESCRIPTION": "村里長"
+                                      },
+                                      {
+                                          "CODENO": 2015,
+                                          "DESCRIPTION": "其他公關"
+                                      },
+                                      {
+                                          "CODENO": 2016,
+                                          "DESCRIPTION": "協力廠商"
+                                      },
+                                      {
+                                          "CODENO": 2017,
+                                          "DESCRIPTION": "附掛-光接收機"
+                                      },
+                                      {
+                                          "CODENO": 2018,
+                                          "DESCRIPTION": "附掛-放大器"
+                                      },
+                                      {
+                                          "CODENO": 2019,
+                                          "DESCRIPTION": "附掛-被動元件"
+                                      },
+                                      {
+                                          "CODENO": 2020,
+                                          "DESCRIPTION": "附掛-電源供應器"
+                                      },
+                                      {
+                                          "CODENO": 2021,
+                                          "DESCRIPTION": "附掛-纜線"
+                                      },
+                                      {
+                                          "CODENO": 2022,
+                                          "DESCRIPTION": "政府官員"
+                                      },
+                                      {
+                                          "CODENO": 2023,
+                                          "DESCRIPTION": "政府機關"
+                                      },
+                                      {
+                                          "CODENO": 2024,
+                                          "DESCRIPTION": "借電"
+                                      },
+                                      {
+                                          "CODENO": 2025,
+                                          "DESCRIPTION": "媒體"
+                                      },
+                                      {
+                                          "CODENO": 2026,
+                                          "DESCRIPTION": "費率委員"
+                                      },
+                                      {
+                                          "CODENO": 2027,
+                                          "DESCRIPTION": "群園企業"
+                                      },
+                                      {
+                                          "CODENO": 2028,
+                                          "DESCRIPTION": "廣告客戶"
+                                      },
+                                      {
+                                          "CODENO": 2029,
+                                          "DESCRIPTION": "頻道監看"
+                                      },
+                                      {
+                                          "CODENO": 2030,
+                                          "DESCRIPTION": "警義消"
+                                      },
+                                      {
+                                          "CODENO": 2031,
+                                          "DESCRIPTION": "公司使用"
+                                      },
+                                      {
+                                          "CODENO": 2032,
+                                          "DESCRIPTION": "員工優惠"
+                                      },
+                                      {
+                                          "CODENO": 2033,
+                                          "DESCRIPTION": "CMA 公關戶"
+                                      },
+                                      {
+                                          "CODENO": 2034,
+                                          "DESCRIPTION": "跨區員工優惠"
+                                      },
+                                      {
+                                          "CODENO": 2035,
+                                          "DESCRIPTION": "跨區附掛-電源供應器"
+                                      },
+                                      {
+                                          "CODENO": 2036,
+                                          "DESCRIPTION": "跨區附掛-光接收機"
+                                      },
+                                      {
+                                          "CODENO": 2037,
+                                          "DESCRIPTION": "跨區附掛-放大器"
+                                      },
+                                      {
+                                          "CODENO": 2038,
+                                          "DESCRIPTION": "跨區附掛-TAP及纜線"
+                                      },
+                                      {
+                                          "CODENO": 2039,
+                                          "DESCRIPTION": "跨區附掛-基座箱"
+                                      },
+                                      {
+                                          "CODENO": 3000,
+                                          "DESCRIPTION": "收費A級"
+                                      },
+                                      {
+                                          "CODENO": 3001,
+                                          "DESCRIPTION": "收費B級"
+                                      },
+                                      {
+                                          "CODENO": 3002,
+                                          "DESCRIPTION": "收費C級"
+                                      },
+                                      {
+                                          "CODENO": 3003,
+                                          "DESCRIPTION": "電子帳單"
+                                      },
+                                      {
+                                          "CODENO": 3004,
+                                          "DESCRIPTION": "網路會員"
+                                      },
+                                      {
+                                          "CODENO": 3005,
+                                          "DESCRIPTION": "接線客戶"
+                                      },
+                                      {
+                                          "CODENO": 3006,
+                                          "DESCRIPTION": "ssss"
+                                      }
+                                    ],
+                                    "columns": [
+                                      {
+                                          "name": "CODENO",
+                                          "type": "int32"
+                                      },
+                                      {
+                                          "name": "DESCRIPTION",
+                                          "type": "string"
+                                      }
+                                    ]
+                                },
+                                "Building_I": {
+                                    "columns": [
+                                      {
+                                          "name": "MDUID",
+                                          "type": "string"
+                                      },
+                                      {
+                                          "name": "COMPCODE",
+                                          "type": "integer"
+                                      }
+                                    ],
+                                    "rows": [
+                                      {
+                                          "MDUID": "444",
+                                          "COMPCODE": 3
+                                      }
+                                    ]
+                                }
+                            };
+                    
+                            var divName = 'div' + getUniqueId();
+                            var div2Name = 'div2' + getUniqueId();
+                            $('<div id="' + divName + '"><div>測試Form</div><div id="' + div2Name + '"></div></div>').appendTo('body');
+                            var div = $('#' + divName);
+                            $(div).csWindow($.extend({}, {
+                                width: 905, height: 400,
+                                maxWidth: 1028,
+                                maxHeight: 900,
+                                keyboardCloseKey: 'none',
+                                haveClosing: true,
+                            }));
+                            var div2 = $('#' + div2Name);
+
+                            $(div2).dynamicUpdate($.extend({}, {
+                                loginInfo:cloneJSON( loginInfo),
+                                container: div,
+                                //parameters: dsData,
+
+                                //sysProgramId: 'SO7210A',
+                                sysProgramId: 'SO1300I',
+                                ///sysProgramId: 'SO6341A',
+                                //sysProgramId: 'SO1300A245',
+                                parameters: cloneJSON(dsData),
+                                mainTableName: "Building1",
+                                //sysProgramId: 'SO6650A',
+                                //sysProgramId: 'CD042',
+                                editMode: editmode.value,
+                                localization: localization
+                            }));
+                            $(div).on('close', function (event) {
+                                //alert($(div2).SO6460A.methods['options']);
+
+                                //var options = $.data($(div2), formName).options;
+                                // var options = $(div2).SO6460A.methods['options'];
+
+
+                                var options = $(div2).dynamicUpdate('options');
+                                $(div2).dynamicUpdate('destroy');
+                                $(div).csWindow('destroy');
+                            });
+                            $(div2).on('loaded', function (event) {
+                                //alert('loaded');
+                                $(this).dynamicUpdate('resize');
+                                container = div2;
+                                $(this).each(function () {
+                                });
+                            });
+                        }
+                        catch (err) {
+                            alert(err.stack)
+                        }
+                    });
+                    $('#btnExecute').on('click', function () {
+                        /*
+                        $(container).dynamicUpdate('execute', function (isSuccess, errMsg, ds) {
+                            if (!isSuccess) {
+                                if (errMsg != '') {
+                                    alert(errMsg);
+                                };
+                            } else {
+                                $(container).dynamicUpdate('changeMode', editMode.view);
+                            };
+                        }); */
+                        $(container).dynamicUpdate('cancelData', function (isSuccess, errMsg) {
+                            if (!isSuccess) {
+                                if (errMsg != '') {
+                                    alert(errMsg);
+                                };
+                            } else {
+                                $(container).dynamicUpdate('changeMode', editMode.view);
+                            };
+                        });
+                    });
+
+
+                } catch (err) {
+                    errorHandle(formName, 'QueryEnvironment', err);
+
+                } finally {
+
+                };
+
+
+            };
+        })
+    </script>
+</head>
+<body>
+    <button id="btnDynamicUpdate">Show DynamicUpdate</button>
+    <button id="btnExecute">execute</button>
+    <div id="test"></div>
+</body>
+</html>

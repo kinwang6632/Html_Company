@@ -1,0 +1,267 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .SO1113A_DIV {
+            padding-top: 2px;
+            padding-left: 1px;
+            width: 99.5%;
+            float: left;
+        }
+
+        .SO1113A2_DIV {
+            padding-top: 2px;
+            padding-left: 1px;
+            width: 99.5%;
+            float: left;
+            height: 28px;
+        }
+
+        .SO1113A_lbl1 {
+            float: left;
+            margin-top: 6px;
+            /*margin-left: 2px;*/
+            width: 100px;
+            text-align: right;
+        }
+
+       .SO1113A_t {
+            float: left;
+            margin-top: 1px;
+            padding-left: 1px;
+            width: 120px;
+        }
+
+        .SO1113A_c {
+            float: left;
+            margin-left: 2px;
+        }
+
+        .SO1113A_red {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div data-id="gbxAll" style="padding:0px;margin:0px;">
+        <div data-id="gbxData">
+            <!--head-->
+            <div data-id="gbxTop" style="clear:both;">
+                <div class="SO1113A_DIV" style="width:25%;">
+                    <div data-id="lSno" class="SO1113A_DIV" style="width:35%;">:</div>
+                    <div data-id="tSno" class="SO1113A_DIV" style="width:64%;"></div>
+                </div>
+                <div class="SO1113A_DIV" style="width:25%;">
+                    <div data-id="lServName" class="SO1113A_DIV" style="width:35%;">:</div>
+                    <div data-id="tServName" class="SO1113A_DIV" style="width:64%;"></div>
+                </div>
+                <div class="SO1113A_DIV" style="width:25%;">
+                    <div data-id="lAcceptEn" class="SO1113A_DIV" style="width:35%;">:</div>
+                    <div data-id="tAcceptEn" class="SO1113A_DIV" style="width:64%;"></div>
+                </div>
+                <div class="SO1113A_DIV" style="width:25%;">
+                    <div data-id="lAcceptTime" class="SO1113A_DIV" style="width:35%;">:</div>
+                    <div data-id="tAcceptTime" class="SO1113A_DIV" style="width:64%;"></div>
+                </div>
+            </div>
+            <div data-id="gbxWip" class="SO1113A_DIV" style="clear:both;">
+                <!--左邊-->
+                <div data-id="gbxML" class="SO1113A_DIV" style="width:50%;height:99%;">
+                    <div class="SO1113A2_DIV">
+                        <label data-id="lServiceType" class="SO1113A_lbl1 SO1113A_red"></label>
+                        <div data-id="csServiceType" class="SO1113A_t"></div>
+                    </div>
+                    <div class="SO1113A2_DIV">
+                        <label data-id="lPRCode" class="SO1113A_lbl1 SO1113A_red"></label>
+                        <div data-id="csPRCode" class="SO1113A_t"></div>
+                    </div>
+                    <div class="SO1113A2_DIV">
+                        <label data-id="lReasonCode" class="SO1113A_lbl1 SO1113A_red"></label>
+                        <div data-id="csReasonCode" class="SO1113A_t"></div>
+                    </div>
+                    <div class="SO1113A2_DIV">
+                        <label data-id="lReasonDescCode" class="SO1113A_lbl1"></label>
+                        <div data-id="csReasonDescCode" class="SO1113A_t"></div>
+                    </div>
+                    <div class="SO1113A2_DIV">
+                        <label data-id="lResvTime" class="SO1113A_lbl1 SO1113A_red"></label>
+                        <div>
+                            <input data-id="dtResvTime" style="margin:1px;float:left;" />
+                            <button data-id="btnReserve" style="margin:1px;float:left;"></button>
+                        </div>
+                    </div>
+                    <div class="SO1113A2_DIV">
+                        <label data-id="lCustRunCode" class="SO1113A_lbl1"></label>
+                        <div data-id="csCustRunCode" class="SO1113A_t"></div>
+                    </div>
+                    <div class="SO1113A2_DIV">
+                        <label data-id="lResvFlagTime" class="SO1113A_lbl1"></label>
+                        <input data-id="dtResvFlagTime" style="margin:1px;float:left;" />
+                        <div data-id="chkPrintBillFlag" style="margin:1px;float:left;"></div>
+                    </div>
+                    <div class="SO1113A2_DIV" >
+                        <div style="width:50%;float:left;">
+                            <label data-id="lReInstDate" class="SO1113A_lbl1"></label>
+                            <input data-id="dtReInstDate" class="SO1113A_t" />
+                        </div>
+                        <div style="width:49%;float:left;">
+                            <label data-id="lCallOkTime" class="SO1113A_lbl1"></label>
+                            <input data-id="dtCallOkTime" class="SO1113A_t" />
+                        </div>
+                    </div>
+                    <div class="SO1113A2_DIV">
+                        <label data-id="lGroupCode" class="SO1113A_lbl1"></label>
+                        <div data-id="csGroupCode" class="SO1113A_t"></div>
+                    </div>
+                    <div class="SO1113A2_DIV">
+                        <label data-id="lWorkerEn1" class="SO1113A_lbl1 "></label>
+                        <div data-id="csWorkerEn1" class="SO1113A_t"></div>
+                        <div data-id="csWorkerEn2" class="SO1113A_t"></div>
+                    </div>
+                    <div class="SO1113A2_DIV">
+                        <div class="SO1113A_DIV" style="width:33%">
+                            <label data-id="lWorkUnit" class="SO1113A_lbl1"></label>
+                            <input data-id="tWorkUnit" class="SO1113A_t" />
+                        </div>
+                        <div class="SO1113A_DIV" style="width:18%">
+                            <label data-id="lInstCount" class="SO1113A_lbl1" style="width:60px;"></label>
+                            <input data-id="tInstCount" class="SO1113A_t" />
+                        </div>
+                        <div class="SO1113A_DIV" style="width:48%">
+                            <label data-id="lPinCode" class="SO1113A_lbl1"></label>
+                            <input data-id="tPinCode" class="SO1113A_t" />
+                        </div>
+                    </div>
+                    <div class="SO1113A2_DIV">
+                        <label data-id="lNote" class="SO1113A_lbl1"></label>
+                        <textarea data-id="tNote" class="SO1113A_t" style="margin-top:3px;"></textarea>
+                    </div>
+                </div>
+                <!--右邊-->
+                <div data-id="gbxMR" class="SO1113A_DIV" style="width:49%;height:100%;">
+                    <div data-id="gbxAddress" style="margin-left:1px;">
+                        <div>
+                            
+                        </div>
+                        <div style="padding-bottom:1px;">
+                            <div class="SO1113A_DIV">
+                                <div data-id="g1ReInstAddress" class="SO1113A_t" style="height:25px;"></div>
+                            </div>
+                            <div class="SO1113A_DIV">
+                                <div data-id="g1NewChargeAddrNo" class="SO1113A_t"></div>
+                            </div>
+                            <div class="SO1113A_DIV">
+                                <div data-id="g1NewMailAddrNo" class="SO1113A_t"></div>
+                            </div>
+                            <div class="SO1113A_DIV">
+                                <label data-id="lNewTel1" class="SO1113A_lbl1" style="text-align:left;width:80px;margin-left:5px;"></label>
+                                <input data-id="tNewTel1" class="SO1113A_t" />
+                                <input data-id="tNewTel2" class="SO1113A_t" />
+                                <!--<input data-id="tNewTel3" class="SO1113A_t" />-->
+                            </div>
+                        </div>
+                    </div>
+                    <div data-id="gbxClose" style="margin-top:1px;margin-left:1px;">
+                        <div>
+                            
+                        </div>
+                        <div style="padding-bottom:1px;">
+                            <div class="SO1113A2_DIV">
+                                <div class="SO1113A_DIV" style="width:54%">
+                                    <label data-id="lFinTime" class="SO1113A_lbl1 "></label>
+                                    <input data-id="dtFinTime" class="SO1113A_t" />
+                                </div>
+                                <div class="SO1113A_DIV" style="width:45%">
+                                    <label data-id="lFinUnit" class="SO1113A_lbl1 "></label>
+                                    <input data-id="tFinUnit" class="SO1113A_t" />
+                                </div>
+                            </div>
+                            <div class="SO1113A_DIV">
+                                <label data-id="lReturnCode" class="SO1113A_lbl1 "></label>
+                                <div data-id="csReturnCode" class="SO1113A_t"></div>
+                            </div>
+                            <div class="SO1113A_DIV">
+                                <label data-id="lReturnDescCode" class="SO1113A_lbl1  "></label>
+                                <div data-id="csReturnDescCode" class="SO1113A_t"></div>
+                            </div>
+                            <div class="SO1113A_DIV">
+                                <label data-id="lSatiCode" class="SO1113A_lbl1  "></label>
+                                <div data-id="csSatiCode" class="SO1113A_t"></div>
+                            </div>
+                            <div class="SO1113A_DIV">
+                                <label data-id="lSignEn" class="SO1113A_lbl1 "></label>
+                                <div data-id="csSignEn" class="SO1113A_t"></div>
+                            </div>
+                            <div class="SO1113A_DIV">
+                                <label data-id="lSignDate" class="SO1113A_lbl1 "></label>
+                                <input data-id="dtSignDate" class="SO1113A_t" />
+                            </div>
+                        </div>
+                    </div>
+                    <div data-id="gbxPrint" style="margin-top:1px;margin-left:1px;">
+                        <div class="SO1113A_DIV">
+                            <div class="SO1113A_DIV" style="width:50%;margin:1px;">
+                                <label data-id="lPrintUserName" style="width:70px;margin:1px;"></label>
+                                <label data-id="tPrintUserName" style="margin:1px;"></label>
+                            </div>
+                            <div class="SO1113A_DIV" style="width:49%;margin:1px;">
+                                <label data-id="lPrintTime" style="width:70px;margin:1px;"></label>
+                                <label data-id="tPrintTime" style="margin:1px;"></label>
+                            </div>
+                        </div>
+                        <div class="SO1113A_DIV">
+                            <div class="SO1113A_DIV" style="width:50%;margin:1px;">
+                                <label data-id="lPrtCount" style="width:90px;margin:1px;;"></label>
+                                <label data-id="tPrtCount" style="margin:1px;"></label>
+                            </div>
+                            <div class="SO1113A_DIV" style="width:49%;margin:1px;">
+                                <label data-id="lClsTime" style="width:70px;margin:1px;"></label>
+                                <label data-id="tClsTime" style="margin:1px;"></label>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <div data-id="gbxOther" class="SO1113A_DIV" style="clear:both;">
+                <!--grids-->
+                <div class="SO1113A_DIV" style="width:40%;">
+                    <div>
+                        <div data-id="lSub1" style="float:left;margin:4px;"></div>
+                        <button data-id="btnSubAdd1" style="float:left;margin-right:1px;"></button>
+                        <button data-id="btnSubEdit1" style="float:left;margin-right:1px;"></button>
+                        <button data-id="btnSubDelete1" style="float:left;"></button>
+                    </div>
+                    <div data-id="gFacility" style="padding-top:1px;width:100%;">
+                    </div>
+                </div>
+                <div class="SO1113A_DIV" style="width:59.5%;">
+                    <div style="width:100%;">
+                        <div data-id="lSub2" style="float:left;margin:4px;"></div>
+                        <button data-id="btnSubAdd2" style="float:left;margin-right:1px;"></button>
+                        <button data-id="btnSubEdit2" style="float:left;margin-right:1px;"></button>
+                        <button data-id="btnSubDelete2" style="float:left;"></button>
+                    </div>
+                    <div style="float:right;">
+                        <div data-id="lSumAmount" class="SO1111A_red" style="float:left;width:80px;margin:4px;"></div>
+                        <div data-id="tSumAmount" class="SO1111A_red" style="float:left;width:60px;margin:4px;color:red">0</div>
+                    </div>
+                    <div data-id="gCharge" style="padding-top:1px;width:100%;">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!--buttons-->
+    <div style="width:99%;">
+        <button style="float:left;margin:1px;" data-id="btnSave"></button>
+        <button style="float:left;margin:1px;" data-id="btnReserve2"></button>
+        <button style="float:left;margin:1px;" data-id="btnViewPR"></button>
+        <div style="float:right;">
+            <button data-id="btnExit" style="float:left;margin:1px;"></button>
+            <label data-id="lEditMode" class="csslEditMode" style="float:left;margin:1px;"></label>
+        </div>
+    </div>
+</body>
+</html>

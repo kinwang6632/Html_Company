@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <!--
+    <link href="../jqwidgets/styles/jqx.base.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.black.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.classic.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.dark.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.office.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.energyblue.css" rel="stylesheet" />
+    <script src="../scripts/json2.js"></script>
+    <script src="../scripts/jquery-1.11.1.min.js"></script>
+    <script src="../scripts/jquery.mask.min.js"></script>
+    <script src="../jqwidgets/jqx-all.js"></script>
+    <script type="text/javascript" src="../jqwidgets/globalization/globalize.js"></script>
+    <script type="text/javascript" src="../jqwidgets/jqxtooltip.js"></script>
+    <script src="../component/csDateTime.js"></script>
+    <script src="../language/zh-TW/language61.js"></script>
+    <script src="../language/zh-TW/language01.js"></script>
+    <script src="../Utility/utility.js"></script>
+    <script src="../component/csList.js"></script>
+    <script src="../component/csMulti.js"></script>-->
+    <style type="text/css">
+         /*
+          html {
+              width: 100%;
+              height: 100%;
+          }
+
+          body {
+              height: 99.9%;
+              margin: 0px;
+              padding: 0px;
+              font-size:12px
+          }
+
+          * {
+              -webkit-box-sizing: border-box;
+              -moz-box-sizing: border-box;
+              box-sizing: border-box;
+          }*/
+
+         .SO1100D1table {
+             width: 100%;
+             height: 100%;
+             table-layout: fixed;
+             /*border : 1px solid red;*/
+             margin: 0;
+             padding: 0;
+             text-align: left;
+         }
+
+         .SO1100D1tr {
+             /*border : 1px solid red;*/
+             margin: 0;
+             padding: 0;
+             text-align: left;
+         }
+
+         .SO1100D1td {
+             /*border : 1px solid red;*/
+             margin: 0;
+             padding: 0;
+             vertical-align: central;
+             /*  text-align: left;*/
+         }
+        
+         /*
+        .lbl {
+            width: 95%;
+            text-align: left;
+        }
+
+        .txt {
+            width: 95%;
+        }*/
+    </style>
+    <!--
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#grdData").jqxGrid({
+                width: '99.7%',
+                height: '99%',
+                sortable: true,
+                altrows: true,
+                editable: false,
+                columnsresize: true,
+                columns: [
+                    {
+                        text: '#', sortable: false, filterable: false, editable: false,
+                        groupable: false, draggable: false, resizable: false,
+                        datafield: '', columntype: 'number', width: 30,
+                        cellsrenderer: function (row, column, value) {
+                            return "<div style='margin:4px;'>" + (value + 1) + "</div>";
+                        }
+                    },
+                    {
+                        text: '資料狀態',
+                        datafield: 'RECORDTYPE',
+                        width: 90,
+                        editable: false,                       
+                        cellsalign: 'center',
+                        align: 'center'
+                    },
+                    { text: 'ACH 代碼', datafield: 'ACHTNO', width: 80, editable: false, cellsalign: 'center', align: 'center' },
+                    { text: 'ACH 交易說明', datafield: 'ACHDESC', width: 150, editable: false, cellsalign: 'center', align: 'center' },
+                    { text: '授權狀態', datafield: 'AUTHORIZESTATUS', width: 100, editable: false, cellsalign: 'center', align: 'center' },
+                    { text: '週期性項目', datafield: 'CITEMNAMESTR', width: 300, editable: false },
+                    { text: '停用', datafield: 'STOPFLAG', width: 60, cellsalign: 'center', align: 'center', editable: false },
+                    { text: '停用日期', datafield: 'STOPDATE', width: 90, editable: false, cellsalign: 'center', align: 'center', cellsformat: 'yyyy/MM/dd' },
+                    { text: '異動人員', datafield: 'UPDEN', width:100, editable: false, cellsalign: 'center', align: 'center' },
+                    { text: '異動時間', datafield: 'UPDTIME', width: 180, editable: false, cellsalign: 'center', align: 'center'},                    
+                ]
+            });
+        });
+    </script> -->
+</head>
+<body>
+    <table class="SO1100D1table">
+        <tr class="SO1100D1tr" style="height:70px">
+            <td class="SO1100D1td">
+                <table class="SO1100D1table">
+                    <tr class="SO1100D1tr">
+                        <td class="SO1100D1td" data-id="lblNote" width="45px"></td>
+                        <td class="SO1100D1td">
+                            <textarea data-id="txtMemo"></textarea>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="SO1100D1tr">
+            <td class="SO1100D1td" >
+            <div style="height:100%;width:100%" data-id="grdData" ></div></td>
+        </tr>
+    </table>
+    
+</body>
+</html>

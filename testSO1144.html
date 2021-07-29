@@ -1,0 +1,457 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>開博科技客服管理系統</title>
+    <meta charset="utf-8" />
+    <link rel="icon"
+          type="image/png"
+          href="Images/add.png">
+    <link href="jqwidgets/styles/jqx.base.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.orange.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.office.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.energyblue.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.energyblue2.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.ui-lightness.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.ui-redmond2.css" rel="stylesheet" />
+    <link href="jqwidgets/styles/jqx.ui-redmond.css" rel="stylesheet" />
+    <style>
+        * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            font-size: 12px;
+        }
+
+        .jqx-widget, .jqx-widget-content, input[type=text].jqx-input, input[type=password].jqx-input {
+            font-size: 12px;
+        }
+
+        input:focus {
+            background: #E0E9F5;
+        }
+
+        textarea:focus {
+            background: #E0E9F5;
+        }
+
+        .csslEditMode {
+            background-color: #FFFF99;
+            border-color: white;
+        }
+
+        .jqx-grid-cell, .jqx-grid-content {
+            word-wrap: break-word;
+        }
+    </style>
+    <script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="Scripts/json2.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqx-all.js"></script>
+    <script type="text/javascript" src="jqwidgets/globalization/globalize.js"></script>
+    <script type="text/javascript" src="component/csList.js"></script>
+    <script type="text/javascript" src="component/csMulti.js"></script>
+    <script src="component/csDateTime.js"></script>
+    <script src="component/csWindow.js"></script>
+    <script src="component/csTabs.js"></script>
+    <script src="dynamicComponent/dynamicGrid.js"></script>
+    <script src="SO1000/SO1144A.js"></script>
+    <script src="SO1000/SO1144L.js"></script>
+    <script src="SO1000/SO1144B1.js"></script>
+    <script src="SO1000/SO1144B2.js"></script>
+    <script src="SO1000/SO1144B3.js"></script>
+    <script src="SO1000/SO1144B4.js"></script>
+    <script src="SO1000/SO1144B5.js"></script>
+    <script src="SO1000/SO1144B6.js"></script>
+    <script src="SO1000/SO1144B7.js"></script>
+    <script src="SO1000/SO1144B8.js"></script>
+    <script src="SO1000/SO1144B9.js"></script>
+    <script src="SO1000/SO1144BA.js"></script>
+    <script src="SO1000/SO1144K.js"></script>
+    <script src="SO1000/SO1144L.js"></script>
+    <script src="SO1000/SO1144B.js"></script>
+    <script src="SO1000/SO1114A.js"></script>
+    <script src="SO1000/SO1115A.js"></script>
+    <script src="SO1000/SO111FA.js"></script>
+    <script src="SO1000/SO114EA.js"></script>
+    <script src="SO1000/SO114EB.js"></script>
+    <script src="language/zh-TW/language01.js"></script>
+    <script src="language/zh-TW/language21.js"></script>
+    <script src="language/zh-TW/language31.js"></script>
+    <script src="language/zh-TW/language51.js"></script>
+    <script src="language/zh-TW/language52.js"></script>
+    <script src="language/zh-TW/language61.js"></script>
+    <script src="language/zh-TW/language71.js"></script>
+    <script type="text/javascript" src="Utility/utility.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var init = function () {
+                try {
+                    var isTest = false;
+                    $('[data-id=listOrderType]')[0].selectedIndex = 2;
+                    $('#compCode').val(11);
+                    $('#custId').val('715770');
+                    $('#orderNo').val('201703080077693');
+                    $('#resvTime').val(formatDateTime(new Date(), 'datetime'));
+                    $('#runTime').val(50);
+                    var loginInfo = {
+                        loginInfo: {
+                            columns: [{ name: 'compcode', type: 'integer' },
+                                { name: 'entryid', type: 'string' },
+                                { name: 'entryname', type: 'string' },
+                                { name: 'groupid', type: 'string' }
+                            ],
+                            rows: [{
+                                compcode: $('#compCode').val(),
+                                entryid: 'TEST',
+                                entryname: 'TEST50',
+                                groupid: '50'
+                            }]
+                        }
+                    };
+                    //秀出form2 並傳參數
+                    //$.jqx.theme = "office";
+                    //$.jqx.theme = "ui-redmond2";
+                    //$.jqx.theme = "energyblue";
+                    var height = 350;
+                    var width = 900;
+                    var localization = getLocalization('zh-TW');
+                    var params = getParameters('getKey', 'getKey', 'getKey', loginInfo);
+                    var mustCheck = true;
+                    var showChildForm = (function (inData, frmName, editMode, action) {
+                        try {
+                            //var orderNo = $('#orderNo').val();
+                            //var resvTime = $('#resvTime').val();
+                            //var custId = $('#custId').val();
+                            loginInfo.loginInfo.rows[0]['compcode'] = $('#compCode').val();
+                            var divName = 'div' + getUniqueId();
+                            var div2Name = 'div' + getUniqueId();
+                            $('<div id="' + divName + '"><div>測試Form</div><div id="' + div2Name + '"></div></div>').appendTo('body');
+                            var div = $('#' + divName);
+                            $('#' + divName).csWindow($.extend({}, {
+                                width: width,
+                                height: height,
+                                minHeight: 200,
+                                minWidth: 600,
+                                maxWidth: $(document).innerWidth(),
+                                maxHeight: $(document).innerHeight(),
+                                //resizable: false,
+                                hasClosing: true
+                            }));
+                            $('#' + div2Name)[frmName]($.extend({}, {
+                                loginInfo: cloneJSON(loginInfo),
+                                container: $('#' + divName),
+                                parameters: inData,
+                                //custId: custId,
+                                //orderNo: orderNo,
+                                //resvTime: resvTime,
+                                //theme: theme,
+                                localization: localization,
+                                editMode: editMode,
+                                isTest: isTest
+                            }));
+                            //$('[data-id=changeTheme]').off();
+                            $('[data-id=changeTheme]').on('click', function () {
+                                if ($('#' + divName).csWindow('theme') == 'office') {
+                                    $('#' + divName).csWindow('theme', 'energyblue');
+                                    $('#' + div2Name).SO1111A('theme', 'energyblue');
+                                }
+                                else {
+                                    $('#' + divName).csWindow('theme', 'office');
+                                    $('#' + div2Name)[frmName]('theme', 'office');
+                                }
+                            });
+
+                            $('#' + divName).on('close', function (event) {
+                                $('#' + div2Name)[frmName]('destroy');
+                                $('#' + divName).csWindow('destroy');
+                            });
+                            $('[data-id=btnGetSO1144B6]').off();
+                            $('[data-id=btnGetSO1144B6]').on('click', function () {
+                                alert(JSON.stringify($('#' + div2Name)[frmName]('getData')));
+                            });
+                            $('[data-id=btnGetSO1144B]').off();
+                            $('[data-id=btnGetSO1144B]').on('click', function () {
+                                alert(JSON.stringify($('#' + div2Name)[frmName]('getData')));
+                            });
+                            $('#' + div2Name).on('loaded', function () {
+                                if (action) {
+                                    action({ windowId: divName, contentId: div2Name });
+                                }
+                            })
+                        }
+                        catch (err) {
+                            alert(err);
+                        }
+                    });
+                    var getInData = (function (action) {
+                        try {
+                            var wipData = $('#wipData').val();
+                            var orderNo = $('#orderNo').val();
+                            if (orderNo == null) {
+                                action(wipData);
+                            }
+                            else {
+                                var paraLoginInfo = { loginInfo: { type: 'loginInfo', value: cloneJSON(loginInfo) } };
+                                var parameters = $.extend({}, paraLoginInfo, {
+                                    OrderNo: { type: 'string', value: orderNo }
+                                });
+                                var params = getParameters("CableSoft.SO.RIA.Order.Edit.Web.dll",
+                                    "CableSoft.SO.RIA.Order.Edit.Web.OrderEdit",
+                                    'QueryByOrderNo',
+                                    JSON.stringify(parameters));
+                                getServerData(params, {
+                                    success: function (data) {
+                                        delete parameters;
+                                        delete params;
+                                        if (data.ResultBoolean == true) {
+                                            action(JSON.parse(data.ResultXML));
+                                        }
+                                        else {
+                                            action(null);
+                                        }
+                                    }
+                                });
+                            }
+                        }
+                        catch (err) {
+                            errorHandle(formName, 'getInitData', err);
+                        }
+                    });
+                    var chkShow = (function (em, inData, action) {
+                        try {
+                            if (mustCheck == false) {
+                                action([true]);
+                                return;
+                            }
+                            var method;
+                            switch (em) {
+                                case editMode.append:
+                                    method = "canAppend";
+                                    break;
+                                case editMode.edit:
+                                    method = "canEdit";
+                                    break;
+                                case editMode.view:
+                                    method = "canView";
+                                    break;
+                                case editMode.delete:
+                                    method = "canDelete";
+                                    break;
+
+                            }
+                            $.fn['SO1144B'](method, $.extend({}, loginInfo, inData), action);
+                        }
+                        catch (err) {
+                            alert(err);
+                        }
+                    });
+                    var canDo = (function (data) {
+                        try {
+                            $('[data-id=btnSO1144B6]').off();
+                            $('[data-id=btnSO1144B6]').on('click', function () {
+                                getInData(function (r) {
+                                    if (r != null) {
+                                        height = 500;
+                                        width = 600;
+                                        showChildForm(r, 'SO1144B6');
+                                    }
+                                });
+                            });
+                            $('[data-id=btnSO1144B1]').off();
+                            $('[data-id=btnSO1144B1]').on('click', function () {
+                                getInData(function (r) {
+                                    if (r != null) {
+                                        height = 450;
+                                        width = 900;
+                                        showChildForm(r, 'SO1144B1');
+                                    }
+                                });
+                            });
+                            var showOrderForm = function (action) {
+                                height = 600;
+                                width = 1000;
+                                resvTime = null;
+                                var em = $('[data-id=listOrderType]')[0].selectedIndex;
+                                if (em == editMode.append) {
+                                    var r = {
+                                        Order: {
+                                            columns: [{ name: "CUSTID", type: "integer" }],
+                                            rows: [{ CUSTID: $('#custId').val() }]
+                                        },
+                                        Order2: {
+                                            columns: [{ name: "CUSTID", type: "integer" }],
+                                            rows: [{ CUSTID: $('#custId').val() }]
+                                        }
+                                    };
+                                    chkShow(em, r, function (r1) {
+                                        if (r1[0] == true) {
+                                            showChildForm(r, 'SO1144B', em, action);
+                                        }
+                                        else {
+                                            messageBox(r1[1]);
+                                        }
+                                    })
+                                }
+                                else {
+                                    var r = {
+                                        Order: {
+                                            columns: [{ name: "CUSTID", type: "integer" }],
+                                            rows: [{
+                                                CUSTID: $('#custId').val(),
+                                                ORDERNO: $('#orderNo').val()
+                                            }]
+                                        }
+                                    };
+                                    chkShow(em, r, function (r1) {
+                                        if (r1[0] == true) {
+                                            showChildForm(r, 'SO1144B', em, action);
+                                        }
+                                        else {
+                                            messageBox(r1[1]);
+                                        }
+                                    });
+                                }
+                            }
+                            $('[data-id=btnSO1144B]').off();
+                            $('[data-id=btnSO1144B]').on('click', function () {
+                                isTest = false;
+                                mustCheck = true;
+                                showOrderForm();
+                            });
+                            $('[data-id=btnSO1144BRun]').off();
+                            $('[data-id=btnSO1144BRun]').on('click', function () {
+                                isTest = true;
+                                //mustCheck = false;
+                                var time = $('#runTime').val();
+                                var oTime = new Date();
+                                var i = 0;
+                                var func = function () {
+                                    i += 1;
+                                    showOrderForm(function (r) {
+                                        $('#runTimelog').val(i);
+                                        $('#' + r.windowId).csWindow('close');
+                                        if (i < time) {
+                                            func();
+                                        }
+                                        else {
+                                            var nTime = new Date();
+                                            var timeDiff = parseInt(nTime - oTime);
+                                            alert('共花費:' + timeDiff / 1000);
+                                        }
+                                    });
+                                }
+                                func();
+                            });
+                            $('[data-id=btnSO1144A]').off();
+                            $('[data-id=btnSO1144A]').on('click', function () {
+                                var r = {
+                                    Order: {
+                                        columns: [{ name: "CUSTID", type: "integer" }],
+                                        rows: [{ CUSTID: $('#custId').val() }]
+                                    }
+                                };
+                                height = 650;
+                                width = 1000;
+                                showChildForm(r, 'SO1144A');
+                            });
+                        }
+                        catch (err) {
+                            alert(err.stack);
+                        }
+                    });
+                    getServerData(params, { success: canDo });
+                }
+                catch (err) {
+                    alert(err.stack);
+                }
+            }
+            init();
+        });
+
+    </script>
+
+</head>
+<body>
+    <div id="maindiv">
+        <table>
+            <tr>
+                <td>
+                    公司別
+                </td>
+                <td>
+
+                    <input id="compCode" type="text" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    客編
+                </td>
+                <td>
+
+                    <input id="custId" type="text" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    預約時間
+                </td>
+                <td>
+                    <input id="resvTime" type="text" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    訂單單號
+                </td>
+                <td>
+                    <input id="orderNo" type="text" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    工單資料
+                </td>
+                <td>
+                    <textarea id="wipData" type="text" style="width:400px;height:200px;"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input data-id="btnSO1144B6" type="button" value="申請人" />
+                    <input data-id="btnGetSO1144B6" type="button" value="取申請人資料" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input data-id="btnSO1144B1" type="button" value="產品推薦" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    幾次
+                </td>
+                <td>
+                    <input id="runTime" type="text" style="width:80px;" />
+                    <input id="runTimelog" type="text" style="width:80px;" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    模式:
+                    <select data-id="listOrderType">
+                        <option>顯示</option>
+                        <option>修改</option>
+                        <option>新增</option>
+                        <option>刪除</option>
+                    </select>
+                    <input data-id="btnSO1144A" type="button" value="訂單一覽表" />
+                    <input data-id="btnSO1144B" type="button" value="訂單" />
+                    <input data-id="btnSO1144BRun" type="button" value="訂單跑n次" />
+                    <input data-id="btnGetSO1144B" type="button" value="取訂單資料" />
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

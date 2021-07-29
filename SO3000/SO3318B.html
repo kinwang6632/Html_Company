@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .SO3318B_DIV {
+            padding-top: 2px;
+            padding-left: 3px;
+            height: 24.5%;
+            width: 99%;
+            float: left;
+        }
+
+        .SO3318B_DIV2 {
+            width: 26.3%;
+            float: left;
+        }
+        .SO3318B_DIV22 {
+            width: 20%;
+            float: left;
+        }
+
+        .SO3318B_lbl1 {
+            float: left;
+            margin-top: 6px;
+        }
+
+        .SO3318B_labelWidth {
+            width: 60px;
+            /*text-align: right;*/
+            margin-right: 2px;
+        }
+
+        .SO3318B_cs {
+            float: left;
+            /*margin-left: 1px;*/
+        }
+    </style>
+</head>
+<body>
+    <div data-id="gbxData" style="margin-top: 2px;">
+        <div class="SO3318B_DIV">
+            <div class="SO3318B_DIV2">
+                <label data-id="lBillCnt" class="SO3318B_lbl1 SO3318B_labelWidth" style="width:70px;">登錄單據數</label>
+                <label data-id="tBillCnt" class="SO3318B_lbl1" style="margin-left:5px;color:red;">0</label>
+            </div>
+            <div class="SO3318B_DIV22">
+                <label data-id="lTotalAmt" class="SO3318B_lbl1 SO3318B_labelWidth" style="width:70px;">登錄總金額</label>
+                <label data-id="tTotalAmt" class="SO3318B_lbl1" style="margin-left:5px;color:red;">0</label>
+            </div>
+            <div class="SO3318B_DIV22">
+                <label data-id="lShowAutoInv" class="SO3318B_lbl1 SO3318B_labelWidth" style="width:150px;color:red;display:none;">已啟動櫃台發票自動開立</label>
+            </div>
+        </div>
+        <div class="SO3318B_DIV">
+            <div class="SO3318B_DIV2">
+                <label data-id="lClctEn" class="SO3318B_lbl1 SO3318B_labelWidth">收費人員</label>
+                <div data-id="csClctEn" class="SO3318B_cs"></div>
+            </div>
+            <div class="SO3318B_DIV22">
+                <label data-id="lRealDate" class="SO3318B_lbl1 SO3318B_labelWidth">入帳日期</label>
+                <input data-id="dtRealDate" class="SO3318B_cs">
+            </div>
+            <div class="SO3318B_DIV2">
+                <label data-id="lCMCode" class="SO3318B_lbl1 SO3318B_labelWidth">收費方式</label>
+                <div data-id="csCMCode" class="SO3318B_cs"></div>
+            </div>
+            <div class="SO3318B_DIV2">
+                <label data-id="lPTCode" class="SO3318B_lbl1 SO3318B_labelWidth">付款種類</label>
+                <div data-id="csPTCode" class="SO3318B_cs"></div>
+            </div>
+        </div>
+        <div class="SO3318B_DIV">
+            <div class="SO3318B_DIV2">
+                <label data-id="lBillNo" class="SO3318B_lbl1 SO3318B_labelWidth">單據登錄</label>
+                <input data-id="tBillNo" class="SO3318B_cs">
+            </div>
+            <div class="SO3318B_DIV2">
+                <div data-id="chkPayGateway" class="SO3318B_lbl1 SO3318B_cs" style="margin-top: 0px;">信用卡線上刷卡</div>
+            </div>
+            <div class="SO3318B_DIV2" style="float:right;" >
+                    <button data-id="btnPrint" class="SO3318B_cs" style="margin-left:1px;float:right;">列印日報表</button>
+                    <button data-id="btnExport" class="SO3318B_cs" style="margin-left:1px;float:right;">匯出日報表</button>
+            </div>
+        </div>
+        <div class="SO3318B_DIV">
+            <div style="width:60%;float:left;">
+                <button data-id="btnEdit" style="float:left;">修改</button>
+                <button data-id="btnCancel" style="float:left;margin-left:1px;">取消登錄</button>
+                <button data-id="btnEditPT" style="float:left;margin-left:1px;">修改付款種類</button>
+                <button data-id="btnCarrierId1" style="float:left;margin-left:1px;">客戶資訊</button>
+                <button data-id="btnInvAdd" style="float:left;margin-left:1px;display:none;">發票開立</button>
+                <button data-id="btnInvPrint" style="float:left;margin-left:1px;display:none;">發票列印</button>
+            </div>
+            <div style="width:40%;float:right;">
+                <!--<button data-id="btnPrint" style="float:left;margin-left:1px;float:right;">列印日報表</button>
+                <button data-id="btnExport" style="float:left;margin-left:1px;float:right;">匯出日報表</button>-->
+                <button data-id="btnSaveCharge" style="float:left;margin-left:1px;float:right;">收費結轉</button>
+                <input data-id="dtCutDay" class="SO3318B_cs" style="float:right;display:none;">
+                <label data-id="lCutDay" class="SO3318B_lbl1 SO3318B_labelWidth" style="float:right;display:none;">會計日期</label>
+            </div>
+        </div>
+    </div>
+    <div data-id="gData">
+    </div>
+    <div style="clear:both;">
+        <div style="float:right;">
+            <button data-id="btnExit" style="float:left;margin:1px;">離開</button>
+        </div>
+    </div>
+</body>
+</html>

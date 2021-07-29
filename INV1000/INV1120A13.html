@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    
+    
+    <style type="text/css">
+        /*
+          html {
+              width: 100%;
+              height: 100%;
+          }
+
+          body {
+              height: 99.9%;
+              margin: 0px;
+              padding: 0px;
+              font-size:12px
+          }
+
+          * {
+              -webkit-box-sizing: border-box;
+              -moz-box-sizing: border-box;
+              box-sizing: border-box;
+          }*/
+        .INV1120A13controlsHeight {
+            height:25px;
+        }
+        .INV1120A13table {
+            width: 100%;
+            height: 100%;
+            table-layout: fixed;
+            /*border : 1px solid red;*/
+            margin: 0;
+            padding: 0;
+            text-align: left;
+        }
+
+        .INV1120A13ttr {
+            /*border : 1px solid red;*/
+            margin: 0;
+            padding: 0;
+            text-align: left;
+        }
+
+        .INV1120A13td {
+            /*border : 1px solid red;*/
+            margin: 0;
+            padding: 0;
+            vertical-align: central;
+              text-align: left;
+        }
+
+        .INV1120A13Mode {
+            text-align: center;
+            background-color: cyan;
+        }
+        /*
+        .lbl {
+            width: 95%;
+            text-align: left;
+        }
+
+        .txt {
+            width: 95%;
+        }*/
+    </style>
+   
+    
+    
+</head>
+<body>
+    <table class="INV1120A13table">
+        <tr class="INV1120A13ttr INV1120A13controlsHeight">
+            <td width="100px" data-id="lblBillID"></td>
+            <td>
+                <input data-id="txtBillID"  id="txtBillID"/>
+            </td>
+            <td width="100px" data-id="lblBillIDItemNo"></td>
+            <td>
+                <input data-id="txtBillIDItemNo" id="txtBillIDItemNo" />
+                
+            </td>
+        </tr>
+        <tr>
+            <td data-id="lblStartDate" ></td>
+            <td><input data-id="txtStartDate" id="txtStartDate" /></td>
+            <td data-id="lblEndDate"></td>
+            <td><input data-id="txtEndDate" id="txtEndDate" /></td>
+        </tr>
+        <tr>
+            <td data-id="lblServiceType"></td>
+            <td><div data-id="csServiceType" id="csServiceType"></div></td>
+            <td data-id="lblItemID" style="color:red"></td>            
+            <td><div data-id="csItemID" id="csItemID"></div></td>
+        </tr>
+        <tr>
+            <td data-id="lblQuantity" style="color:red"></td>
+            <td><div data-id="txtQuantity" id="txtQuantity"></div></td>
+            <td data-id="lblUnitPrice" style="color:red"></td>
+            <td><div data-id="txtUnitPrice" id="txtUnitPrice"></div></td>
+        </tr>
+        <tr>
+            <td data-id="lblTaxAmount"></td>
+            <td><div data-id="txtTaxAmount" id="txtTaxAmount"></div></td>
+            <td data-id="lblSaleAmount"></td>
+            <td><div data-id="txtSaleAmount" id="txtSaleAmount"></div></td>
+        </tr>
+        <tr>
+            
+            <td data-id="lblTotalAmount">總金額</td>
+            <td><div data-id="txtTotalAmount" id="txtTotalAmount"></div></td>
+            <td data-id="lblFacisNo">設備序號</td>
+            <td><input data-id ="txtFacisNo" id="txtFacisNo" /></td>
+        </tr>
+        <tr>
+            <td data-id="lblAccountNo">帳號/卡號</td>
+            <td><input data-id="txtAccountNo" id="txtAccountNo" /></td>
+            <td data-id="lblSmartCardNo">DTV智慧卡號</td>
+            <td><input data-id="txtSmartCardNo" id="txtSmartCardNo" /></td>
+        </tr>
+        <tr>
+            <td data-id="lblCMMac">Mac序號</td>
+            <td><input data-id="txtCMMac" id="txtCMMac" /></td>
+            <td> </td>
+            <td></td>
+        </tr>       
+        <tr>
+            <td><button data-id="btnOK" id="btnOK"></button></td>
+            <td></td>
+            <td> </td>
+            <td>
+                <div style="float:right">
+                    <button data-id="btnCancel" id="btnCancel"></button>
+                </div>
+            </td>
+        </tr>
+    </table>
+        
+    
+</body>
+</html>

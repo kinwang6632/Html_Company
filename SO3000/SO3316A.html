@@ -1,0 +1,216 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <!--
+    <link href="../jqwidgets/styles/jqx.base.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.orange.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.office.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.energyblue.css" rel="stylesheet" />
+    <link href="../jqwidgets/styles/jqx.energyblue2.css" rel="stylesheet" />
+    <script type="text/javascript" src="../scripts/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../scripts/json2.js"></script>
+    <script src="../jqwidgets/jqx-all.js"></script>
+    <script src="../component/csTabs.js"></script>
+    <script src="../component/csList.js"></script>
+    <script src="../component/csMulti.js"></script>
+    <script src="../component/csDateTime.js"></script>
+    <script src="../component/csUploadFile.js"></script>
+    <script src="../component/csAddress1.js"></script>
+    <script src="../component/csAddress2.js"></script>
+    <script src="../component/csWindow.js"></script>
+
+    <script src="dynamicComponent/dynamicCondition.js"></script>
+    <script src="dynamicComponent/dynamicUpdate.js"></script>
+    <script src="../jqwidgets/globalization/globalize.js"></script>
+    <script src="../language/zh-TW/language01.js"></script>
+    <script src="../language/zh-TW/language21.js"></script>
+    <script src="../language/zh-TW/language31.js"></script>
+    <script src="../language/zh-TW/language51.js"></script>
+    <script src="../language/zh-TW/language52.js"></script>
+    <script src="../language/zh-TW/language61.js"></script>
+    <script src="../language/zh-TW/language71.js"></script>
+    <script type="text/javascript" src="../Utility/utility.js"></script>
+    <script type="text/javascript" src="../Utility/ChargeUtility.js"></script> -->
+    
+    <style type="text/css">
+        /*
+         html {
+             width: 100%;
+             height: 100%;
+         }
+
+         body {
+             height: 99.9%;
+             margin: 0px;
+             padding: 0px;
+             font-size:12px
+         }
+
+         * {
+             -webkit-box-sizing: border-box;
+             -moz-box-sizing: border-box;
+             box-sizing: border-box;
+         } */    
+
+        .SO3316ATable {
+            width: 100%;
+            height: 100%;
+            table-layout: fixed;
+            /*border : 1px solid red;*/
+            margin: 0;
+            padding: 0;
+            text-align: left;
+        }
+
+        .SO3316ATr {
+            /*border : 1px solid red;*/
+            margin: 0;
+            padding: 0;
+            text-align: left;
+        }
+
+        .SO3316ATd {
+            /*border : 1px solid red;*/
+            margin: 0;
+            padding: 0;
+            vertical-align: central;
+            /*  text-align: left;*/
+        }
+
+        .SO3316AMode {
+            text-align: center;
+            background-color: cyan;
+        }
+    </style>
+    <!--
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#csCompCode").csList({
+                source: null,
+                codeNoWidth: 50,
+                width: '97%',
+                height: '25px',
+                showColumnHeaders: false,
+                readOnly: false,
+                codeNoReadOnly: false,
+                popupWidth: null,
+                popupHeight: null,
+                autoFitAllCols: false,
+                descriptionReadOnly: false,
+                columns: [
+                       { text: 'CODENO', datafield: 'CODENO' },
+                       { text: 'DESCRIPTION', datafield: 'DESCRIPTION' }
+                ]
+            });
+
+            $("#csFormatType").csList({
+                source: null,
+                codeNoWidth: 50,
+                width: '97%',
+                height: '25px',
+                showColumnHeaders: false,
+                readOnly: false,
+                codeNoReadOnly: false,
+                popupWidth: null,
+                popupHeight: null,
+                autoFitAllCols: false,
+                descriptionReadOnly: false,
+                columns: [
+                       { text: 'CODENO', datafield: 'CODENO' },
+                       { text: 'DESCRIPTION', datafield: 'DESCRIPTION' }
+                ]
+            });
+
+            $('#grbWhere').jqxExpander({
+                width: '100%',
+                height: '99%',
+                toggleMode: 'none',
+                showArrow: false
+            });
+            $("#chkAuthStop").jqxCheckBox({ width: 110 });
+            $("#edtStopDate1").csDateTime({
+                formatString: 'yyyy/MM/dd',
+                value: null,
+                width: '97%'
+            });
+            $("#edtStopDate2").csDateTime({
+                formatString: 'yyyy/MM/dd',
+                value: null,
+                width: '97%'
+            });          
+
+            $('#btnOK').jqxButton({
+                width:60,
+                height: 25,
+            });
+            $('#btnCancel').jqxButton({
+                width: 60,
+                height: 25,
+            });
+        });
+
+    </script>  -->
+
+</head>
+<body>
+    <table class="SO3316ATable">
+        <tr class="SO3316ATr" style="height:40px">
+            <td class="SO3316ATd" data-id="lblCompCode" style="color:red;width:100px;text-align:center" ></td>
+            <td class="SO3316ATd">
+                <div data-id="csCompCode"></div>
+            </td>
+            <td class="SO3316ATd" data-id="lblEnterKind" style="color:red;width:100px;text-align:center"></td>
+            <td class="SO3316ATd">
+                <div data-id="csFormatType" ></div>
+            </td>
+        </tr>
+        <tr class="SO3316ATr">
+            <td class="SO3316ATd" colspan="4">
+                <div data-id='grbWhere'  id="grbWhere">
+                    <div data-id="grpHeader"></div>
+                    <div>
+                        <table class="SO3316ATable">
+                            <tr class="SO3316ATr">
+                                <td class="SO3316ATd" data-id="lblStopDate" width="70px"></td>
+                                <td class="SO3316ATd"><input type="text" data-id="edtStopDate1" /> </td>
+                                <td class="SO3316ATd" style="width:15px;text-align:center">~</td>
+                                <td class="SO3316ATd"><input type="text" data-id="edtStopDate2" /></td>
+                                <td class="SO3316ATd" style="width:120px">
+                                    <div data-id="chkAuthStop" ></div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </td>            
+        </tr>
+        <tr class="SO3316ATr" style="height:40px">
+            <td class="SO3316ATd" data-id="lblSource" style="text-align:center;color:red"></td>
+            <td class="SO3316ATd" colspan="3">
+                <table class="SO3316ATable">
+                    <tr class="SO3316ATr">
+                        <td class="SO3316ATd" data-id="uploadContainer"><div data-id="txtUploadField"></div></td>
+                        <td class="SO3316ATd" style="width:50px"></td>
+                    </tr>
+                </table>
+            </td>
+            
+        </tr>
+        <tr class="SO3316ATr" style="height:30px">
+            <td class="SO3316ATd">
+                <input type="button" data-id="btnOK"  />
+            </td>
+            <td class="SO3316ATd">
+                <input type="button" data-id="btnDownload" hidden="hidden" />
+                <a data-id="downloadLink" hidden="hidden"></a>
+            </td>
+            <td class="SO3316ATd"></td>
+            <td class="SO3316ATd"><input type="button" data-id="btnCancel"  style="float:right"/></td>
+        </tr>
+    </table>
+</body>
+</html>
